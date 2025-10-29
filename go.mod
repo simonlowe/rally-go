@@ -1,4 +1,4 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module ghe.coxautoinc.com/Simon.Lowe/rally-go
 
 go 1.23
 
