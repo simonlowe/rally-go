@@ -29,9 +29,9 @@ type AllowedQueryOperator struct {
 	// Operator Name
 	OperatorName *string `json:"OperatorName,omitempty"`
 	// VersionId
-	VersionId *string  `json:"VersionId,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAllowedQueryOperator instantiates a new AllowedQueryOperator object
@@ -276,7 +276,7 @@ func (o *AllowedQueryOperator) SetErrors(v []string) {
 }
 
 func (o AllowedQueryOperator) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -344,3 +344,5 @@ func (v *NullableAllowedQueryOperator) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

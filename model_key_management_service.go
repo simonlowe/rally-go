@@ -36,16 +36,16 @@ type KeyManagementService struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Primary
-	Primary      *bool            `json:"Primary,omitempty"`
+	Primary *bool `json:"Primary,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Uri Kms
 	UriKms *string `json:"UriKms,omitempty"`
 	// Uri Role
 	UriRole *string `json:"UriRole,omitempty"`
 	// VersionId
-	VersionId *string  `json:"VersionId,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyManagementService instantiates a new KeyManagementService object
@@ -546,7 +546,7 @@ func (o *KeyManagementService) SetErrors(v []string) {
 }
 
 func (o KeyManagementService) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -638,3 +638,5 @@ func (v *NullableKeyManagementService) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

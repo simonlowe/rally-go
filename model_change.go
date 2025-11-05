@@ -23,7 +23,7 @@ type Change struct {
 	// Action
 	Action *string `json:"Action,omitempty"`
 	// Base
-	Base      *string       `json:"Base,omitempty"`
+	Base *string `json:"Base,omitempty"`
 	Changeset *ChangesetRef `json:"Changeset,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -34,15 +34,15 @@ type Change struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Path And Filename
-	PathAndFilename *string          `json:"PathAndFilename,omitempty"`
-	Subscription    *SubscriptionRef `json:"Subscription,omitempty"`
+	PathAndFilename *string `json:"PathAndFilename,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Uri
 	Uri *string `json:"Uri,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewChange instantiates a new Change object
@@ -511,7 +511,7 @@ func (o *Change) SetErrors(v []string) {
 }
 
 func (o Change) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -600,3 +600,5 @@ func (v *NullableChange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

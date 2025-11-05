@@ -20,9 +20,9 @@ var _ MappedNullable = &AttributeDefinition{}
 
 // AttributeDefinition AttributeDefinition
 type AttributeDefinition struct {
-	AllowedQueryOperators *Collection        `json:"AllowedQueryOperators,omitempty"`
-	AllowedValueType      *TypeDefinitionRef `json:"AllowedValueType,omitempty"`
-	AllowedValues         *Collection        `json:"AllowedValues,omitempty"`
+	AllowedQueryOperators *Collection `json:"AllowedQueryOperators,omitempty"`
+	AllowedValueType *TypeDefinitionRef `json:"AllowedValueType,omitempty"`
+	AllowedValues *Collection `json:"AllowedValues,omitempty"`
 	// Attribute Type
 	AttributeType *string `json:"AttributeType,omitempty"`
 	// Constrained
@@ -62,20 +62,20 @@ type AttributeDefinition struct {
 	// Required
 	Required *bool `json:"Required,omitempty"`
 	// Sortable
-	Sortable     *bool            `json:"Sortable,omitempty"`
+	Sortable *bool `json:"Sortable,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// System Required
 	SystemRequired *bool `json:"SystemRequired,omitempty"`
 	// Type
-	Type           *string            `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 	TypeDefinition *TypeDefinitionRef `json:"TypeDefinition,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Visible Only To Admins
-	VisibleOnlyToAdmins *bool         `json:"VisibleOnlyToAdmins,omitempty"`
-	Workspace           *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings            []string      `json:"Warnings,omitempty"`
-	Errors              []string      `json:"Errors,omitempty"`
+	VisibleOnlyToAdmins *bool `json:"VisibleOnlyToAdmins,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttributeDefinition instantiates a new AttributeDefinition object
@@ -1120,7 +1120,7 @@ func (o *AttributeDefinition) SetErrors(v []string) {
 }
 
 func (o AttributeDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1263,3 +1263,5 @@ func (v *NullableAttributeDefinition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

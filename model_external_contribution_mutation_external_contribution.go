@@ -23,8 +23,8 @@ type ExternalContributionMutationExternalContribution struct {
 	// Accepted Leaf Story Count
 	AcceptedLeafStoryCount *int64 `json:"AcceptedLeafStoryCount,omitempty"`
 	// Accepted Leaf Story Plan Estimate Total
-	AcceptedLeafStoryPlanEstimateTotal *float32    `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
-	Changesets                         *Collection `json:"Changesets,omitempty"`
+	AcceptedLeafStoryPlanEstimateTotal *float32 `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -34,21 +34,21 @@ type ExternalContributionMutationExternalContribution struct {
 	// Leaf Story Count
 	LeafStoryCount *int64 `json:"LeafStoryCount,omitempty"`
 	// Leaf Story Plan Estimate Total
-	LeafStoryPlanEstimateTotal *float32    `json:"LeafStoryPlanEstimateTotal,omitempty"`
-	Milestones                 *Collection `json:"Milestones,omitempty"`
+	LeafStoryPlanEstimateTotal *float32 `json:"LeafStoryPlanEstimateTotal,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes         *string     `json:"Notes,omitempty"`
-	Owner         *UserRef    `json:"Owner,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	PortfolioItem *FeatureRef `json:"PortfolioItem,omitempty"`
-	Project       *ProjectRef `json:"Project,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready     *bool         `json:"Ready,omitempty"`
-	Tags      *Collection   `json:"Tags,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewExternalContributionMutationExternalContribution instantiates a new ExternalContributionMutationExternalContribution object
@@ -677,7 +677,7 @@ func (o *ExternalContributionMutationExternalContribution) SetErrors(v []string)
 }
 
 func (o ExternalContributionMutationExternalContribution) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -781,3 +781,5 @@ func (v *NullableExternalContributionMutationExternalContribution) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

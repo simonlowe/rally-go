@@ -20,12 +20,12 @@ var _ MappedNullable = &TestCaseStepQuery200ResponseQueryResult{}
 
 // TestCaseStepQuery200ResponseQueryResult struct for TestCaseStepQuery200ResponseQueryResult
 type TestCaseStepQuery200ResponseQueryResult struct {
-	StartIndex       *int64         `json:"StartIndex,omitempty"`
-	PageSize         *int64         `json:"PageSize,omitempty"`
-	TotalResultCount *int64         `json:"TotalResultCount,omitempty"`
-	Results          []TestCaseStep `json:"Results,omitempty"`
-	Warnings         []string       `json:"Warnings,omitempty"`
-	Errors           []string       `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []TestCaseStep `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseStepQuery200ResponseQueryResult instantiates a new TestCaseStepQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *TestCaseStepQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o TestCaseStepQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableTestCaseStepQuery200ResponseQueryResult) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

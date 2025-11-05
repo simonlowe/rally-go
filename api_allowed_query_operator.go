@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // AllowedQueryOperatorAPIService AllowedQueryOperatorAPI service
 type AllowedQueryOperatorAPIService service
 
 type ApiAllowedQueryOperatorReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AllowedQueryOperatorAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiAllowedQueryOperatorReadRequest) Compact(compact bool) ApiAllowedQueryOperatorReadRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiAllowedQueryOperatorReadRequest) Execute() (*AllowedQueryOperatorRead
 /*
 AllowedQueryOperatorRead AllowedQueryOperator Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAllowedQueryOperatorReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAllowedQueryOperatorReadRequest
 */
 func (a *AllowedQueryOperatorAPIService) AllowedQueryOperatorRead(ctx context.Context, objectId string) ApiAllowedQueryOperatorReadRequest {
 	return ApiAllowedQueryOperatorReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedQueryOperatorRead200Response
+//  @return AllowedQueryOperatorRead200Response
 func (a *AllowedQueryOperatorAPIService) AllowedQueryOperatorReadExecute(r ApiAllowedQueryOperatorReadRequest) (*AllowedQueryOperatorRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedQueryOperatorRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedQueryOperatorRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllowedQueryOperatorAPIService.AllowedQueryOperatorRead")
@@ -87,8 +88,9 @@ func (a *AllowedQueryOperatorAPIService) AllowedQueryOperatorReadExecute(r ApiAl
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

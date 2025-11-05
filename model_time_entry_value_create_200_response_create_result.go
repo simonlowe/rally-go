@@ -20,9 +20,9 @@ var _ MappedNullable = &TimeEntryValueCreate200ResponseCreateResult{}
 
 // TimeEntryValueCreate200ResponseCreateResult struct for TimeEntryValueCreate200ResponseCreateResult
 type TimeEntryValueCreate200ResponseCreateResult struct {
-	Errors   []string        `json:"Errors,omitempty"`
-	Object   *TimeEntryValue `json:"Object,omitempty"`
-	Warnings []string        `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *TimeEntryValue `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewTimeEntryValueCreate200ResponseCreateResult instantiates a new TimeEntryValueCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *TimeEntryValueCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o TimeEntryValueCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableTimeEntryValueCreate200ResponseCreateResult) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,7 +21,7 @@ var _ MappedNullable = &ConnectAllIntegration{}
 // ConnectAllIntegration ConnectAllIntegration
 type ConnectAllIntegration struct {
 	// Active
-	Active    *bool    `json:"Active,omitempty"`
+	Active *bool `json:"Active,omitempty"`
 	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -34,13 +34,13 @@ type ConnectAllIntegration struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewConnectAllIntegration instantiates a new ConnectAllIntegration object
@@ -477,7 +477,7 @@ func (o *ConnectAllIntegration) SetErrors(v []string) {
 }
 
 func (o ConnectAllIntegration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -563,3 +563,5 @@ func (v *NullableConnectAllIntegration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

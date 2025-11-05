@@ -33,16 +33,16 @@ type PreliminaryEstimate struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID      *string             `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription    *SubscriptionRef    `json:"Subscription,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Value
 	Value *int64 `json:"Value,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPreliminaryEstimate instantiates a new PreliminaryEstimate object
@@ -511,7 +511,7 @@ func (o *PreliminaryEstimate) SetErrors(v []string) {
 }
 
 func (o PreliminaryEstimate) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -600,3 +600,5 @@ func (v *NullablePreliminaryEstimate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

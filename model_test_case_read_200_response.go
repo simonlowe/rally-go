@@ -20,11 +20,11 @@ var _ MappedNullable = &TestCaseRead200Response{}
 
 // TestCaseRead200Response struct for TestCaseRead200Response
 type TestCaseRead200Response struct {
-	RallyAPIMajor *string   `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string   `json:"_rallyAPIMinor,omitempty"`
-	TestCase      *TestCase `json:"TestCase,omitempty"`
-	Warnings      []string  `json:"Warnings,omitempty"`
-	Errors        []string  `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	TestCase *TestCase `json:"TestCase,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseRead200Response instantiates a new TestCaseRead200Response object
@@ -205,7 +205,7 @@ func (o *TestCaseRead200Response) SetErrors(v []string) {
 }
 
 func (o TestCaseRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableTestCaseRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

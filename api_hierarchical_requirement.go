@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // HierarchicalRequirementAPIService HierarchicalRequirementAPI service
 type HierarchicalRequirementAPIService service
 
 type ApiHierarchicalRequirementCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *HierarchicalRequirementAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiHierarchicalRequirementCopyRequest) Compact(compact bool) ApiHierarchicalRequirementCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiHierarchicalRequirementCopyRequest) Execute() (*HierarchicalRequireme
 /*
 HierarchicalRequirementCopy HierarchicalRequirement Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiHierarchicalRequirementCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiHierarchicalRequirementCopyRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCopy(ctx context.Context, objectId string) ApiHierarchicalRequirementCopyRequest {
 	return ApiHierarchicalRequirementCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return HierarchicalRequirementRead200Response
+//  @return HierarchicalRequirementRead200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCopyExecute(r ApiHierarchicalRequirementCopyRequest) (*HierarchicalRequirementRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *HierarchicalRequirementRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HierarchicalRequirementRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementCopy")
@@ -87,8 +88,9 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCopyExecute(r
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCopyExecute(r
 }
 
 type ApiHierarchicalRequirementCreateRequest struct {
-	ctx                             context.Context
-	ApiService                      *HierarchicalRequirementAPIService
+	ctx context.Context
+	ApiService *HierarchicalRequirementAPIService
 	hierarchicalRequirementMutation *HierarchicalRequirementMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiHierarchicalRequirementCreateRequest) Execute() (*HierarchicalRequire
 /*
 HierarchicalRequirementCreate HierarchicalRequirement Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiHierarchicalRequirementCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiHierarchicalRequirementCreateRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCreate(ctx context.Context) ApiHierarchicalRequirementCreateRequest {
 	return ApiHierarchicalRequirementCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return HierarchicalRequirementCreate200Response
+//  @return HierarchicalRequirementCreate200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCreateExecute(r ApiHierarchicalRequirementCreateRequest) (*HierarchicalRequirementCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *HierarchicalRequirementCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HierarchicalRequirementCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementCreate")
@@ -258,9 +259,9 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementCreateExecute
 }
 
 type ApiHierarchicalRequirementDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *HierarchicalRequirementAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiHierarchicalRequirementDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiHierarchicalRequirementDeleteRequest) Execute() (*AllowedAttributeVal
 /*
 HierarchicalRequirementDelete HierarchicalRequirement Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiHierarchicalRequirementDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiHierarchicalRequirementDeleteRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementDelete(ctx context.Context, objectId string) ApiHierarchicalRequirementDeleteRequest {
 	return ApiHierarchicalRequirementDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementDeleteExecute(r ApiHierarchicalRequirementDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementDelete")
@@ -360,18 +360,18 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementDeleteExecute
 }
 
 type ApiHierarchicalRequirementQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *HierarchicalRequirementAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiHierarchicalRequirementQueryRequest) Fetch(fetch string) ApiHierarchicalRequirementQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiHierarchicalRequirementQueryRequest) Workspace(workspace string) ApiH
 	return r
 }
 
+// 
 func (r ApiHierarchicalRequirementQueryRequest) Compact(compact bool) ApiHierarchicalRequirementQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiHierarchicalRequirementQueryRequest) Execute() (*HierarchicalRequirem
 /*
 HierarchicalRequirementQuery HierarchicalRequirement Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiHierarchicalRequirementQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiHierarchicalRequirementQueryRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementQuery(ctx context.Context) ApiHierarchicalRequirementQueryRequest {
 	return ApiHierarchicalRequirementQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return HierarchicalRequirementQuery200Response
+//  @return HierarchicalRequirementQuery200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementQueryExecute(r ApiHierarchicalRequirementQueryRequest) (*HierarchicalRequirementQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *HierarchicalRequirementQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HierarchicalRequirementQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementQuery")
@@ -472,8 +472,9 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementQueryExecute(
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementQueryExecute(
 }
 
 type ApiHierarchicalRequirementReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *HierarchicalRequirementAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiHierarchicalRequirementReadRequest) Compact(compact bool) ApiHierarchicalRequirementReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiHierarchicalRequirementReadRequest) Execute() (*HierarchicalRequireme
 /*
 HierarchicalRequirementRead HierarchicalRequirement Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiHierarchicalRequirementReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiHierarchicalRequirementReadRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementRead(ctx context.Context, objectId string) ApiHierarchicalRequirementReadRequest {
 	return ApiHierarchicalRequirementReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return HierarchicalRequirementRead200Response
+//  @return HierarchicalRequirementRead200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementReadExecute(r ApiHierarchicalRequirementReadRequest) (*HierarchicalRequirementRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *HierarchicalRequirementRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HierarchicalRequirementRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementRead")
@@ -593,8 +594,9 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementReadExecute(r
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *HierarchicalRequirementAPIService) HierarchicalRequirementReadExecute(r
 }
 
 type ApiHierarchicalRequirementUpdateRequest struct {
-	ctx                             context.Context
-	ApiService                      *HierarchicalRequirementAPIService
-	objectId                        string
+	ctx context.Context
+	ApiService *HierarchicalRequirementAPIService
+	objectId string
 	hierarchicalRequirementMutation *HierarchicalRequirementMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiHierarchicalRequirementUpdateRequest) Execute() (*HierarchicalRequire
 /*
 HierarchicalRequirementUpdate HierarchicalRequirement Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiHierarchicalRequirementUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiHierarchicalRequirementUpdateRequest
 */
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementUpdate(ctx context.Context, objectId string) ApiHierarchicalRequirementUpdateRequest {
 	return ApiHierarchicalRequirementUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return HierarchicalRequirementRead200Response
+//  @return HierarchicalRequirementRead200Response
 func (a *HierarchicalRequirementAPIService) HierarchicalRequirementUpdateExecute(r ApiHierarchicalRequirementUpdateRequest) (*HierarchicalRequirementRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *HierarchicalRequirementRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HierarchicalRequirementRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HierarchicalRequirementAPIService.HierarchicalRequirementUpdate")

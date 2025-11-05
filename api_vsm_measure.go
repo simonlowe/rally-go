@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // VSMMeasureAPIService VSMMeasureAPI service
 type VSMMeasureAPIService service
 
 type ApiVSMMeasureCreateRequest struct {
-	ctx                context.Context
-	ApiService         *VSMMeasureAPIService
+	ctx context.Context
+	ApiService *VSMMeasureAPIService
 	vSMMeasureMutation *VSMMeasureMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiVSMMeasureCreateRequest) Execute() (*VSMMeasureCreate200Response, *ht
 /*
 VSMMeasureCreate VSMMeasure Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMMeasureCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMMeasureCreateRequest
 */
 func (a *VSMMeasureAPIService) VSMMeasureCreate(ctx context.Context) ApiVSMMeasureCreateRequest {
 	return ApiVSMMeasureCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMMeasureCreate200Response
+//  @return VSMMeasureCreate200Response
 func (a *VSMMeasureAPIService) VSMMeasureCreateExecute(r ApiVSMMeasureCreateRequest) (*VSMMeasureCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMMeasureCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMMeasureCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMMeasureAPIService.VSMMeasureCreate")
@@ -134,9 +134,9 @@ func (a *VSMMeasureAPIService) VSMMeasureCreateExecute(r ApiVSMMeasureCreateRequ
 }
 
 type ApiVSMMeasureDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMMeasureAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiVSMMeasureDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiVSMMeasureDeleteRequest) Execute() (*AllowedAttributeValueDelete200Re
 /*
 VSMMeasureDelete VSMMeasure Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMMeasureDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMMeasureDeleteRequest
 */
 func (a *VSMMeasureAPIService) VSMMeasureDelete(ctx context.Context, objectId string) ApiVSMMeasureDeleteRequest {
 	return ApiVSMMeasureDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *VSMMeasureAPIService) VSMMeasureDeleteExecute(r ApiVSMMeasureDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMMeasureAPIService.VSMMeasureDelete")
@@ -236,18 +235,18 @@ func (a *VSMMeasureAPIService) VSMMeasureDeleteExecute(r ApiVSMMeasureDeleteRequ
 }
 
 type ApiVSMMeasureQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMMeasureAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiVSMMeasureQueryRequest) Fetch(fetch string) ApiVSMMeasureQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiVSMMeasureQueryRequest) Workspace(workspace string) ApiVSMMeasureQuer
 	return r
 }
 
+// 
 func (r ApiVSMMeasureQueryRequest) Compact(compact bool) ApiVSMMeasureQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiVSMMeasureQueryRequest) Execute() (*VSMMeasureQuery200Response, *http
 /*
 VSMMeasureQuery VSMMeasure Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMMeasureQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMMeasureQueryRequest
 */
 func (a *VSMMeasureAPIService) VSMMeasureQuery(ctx context.Context) ApiVSMMeasureQueryRequest {
 	return ApiVSMMeasureQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMMeasureQuery200Response
+//  @return VSMMeasureQuery200Response
 func (a *VSMMeasureAPIService) VSMMeasureQueryExecute(r ApiVSMMeasureQueryRequest) (*VSMMeasureQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMMeasureQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMMeasureQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMMeasureAPIService.VSMMeasureQuery")
@@ -348,8 +347,9 @@ func (a *VSMMeasureAPIService) VSMMeasureQueryExecute(r ApiVSMMeasureQueryReques
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *VSMMeasureAPIService) VSMMeasureQueryExecute(r ApiVSMMeasureQueryReques
 }
 
 type ApiVSMMeasureReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMMeasureAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiVSMMeasureReadRequest) Compact(compact bool) ApiVSMMeasureReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiVSMMeasureReadRequest) Execute() (*VSMMeasureRead200Response, *http.R
 /*
 VSMMeasureRead VSMMeasure Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMMeasureReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMMeasureReadRequest
 */
 func (a *VSMMeasureAPIService) VSMMeasureRead(ctx context.Context, objectId string) ApiVSMMeasureReadRequest {
 	return ApiVSMMeasureReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMMeasureRead200Response
+//  @return VSMMeasureRead200Response
 func (a *VSMMeasureAPIService) VSMMeasureReadExecute(r ApiVSMMeasureReadRequest) (*VSMMeasureRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMMeasureRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMMeasureRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMMeasureAPIService.VSMMeasureRead")
@@ -469,8 +469,9 @@ func (a *VSMMeasureAPIService) VSMMeasureReadExecute(r ApiVSMMeasureReadRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *VSMMeasureAPIService) VSMMeasureReadExecute(r ApiVSMMeasureReadRequest)
 }
 
 type ApiVSMMeasureUpdateRequest struct {
-	ctx                context.Context
-	ApiService         *VSMMeasureAPIService
-	objectId           string
+	ctx context.Context
+	ApiService *VSMMeasureAPIService
+	objectId string
 	vSMMeasureMutation *VSMMeasureMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiVSMMeasureUpdateRequest) Execute() (*VSMMeasureRead200Response, *http
 /*
 VSMMeasureUpdate VSMMeasure Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMMeasureUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMMeasureUpdateRequest
 */
 func (a *VSMMeasureAPIService) VSMMeasureUpdate(ctx context.Context, objectId string) ApiVSMMeasureUpdateRequest {
 	return ApiVSMMeasureUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMMeasureRead200Response
+//  @return VSMMeasureRead200Response
 func (a *VSMMeasureAPIService) VSMMeasureUpdateExecute(r ApiVSMMeasureUpdateRequest) (*VSMMeasureRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMMeasureRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMMeasureRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMMeasureAPIService.VSMMeasureUpdate")

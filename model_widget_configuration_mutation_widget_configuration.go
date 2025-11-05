@@ -27,16 +27,16 @@ type WidgetConfigurationMutationWidgetConfiguration struct {
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Name
-	Name                     *string               `json:"Name,omitempty"`
-	Owner                    *UserRef              `json:"Owner,omitempty"`
-	ParentPageConfiguration  *PageConfigurationRef `json:"ParentPageConfiguration,omitempty"`
-	ParentWidgetCatalogEntry *ObjectRef            `json:"ParentWidgetCatalogEntry,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	ParentPageConfiguration *PageConfigurationRef `json:"ParentPageConfiguration,omitempty"`
+	ParentWidgetCatalogEntry *ObjectRef `json:"ParentWidgetCatalogEntry,omitempty"`
 	// Type
-	Type          *string           `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 	WidgetSection *WidgetSectionRef `json:"WidgetSection,omitempty"`
-	Workspace     *WorkspaceRef     `json:"Workspace,omitempty"`
-	Warnings      []string          `json:"Warnings,omitempty"`
-	Errors        []string          `json:"Errors,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetConfigurationMutationWidgetConfiguration instantiates a new WidgetConfigurationMutationWidgetConfiguration object
@@ -441,7 +441,7 @@ func (o *WidgetConfigurationMutationWidgetConfiguration) SetErrors(v []string) {
 }
 
 func (o WidgetConfigurationMutationWidgetConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -524,3 +524,5 @@ func (v *NullableWidgetConfigurationMutationWidgetConfiguration) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

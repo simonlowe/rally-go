@@ -35,13 +35,13 @@ type ScheduleState struct {
 	// Order Index
 	OrderIndex *int64 `json:"OrderIndex,omitempty"`
 	// Short Name
-	ShortName    *string          `json:"ShortName,omitempty"`
+	ShortName *string `json:"ShortName,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewScheduleState instantiates a new ScheduleState object
@@ -478,7 +478,7 @@ func (o *ScheduleState) SetErrors(v []string) {
 }
 
 func (o ScheduleState) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -564,3 +564,5 @@ func (v *NullableScheduleState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

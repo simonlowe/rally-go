@@ -23,20 +23,20 @@ type Risk struct {
 	// AI Assisted
 	AIAssisted *bool `json:"AIAssisted,omitempty"`
 	// Accepted Date
-	AcceptedDate *string     `json:"AcceptedDate,omitempty"`
-	Ancestors    *Collection `json:"Ancestors,omitempty"`
-	Attachments  *Collection `json:"Attachments,omitempty"`
-	Blocker      *BlockerRef `json:"Blocker,omitempty"`
+	AcceptedDate *string `json:"AcceptedDate,omitempty"`
+	Ancestors *Collection `json:"Ancestors,omitempty"`
+	Attachments *Collection `json:"Attachments,omitempty"`
+	Blocker *BlockerRef `json:"Blocker,omitempty"`
 	// Calculated Risk
-	CalculatedRisk *int64      `json:"CalculatedRisk,omitempty"`
-	Changesets     *Collection `json:"Changesets,omitempty"`
-	Connections    *Collection `json:"Connections,omitempty"`
-	CreatedBy      *UserRef    `json:"CreatedBy,omitempty"`
+	CalculatedRisk *int64 `json:"CalculatedRisk,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -46,22 +46,22 @@ type Risk struct {
 	// Exposure
 	Exposure *float32 `json:"Exposure,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
 	// Flow State Changed Date
 	FlowStateChangedDate *string `json:"FlowStateChangedDate,omitempty"`
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// Impact
-	Impact    *string       `json:"Impact,omitempty"`
+	Impact *string `json:"Impact,omitempty"`
 	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
 	IterationValue *string `json:"IterationValue,omitempty"`
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Latest Discussion Age In Minutes
-	LatestDiscussionAgeInMinutes *int64      `json:"LatestDiscussionAgeInMinutes,omitempty"`
-	Milestones                   *Collection `json:"Milestones,omitempty"`
+	LatestDiscussionAgeInMinutes *int64 `json:"LatestDiscussionAgeInMinutes,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -69,24 +69,24 @@ type Risk struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string  `json:"ObjectUUID,omitempty"`
-	Owner      *UserRef `json:"Owner,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Passing Test Case Count
 	PassingTestCaseCount *int64 `json:"PassingTestCaseCount,omitempty"`
 	// Plan Estimate
 	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	// Probability
-	Probability *string     `json:"Probability,omitempty"`
-	Project     *ProjectRef `json:"Project,omitempty"`
+	Probability *string `json:"Probability,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Recycled
-	Recycled *bool       `json:"Recycled,omitempty"`
-	Release  *ReleaseRef `json:"Release,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
+	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
 	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	// Resolution
 	Resolution *string `json:"Resolution,omitempty"`
 	// Response
-	Response        *string             `json:"Response,omitempty"`
+	Response *string `json:"Response,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Schedule State
 	ScheduleState *string `json:"ScheduleState,omitempty"`
@@ -95,23 +95,23 @@ type Risk struct {
 	// Size Of Loss
 	SizeOfLoss *int64 `json:"SizeOfLoss,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
-	SubmittedBy  *UserRef         `json:"SubmittedBy,omitempty"`
+	State *string `json:"State,omitempty"`
+	SubmittedBy *UserRef `json:"SubmittedBy,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags         *Collection      `json:"Tags,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Task Actual Total
 	TaskActualTotal *float32 `json:"TaskActualTotal,omitempty"`
 	// Task Estimate Total
 	TaskEstimateTotal *float32 `json:"TaskEstimateTotal,omitempty"`
 	// Task Remaining Total
-	TaskRemainingTotal *float32    `json:"TaskRemainingTotal,omitempty"`
-	Tasks              *Collection `json:"Tasks,omitempty"`
+	TaskRemainingTotal *float32 `json:"TaskRemainingTotal,omitempty"`
+	Tasks *Collection `json:"Tasks,omitempty"`
 	// Test Case Count
 	TestCaseCount *int64 `json:"TestCaseCount,omitempty"`
 	// VersionId
-	VersionId         *string       `json:"VersionId,omitempty"`
-	WorkItemsAffected *Collection   `json:"WorkItemsAffected,omitempty"`
-	Workspace         *WorkspaceRef `json:"Workspace,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkItemsAffected *Collection `json:"WorkItemsAffected,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Attention Level
 	CAttentionLevel *string `json:"c_AttentionLevel,omitempty"`
 	// Item Type
@@ -125,9 +125,9 @@ type Risk struct {
 	// Target Date
 	CTargetDate *string `json:"c_TargetDate,omitempty"`
 	// Workload CI ID
-	CWorkloadCIID *string  `json:"c_WorkloadCIID,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	CWorkloadCIID *string `json:"c_WorkloadCIID,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRisk instantiates a new Risk object
@@ -2248,7 +2248,7 @@ func (o *Risk) SetErrors(v []string) {
 }
 
 func (o Risk) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2490,3 +2490,5 @@ func (v *NullableRisk) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

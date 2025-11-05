@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // AttachmentContentAPIService AttachmentContentAPI service
 type AttachmentContentAPIService service
 
 type ApiAttachmentContentCreateRequest struct {
-	ctx                       context.Context
-	ApiService                *AttachmentContentAPIService
+	ctx context.Context
+	ApiService *AttachmentContentAPIService
 	attachmentContentMutation *AttachmentContentMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiAttachmentContentCreateRequest) Execute() (*AttachmentContentCreate20
 /*
 AttachmentContentCreate AttachmentContent Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiAttachmentContentCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiAttachmentContentCreateRequest
 */
 func (a *AttachmentContentAPIService) AttachmentContentCreate(ctx context.Context) ApiAttachmentContentCreateRequest {
 	return ApiAttachmentContentCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AttachmentContentCreate200Response
+//  @return AttachmentContentCreate200Response
 func (a *AttachmentContentAPIService) AttachmentContentCreateExecute(r ApiAttachmentContentCreateRequest) (*AttachmentContentCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AttachmentContentCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttachmentContentCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentContentAPIService.AttachmentContentCreate")
@@ -134,9 +134,9 @@ func (a *AttachmentContentAPIService) AttachmentContentCreateExecute(r ApiAttach
 }
 
 type ApiAttachmentContentDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AttachmentContentAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiAttachmentContentDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiAttachmentContentDeleteRequest) Execute() (*AllowedAttributeValueDele
 /*
 AttachmentContentDelete AttachmentContent Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAttachmentContentDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAttachmentContentDeleteRequest
 */
 func (a *AttachmentContentAPIService) AttachmentContentDelete(ctx context.Context, objectId string) ApiAttachmentContentDeleteRequest {
 	return ApiAttachmentContentDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *AttachmentContentAPIService) AttachmentContentDeleteExecute(r ApiAttachmentContentDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentContentAPIService.AttachmentContentDelete")
@@ -236,13 +235,14 @@ func (a *AttachmentContentAPIService) AttachmentContentDeleteExecute(r ApiAttach
 }
 
 type ApiAttachmentContentReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AttachmentContentAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiAttachmentContentReadRequest) Compact(compact bool) ApiAttachmentContentReadRequest {
 	r.compact = &compact
 	return r
@@ -261,27 +261,26 @@ func (r ApiAttachmentContentReadRequest) Execute() (*AttachmentContentRead200Res
 /*
 AttachmentContentRead AttachmentContent Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAttachmentContentReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAttachmentContentReadRequest
 */
 func (a *AttachmentContentAPIService) AttachmentContentRead(ctx context.Context, objectId string) ApiAttachmentContentReadRequest {
 	return ApiAttachmentContentReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AttachmentContentRead200Response
+//  @return AttachmentContentRead200Response
 func (a *AttachmentContentAPIService) AttachmentContentReadExecute(r ApiAttachmentContentReadRequest) (*AttachmentContentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AttachmentContentRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttachmentContentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentContentAPIService.AttachmentContentRead")
@@ -299,8 +298,9 @@ func (a *AttachmentContentAPIService) AttachmentContentReadExecute(r ApiAttachme
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

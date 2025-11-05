@@ -20,19 +20,19 @@ var _ MappedNullable = &AttachmentMutationAttachment{}
 
 // AttachmentMutationAttachment Attachment
 type AttachmentMutationAttachment struct {
-	Artifact *ObjectRef            `json:"Artifact,omitempty"`
-	Content  *AttachmentContentRef `json:"Content,omitempty"`
+	Artifact *ObjectRef `json:"Artifact,omitempty"`
+	Content *AttachmentContentRef `json:"Content,omitempty"`
 	// Content Type
 	ContentType *string `json:"ContentType,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Name
-	Name           *string            `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	TestCaseResult *TestCaseResultRef `json:"TestCaseResult,omitempty"`
-	User           *UserRef           `json:"User,omitempty"`
-	Workspace      *WorkspaceRef      `json:"Workspace,omitempty"`
-	Warnings       []string           `json:"Warnings,omitempty"`
-	Errors         []string           `json:"Errors,omitempty"`
+	User *UserRef `json:"User,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttachmentMutationAttachment instantiates a new AttachmentMutationAttachment object
@@ -373,7 +373,7 @@ func (o *AttachmentMutationAttachment) SetErrors(v []string) {
 }
 
 func (o AttachmentMutationAttachment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -450,3 +450,5 @@ func (v *NullableAttachmentMutationAttachment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

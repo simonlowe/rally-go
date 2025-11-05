@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // MilestoneAPIService MilestoneAPI service
 type MilestoneAPIService service
 
 type ApiMilestoneCreateRequest struct {
-	ctx               context.Context
-	ApiService        *MilestoneAPIService
+	ctx context.Context
+	ApiService *MilestoneAPIService
 	milestoneMutation *MilestoneMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiMilestoneCreateRequest) Execute() (*MilestoneCreate200Response, *http
 /*
 MilestoneCreate Milestone Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiMilestoneCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMilestoneCreateRequest
 */
 func (a *MilestoneAPIService) MilestoneCreate(ctx context.Context) ApiMilestoneCreateRequest {
 	return ApiMilestoneCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return MilestoneCreate200Response
+//  @return MilestoneCreate200Response
 func (a *MilestoneAPIService) MilestoneCreateExecute(r ApiMilestoneCreateRequest) (*MilestoneCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MilestoneCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MilestoneCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneAPIService.MilestoneCreate")
@@ -134,9 +134,9 @@ func (a *MilestoneAPIService) MilestoneCreateExecute(r ApiMilestoneCreateRequest
 }
 
 type ApiMilestoneDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *MilestoneAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiMilestoneDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiMilestoneDeleteRequest) Execute() (*AllowedAttributeValueDelete200Res
 /*
 MilestoneDelete Milestone Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiMilestoneDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiMilestoneDeleteRequest
 */
 func (a *MilestoneAPIService) MilestoneDelete(ctx context.Context, objectId string) ApiMilestoneDeleteRequest {
 	return ApiMilestoneDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *MilestoneAPIService) MilestoneDeleteExecute(r ApiMilestoneDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneAPIService.MilestoneDelete")
@@ -236,18 +235,18 @@ func (a *MilestoneAPIService) MilestoneDeleteExecute(r ApiMilestoneDeleteRequest
 }
 
 type ApiMilestoneQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *MilestoneAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiMilestoneQueryRequest) Fetch(fetch string) ApiMilestoneQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiMilestoneQueryRequest) Workspace(workspace string) ApiMilestoneQueryR
 	return r
 }
 
+// 
 func (r ApiMilestoneQueryRequest) Compact(compact bool) ApiMilestoneQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiMilestoneQueryRequest) Execute() (*MilestoneQuery200Response, *http.R
 /*
 MilestoneQuery Milestone Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiMilestoneQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMilestoneQueryRequest
 */
 func (a *MilestoneAPIService) MilestoneQuery(ctx context.Context) ApiMilestoneQueryRequest {
 	return ApiMilestoneQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return MilestoneQuery200Response
+//  @return MilestoneQuery200Response
 func (a *MilestoneAPIService) MilestoneQueryExecute(r ApiMilestoneQueryRequest) (*MilestoneQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MilestoneQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MilestoneQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneAPIService.MilestoneQuery")
@@ -348,8 +347,9 @@ func (a *MilestoneAPIService) MilestoneQueryExecute(r ApiMilestoneQueryRequest) 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *MilestoneAPIService) MilestoneQueryExecute(r ApiMilestoneQueryRequest) 
 }
 
 type ApiMilestoneReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *MilestoneAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiMilestoneReadRequest) Compact(compact bool) ApiMilestoneReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiMilestoneReadRequest) Execute() (*MilestoneRead200Response, *http.Res
 /*
 MilestoneRead Milestone Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiMilestoneReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiMilestoneReadRequest
 */
 func (a *MilestoneAPIService) MilestoneRead(ctx context.Context, objectId string) ApiMilestoneReadRequest {
 	return ApiMilestoneReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return MilestoneRead200Response
+//  @return MilestoneRead200Response
 func (a *MilestoneAPIService) MilestoneReadExecute(r ApiMilestoneReadRequest) (*MilestoneRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MilestoneRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MilestoneRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneAPIService.MilestoneRead")
@@ -469,8 +469,9 @@ func (a *MilestoneAPIService) MilestoneReadExecute(r ApiMilestoneReadRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *MilestoneAPIService) MilestoneReadExecute(r ApiMilestoneReadRequest) (*
 }
 
 type ApiMilestoneUpdateRequest struct {
-	ctx               context.Context
-	ApiService        *MilestoneAPIService
-	objectId          string
+	ctx context.Context
+	ApiService *MilestoneAPIService
+	objectId string
 	milestoneMutation *MilestoneMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiMilestoneUpdateRequest) Execute() (*MilestoneRead200Response, *http.R
 /*
 MilestoneUpdate Milestone Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiMilestoneUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiMilestoneUpdateRequest
 */
 func (a *MilestoneAPIService) MilestoneUpdate(ctx context.Context, objectId string) ApiMilestoneUpdateRequest {
 	return ApiMilestoneUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return MilestoneRead200Response
+//  @return MilestoneRead200Response
 func (a *MilestoneAPIService) MilestoneUpdateExecute(r ApiMilestoneUpdateRequest) (*MilestoneRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MilestoneRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MilestoneRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneAPIService.MilestoneUpdate")

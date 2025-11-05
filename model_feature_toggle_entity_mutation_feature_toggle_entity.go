@@ -29,9 +29,9 @@ type FeatureToggleEntityMutationFeatureToggleEntity struct {
 	// toggledOnBy
 	ToggledOnBy *string `json:"toggledOnBy,omitempty"`
 	// value
-	Value    *bool    `json:"value,omitempty"`
+	Value *bool `json:"value,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewFeatureToggleEntityMutationFeatureToggleEntity instantiates a new FeatureToggleEntityMutationFeatureToggleEntity object
@@ -276,7 +276,7 @@ func (o *FeatureToggleEntityMutationFeatureToggleEntity) SetErrors(v []string) {
 }
 
 func (o FeatureToggleEntityMutationFeatureToggleEntity) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -344,3 +344,5 @@ func (v *NullableFeatureToggleEntityMutationFeatureToggleEntity) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

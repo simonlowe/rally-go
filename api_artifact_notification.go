@@ -20,22 +20,23 @@ import (
 	"strings"
 )
 
+
 // ArtifactNotificationAPIService ArtifactNotificationAPI service
 type ArtifactNotificationAPIService service
 
 type ApiArtifactNotificationQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ArtifactNotificationAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiArtifactNotificationQueryRequest) Fetch(fetch string) ApiArtifactNotificationQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -71,6 +72,7 @@ func (r ApiArtifactNotificationQueryRequest) Workspace(workspace string) ApiArti
 	return r
 }
 
+// 
 func (r ApiArtifactNotificationQueryRequest) Compact(compact bool) ApiArtifactNotificationQueryRequest {
 	r.compact = &compact
 	return r
@@ -83,25 +85,24 @@ func (r ApiArtifactNotificationQueryRequest) Execute() (*ArtifactNotificationQue
 /*
 ArtifactNotificationQuery ArtifactNotification Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiArtifactNotificationQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiArtifactNotificationQueryRequest
 */
 func (a *ArtifactNotificationAPIService) ArtifactNotificationQuery(ctx context.Context) ApiArtifactNotificationQueryRequest {
 	return ApiArtifactNotificationQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ArtifactNotificationQuery200Response
+//  @return ArtifactNotificationQuery200Response
 func (a *ArtifactNotificationAPIService) ArtifactNotificationQueryExecute(r ApiArtifactNotificationQueryRequest) (*ArtifactNotificationQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ArtifactNotificationQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ArtifactNotificationQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactNotificationAPIService.ArtifactNotificationQuery")
@@ -136,8 +137,9 @@ func (a *ArtifactNotificationAPIService) ArtifactNotificationQueryExecute(r ApiA
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -194,13 +196,14 @@ func (a *ArtifactNotificationAPIService) ArtifactNotificationQueryExecute(r ApiA
 }
 
 type ApiArtifactNotificationReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ArtifactNotificationAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiArtifactNotificationReadRequest) Compact(compact bool) ApiArtifactNotificationReadRequest {
 	r.compact = &compact
 	return r
@@ -219,27 +222,26 @@ func (r ApiArtifactNotificationReadRequest) Execute() (*ArtifactNotificationRead
 /*
 ArtifactNotificationRead ArtifactNotification Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiArtifactNotificationReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiArtifactNotificationReadRequest
 */
 func (a *ArtifactNotificationAPIService) ArtifactNotificationRead(ctx context.Context, objectId string) ApiArtifactNotificationReadRequest {
 	return ApiArtifactNotificationReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ArtifactNotificationRead200Response
+//  @return ArtifactNotificationRead200Response
 func (a *ArtifactNotificationAPIService) ArtifactNotificationReadExecute(r ApiArtifactNotificationReadRequest) (*ArtifactNotificationRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ArtifactNotificationRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ArtifactNotificationRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactNotificationAPIService.ArtifactNotificationRead")
@@ -257,8 +259,9 @@ func (a *ArtifactNotificationAPIService) ArtifactNotificationReadExecute(r ApiAr
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

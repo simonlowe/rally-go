@@ -23,20 +23,20 @@ type Task struct {
 	// AI Assisted
 	AIAssisted *bool `json:"AIAssisted,omitempty"`
 	// Actuals
-	Actuals     *float32    `json:"Actuals,omitempty"`
+	Actuals *float32 `json:"Actuals,omitempty"`
 	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
-	Connections   *Collection `json:"Connections,omitempty"`
-	CreatedBy     *UserRef    `json:"CreatedBy,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -46,13 +46,13 @@ type Task struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Formatted ID
-	FormattedID *string       `json:"FormattedID,omitempty"`
-	Iteration   *IterationRef `json:"Iteration,omitempty"`
+	FormattedID *string `json:"FormattedID,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Latest Discussion Age In Minutes
-	LatestDiscussionAgeInMinutes *int64      `json:"LatestDiscussionAgeInMinutes,omitempty"`
-	Milestones                   *Collection `json:"Milestones,omitempty"`
+	LatestDiscussionAgeInMinutes *int64 `json:"LatestDiscussionAgeInMinutes,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -60,19 +60,19 @@ type Task struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
-	Owner      *UserRef    `json:"Owner,omitempty"`
-	Project    *ProjectRef `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
 	Ready *bool `json:"Ready,omitempty"`
 	// Recycled
-	Recycled        *bool               `json:"Recycled,omitempty"`
-	Release         *ReleaseRef         `json:"Release,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
+	Release *ReleaseRef `json:"Release,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags         *Collection      `json:"Tags,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Task Index
 	TaskIndex *int64 `json:"TaskIndex,omitempty"`
 	// Time Spent
@@ -80,16 +80,16 @@ type Task struct {
 	// To Do
 	ToDo *float32 `json:"ToDo,omitempty"`
 	// VersionId
-	VersionId   *string       `json:"VersionId,omitempty"`
-	WorkProduct *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace   *WorkspaceRef `json:"Workspace,omitempty"`
-	CCoOwner    *UserRef      `json:"c_CoOwner,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	CCoOwner *UserRef `json:"c_CoOwner,omitempty"`
 	// Release Environment
 	CReleaseEnvironment *string `json:"c_ReleaseEnvironment,omitempty"`
 	// Ticket ID
-	CTicketID *string  `json:"c_TicketID,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	CTicketID *string `json:"c_TicketID,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTask instantiates a new Task object
@@ -1522,7 +1522,7 @@ func (o *Task) SetErrors(v []string) {
 }
 
 func (o Task) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1701,3 +1701,5 @@ func (v *NullableTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

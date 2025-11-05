@@ -20,22 +20,23 @@ import (
 	"strings"
 )
 
+
 // RevisionAPIService RevisionAPI service
 type RevisionAPIService service
 
 type ApiRevisionQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RevisionAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiRevisionQueryRequest) Fetch(fetch string) ApiRevisionQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -71,6 +72,7 @@ func (r ApiRevisionQueryRequest) Workspace(workspace string) ApiRevisionQueryReq
 	return r
 }
 
+// 
 func (r ApiRevisionQueryRequest) Compact(compact bool) ApiRevisionQueryRequest {
 	r.compact = &compact
 	return r
@@ -83,25 +85,24 @@ func (r ApiRevisionQueryRequest) Execute() (*RevisionQuery200Response, *http.Res
 /*
 RevisionQuery Revision Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRevisionQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRevisionQueryRequest
 */
 func (a *RevisionAPIService) RevisionQuery(ctx context.Context) ApiRevisionQueryRequest {
 	return ApiRevisionQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RevisionQuery200Response
+//  @return RevisionQuery200Response
 func (a *RevisionAPIService) RevisionQueryExecute(r ApiRevisionQueryRequest) (*RevisionQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RevisionQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RevisionQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionAPIService.RevisionQuery")
@@ -136,8 +137,9 @@ func (a *RevisionAPIService) RevisionQueryExecute(r ApiRevisionQueryRequest) (*R
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -194,13 +196,14 @@ func (a *RevisionAPIService) RevisionQueryExecute(r ApiRevisionQueryRequest) (*R
 }
 
 type ApiRevisionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RevisionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiRevisionReadRequest) Compact(compact bool) ApiRevisionReadRequest {
 	r.compact = &compact
 	return r
@@ -219,27 +222,26 @@ func (r ApiRevisionReadRequest) Execute() (*RevisionRead200Response, *http.Respo
 /*
 RevisionRead Revision Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRevisionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRevisionReadRequest
 */
 func (a *RevisionAPIService) RevisionRead(ctx context.Context, objectId string) ApiRevisionReadRequest {
 	return ApiRevisionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RevisionRead200Response
+//  @return RevisionRead200Response
 func (a *RevisionAPIService) RevisionReadExecute(r ApiRevisionReadRequest) (*RevisionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RevisionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RevisionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionAPIService.RevisionRead")
@@ -257,8 +259,9 @@ func (a *RevisionAPIService) RevisionReadExecute(r ApiRevisionReadRequest) (*Rev
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

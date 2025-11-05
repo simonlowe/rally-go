@@ -23,22 +23,22 @@ type KeyResultMutationKeyResult struct {
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
-	DisplayColor            *string     `json:"DisplayColor,omitempty"`
-	KeyResultActualValues   *Collection `json:"KeyResultActualValues,omitempty"`
+	DisplayColor *string `json:"DisplayColor,omitempty"`
+	KeyResultActualValues *Collection `json:"KeyResultActualValues,omitempty"`
 	KeyResultInterimTargets *Collection `json:"KeyResultInterimTargets,omitempty"`
 	// Name
-	Name      *string       `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Objective *ObjectiveRef `json:"Objective,omitempty"`
-	Owner     *UserRef      `json:"Owner,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Starting Value
 	StartingValue *float32 `json:"StartingValue,omitempty"`
 	// Target Value
 	TargetValue *float32 `json:"TargetValue,omitempty"`
 	// Type
-	Type      *string       `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyResultMutationKeyResult instantiates a new KeyResultMutationKeyResult object
@@ -475,7 +475,7 @@ func (o *KeyResultMutationKeyResult) SetErrors(v []string) {
 }
 
 func (o KeyResultMutationKeyResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -561,3 +561,5 @@ func (v *NullableKeyResultMutationKeyResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

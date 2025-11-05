@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // FeatureAPIService FeatureAPI service
 type FeatureAPIService service
 
 type ApiFeatureCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FeatureAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiFeatureCopyRequest) Compact(compact bool) ApiFeatureCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiFeatureCopyRequest) Execute() (*FeatureRead200Response, *http.Respons
 /*
 FeatureCopy Feature Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFeatureCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFeatureCopyRequest
 */
 func (a *FeatureAPIService) FeatureCopy(ctx context.Context, objectId string) ApiFeatureCopyRequest {
 	return ApiFeatureCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FeatureRead200Response
+//  @return FeatureRead200Response
 func (a *FeatureAPIService) FeatureCopyExecute(r ApiFeatureCopyRequest) (*FeatureRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FeatureRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FeatureRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureCopy")
@@ -77,7 +78,7 @@ func (a *FeatureAPIService) FeatureCopyExecute(r ApiFeatureCopyRequest) (*Featur
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature/{objectId}/copy"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature/{objectId}/copy"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -87,8 +88,9 @@ func (a *FeatureAPIService) FeatureCopyExecute(r ApiFeatureCopyRequest) (*Featur
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *FeatureAPIService) FeatureCopyExecute(r ApiFeatureCopyRequest) (*Featur
 }
 
 type ApiFeatureCreateRequest struct {
-	ctx             context.Context
-	ApiService      *FeatureAPIService
+	ctx context.Context
+	ApiService *FeatureAPIService
 	featureMutation *FeatureMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiFeatureCreateRequest) Execute() (*FeatureCreate200Response, *http.Res
 /*
 FeatureCreate Feature Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiFeatureCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFeatureCreateRequest
 */
 func (a *FeatureAPIService) FeatureCreate(ctx context.Context) ApiFeatureCreateRequest {
 	return ApiFeatureCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FeatureCreate200Response
+//  @return FeatureCreate200Response
 func (a *FeatureAPIService) FeatureCreateExecute(r ApiFeatureCreateRequest) (*FeatureCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FeatureCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FeatureCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureCreate")
@@ -192,7 +193,7 @@ func (a *FeatureAPIService) FeatureCreateExecute(r ApiFeatureCreateRequest) (*Fe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature/create"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -258,9 +259,9 @@ func (a *FeatureAPIService) FeatureCreateExecute(r ApiFeatureCreateRequest) (*Fe
 }
 
 type ApiFeatureDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FeatureAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiFeatureDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiFeatureDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respo
 /*
 FeatureDelete Feature Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFeatureDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFeatureDeleteRequest
 */
 func (a *FeatureAPIService) FeatureDelete(ctx context.Context, objectId string) ApiFeatureDeleteRequest {
 	return ApiFeatureDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *FeatureAPIService) FeatureDeleteExecute(r ApiFeatureDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureDelete")
@@ -298,7 +298,7 @@ func (a *FeatureAPIService) FeatureDeleteExecute(r ApiFeatureDeleteRequest) (*Al
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -360,18 +360,18 @@ func (a *FeatureAPIService) FeatureDeleteExecute(r ApiFeatureDeleteRequest) (*Al
 }
 
 type ApiFeatureQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FeatureAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiFeatureQueryRequest) Fetch(fetch string) ApiFeatureQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiFeatureQueryRequest) Workspace(workspace string) ApiFeatureQueryReque
 	return r
 }
 
+// 
 func (r ApiFeatureQueryRequest) Compact(compact bool) ApiFeatureQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiFeatureQueryRequest) Execute() (*FeatureQuery200Response, *http.Respo
 /*
 FeatureQuery Feature Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiFeatureQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFeatureQueryRequest
 */
 func (a *FeatureAPIService) FeatureQuery(ctx context.Context) ApiFeatureQueryRequest {
 	return ApiFeatureQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FeatureQuery200Response
+//  @return FeatureQuery200Response
 func (a *FeatureAPIService) FeatureQueryExecute(r ApiFeatureQueryRequest) (*FeatureQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FeatureQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FeatureQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureQuery")
@@ -445,7 +445,7 @@ func (a *FeatureAPIService) FeatureQueryExecute(r ApiFeatureQueryRequest) (*Feat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -472,8 +472,9 @@ func (a *FeatureAPIService) FeatureQueryExecute(r ApiFeatureQueryRequest) (*Feat
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *FeatureAPIService) FeatureQueryExecute(r ApiFeatureQueryRequest) (*Feat
 }
 
 type ApiFeatureReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FeatureAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiFeatureReadRequest) Compact(compact bool) ApiFeatureReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiFeatureReadRequest) Execute() (*FeatureRead200Response, *http.Respons
 /*
 FeatureRead Feature Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFeatureReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFeatureReadRequest
 */
 func (a *FeatureAPIService) FeatureRead(ctx context.Context, objectId string) ApiFeatureReadRequest {
 	return ApiFeatureReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FeatureRead200Response
+//  @return FeatureRead200Response
 func (a *FeatureAPIService) FeatureReadExecute(r ApiFeatureReadRequest) (*FeatureRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FeatureRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FeatureRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureRead")
@@ -583,7 +584,7 @@ func (a *FeatureAPIService) FeatureReadExecute(r ApiFeatureReadRequest) (*Featur
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -593,8 +594,9 @@ func (a *FeatureAPIService) FeatureReadExecute(r ApiFeatureReadRequest) (*Featur
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *FeatureAPIService) FeatureReadExecute(r ApiFeatureReadRequest) (*Featur
 }
 
 type ApiFeatureUpdateRequest struct {
-	ctx             context.Context
-	ApiService      *FeatureAPIService
-	objectId        string
+	ctx context.Context
+	ApiService *FeatureAPIService
+	objectId string
 	featureMutation *FeatureMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiFeatureUpdateRequest) Execute() (*FeatureRead200Response, *http.Respo
 /*
 FeatureUpdate Feature Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFeatureUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFeatureUpdateRequest
 */
 func (a *FeatureAPIService) FeatureUpdate(ctx context.Context, objectId string) ApiFeatureUpdateRequest {
 	return ApiFeatureUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FeatureRead200Response
+//  @return FeatureRead200Response
 func (a *FeatureAPIService) FeatureUpdateExecute(r ApiFeatureUpdateRequest) (*FeatureRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FeatureRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FeatureRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FeatureAPIService.FeatureUpdate")
@@ -701,7 +702,7 @@ func (a *FeatureAPIService) FeatureUpdateExecute(r ApiFeatureUpdateRequest) (*Fe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/feature/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/feature/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

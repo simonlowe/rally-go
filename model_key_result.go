@@ -30,38 +30,38 @@ type KeyResult struct {
 	// Drag And Drop Rank
 	DragAndDropRank *string `json:"DragAndDropRank,omitempty"`
 	// Formatted ID
-	FormattedID             *string     `json:"FormattedID,omitempty"`
-	KeyResultActualValues   *Collection `json:"KeyResultActualValues,omitempty"`
+	FormattedID *string `json:"FormattedID,omitempty"`
+	KeyResultActualValues *Collection `json:"KeyResultActualValues,omitempty"`
 	KeyResultInterimTargets *Collection `json:"KeyResultInterimTargets,omitempty"`
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Last Updated Date
-	LastUpdatedDate   *string                  `json:"LastUpdatedDate,omitempty"`
+	LastUpdatedDate *string `json:"LastUpdatedDate,omitempty"`
 	LatestActualValue *KeyResultActualValueRef `json:"LatestActualValue,omitempty"`
 	// Name
-	Name              *string                    `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	NextInterimTarget *KeyResultInterimTargetRef `json:"NextInterimTarget,omitempty"`
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string       `json:"ObjectUUID,omitempty"`
-	Objective  *ObjectiveRef `json:"Objective,omitempty"`
-	Owner      *UserRef      `json:"Owner,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Objective *ObjectiveRef `json:"Objective,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Percentage Complete
-	PercentageComplete *float32            `json:"PercentageComplete,omitempty"`
-	RevisionHistory    *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	PercentageComplete *float32 `json:"PercentageComplete,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Starting Value
-	StartingValue *float32         `json:"StartingValue,omitempty"`
-	Subscription  *SubscriptionRef `json:"Subscription,omitempty"`
+	StartingValue *float32 `json:"StartingValue,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Target Value
 	TargetValue *float32 `json:"TargetValue,omitempty"`
 	// Type
 	Type *string `json:"Type,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyResult instantiates a new KeyResult object
@@ -946,7 +946,7 @@ func (o *KeyResult) SetErrors(v []string) {
 }
 
 func (o KeyResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1074,3 +1074,5 @@ func (v *NullableKeyResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

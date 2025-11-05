@@ -20,9 +20,9 @@ var _ MappedNullable = &InvestmentCreate200ResponseCreateResult{}
 
 // InvestmentCreate200ResponseCreateResult struct for InvestmentCreate200ResponseCreateResult
 type InvestmentCreate200ResponseCreateResult struct {
-	Errors   []string    `json:"Errors,omitempty"`
-	Object   *Investment `json:"Object,omitempty"`
-	Warnings []string    `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Investment `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewInvestmentCreate200ResponseCreateResult instantiates a new InvestmentCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *InvestmentCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o InvestmentCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableInvestmentCreate200ResponseCreateResult) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // TagAPIService TagAPI service
 type TagAPIService service
 
 type ApiTagCreateRequest struct {
-	ctx         context.Context
-	ApiService  *TagAPIService
+	ctx context.Context
+	ApiService *TagAPIService
 	tagMutation *TagMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiTagCreateRequest) Execute() (*TagCreate200Response, *http.Response, e
 /*
 TagCreate Tag Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTagCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTagCreateRequest
 */
 func (a *TagAPIService) TagCreate(ctx context.Context) ApiTagCreateRequest {
 	return ApiTagCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TagCreate200Response
+//  @return TagCreate200Response
 func (a *TagAPIService) TagCreateExecute(r ApiTagCreateRequest) (*TagCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TagCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TagCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagAPIService.TagCreate")
@@ -134,9 +134,9 @@ func (a *TagAPIService) TagCreateExecute(r ApiTagCreateRequest) (*TagCreate200Re
 }
 
 type ApiTagDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TagAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTagDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiTagDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response,
 /*
 TagDelete Tag Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTagDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTagDeleteRequest
 */
 func (a *TagAPIService) TagDelete(ctx context.Context, objectId string) ApiTagDeleteRequest {
 	return ApiTagDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TagAPIService) TagDeleteExecute(r ApiTagDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagAPIService.TagDelete")
@@ -236,18 +235,18 @@ func (a *TagAPIService) TagDeleteExecute(r ApiTagDeleteRequest) (*AllowedAttribu
 }
 
 type ApiTagQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TagAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTagQueryRequest) Fetch(fetch string) ApiTagQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiTagQueryRequest) Workspace(workspace string) ApiTagQueryRequest {
 	return r
 }
 
+// 
 func (r ApiTagQueryRequest) Compact(compact bool) ApiTagQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiTagQueryRequest) Execute() (*TagQuery200Response, *http.Response, err
 /*
 TagQuery Tag Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTagQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTagQueryRequest
 */
 func (a *TagAPIService) TagQuery(ctx context.Context) ApiTagQueryRequest {
 	return ApiTagQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TagQuery200Response
+//  @return TagQuery200Response
 func (a *TagAPIService) TagQueryExecute(r ApiTagQueryRequest) (*TagQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TagQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TagQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagAPIService.TagQuery")
@@ -348,8 +347,9 @@ func (a *TagAPIService) TagQueryExecute(r ApiTagQueryRequest) (*TagQuery200Respo
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *TagAPIService) TagQueryExecute(r ApiTagQueryRequest) (*TagQuery200Respo
 }
 
 type ApiTagReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TagAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTagReadRequest) Compact(compact bool) ApiTagReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiTagReadRequest) Execute() (*TagRead200Response, *http.Response, error
 /*
 TagRead Tag Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTagReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTagReadRequest
 */
 func (a *TagAPIService) TagRead(ctx context.Context, objectId string) ApiTagReadRequest {
 	return ApiTagReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TagRead200Response
+//  @return TagRead200Response
 func (a *TagAPIService) TagReadExecute(r ApiTagReadRequest) (*TagRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TagRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TagRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagAPIService.TagRead")
@@ -469,8 +469,9 @@ func (a *TagAPIService) TagReadExecute(r ApiTagReadRequest) (*TagRead200Response
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *TagAPIService) TagReadExecute(r ApiTagReadRequest) (*TagRead200Response
 }
 
 type ApiTagUpdateRequest struct {
-	ctx         context.Context
-	ApiService  *TagAPIService
-	objectId    string
+	ctx context.Context
+	ApiService *TagAPIService
+	objectId string
 	tagMutation *TagMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiTagUpdateRequest) Execute() (*TagRead200Response, *http.Response, err
 /*
 TagUpdate Tag Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTagUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTagUpdateRequest
 */
 func (a *TagAPIService) TagUpdate(ctx context.Context, objectId string) ApiTagUpdateRequest {
 	return ApiTagUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TagRead200Response
+//  @return TagRead200Response
 func (a *TagAPIService) TagUpdateExecute(r ApiTagUpdateRequest) (*TagRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TagRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TagRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagAPIService.TagUpdate")

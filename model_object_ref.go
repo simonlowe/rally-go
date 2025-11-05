@@ -22,10 +22,10 @@ var _ MappedNullable = &ObjectRef{}
 type ObjectRef struct {
 	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
 	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
-	Ref           *string `json:"_ref,omitempty"`
+	Ref *string `json:"_ref,omitempty"`
 	RefObjectUUID *string `json:"_refObjectUUID,omitempty"`
 	RefObjectName *string `json:"_refObjectName,omitempty"`
-	Type          *string `json:"_type,omitempty"`
+	Type *string `json:"_type,omitempty"`
 }
 
 // NewObjectRef instantiates a new ObjectRef object
@@ -238,7 +238,7 @@ func (o *ObjectRef) SetType(v string) {
 }
 
 func (o ObjectRef) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableObjectRef) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

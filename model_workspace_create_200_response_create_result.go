@@ -20,9 +20,9 @@ var _ MappedNullable = &WorkspaceCreate200ResponseCreateResult{}
 
 // WorkspaceCreate200ResponseCreateResult struct for WorkspaceCreate200ResponseCreateResult
 type WorkspaceCreate200ResponseCreateResult struct {
-	Errors   []string   `json:"Errors,omitempty"`
-	Object   *Workspace `json:"Object,omitempty"`
-	Warnings []string   `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Workspace `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewWorkspaceCreate200ResponseCreateResult instantiates a new WorkspaceCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *WorkspaceCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o WorkspaceCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableWorkspaceCreate200ResponseCreateResult) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

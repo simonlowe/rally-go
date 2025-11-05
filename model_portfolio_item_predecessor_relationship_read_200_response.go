@@ -20,11 +20,11 @@ var _ MappedNullable = &PortfolioItemPredecessorRelationshipRead200Response{}
 
 // PortfolioItemPredecessorRelationshipRead200Response struct for PortfolioItemPredecessorRelationshipRead200Response
 type PortfolioItemPredecessorRelationshipRead200Response struct {
-	RallyAPIMajor                        *string                               `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor                        *string                               `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	PortfolioItemPredecessorRelationship *PortfolioItemPredecessorRelationship `json:"PortfolioItemPredecessorRelationship,omitempty"`
-	Warnings                             []string                              `json:"Warnings,omitempty"`
-	Errors                               []string                              `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPortfolioItemPredecessorRelationshipRead200Response instantiates a new PortfolioItemPredecessorRelationshipRead200Response object
@@ -205,7 +205,7 @@ func (o *PortfolioItemPredecessorRelationshipRead200Response) SetErrors(v []stri
 }
 
 func (o PortfolioItemPredecessorRelationshipRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullablePortfolioItemPredecessorRelationshipRead200Response) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

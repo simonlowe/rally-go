@@ -20,9 +20,9 @@ var _ MappedNullable = &BatchResponse{}
 
 // BatchResponse struct for BatchResponse
 type BatchResponse struct {
-	Results  []map[string]interface{} `json:"Results,omitempty"`
-	Warnings []string                 `json:"Warnings,omitempty"`
-	Errors   []string                 `json:"Errors,omitempty"`
+	Results []map[string]interface{} `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBatchResponse instantiates a new BatchResponse object
@@ -139,7 +139,7 @@ func (o *BatchResponse) SetErrors(v []string) {
 }
 
 func (o BatchResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableBatchResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

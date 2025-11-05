@@ -20,12 +20,12 @@ var _ MappedNullable = &VSMProductQuery200ResponseQueryResult{}
 
 // VSMProductQuery200ResponseQueryResult struct for VSMProductQuery200ResponseQueryResult
 type VSMProductQuery200ResponseQueryResult struct {
-	StartIndex       *int64       `json:"StartIndex,omitempty"`
-	PageSize         *int64       `json:"PageSize,omitempty"`
-	TotalResultCount *int64       `json:"TotalResultCount,omitempty"`
-	Results          []VSMProduct `json:"Results,omitempty"`
-	Warnings         []string     `json:"Warnings,omitempty"`
-	Errors           []string     `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []VSMProduct `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMProductQuery200ResponseQueryResult instantiates a new VSMProductQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *VSMProductQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o VSMProductQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableVSMProductQuery200ResponseQueryResult) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

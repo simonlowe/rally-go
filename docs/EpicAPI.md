@@ -4,12 +4,12 @@ All URIs are relative to *https://rally1.rallydev.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EpicCopy**](EpicAPI.md#EpicCopy) | **Post** /slm/webservice/v2.0/epic/{objectId}/copy | Epic Copy
-[**EpicCreate**](EpicAPI.md#EpicCreate) | **Post** /slm/webservice/v2.0/epic/create | Epic Create
-[**EpicDelete**](EpicAPI.md#EpicDelete) | **Delete** /slm/webservice/v2.0/epic/{objectId} | Epic Delete
-[**EpicQuery**](EpicAPI.md#EpicQuery) | **Get** /slm/webservice/v2.0/epic | Epic Query
-[**EpicRead**](EpicAPI.md#EpicRead) | **Get** /slm/webservice/v2.0/epic/{objectId} | Epic Read
-[**EpicUpdate**](EpicAPI.md#EpicUpdate) | **Post** /slm/webservice/v2.0/epic/{objectId} | Epic Update
+[**EpicCopy**](EpicAPI.md#EpicCopy) | **Post** /slm/webservice/v2.0/portfolioitem/epic/{objectId}/copy | Epic Copy
+[**EpicCreate**](EpicAPI.md#EpicCreate) | **Post** /slm/webservice/v2.0/portfolioitem/epic/create | Epic Create
+[**EpicDelete**](EpicAPI.md#EpicDelete) | **Delete** /slm/webservice/v2.0/portfolioitem/epic/{objectId} | Epic Delete
+[**EpicQuery**](EpicAPI.md#EpicQuery) | **Get** /slm/webservice/v2.0/portfolioitem/epic | Epic Query
+[**EpicRead**](EpicAPI.md#EpicRead) | **Get** /slm/webservice/v2.0/portfolioitem/epic/{objectId} | Epic Read
+[**EpicUpdate**](EpicAPI.md#EpicUpdate) | **Post** /slm/webservice/v2.0/portfolioitem/epic/{objectId} | Epic Update
 
 
 

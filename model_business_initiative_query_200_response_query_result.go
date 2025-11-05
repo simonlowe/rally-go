@@ -20,12 +20,12 @@ var _ MappedNullable = &BusinessInitiativeQuery200ResponseQueryResult{}
 
 // BusinessInitiativeQuery200ResponseQueryResult struct for BusinessInitiativeQuery200ResponseQueryResult
 type BusinessInitiativeQuery200ResponseQueryResult struct {
-	StartIndex       *int64               `json:"StartIndex,omitempty"`
-	PageSize         *int64               `json:"PageSize,omitempty"`
-	TotalResultCount *int64               `json:"TotalResultCount,omitempty"`
-	Results          []BusinessInitiative `json:"Results,omitempty"`
-	Warnings         []string             `json:"Warnings,omitempty"`
-	Errors           []string             `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []BusinessInitiative `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBusinessInitiativeQuery200ResponseQueryResult instantiates a new BusinessInitiativeQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *BusinessInitiativeQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o BusinessInitiativeQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableBusinessInitiativeQuery200ResponseQueryResult) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

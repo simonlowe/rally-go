@@ -20,9 +20,9 @@ var _ MappedNullable = &HierarchicalRequirementCreate200ResponseCreateResult{}
 
 // HierarchicalRequirementCreate200ResponseCreateResult struct for HierarchicalRequirementCreate200ResponseCreateResult
 type HierarchicalRequirementCreate200ResponseCreateResult struct {
-	Errors   []string                 `json:"Errors,omitempty"`
-	Object   *HierarchicalRequirement `json:"Object,omitempty"`
-	Warnings []string                 `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *HierarchicalRequirement `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewHierarchicalRequirementCreate200ResponseCreateResult instantiates a new HierarchicalRequirementCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *HierarchicalRequirementCreate200ResponseCreateResult) SetWarnings(v []s
 }
 
 func (o HierarchicalRequirementCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableHierarchicalRequirementCreate200ResponseCreateResult) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

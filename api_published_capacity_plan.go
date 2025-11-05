@@ -20,22 +20,23 @@ import (
 	"strings"
 )
 
+
 // PublishedCapacityPlanAPIService PublishedCapacityPlanAPI service
 type PublishedCapacityPlanAPIService service
 
 type ApiPublishedCapacityPlanQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PublishedCapacityPlanAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiPublishedCapacityPlanQueryRequest) Fetch(fetch string) ApiPublishedCapacityPlanQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -71,6 +72,7 @@ func (r ApiPublishedCapacityPlanQueryRequest) Workspace(workspace string) ApiPub
 	return r
 }
 
+// 
 func (r ApiPublishedCapacityPlanQueryRequest) Compact(compact bool) ApiPublishedCapacityPlanQueryRequest {
 	r.compact = &compact
 	return r
@@ -83,25 +85,24 @@ func (r ApiPublishedCapacityPlanQueryRequest) Execute() (*PublishedCapacityPlanQ
 /*
 PublishedCapacityPlanQuery PublishedCapacityPlan Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPublishedCapacityPlanQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPublishedCapacityPlanQueryRequest
 */
 func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanQuery(ctx context.Context) ApiPublishedCapacityPlanQueryRequest {
 	return ApiPublishedCapacityPlanQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PublishedCapacityPlanQuery200Response
+//  @return PublishedCapacityPlanQuery200Response
 func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanQueryExecute(r ApiPublishedCapacityPlanQueryRequest) (*PublishedCapacityPlanQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PublishedCapacityPlanQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PublishedCapacityPlanQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublishedCapacityPlanAPIService.PublishedCapacityPlanQuery")
@@ -136,8 +137,9 @@ func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanQueryExecute(r Ap
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -194,13 +196,14 @@ func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanQueryExecute(r Ap
 }
 
 type ApiPublishedCapacityPlanReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PublishedCapacityPlanAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiPublishedCapacityPlanReadRequest) Compact(compact bool) ApiPublishedCapacityPlanReadRequest {
 	r.compact = &compact
 	return r
@@ -219,27 +222,26 @@ func (r ApiPublishedCapacityPlanReadRequest) Execute() (*PublishedCapacityPlanRe
 /*
 PublishedCapacityPlanRead PublishedCapacityPlan Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPublishedCapacityPlanReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPublishedCapacityPlanReadRequest
 */
 func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanRead(ctx context.Context, objectId string) ApiPublishedCapacityPlanReadRequest {
 	return ApiPublishedCapacityPlanReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PublishedCapacityPlanRead200Response
+//  @return PublishedCapacityPlanRead200Response
 func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanReadExecute(r ApiPublishedCapacityPlanReadRequest) (*PublishedCapacityPlanRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PublishedCapacityPlanRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PublishedCapacityPlanRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublishedCapacityPlanAPIService.PublishedCapacityPlanRead")
@@ -257,8 +259,9 @@ func (a *PublishedCapacityPlanAPIService) PublishedCapacityPlanReadExecute(r Api
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

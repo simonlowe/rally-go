@@ -20,8 +20,8 @@ var _ MappedNullable = &BatchRequest{}
 
 // BatchRequest struct for BatchRequest
 type BatchRequest struct {
-	Batch             []BatchEntry `json:"Batch,omitempty"`
-	AllowSharedDelete *bool        `json:"AllowSharedDelete,omitempty"`
+	Batch []BatchEntry `json:"Batch,omitempty"`
+	AllowSharedDelete *bool `json:"AllowSharedDelete,omitempty"`
 }
 
 // NewBatchRequest instantiates a new BatchRequest object
@@ -106,7 +106,7 @@ func (o *BatchRequest) SetAllowSharedDelete(v bool) {
 }
 
 func (o BatchRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableBatchRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

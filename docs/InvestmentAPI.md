@@ -4,12 +4,12 @@ All URIs are relative to *https://rally1.rallydev.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InvestmentCopy**](InvestmentAPI.md#InvestmentCopy) | **Post** /slm/webservice/v2.0/investment/{objectId}/copy | Investment Copy
-[**InvestmentCreate**](InvestmentAPI.md#InvestmentCreate) | **Post** /slm/webservice/v2.0/investment/create | Investment Create
-[**InvestmentDelete**](InvestmentAPI.md#InvestmentDelete) | **Delete** /slm/webservice/v2.0/investment/{objectId} | Investment Delete
-[**InvestmentQuery**](InvestmentAPI.md#InvestmentQuery) | **Get** /slm/webservice/v2.0/investment | Investment Query
-[**InvestmentRead**](InvestmentAPI.md#InvestmentRead) | **Get** /slm/webservice/v2.0/investment/{objectId} | Investment Read
-[**InvestmentUpdate**](InvestmentAPI.md#InvestmentUpdate) | **Post** /slm/webservice/v2.0/investment/{objectId} | Investment Update
+[**InvestmentCopy**](InvestmentAPI.md#InvestmentCopy) | **Post** /slm/webservice/v2.0/portfolioitem/investment/{objectId}/copy | Investment Copy
+[**InvestmentCreate**](InvestmentAPI.md#InvestmentCreate) | **Post** /slm/webservice/v2.0/portfolioitem/investment/create | Investment Create
+[**InvestmentDelete**](InvestmentAPI.md#InvestmentDelete) | **Delete** /slm/webservice/v2.0/portfolioitem/investment/{objectId} | Investment Delete
+[**InvestmentQuery**](InvestmentAPI.md#InvestmentQuery) | **Get** /slm/webservice/v2.0/portfolioitem/investment | Investment Query
+[**InvestmentRead**](InvestmentAPI.md#InvestmentRead) | **Get** /slm/webservice/v2.0/portfolioitem/investment/{objectId} | Investment Read
+[**InvestmentUpdate**](InvestmentAPI.md#InvestmentUpdate) | **Post** /slm/webservice/v2.0/portfolioitem/investment/{objectId} | Investment Update
 
 
 

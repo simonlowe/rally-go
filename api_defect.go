@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // DefectAPIService DefectAPI service
 type DefectAPIService service
 
 type ApiDefectCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefectAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiDefectCopyRequest) Compact(compact bool) ApiDefectCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiDefectCopyRequest) Execute() (*DefectRead200Response, *http.Response,
 /*
 DefectCopy Defect Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiDefectCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiDefectCopyRequest
 */
 func (a *DefectAPIService) DefectCopy(ctx context.Context, objectId string) ApiDefectCopyRequest {
 	return ApiDefectCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DefectRead200Response
+//  @return DefectRead200Response
 func (a *DefectAPIService) DefectCopyExecute(r ApiDefectCopyRequest) (*DefectRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DefectRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DefectRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectCopy")
@@ -87,8 +88,9 @@ func (a *DefectAPIService) DefectCopyExecute(r ApiDefectCopyRequest) (*DefectRea
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *DefectAPIService) DefectCopyExecute(r ApiDefectCopyRequest) (*DefectRea
 }
 
 type ApiDefectCreateRequest struct {
-	ctx            context.Context
-	ApiService     *DefectAPIService
+	ctx context.Context
+	ApiService *DefectAPIService
 	defectMutation *DefectMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiDefectCreateRequest) Execute() (*DefectCreate200Response, *http.Respo
 /*
 DefectCreate Defect Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDefectCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDefectCreateRequest
 */
 func (a *DefectAPIService) DefectCreate(ctx context.Context) ApiDefectCreateRequest {
 	return ApiDefectCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DefectCreate200Response
+//  @return DefectCreate200Response
 func (a *DefectAPIService) DefectCreateExecute(r ApiDefectCreateRequest) (*DefectCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DefectCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DefectCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectCreate")
@@ -258,9 +259,9 @@ func (a *DefectAPIService) DefectCreateExecute(r ApiDefectCreateRequest) (*Defec
 }
 
 type ApiDefectDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefectAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiDefectDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiDefectDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respon
 /*
 DefectDelete Defect Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiDefectDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiDefectDeleteRequest
 */
 func (a *DefectAPIService) DefectDelete(ctx context.Context, objectId string) ApiDefectDeleteRequest {
 	return ApiDefectDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *DefectAPIService) DefectDeleteExecute(r ApiDefectDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectDelete")
@@ -360,18 +360,18 @@ func (a *DefectAPIService) DefectDeleteExecute(r ApiDefectDeleteRequest) (*Allow
 }
 
 type ApiDefectQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefectAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiDefectQueryRequest) Fetch(fetch string) ApiDefectQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiDefectQueryRequest) Workspace(workspace string) ApiDefectQueryRequest
 	return r
 }
 
+// 
 func (r ApiDefectQueryRequest) Compact(compact bool) ApiDefectQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiDefectQueryRequest) Execute() (*DefectQuery200Response, *http.Respons
 /*
 DefectQuery Defect Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDefectQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDefectQueryRequest
 */
 func (a *DefectAPIService) DefectQuery(ctx context.Context) ApiDefectQueryRequest {
 	return ApiDefectQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DefectQuery200Response
+//  @return DefectQuery200Response
 func (a *DefectAPIService) DefectQueryExecute(r ApiDefectQueryRequest) (*DefectQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DefectQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DefectQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectQuery")
@@ -472,8 +472,9 @@ func (a *DefectAPIService) DefectQueryExecute(r ApiDefectQueryRequest) (*DefectQ
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *DefectAPIService) DefectQueryExecute(r ApiDefectQueryRequest) (*DefectQ
 }
 
 type ApiDefectReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefectAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiDefectReadRequest) Compact(compact bool) ApiDefectReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiDefectReadRequest) Execute() (*DefectRead200Response, *http.Response,
 /*
 DefectRead Defect Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiDefectReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiDefectReadRequest
 */
 func (a *DefectAPIService) DefectRead(ctx context.Context, objectId string) ApiDefectReadRequest {
 	return ApiDefectReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DefectRead200Response
+//  @return DefectRead200Response
 func (a *DefectAPIService) DefectReadExecute(r ApiDefectReadRequest) (*DefectRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DefectRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DefectRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectRead")
@@ -593,8 +594,9 @@ func (a *DefectAPIService) DefectReadExecute(r ApiDefectReadRequest) (*DefectRea
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *DefectAPIService) DefectReadExecute(r ApiDefectReadRequest) (*DefectRea
 }
 
 type ApiDefectUpdateRequest struct {
-	ctx            context.Context
-	ApiService     *DefectAPIService
-	objectId       string
+	ctx context.Context
+	ApiService *DefectAPIService
+	objectId string
 	defectMutation *DefectMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiDefectUpdateRequest) Execute() (*DefectRead200Response, *http.Respons
 /*
 DefectUpdate Defect Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiDefectUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiDefectUpdateRequest
 */
 func (a *DefectAPIService) DefectUpdate(ctx context.Context, objectId string) ApiDefectUpdateRequest {
 	return ApiDefectUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DefectRead200Response
+//  @return DefectRead200Response
 func (a *DefectAPIService) DefectUpdateExecute(r ApiDefectUpdateRequest) (*DefectRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DefectRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DefectRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefectAPIService.DefectUpdate")

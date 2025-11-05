@@ -26,27 +26,27 @@ type ObjectiveMutationObjective struct {
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Interim Target Date Template
-	InterimTargetDateTemplate *string     `json:"InterimTargetDateTemplate,omitempty"`
-	KeyResults                *Collection `json:"KeyResults,omitempty"`
+	InterimTargetDateTemplate *string `json:"InterimTargetDateTemplate,omitempty"`
+	KeyResults *Collection `json:"KeyResults,omitempty"`
 	// Name
-	Name     *string     `json:"Name,omitempty"`
-	Owner    *UserRef    `json:"Owner,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	Projects *Collection `json:"Projects,omitempty"`
 	// Score
 	Score *float32 `json:"Score,omitempty"`
 	// Start Date
-	StartDate *string     `json:"StartDate,omitempty"`
-	State     *StateRef   `json:"State,omitempty"`
-	Tags      *Collection `json:"Tags,omitempty"`
+	StartDate *string `json:"StartDate,omitempty"`
+	State *StateRef `json:"State,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Target Date
-	TargetDate *string       `json:"TargetDate,omitempty"`
-	Workspace  *WorkspaceRef `json:"Workspace,omitempty"`
+	TargetDate *string `json:"TargetDate,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Integration Mappings
 	CIntegrationMappings *string `json:"c_IntegrationMappings,omitempty"`
 	// Source
-	CSource  *string  `json:"c_Source,omitempty"`
+	CSource *string `json:"c_Source,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewObjectiveMutationObjective instantiates a new ObjectiveMutationObjective object
@@ -643,7 +643,7 @@ func (o *ObjectiveMutationObjective) SetErrors(v []string) {
 }
 
 func (o ObjectiveMutationObjective) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -744,3 +744,5 @@ func (v *NullableObjectiveMutationObjective) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

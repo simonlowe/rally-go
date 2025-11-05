@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // TestSetAPIService TestSetAPI service
 type TestSetAPIService service
 
 type ApiTestSetCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestSetAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestSetCopyRequest) Compact(compact bool) ApiTestSetCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiTestSetCopyRequest) Execute() (*TestSetRead200Response, *http.Respons
 /*
 TestSetCopy TestSet Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestSetCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestSetCopyRequest
 */
 func (a *TestSetAPIService) TestSetCopy(ctx context.Context, objectId string) ApiTestSetCopyRequest {
 	return ApiTestSetCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestSetRead200Response
+//  @return TestSetRead200Response
 func (a *TestSetAPIService) TestSetCopyExecute(r ApiTestSetCopyRequest) (*TestSetRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestSetRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestSetRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetCopy")
@@ -87,8 +88,9 @@ func (a *TestSetAPIService) TestSetCopyExecute(r ApiTestSetCopyRequest) (*TestSe
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *TestSetAPIService) TestSetCopyExecute(r ApiTestSetCopyRequest) (*TestSe
 }
 
 type ApiTestSetCreateRequest struct {
-	ctx             context.Context
-	ApiService      *TestSetAPIService
+	ctx context.Context
+	ApiService *TestSetAPIService
 	testSetMutation *TestSetMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiTestSetCreateRequest) Execute() (*TestSetCreate200Response, *http.Res
 /*
 TestSetCreate TestSet Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestSetCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestSetCreateRequest
 */
 func (a *TestSetAPIService) TestSetCreate(ctx context.Context) ApiTestSetCreateRequest {
 	return ApiTestSetCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestSetCreate200Response
+//  @return TestSetCreate200Response
 func (a *TestSetAPIService) TestSetCreateExecute(r ApiTestSetCreateRequest) (*TestSetCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestSetCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestSetCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetCreate")
@@ -258,9 +259,9 @@ func (a *TestSetAPIService) TestSetCreateExecute(r ApiTestSetCreateRequest) (*Te
 }
 
 type ApiTestSetDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestSetAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTestSetDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiTestSetDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respo
 /*
 TestSetDelete TestSet Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestSetDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestSetDeleteRequest
 */
 func (a *TestSetAPIService) TestSetDelete(ctx context.Context, objectId string) ApiTestSetDeleteRequest {
 	return ApiTestSetDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TestSetAPIService) TestSetDeleteExecute(r ApiTestSetDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetDelete")
@@ -360,18 +360,18 @@ func (a *TestSetAPIService) TestSetDeleteExecute(r ApiTestSetDeleteRequest) (*Al
 }
 
 type ApiTestSetQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestSetAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTestSetQueryRequest) Fetch(fetch string) ApiTestSetQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiTestSetQueryRequest) Workspace(workspace string) ApiTestSetQueryReque
 	return r
 }
 
+// 
 func (r ApiTestSetQueryRequest) Compact(compact bool) ApiTestSetQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiTestSetQueryRequest) Execute() (*TestSetQuery200Response, *http.Respo
 /*
 TestSetQuery TestSet Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestSetQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestSetQueryRequest
 */
 func (a *TestSetAPIService) TestSetQuery(ctx context.Context) ApiTestSetQueryRequest {
 	return ApiTestSetQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestSetQuery200Response
+//  @return TestSetQuery200Response
 func (a *TestSetAPIService) TestSetQueryExecute(r ApiTestSetQueryRequest) (*TestSetQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestSetQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestSetQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetQuery")
@@ -472,8 +472,9 @@ func (a *TestSetAPIService) TestSetQueryExecute(r ApiTestSetQueryRequest) (*Test
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *TestSetAPIService) TestSetQueryExecute(r ApiTestSetQueryRequest) (*Test
 }
 
 type ApiTestSetReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestSetAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestSetReadRequest) Compact(compact bool) ApiTestSetReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiTestSetReadRequest) Execute() (*TestSetRead200Response, *http.Respons
 /*
 TestSetRead TestSet Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestSetReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestSetReadRequest
 */
 func (a *TestSetAPIService) TestSetRead(ctx context.Context, objectId string) ApiTestSetReadRequest {
 	return ApiTestSetReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestSetRead200Response
+//  @return TestSetRead200Response
 func (a *TestSetAPIService) TestSetReadExecute(r ApiTestSetReadRequest) (*TestSetRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestSetRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestSetRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetRead")
@@ -593,8 +594,9 @@ func (a *TestSetAPIService) TestSetReadExecute(r ApiTestSetReadRequest) (*TestSe
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *TestSetAPIService) TestSetReadExecute(r ApiTestSetReadRequest) (*TestSe
 }
 
 type ApiTestSetUpdateRequest struct {
-	ctx             context.Context
-	ApiService      *TestSetAPIService
-	objectId        string
+	ctx context.Context
+	ApiService *TestSetAPIService
+	objectId string
 	testSetMutation *TestSetMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiTestSetUpdateRequest) Execute() (*TestSetRead200Response, *http.Respo
 /*
 TestSetUpdate TestSet Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestSetUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestSetUpdateRequest
 */
 func (a *TestSetAPIService) TestSetUpdate(ctx context.Context, objectId string) ApiTestSetUpdateRequest {
 	return ApiTestSetUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestSetRead200Response
+//  @return TestSetRead200Response
 func (a *TestSetAPIService) TestSetUpdateExecute(r ApiTestSetUpdateRequest) (*TestSetRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestSetRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestSetRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSetAPIService.TestSetUpdate")

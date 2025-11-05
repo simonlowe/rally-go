@@ -53,9 +53,9 @@ type LDAPConfigurationMutationLDAPConfiguration struct {
 	// Use SSL
 	UseSSL *bool `json:"UseSSL,omitempty"`
 	// User Filter Query
-	UserFilterQuery *string  `json:"UserFilterQuery,omitempty"`
-	Warnings        []string `json:"Warnings,omitempty"`
-	Errors          []string `json:"Errors,omitempty"`
+	UserFilterQuery *string `json:"UserFilterQuery,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewLDAPConfigurationMutationLDAPConfiguration instantiates a new LDAPConfigurationMutationLDAPConfiguration object
@@ -684,7 +684,7 @@ func (o *LDAPConfigurationMutationLDAPConfiguration) SetErrors(v []string) {
 }
 
 func (o LDAPConfigurationMutationLDAPConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -788,3 +788,5 @@ func (v *NullableLDAPConfigurationMutationLDAPConfiguration) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

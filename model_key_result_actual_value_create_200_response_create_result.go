@@ -20,9 +20,9 @@ var _ MappedNullable = &KeyResultActualValueCreate200ResponseCreateResult{}
 
 // KeyResultActualValueCreate200ResponseCreateResult struct for KeyResultActualValueCreate200ResponseCreateResult
 type KeyResultActualValueCreate200ResponseCreateResult struct {
-	Errors   []string              `json:"Errors,omitempty"`
-	Object   *KeyResultActualValue `json:"Object,omitempty"`
-	Warnings []string              `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *KeyResultActualValue `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewKeyResultActualValueCreate200ResponseCreateResult instantiates a new KeyResultActualValueCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *KeyResultActualValueCreate200ResponseCreateResult) SetWarnings(v []stri
 }
 
 func (o KeyResultActualValueCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableKeyResultActualValueCreate200ResponseCreateResult) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

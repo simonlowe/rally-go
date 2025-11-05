@@ -20,11 +20,11 @@ var _ MappedNullable = &ScheduleStateRead200Response{}
 
 // ScheduleStateRead200Response struct for ScheduleStateRead200Response
 type ScheduleStateRead200Response struct {
-	RallyAPIMajor *string        `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string        `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	ScheduleState *ScheduleState `json:"ScheduleState,omitempty"`
-	Warnings      []string       `json:"Warnings,omitempty"`
-	Errors        []string       `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewScheduleStateRead200Response instantiates a new ScheduleStateRead200Response object
@@ -205,7 +205,7 @@ func (o *ScheduleStateRead200Response) SetErrors(v []string) {
 }
 
 func (o ScheduleStateRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableScheduleStateRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // PreliminaryEstimateAPIService PreliminaryEstimateAPI service
 type PreliminaryEstimateAPIService service
 
 type ApiPreliminaryEstimateCreateRequest struct {
-	ctx                         context.Context
-	ApiService                  *PreliminaryEstimateAPIService
+	ctx context.Context
+	ApiService *PreliminaryEstimateAPIService
 	preliminaryEstimateMutation *PreliminaryEstimateMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiPreliminaryEstimateCreateRequest) Execute() (*PreliminaryEstimateCrea
 /*
 PreliminaryEstimateCreate PreliminaryEstimate Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPreliminaryEstimateCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPreliminaryEstimateCreateRequest
 */
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateCreate(ctx context.Context) ApiPreliminaryEstimateCreateRequest {
 	return ApiPreliminaryEstimateCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreliminaryEstimateCreate200Response
+//  @return PreliminaryEstimateCreate200Response
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateCreateExecute(r ApiPreliminaryEstimateCreateRequest) (*PreliminaryEstimateCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreliminaryEstimateCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreliminaryEstimateCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreliminaryEstimateAPIService.PreliminaryEstimateCreate")
@@ -134,9 +134,9 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateCreateExecute(r ApiPr
 }
 
 type ApiPreliminaryEstimateDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreliminaryEstimateAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiPreliminaryEstimateDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiPreliminaryEstimateDeleteRequest) Execute() (*AllowedAttributeValueDe
 /*
 PreliminaryEstimateDelete PreliminaryEstimate Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreliminaryEstimateDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreliminaryEstimateDeleteRequest
 */
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateDelete(ctx context.Context, objectId string) ApiPreliminaryEstimateDeleteRequest {
 	return ApiPreliminaryEstimateDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateDeleteExecute(r ApiPreliminaryEstimateDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreliminaryEstimateAPIService.PreliminaryEstimateDelete")
@@ -236,18 +235,18 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateDeleteExecute(r ApiPr
 }
 
 type ApiPreliminaryEstimateQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreliminaryEstimateAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiPreliminaryEstimateQueryRequest) Fetch(fetch string) ApiPreliminaryEstimateQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiPreliminaryEstimateQueryRequest) Workspace(workspace string) ApiPreli
 	return r
 }
 
+// 
 func (r ApiPreliminaryEstimateQueryRequest) Compact(compact bool) ApiPreliminaryEstimateQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiPreliminaryEstimateQueryRequest) Execute() (*PreliminaryEstimateQuery
 /*
 PreliminaryEstimateQuery PreliminaryEstimate Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPreliminaryEstimateQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPreliminaryEstimateQueryRequest
 */
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateQuery(ctx context.Context) ApiPreliminaryEstimateQueryRequest {
 	return ApiPreliminaryEstimateQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreliminaryEstimateQuery200Response
+//  @return PreliminaryEstimateQuery200Response
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateQueryExecute(r ApiPreliminaryEstimateQueryRequest) (*PreliminaryEstimateQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreliminaryEstimateQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreliminaryEstimateQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreliminaryEstimateAPIService.PreliminaryEstimateQuery")
@@ -348,8 +347,9 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateQueryExecute(r ApiPre
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateQueryExecute(r ApiPre
 }
 
 type ApiPreliminaryEstimateReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreliminaryEstimateAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiPreliminaryEstimateReadRequest) Compact(compact bool) ApiPreliminaryEstimateReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiPreliminaryEstimateReadRequest) Execute() (*PreliminaryEstimateRead20
 /*
 PreliminaryEstimateRead PreliminaryEstimate Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreliminaryEstimateReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreliminaryEstimateReadRequest
 */
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateRead(ctx context.Context, objectId string) ApiPreliminaryEstimateReadRequest {
 	return ApiPreliminaryEstimateReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreliminaryEstimateRead200Response
+//  @return PreliminaryEstimateRead200Response
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateReadExecute(r ApiPreliminaryEstimateReadRequest) (*PreliminaryEstimateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreliminaryEstimateRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreliminaryEstimateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreliminaryEstimateAPIService.PreliminaryEstimateRead")
@@ -469,8 +469,9 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateReadExecute(r ApiPrel
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *PreliminaryEstimateAPIService) PreliminaryEstimateReadExecute(r ApiPrel
 }
 
 type ApiPreliminaryEstimateUpdateRequest struct {
-	ctx                         context.Context
-	ApiService                  *PreliminaryEstimateAPIService
-	objectId                    string
+	ctx context.Context
+	ApiService *PreliminaryEstimateAPIService
+	objectId string
 	preliminaryEstimateMutation *PreliminaryEstimateMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiPreliminaryEstimateUpdateRequest) Execute() (*PreliminaryEstimateRead
 /*
 PreliminaryEstimateUpdate PreliminaryEstimate Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreliminaryEstimateUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreliminaryEstimateUpdateRequest
 */
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateUpdate(ctx context.Context, objectId string) ApiPreliminaryEstimateUpdateRequest {
 	return ApiPreliminaryEstimateUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreliminaryEstimateRead200Response
+//  @return PreliminaryEstimateRead200Response
 func (a *PreliminaryEstimateAPIService) PreliminaryEstimateUpdateExecute(r ApiPreliminaryEstimateUpdateRequest) (*PreliminaryEstimateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreliminaryEstimateRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreliminaryEstimateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreliminaryEstimateAPIService.PreliminaryEstimateUpdate")

@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // VSMProductAnalyticsMetricAPIService VSMProductAnalyticsMetricAPI service
 type VSMProductAnalyticsMetricAPIService service
 
 type ApiVSMProductAnalyticsMetricCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAnalyticsMetricAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiVSMProductAnalyticsMetricCopyRequest) Compact(compact bool) ApiVSMProductAnalyticsMetricCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiVSMProductAnalyticsMetricCopyRequest) Execute() (*VSMProductAnalytics
 /*
 VSMProductAnalyticsMetricCopy VSMProductAnalyticsMetric Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductAnalyticsMetricCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductAnalyticsMetricCopyRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCopy(ctx context.Context, objectId string) ApiVSMProductAnalyticsMetricCopyRequest {
 	return ApiVSMProductAnalyticsMetricCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductAnalyticsMetricRead200Response
+//  @return VSMProductAnalyticsMetricRead200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCopyExecute(r ApiVSMProductAnalyticsMetricCopyRequest) (*VSMProductAnalyticsMetricRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductAnalyticsMetricRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductAnalyticsMetricRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricCopy")
@@ -87,8 +88,9 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCopyExecu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCopyExecu
 }
 
 type ApiVSMProductAnalyticsMetricCreateRequest struct {
-	ctx                               context.Context
-	ApiService                        *VSMProductAnalyticsMetricAPIService
+	ctx context.Context
+	ApiService *VSMProductAnalyticsMetricAPIService
 	vSMProductAnalyticsMetricMutation *VSMProductAnalyticsMetricMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiVSMProductAnalyticsMetricCreateRequest) Execute() (*VSMProductAnalyti
 /*
 VSMProductAnalyticsMetricCreate VSMProductAnalyticsMetric Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMProductAnalyticsMetricCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMProductAnalyticsMetricCreateRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCreate(ctx context.Context) ApiVSMProductAnalyticsMetricCreateRequest {
 	return ApiVSMProductAnalyticsMetricCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductAnalyticsMetricCreate200Response
+//  @return VSMProductAnalyticsMetricCreate200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCreateExecute(r ApiVSMProductAnalyticsMetricCreateRequest) (*VSMProductAnalyticsMetricCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductAnalyticsMetricCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductAnalyticsMetricCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricCreate")
@@ -258,9 +259,9 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricCreateExe
 }
 
 type ApiVSMProductAnalyticsMetricDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAnalyticsMetricAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiVSMProductAnalyticsMetricDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiVSMProductAnalyticsMetricDeleteRequest) Execute() (*AllowedAttributeV
 /*
 VSMProductAnalyticsMetricDelete VSMProductAnalyticsMetric Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductAnalyticsMetricDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductAnalyticsMetricDeleteRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricDelete(ctx context.Context, objectId string) ApiVSMProductAnalyticsMetricDeleteRequest {
 	return ApiVSMProductAnalyticsMetricDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricDeleteExecute(r ApiVSMProductAnalyticsMetricDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricDelete")
@@ -360,18 +360,18 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricDeleteExe
 }
 
 type ApiVSMProductAnalyticsMetricQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAnalyticsMetricAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiVSMProductAnalyticsMetricQueryRequest) Fetch(fetch string) ApiVSMProductAnalyticsMetricQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiVSMProductAnalyticsMetricQueryRequest) Workspace(workspace string) Ap
 	return r
 }
 
+// 
 func (r ApiVSMProductAnalyticsMetricQueryRequest) Compact(compact bool) ApiVSMProductAnalyticsMetricQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiVSMProductAnalyticsMetricQueryRequest) Execute() (*VSMProductAnalytic
 /*
 VSMProductAnalyticsMetricQuery VSMProductAnalyticsMetric Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMProductAnalyticsMetricQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMProductAnalyticsMetricQueryRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricQuery(ctx context.Context) ApiVSMProductAnalyticsMetricQueryRequest {
 	return ApiVSMProductAnalyticsMetricQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductAnalyticsMetricQuery200Response
+//  @return VSMProductAnalyticsMetricQuery200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricQueryExecute(r ApiVSMProductAnalyticsMetricQueryRequest) (*VSMProductAnalyticsMetricQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductAnalyticsMetricQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductAnalyticsMetricQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricQuery")
@@ -472,8 +472,9 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricQueryExec
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricQueryExec
 }
 
 type ApiVSMProductAnalyticsMetricReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAnalyticsMetricAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiVSMProductAnalyticsMetricReadRequest) Compact(compact bool) ApiVSMProductAnalyticsMetricReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiVSMProductAnalyticsMetricReadRequest) Execute() (*VSMProductAnalytics
 /*
 VSMProductAnalyticsMetricRead VSMProductAnalyticsMetric Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductAnalyticsMetricReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductAnalyticsMetricReadRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricRead(ctx context.Context, objectId string) ApiVSMProductAnalyticsMetricReadRequest {
 	return ApiVSMProductAnalyticsMetricReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductAnalyticsMetricRead200Response
+//  @return VSMProductAnalyticsMetricRead200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricReadExecute(r ApiVSMProductAnalyticsMetricReadRequest) (*VSMProductAnalyticsMetricRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductAnalyticsMetricRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductAnalyticsMetricRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricRead")
@@ -593,8 +594,9 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricReadExecu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricReadExecu
 }
 
 type ApiVSMProductAnalyticsMetricUpdateRequest struct {
-	ctx                               context.Context
-	ApiService                        *VSMProductAnalyticsMetricAPIService
-	objectId                          string
+	ctx context.Context
+	ApiService *VSMProductAnalyticsMetricAPIService
+	objectId string
 	vSMProductAnalyticsMetricMutation *VSMProductAnalyticsMetricMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiVSMProductAnalyticsMetricUpdateRequest) Execute() (*VSMProductAnalyti
 /*
 VSMProductAnalyticsMetricUpdate VSMProductAnalyticsMetric Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductAnalyticsMetricUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductAnalyticsMetricUpdateRequest
 */
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricUpdate(ctx context.Context, objectId string) ApiVSMProductAnalyticsMetricUpdateRequest {
 	return ApiVSMProductAnalyticsMetricUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductAnalyticsMetricRead200Response
+//  @return VSMProductAnalyticsMetricRead200Response
 func (a *VSMProductAnalyticsMetricAPIService) VSMProductAnalyticsMetricUpdateExecute(r ApiVSMProductAnalyticsMetricUpdateRequest) (*VSMProductAnalyticsMetricRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductAnalyticsMetricRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductAnalyticsMetricRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAnalyticsMetricAPIService.VSMProductAnalyticsMetricUpdate")

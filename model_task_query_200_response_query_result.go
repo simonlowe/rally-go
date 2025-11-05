@@ -20,12 +20,12 @@ var _ MappedNullable = &TaskQuery200ResponseQueryResult{}
 
 // TaskQuery200ResponseQueryResult struct for TaskQuery200ResponseQueryResult
 type TaskQuery200ResponseQueryResult struct {
-	StartIndex       *int64   `json:"StartIndex,omitempty"`
-	PageSize         *int64   `json:"PageSize,omitempty"`
-	TotalResultCount *int64   `json:"TotalResultCount,omitempty"`
-	Results          []Task   `json:"Results,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Task `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTaskQuery200ResponseQueryResult instantiates a new TaskQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *TaskQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o TaskQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableTaskQuery200ResponseQueryResult) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

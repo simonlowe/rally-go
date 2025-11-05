@@ -20,12 +20,12 @@ var _ MappedNullable = &PortfolioItemQuery200ResponseQueryResult{}
 
 // PortfolioItemQuery200ResponseQueryResult struct for PortfolioItemQuery200ResponseQueryResult
 type PortfolioItemQuery200ResponseQueryResult struct {
-	StartIndex       *int64          `json:"StartIndex,omitempty"`
-	PageSize         *int64          `json:"PageSize,omitempty"`
-	TotalResultCount *int64          `json:"TotalResultCount,omitempty"`
-	Results          []PortfolioItem `json:"Results,omitempty"`
-	Warnings         []string        `json:"Warnings,omitempty"`
-	Errors           []string        `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []PortfolioItem `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPortfolioItemQuery200ResponseQueryResult instantiates a new PortfolioItemQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *PortfolioItemQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o PortfolioItemQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullablePortfolioItemQuery200ResponseQueryResult) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

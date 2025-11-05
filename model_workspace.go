@@ -32,25 +32,25 @@ type Workspace struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID      *string             `json:"ObjectUUID,omitempty"`
-	Owner           *UserRef            `json:"Owner,omitempty"`
-	Projects        *Collection         `json:"Projects,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Schema Version
 	SchemaVersion *string `json:"SchemaVersion,omitempty"`
 	// State
 	State *string `json:"State,omitempty"`
 	// Style
-	Style           *string          `json:"Style,omitempty"`
-	Subscription    *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags            *Collection      `json:"Tags,omitempty"`
-	TypeDefinitions *Collection      `json:"TypeDefinitions,omitempty"`
+	Style *string `json:"Style,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
+	TypeDefinitions *Collection `json:"TypeDefinitions,omitempty"`
 	// VersionId
-	VersionId              *string                    `json:"VersionId,omitempty"`
-	WorkRules              *Collection                `json:"WorkRules,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkRules *Collection `json:"WorkRules,omitempty"`
 	WorkspaceConfiguration *WorkspaceConfigurationRef `json:"WorkspaceConfiguration,omitempty"`
-	Warnings               []string                   `json:"Warnings,omitempty"`
-	Errors                 []string                   `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspace instantiates a new Workspace object
@@ -743,7 +743,7 @@ func (o *Workspace) SetErrors(v []string) {
 }
 
 func (o Workspace) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -853,3 +853,5 @@ func (v *NullableWorkspace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -25,11 +25,11 @@ type TestCaseStepMutationTestCaseStep struct {
 	// Input
 	Input *string `json:"Input,omitempty"`
 	// Step Index
-	StepIndex *int64        `json:"StepIndex,omitempty"`
-	TestCase  *TestCaseRef  `json:"TestCase,omitempty"`
+	StepIndex *int64 `json:"StepIndex,omitempty"`
+	TestCase *TestCaseRef `json:"TestCase,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseStepMutationTestCaseStep instantiates a new TestCaseStepMutationTestCaseStep object
@@ -274,7 +274,7 @@ func (o *TestCaseStepMutationTestCaseStep) SetErrors(v []string) {
 }
 
 func (o TestCaseStepMutationTestCaseStep) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -342,3 +342,5 @@ func (v *NullableTestCaseStepMutationTestCaseStep) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

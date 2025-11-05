@@ -4,12 +4,12 @@ All URIs are relative to *https://rally1.rallydev.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FeatureCopy**](FeatureAPI.md#FeatureCopy) | **Post** /slm/webservice/v2.0/feature/{objectId}/copy | Feature Copy
-[**FeatureCreate**](FeatureAPI.md#FeatureCreate) | **Post** /slm/webservice/v2.0/feature/create | Feature Create
-[**FeatureDelete**](FeatureAPI.md#FeatureDelete) | **Delete** /slm/webservice/v2.0/feature/{objectId} | Feature Delete
-[**FeatureQuery**](FeatureAPI.md#FeatureQuery) | **Get** /slm/webservice/v2.0/feature | Feature Query
-[**FeatureRead**](FeatureAPI.md#FeatureRead) | **Get** /slm/webservice/v2.0/feature/{objectId} | Feature Read
-[**FeatureUpdate**](FeatureAPI.md#FeatureUpdate) | **Post** /slm/webservice/v2.0/feature/{objectId} | Feature Update
+[**FeatureCopy**](FeatureAPI.md#FeatureCopy) | **Post** /slm/webservice/v2.0/portfolioitem/feature/{objectId}/copy | Feature Copy
+[**FeatureCreate**](FeatureAPI.md#FeatureCreate) | **Post** /slm/webservice/v2.0/portfolioitem/feature/create | Feature Create
+[**FeatureDelete**](FeatureAPI.md#FeatureDelete) | **Delete** /slm/webservice/v2.0/portfolioitem/feature/{objectId} | Feature Delete
+[**FeatureQuery**](FeatureAPI.md#FeatureQuery) | **Get** /slm/webservice/v2.0/portfolioitem/feature | Feature Query
+[**FeatureRead**](FeatureAPI.md#FeatureRead) | **Get** /slm/webservice/v2.0/portfolioitem/feature/{objectId} | Feature Read
+[**FeatureUpdate**](FeatureAPI.md#FeatureUpdate) | **Post** /slm/webservice/v2.0/portfolioitem/feature/{objectId} | Feature Update
 
 
 

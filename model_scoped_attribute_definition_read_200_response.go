@@ -20,11 +20,11 @@ var _ MappedNullable = &ScopedAttributeDefinitionRead200Response{}
 
 // ScopedAttributeDefinitionRead200Response struct for ScopedAttributeDefinitionRead200Response
 type ScopedAttributeDefinitionRead200Response struct {
-	RallyAPIMajor             *string                    `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor             *string                    `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	ScopedAttributeDefinition *ScopedAttributeDefinition `json:"ScopedAttributeDefinition,omitempty"`
-	Warnings                  []string                   `json:"Warnings,omitempty"`
-	Errors                    []string                   `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewScopedAttributeDefinitionRead200Response instantiates a new ScopedAttributeDefinitionRead200Response object
@@ -205,7 +205,7 @@ func (o *ScopedAttributeDefinitionRead200Response) SetErrors(v []string) {
 }
 
 func (o ScopedAttributeDefinitionRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableScopedAttributeDefinitionRead200Response) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

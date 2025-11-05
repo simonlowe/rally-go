@@ -21,17 +21,17 @@ var _ MappedNullable = &VSMComponentMutationVSMComponent{}
 // VSMComponentMutationVSMComponent VSMComponent
 type VSMComponentMutationVSMComponent struct {
 	// Name
-	Name     *string     `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Products *Collection `json:"Products,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source System Meta Data
 	SourceSystemMetaData *string `json:"SourceSystemMetaData,omitempty"`
 	// Source Url
-	SourceUrl *string       `json:"SourceUrl,omitempty"`
+	SourceUrl *string `json:"SourceUrl,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMComponentMutationVSMComponent instantiates a new VSMComponentMutationVSMComponent object
@@ -308,7 +308,7 @@ func (o *VSMComponentMutationVSMComponent) SetErrors(v []string) {
 }
 
 func (o VSMComponentMutationVSMComponent) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,3 +379,5 @@ func (v *NullableVSMComponentMutationVSMComponent) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

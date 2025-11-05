@@ -20,11 +20,11 @@ var _ MappedNullable = &EpicRead200Response{}
 
 // EpicRead200Response struct for EpicRead200Response
 type EpicRead200Response struct {
-	RallyAPIMajor *string  `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string  `json:"_rallyAPIMinor,omitempty"`
-	Epic          *Epic    `json:"Epic,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	Epic *Epic `json:"Epic,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewEpicRead200Response instantiates a new EpicRead200Response object
@@ -205,7 +205,7 @@ func (o *EpicRead200Response) SetErrors(v []string) {
 }
 
 func (o EpicRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableEpicRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

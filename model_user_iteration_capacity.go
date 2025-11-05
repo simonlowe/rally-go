@@ -23,24 +23,24 @@ type UserIterationCapacity struct {
 	// Capacity
 	Capacity *float32 `json:"Capacity,omitempty"`
 	// Creation Date
-	CreationDate *string       `json:"CreationDate,omitempty"`
-	Iteration    *IterationRef `json:"Iteration,omitempty"`
+	CreationDate *string `json:"CreationDate,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Load
 	Load *float32 `json:"Load,omitempty"`
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
-	Project      *ProjectRef      `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Task Estimates
 	TaskEstimates *float32 `json:"TaskEstimates,omitempty"`
-	User          *UserRef `json:"User,omitempty"`
+	User *UserRef `json:"User,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserIterationCapacity instantiates a new UserIterationCapacity object
@@ -509,7 +509,7 @@ func (o *UserIterationCapacity) SetErrors(v []string) {
 }
 
 func (o UserIterationCapacity) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -598,3 +598,5 @@ func (v *NullableUserIterationCapacity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

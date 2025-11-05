@@ -43,17 +43,17 @@ type Release struct {
 	// Plan Estimate
 	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	// Planned Velocity
-	PlannedVelocity *float32    `json:"PlannedVelocity,omitempty"`
-	Project         *ProjectRef `json:"Project,omitempty"`
+	PlannedVelocity *float32 `json:"PlannedVelocity,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Release Backlog Items Count
 	ReleaseBacklogItemsCount *int64 `json:"ReleaseBacklogItemsCount,omitempty"`
 	// Release Date
 	ReleaseDate *string `json:"ReleaseDate,omitempty"`
 	// Release Start Date
-	ReleaseStartDate *string             `json:"ReleaseStartDate,omitempty"`
-	RevisionHistory  *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	ReleaseStartDate *string `json:"ReleaseStartDate,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// SyncedWithParent
 	SyncedWithParent *bool `json:"SyncedWithParent,omitempty"`
@@ -68,11 +68,11 @@ type Release struct {
 	// Version
 	Version *string `json:"Version,omitempty"`
 	// VersionId
-	VersionId    *string       `json:"VersionId,omitempty"`
-	WorkProducts *Collection   `json:"WorkProducts,omitempty"`
-	Workspace    *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings     []string      `json:"Warnings,omitempty"`
-	Errors       []string      `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkProducts *Collection `json:"WorkProducts,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRelease instantiates a new Release object
@@ -1053,7 +1053,7 @@ func (o *Release) SetErrors(v []string) {
 }
 
 func (o Release) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1190,3 +1190,5 @@ func (v *NullableRelease) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

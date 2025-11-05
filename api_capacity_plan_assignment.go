@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // CapacityPlanAssignmentAPIService CapacityPlanAssignmentAPI service
 type CapacityPlanAssignmentAPIService service
 
 type ApiCapacityPlanAssignmentCreateRequest struct {
-	ctx                            context.Context
-	ApiService                     *CapacityPlanAssignmentAPIService
+	ctx context.Context
+	ApiService *CapacityPlanAssignmentAPIService
 	capacityPlanAssignmentMutation *CapacityPlanAssignmentMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiCapacityPlanAssignmentCreateRequest) Execute() (*CapacityPlanAssignme
 /*
 CapacityPlanAssignmentCreate CapacityPlanAssignment Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCapacityPlanAssignmentCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCapacityPlanAssignmentCreateRequest
 */
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentCreate(ctx context.Context) ApiCapacityPlanAssignmentCreateRequest {
 	return ApiCapacityPlanAssignmentCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CapacityPlanAssignmentCreate200Response
+//  @return CapacityPlanAssignmentCreate200Response
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentCreateExecute(r ApiCapacityPlanAssignmentCreateRequest) (*CapacityPlanAssignmentCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CapacityPlanAssignmentCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CapacityPlanAssignmentCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CapacityPlanAssignmentAPIService.CapacityPlanAssignmentCreate")
@@ -134,9 +134,9 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentCreateExecute(r
 }
 
 type ApiCapacityPlanAssignmentDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *CapacityPlanAssignmentAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiCapacityPlanAssignmentDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiCapacityPlanAssignmentDeleteRequest) Execute() (*AllowedAttributeValu
 /*
 CapacityPlanAssignmentDelete CapacityPlanAssignment Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiCapacityPlanAssignmentDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiCapacityPlanAssignmentDeleteRequest
 */
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentDelete(ctx context.Context, objectId string) ApiCapacityPlanAssignmentDeleteRequest {
 	return ApiCapacityPlanAssignmentDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentDeleteExecute(r ApiCapacityPlanAssignmentDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CapacityPlanAssignmentAPIService.CapacityPlanAssignmentDelete")
@@ -236,18 +235,18 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentDeleteExecute(r
 }
 
 type ApiCapacityPlanAssignmentQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *CapacityPlanAssignmentAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiCapacityPlanAssignmentQueryRequest) Fetch(fetch string) ApiCapacityPlanAssignmentQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiCapacityPlanAssignmentQueryRequest) Workspace(workspace string) ApiCa
 	return r
 }
 
+// 
 func (r ApiCapacityPlanAssignmentQueryRequest) Compact(compact bool) ApiCapacityPlanAssignmentQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiCapacityPlanAssignmentQueryRequest) Execute() (*CapacityPlanAssignmen
 /*
 CapacityPlanAssignmentQuery CapacityPlanAssignment Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCapacityPlanAssignmentQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCapacityPlanAssignmentQueryRequest
 */
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentQuery(ctx context.Context) ApiCapacityPlanAssignmentQueryRequest {
 	return ApiCapacityPlanAssignmentQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CapacityPlanAssignmentQuery200Response
+//  @return CapacityPlanAssignmentQuery200Response
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentQueryExecute(r ApiCapacityPlanAssignmentQueryRequest) (*CapacityPlanAssignmentQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CapacityPlanAssignmentQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CapacityPlanAssignmentQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CapacityPlanAssignmentAPIService.CapacityPlanAssignmentQuery")
@@ -348,8 +347,9 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentQueryExecute(r 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentQueryExecute(r 
 }
 
 type ApiCapacityPlanAssignmentReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *CapacityPlanAssignmentAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiCapacityPlanAssignmentReadRequest) Compact(compact bool) ApiCapacityPlanAssignmentReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiCapacityPlanAssignmentReadRequest) Execute() (*CapacityPlanAssignment
 /*
 CapacityPlanAssignmentRead CapacityPlanAssignment Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiCapacityPlanAssignmentReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiCapacityPlanAssignmentReadRequest
 */
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentRead(ctx context.Context, objectId string) ApiCapacityPlanAssignmentReadRequest {
 	return ApiCapacityPlanAssignmentReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CapacityPlanAssignmentRead200Response
+//  @return CapacityPlanAssignmentRead200Response
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentReadExecute(r ApiCapacityPlanAssignmentReadRequest) (*CapacityPlanAssignmentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CapacityPlanAssignmentRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CapacityPlanAssignmentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CapacityPlanAssignmentAPIService.CapacityPlanAssignmentRead")
@@ -469,8 +469,9 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentReadExecute(r A
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentReadExecute(r A
 }
 
 type ApiCapacityPlanAssignmentUpdateRequest struct {
-	ctx                            context.Context
-	ApiService                     *CapacityPlanAssignmentAPIService
-	objectId                       string
+	ctx context.Context
+	ApiService *CapacityPlanAssignmentAPIService
+	objectId string
 	capacityPlanAssignmentMutation *CapacityPlanAssignmentMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiCapacityPlanAssignmentUpdateRequest) Execute() (*CapacityPlanAssignme
 /*
 CapacityPlanAssignmentUpdate CapacityPlanAssignment Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiCapacityPlanAssignmentUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiCapacityPlanAssignmentUpdateRequest
 */
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentUpdate(ctx context.Context, objectId string) ApiCapacityPlanAssignmentUpdateRequest {
 	return ApiCapacityPlanAssignmentUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CapacityPlanAssignmentRead200Response
+//  @return CapacityPlanAssignmentRead200Response
 func (a *CapacityPlanAssignmentAPIService) CapacityPlanAssignmentUpdateExecute(r ApiCapacityPlanAssignmentUpdateRequest) (*CapacityPlanAssignmentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CapacityPlanAssignmentRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CapacityPlanAssignmentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CapacityPlanAssignmentAPIService.CapacityPlanAssignmentUpdate")

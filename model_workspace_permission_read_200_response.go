@@ -20,11 +20,11 @@ var _ MappedNullable = &WorkspacePermissionRead200Response{}
 
 // WorkspacePermissionRead200Response struct for WorkspacePermissionRead200Response
 type WorkspacePermissionRead200Response struct {
-	RallyAPIMajor       *string              `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor       *string              `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	WorkspacePermission *WorkspacePermission `json:"WorkspacePermission,omitempty"`
-	Warnings            []string             `json:"Warnings,omitempty"`
-	Errors              []string             `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspacePermissionRead200Response instantiates a new WorkspacePermissionRead200Response object
@@ -205,7 +205,7 @@ func (o *WorkspacePermissionRead200Response) SetErrors(v []string) {
 }
 
 func (o WorkspacePermissionRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableWorkspacePermissionRead200Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

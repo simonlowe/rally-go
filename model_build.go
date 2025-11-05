@@ -21,7 +21,7 @@ var _ MappedNullable = &Build{}
 // Build Build
 type Build struct {
 	BuildDefinition *BuildDefinitionRef `json:"BuildDefinition,omitempty"`
-	Changesets      *Collection         `json:"Changesets,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Duration
@@ -37,15 +37,15 @@ type Build struct {
 	// Start
 	Start *string `json:"Start,omitempty"`
 	// Status
-	Status       *string          `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Uri
 	Uri *string `json:"Uri,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBuild instantiates a new Build object
@@ -578,7 +578,7 @@ func (o *Build) SetErrors(v []string) {
 }
 
 func (o Build) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -673,3 +673,5 @@ func (v *NullableBuild) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

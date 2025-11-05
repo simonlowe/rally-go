@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // TestFolderAPIService TestFolderAPI service
 type TestFolderAPIService service
 
 type ApiTestFolderCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestFolderAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestFolderCopyRequest) Compact(compact bool) ApiTestFolderCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiTestFolderCopyRequest) Execute() (*TestFolderRead200Response, *http.R
 /*
 TestFolderCopy TestFolder Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestFolderCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestFolderCopyRequest
 */
 func (a *TestFolderAPIService) TestFolderCopy(ctx context.Context, objectId string) ApiTestFolderCopyRequest {
 	return ApiTestFolderCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestFolderRead200Response
+//  @return TestFolderRead200Response
 func (a *TestFolderAPIService) TestFolderCopyExecute(r ApiTestFolderCopyRequest) (*TestFolderRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestFolderRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestFolderRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderCopy")
@@ -87,8 +88,9 @@ func (a *TestFolderAPIService) TestFolderCopyExecute(r ApiTestFolderCopyRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *TestFolderAPIService) TestFolderCopyExecute(r ApiTestFolderCopyRequest)
 }
 
 type ApiTestFolderCreateRequest struct {
-	ctx                context.Context
-	ApiService         *TestFolderAPIService
+	ctx context.Context
+	ApiService *TestFolderAPIService
 	testFolderMutation *TestFolderMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiTestFolderCreateRequest) Execute() (*TestFolderCreate200Response, *ht
 /*
 TestFolderCreate TestFolder Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestFolderCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestFolderCreateRequest
 */
 func (a *TestFolderAPIService) TestFolderCreate(ctx context.Context) ApiTestFolderCreateRequest {
 	return ApiTestFolderCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestFolderCreate200Response
+//  @return TestFolderCreate200Response
 func (a *TestFolderAPIService) TestFolderCreateExecute(r ApiTestFolderCreateRequest) (*TestFolderCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestFolderCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestFolderCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderCreate")
@@ -258,9 +259,9 @@ func (a *TestFolderAPIService) TestFolderCreateExecute(r ApiTestFolderCreateRequ
 }
 
 type ApiTestFolderDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestFolderAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTestFolderDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiTestFolderDeleteRequest) Execute() (*AllowedAttributeValueDelete200Re
 /*
 TestFolderDelete TestFolder Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestFolderDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestFolderDeleteRequest
 */
 func (a *TestFolderAPIService) TestFolderDelete(ctx context.Context, objectId string) ApiTestFolderDeleteRequest {
 	return ApiTestFolderDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TestFolderAPIService) TestFolderDeleteExecute(r ApiTestFolderDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderDelete")
@@ -360,18 +360,18 @@ func (a *TestFolderAPIService) TestFolderDeleteExecute(r ApiTestFolderDeleteRequ
 }
 
 type ApiTestFolderQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestFolderAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTestFolderQueryRequest) Fetch(fetch string) ApiTestFolderQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiTestFolderQueryRequest) Workspace(workspace string) ApiTestFolderQuer
 	return r
 }
 
+// 
 func (r ApiTestFolderQueryRequest) Compact(compact bool) ApiTestFolderQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiTestFolderQueryRequest) Execute() (*TestFolderQuery200Response, *http
 /*
 TestFolderQuery TestFolder Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestFolderQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestFolderQueryRequest
 */
 func (a *TestFolderAPIService) TestFolderQuery(ctx context.Context) ApiTestFolderQueryRequest {
 	return ApiTestFolderQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestFolderQuery200Response
+//  @return TestFolderQuery200Response
 func (a *TestFolderAPIService) TestFolderQueryExecute(r ApiTestFolderQueryRequest) (*TestFolderQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestFolderQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestFolderQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderQuery")
@@ -472,8 +472,9 @@ func (a *TestFolderAPIService) TestFolderQueryExecute(r ApiTestFolderQueryReques
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *TestFolderAPIService) TestFolderQueryExecute(r ApiTestFolderQueryReques
 }
 
 type ApiTestFolderReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestFolderAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestFolderReadRequest) Compact(compact bool) ApiTestFolderReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiTestFolderReadRequest) Execute() (*TestFolderRead200Response, *http.R
 /*
 TestFolderRead TestFolder Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestFolderReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestFolderReadRequest
 */
 func (a *TestFolderAPIService) TestFolderRead(ctx context.Context, objectId string) ApiTestFolderReadRequest {
 	return ApiTestFolderReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestFolderRead200Response
+//  @return TestFolderRead200Response
 func (a *TestFolderAPIService) TestFolderReadExecute(r ApiTestFolderReadRequest) (*TestFolderRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestFolderRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestFolderRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderRead")
@@ -593,8 +594,9 @@ func (a *TestFolderAPIService) TestFolderReadExecute(r ApiTestFolderReadRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *TestFolderAPIService) TestFolderReadExecute(r ApiTestFolderReadRequest)
 }
 
 type ApiTestFolderUpdateRequest struct {
-	ctx                context.Context
-	ApiService         *TestFolderAPIService
-	objectId           string
+	ctx context.Context
+	ApiService *TestFolderAPIService
+	objectId string
 	testFolderMutation *TestFolderMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiTestFolderUpdateRequest) Execute() (*TestFolderRead200Response, *http
 /*
 TestFolderUpdate TestFolder Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestFolderUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestFolderUpdateRequest
 */
 func (a *TestFolderAPIService) TestFolderUpdate(ctx context.Context, objectId string) ApiTestFolderUpdateRequest {
 	return ApiTestFolderUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestFolderRead200Response
+//  @return TestFolderRead200Response
 func (a *TestFolderAPIService) TestFolderUpdateExecute(r ApiTestFolderUpdateRequest) (*TestFolderRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestFolderRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestFolderRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestFolderAPIService.TestFolderUpdate")

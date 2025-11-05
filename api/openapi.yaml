@@ -3073,7 +3073,7 @@ paths:
       summary: Epic Create
       tags:
       - Epic
-  /slm/webservice/v2.0/portfolioitemepic/{objectId}/copy:
+  /slm/webservice/v2.0/portfolioitem/epic/{objectId}/copy:
     post:
       operationId: EpicCopy
       parameters:
@@ -3277,7 +3277,7 @@ paths:
       summary: Feature Update
       tags:
       - Feature
-  /slm/webservice/v2.0/portfolioitemfeature/create:
+  /slm/webservice/v2.0/portfolioitem/feature/create:
     post:
       operationId: FeatureCreate
       requestBody:

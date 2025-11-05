@@ -21,8 +21,8 @@ var _ MappedNullable = &RecycleBinEntryMutationRecycleBinEntry{}
 // RecycleBinEntryMutationRecycleBinEntry RecycleBinEntry
 type RecycleBinEntryMutationRecycleBinEntry struct {
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRecycleBinEntryMutationRecycleBinEntry instantiates a new RecycleBinEntryMutationRecycleBinEntry object
@@ -139,7 +139,7 @@ func (o *RecycleBinEntryMutationRecycleBinEntry) SetErrors(v []string) {
 }
 
 func (o RecycleBinEntryMutationRecycleBinEntry) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableRecycleBinEntryMutationRecycleBinEntry) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

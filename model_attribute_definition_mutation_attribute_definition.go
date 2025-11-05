@@ -26,10 +26,10 @@ type AttributeDefinitionMutationAttributeDefinition struct {
 	// Real Attribute Type
 	RealAttributeType *string `json:"RealAttributeType,omitempty"`
 	// Visible Only To Admins
-	VisibleOnlyToAdmins *bool         `json:"VisibleOnlyToAdmins,omitempty"`
-	Workspace           *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings            []string      `json:"Warnings,omitempty"`
-	Errors              []string      `json:"Errors,omitempty"`
+	VisibleOnlyToAdmins *bool `json:"VisibleOnlyToAdmins,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttributeDefinitionMutationAttributeDefinition instantiates a new AttributeDefinitionMutationAttributeDefinition object
@@ -274,7 +274,7 @@ func (o *AttributeDefinitionMutationAttributeDefinition) SetErrors(v []string) {
 }
 
 func (o AttributeDefinitionMutationAttributeDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -342,3 +342,5 @@ func (v *NullableAttributeDefinitionMutationAttributeDefinition) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,11 +20,11 @@ var _ MappedNullable = &ReleaseCumulativeFlowDataRead200Response{}
 
 // ReleaseCumulativeFlowDataRead200Response struct for ReleaseCumulativeFlowDataRead200Response
 type ReleaseCumulativeFlowDataRead200Response struct {
-	RallyAPIMajor             *string                    `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor             *string                    `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	ReleaseCumulativeFlowData *ReleaseCumulativeFlowData `json:"ReleaseCumulativeFlowData,omitempty"`
-	Warnings                  []string                   `json:"Warnings,omitempty"`
-	Errors                    []string                   `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewReleaseCumulativeFlowDataRead200Response instantiates a new ReleaseCumulativeFlowDataRead200Response object
@@ -205,7 +205,7 @@ func (o *ReleaseCumulativeFlowDataRead200Response) SetErrors(v []string) {
 }
 
 func (o ReleaseCumulativeFlowDataRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableReleaseCumulativeFlowDataRead200Response) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

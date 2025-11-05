@@ -27,15 +27,15 @@ type VSMProductPortfolioItem struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID    *string           `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	PortfolioItem *PortfolioItemRef `json:"PortfolioItem,omitempty"`
-	Product       *VSMProductRef    `json:"Product,omitempty"`
-	Subscription  *SubscriptionRef  `json:"Subscription,omitempty"`
+	Product *VSMProductRef `json:"Product,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMProductPortfolioItem instantiates a new VSMProductPortfolioItem object
@@ -408,7 +408,7 @@ func (o *VSMProductPortfolioItem) SetErrors(v []string) {
 }
 
 func (o VSMProductPortfolioItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -488,3 +488,5 @@ func (v *NullableVSMProductPortfolioItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

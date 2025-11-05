@@ -21,7 +21,7 @@ var _ MappedNullable = &BlockerMutationBlocker{}
 // BlockerMutationBlocker Blocker
 type BlockerMutationBlocker struct {
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBlockerMutationBlocker instantiates a new BlockerMutationBlocker object
@@ -106,7 +106,7 @@ func (o *BlockerMutationBlocker) SetErrors(v []string) {
 }
 
 func (o BlockerMutationBlocker) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableBlockerMutationBlocker) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

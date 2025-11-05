@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // RevisionHistoryAPIService RevisionHistoryAPI service
 type RevisionHistoryAPIService service
 
 type ApiRevisionHistoryReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RevisionHistoryAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiRevisionHistoryReadRequest) Compact(compact bool) ApiRevisionHistoryReadRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiRevisionHistoryReadRequest) Execute() (*RevisionHistoryRead200Respons
 /*
 RevisionHistoryRead RevisionHistory Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRevisionHistoryReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRevisionHistoryReadRequest
 */
 func (a *RevisionHistoryAPIService) RevisionHistoryRead(ctx context.Context, objectId string) ApiRevisionHistoryReadRequest {
 	return ApiRevisionHistoryReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RevisionHistoryRead200Response
+//  @return RevisionHistoryRead200Response
 func (a *RevisionHistoryAPIService) RevisionHistoryReadExecute(r ApiRevisionHistoryReadRequest) (*RevisionHistoryRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RevisionHistoryRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RevisionHistoryRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionHistoryAPIService.RevisionHistoryRead")
@@ -87,8 +88,9 @@ func (a *RevisionHistoryAPIService) RevisionHistoryReadExecute(r ApiRevisionHist
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

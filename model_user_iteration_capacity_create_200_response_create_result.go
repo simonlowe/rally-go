@@ -20,9 +20,9 @@ var _ MappedNullable = &UserIterationCapacityCreate200ResponseCreateResult{}
 
 // UserIterationCapacityCreate200ResponseCreateResult struct for UserIterationCapacityCreate200ResponseCreateResult
 type UserIterationCapacityCreate200ResponseCreateResult struct {
-	Errors   []string               `json:"Errors,omitempty"`
-	Object   *UserIterationCapacity `json:"Object,omitempty"`
-	Warnings []string               `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *UserIterationCapacity `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewUserIterationCapacityCreate200ResponseCreateResult instantiates a new UserIterationCapacityCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *UserIterationCapacityCreate200ResponseCreateResult) SetWarnings(v []str
 }
 
 func (o UserIterationCapacityCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableUserIterationCapacityCreate200ResponseCreateResult) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

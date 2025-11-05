@@ -35,15 +35,15 @@ type ReleaseCumulativeFlowData struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Release Object ID
-	ReleaseObjectID *int64           `json:"ReleaseObjectID,omitempty"`
-	Subscription    *SubscriptionRef `json:"Subscription,omitempty"`
+	ReleaseObjectID *int64 `json:"ReleaseObjectID,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Task Estimate Total
 	TaskEstimateTotal *float32 `json:"TaskEstimateTotal,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewReleaseCumulativeFlowData instantiates a new ReleaseCumulativeFlowData object
@@ -512,7 +512,7 @@ func (o *ReleaseCumulativeFlowData) SetErrors(v []string) {
 }
 
 func (o ReleaseCumulativeFlowData) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -601,3 +601,5 @@ func (v *NullableReleaseCumulativeFlowData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

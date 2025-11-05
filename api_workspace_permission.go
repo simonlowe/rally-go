@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // WorkspacePermissionAPIService WorkspacePermissionAPI service
 type WorkspacePermissionAPIService service
 
 type ApiWorkspacePermissionCreateRequest struct {
-	ctx                         context.Context
-	ApiService                  *WorkspacePermissionAPIService
+	ctx context.Context
+	ApiService *WorkspacePermissionAPIService
 	workspacePermissionMutation *WorkspacePermissionMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiWorkspacePermissionCreateRequest) Execute() (*WorkspacePermissionCrea
 /*
 WorkspacePermissionCreate WorkspacePermission Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWorkspacePermissionCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWorkspacePermissionCreateRequest
 */
 func (a *WorkspacePermissionAPIService) WorkspacePermissionCreate(ctx context.Context) ApiWorkspacePermissionCreateRequest {
 	return ApiWorkspacePermissionCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspacePermissionCreate200Response
+//  @return WorkspacePermissionCreate200Response
 func (a *WorkspacePermissionAPIService) WorkspacePermissionCreateExecute(r ApiWorkspacePermissionCreateRequest) (*WorkspacePermissionCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspacePermissionCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspacePermissionCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacePermissionAPIService.WorkspacePermissionCreate")
@@ -134,9 +134,9 @@ func (a *WorkspacePermissionAPIService) WorkspacePermissionCreateExecute(r ApiWo
 }
 
 type ApiWorkspacePermissionDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WorkspacePermissionAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiWorkspacePermissionDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiWorkspacePermissionDeleteRequest) Execute() (*AllowedAttributeValueDe
 /*
 WorkspacePermissionDelete WorkspacePermission Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWorkspacePermissionDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWorkspacePermissionDeleteRequest
 */
 func (a *WorkspacePermissionAPIService) WorkspacePermissionDelete(ctx context.Context, objectId string) ApiWorkspacePermissionDeleteRequest {
 	return ApiWorkspacePermissionDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *WorkspacePermissionAPIService) WorkspacePermissionDeleteExecute(r ApiWorkspacePermissionDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacePermissionAPIService.WorkspacePermissionDelete")
@@ -236,18 +235,18 @@ func (a *WorkspacePermissionAPIService) WorkspacePermissionDeleteExecute(r ApiWo
 }
 
 type ApiWorkspacePermissionQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WorkspacePermissionAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiWorkspacePermissionQueryRequest) Fetch(fetch string) ApiWorkspacePermissionQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiWorkspacePermissionQueryRequest) Workspace(workspace string) ApiWorks
 	return r
 }
 
+// 
 func (r ApiWorkspacePermissionQueryRequest) Compact(compact bool) ApiWorkspacePermissionQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiWorkspacePermissionQueryRequest) Execute() (*WorkspacePermissionQuery
 /*
 WorkspacePermissionQuery WorkspacePermission Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWorkspacePermissionQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWorkspacePermissionQueryRequest
 */
 func (a *WorkspacePermissionAPIService) WorkspacePermissionQuery(ctx context.Context) ApiWorkspacePermissionQueryRequest {
 	return ApiWorkspacePermissionQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspacePermissionQuery200Response
+//  @return WorkspacePermissionQuery200Response
 func (a *WorkspacePermissionAPIService) WorkspacePermissionQueryExecute(r ApiWorkspacePermissionQueryRequest) (*WorkspacePermissionQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspacePermissionQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspacePermissionQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacePermissionAPIService.WorkspacePermissionQuery")
@@ -348,8 +347,9 @@ func (a *WorkspacePermissionAPIService) WorkspacePermissionQueryExecute(r ApiWor
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *WorkspacePermissionAPIService) WorkspacePermissionQueryExecute(r ApiWor
 }
 
 type ApiWorkspacePermissionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WorkspacePermissionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiWorkspacePermissionReadRequest) Compact(compact bool) ApiWorkspacePermissionReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiWorkspacePermissionReadRequest) Execute() (*WorkspacePermissionRead20
 /*
 WorkspacePermissionRead WorkspacePermission Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWorkspacePermissionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWorkspacePermissionReadRequest
 */
 func (a *WorkspacePermissionAPIService) WorkspacePermissionRead(ctx context.Context, objectId string) ApiWorkspacePermissionReadRequest {
 	return ApiWorkspacePermissionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspacePermissionRead200Response
+//  @return WorkspacePermissionRead200Response
 func (a *WorkspacePermissionAPIService) WorkspacePermissionReadExecute(r ApiWorkspacePermissionReadRequest) (*WorkspacePermissionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspacePermissionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspacePermissionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacePermissionAPIService.WorkspacePermissionRead")
@@ -469,8 +469,9 @@ func (a *WorkspacePermissionAPIService) WorkspacePermissionReadExecute(r ApiWork
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

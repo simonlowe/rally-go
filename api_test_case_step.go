@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // TestCaseStepAPIService TestCaseStepAPI service
 type TestCaseStepAPIService service
 
 type ApiTestCaseStepCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestCaseStepAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestCaseStepCopyRequest) Compact(compact bool) ApiTestCaseStepCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiTestCaseStepCopyRequest) Execute() (*TestCaseStepRead200Response, *ht
 /*
 TestCaseStepCopy TestCaseStep Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestCaseStepCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestCaseStepCopyRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepCopy(ctx context.Context, objectId string) ApiTestCaseStepCopyRequest {
 	return ApiTestCaseStepCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestCaseStepRead200Response
+//  @return TestCaseStepRead200Response
 func (a *TestCaseStepAPIService) TestCaseStepCopyExecute(r ApiTestCaseStepCopyRequest) (*TestCaseStepRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestCaseStepRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestCaseStepRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepCopy")
@@ -87,8 +88,9 @@ func (a *TestCaseStepAPIService) TestCaseStepCopyExecute(r ApiTestCaseStepCopyRe
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *TestCaseStepAPIService) TestCaseStepCopyExecute(r ApiTestCaseStepCopyRe
 }
 
 type ApiTestCaseStepCreateRequest struct {
-	ctx                  context.Context
-	ApiService           *TestCaseStepAPIService
+	ctx context.Context
+	ApiService *TestCaseStepAPIService
 	testCaseStepMutation *TestCaseStepMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiTestCaseStepCreateRequest) Execute() (*TestCaseStepCreate200Response,
 /*
 TestCaseStepCreate TestCaseStep Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestCaseStepCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestCaseStepCreateRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepCreate(ctx context.Context) ApiTestCaseStepCreateRequest {
 	return ApiTestCaseStepCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestCaseStepCreate200Response
+//  @return TestCaseStepCreate200Response
 func (a *TestCaseStepAPIService) TestCaseStepCreateExecute(r ApiTestCaseStepCreateRequest) (*TestCaseStepCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestCaseStepCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestCaseStepCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepCreate")
@@ -258,9 +259,9 @@ func (a *TestCaseStepAPIService) TestCaseStepCreateExecute(r ApiTestCaseStepCrea
 }
 
 type ApiTestCaseStepDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestCaseStepAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTestCaseStepDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiTestCaseStepDeleteRequest) Execute() (*AllowedAttributeValueDelete200
 /*
 TestCaseStepDelete TestCaseStep Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestCaseStepDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestCaseStepDeleteRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepDelete(ctx context.Context, objectId string) ApiTestCaseStepDeleteRequest {
 	return ApiTestCaseStepDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TestCaseStepAPIService) TestCaseStepDeleteExecute(r ApiTestCaseStepDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepDelete")
@@ -360,18 +360,18 @@ func (a *TestCaseStepAPIService) TestCaseStepDeleteExecute(r ApiTestCaseStepDele
 }
 
 type ApiTestCaseStepQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestCaseStepAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTestCaseStepQueryRequest) Fetch(fetch string) ApiTestCaseStepQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiTestCaseStepQueryRequest) Workspace(workspace string) ApiTestCaseStep
 	return r
 }
 
+// 
 func (r ApiTestCaseStepQueryRequest) Compact(compact bool) ApiTestCaseStepQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiTestCaseStepQueryRequest) Execute() (*TestCaseStepQuery200Response, *
 /*
 TestCaseStepQuery TestCaseStep Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTestCaseStepQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTestCaseStepQueryRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepQuery(ctx context.Context) ApiTestCaseStepQueryRequest {
 	return ApiTestCaseStepQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestCaseStepQuery200Response
+//  @return TestCaseStepQuery200Response
 func (a *TestCaseStepAPIService) TestCaseStepQueryExecute(r ApiTestCaseStepQueryRequest) (*TestCaseStepQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestCaseStepQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestCaseStepQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepQuery")
@@ -472,8 +472,9 @@ func (a *TestCaseStepAPIService) TestCaseStepQueryExecute(r ApiTestCaseStepQuery
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *TestCaseStepAPIService) TestCaseStepQueryExecute(r ApiTestCaseStepQuery
 }
 
 type ApiTestCaseStepReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TestCaseStepAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTestCaseStepReadRequest) Compact(compact bool) ApiTestCaseStepReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiTestCaseStepReadRequest) Execute() (*TestCaseStepRead200Response, *ht
 /*
 TestCaseStepRead TestCaseStep Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestCaseStepReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestCaseStepReadRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepRead(ctx context.Context, objectId string) ApiTestCaseStepReadRequest {
 	return ApiTestCaseStepReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestCaseStepRead200Response
+//  @return TestCaseStepRead200Response
 func (a *TestCaseStepAPIService) TestCaseStepReadExecute(r ApiTestCaseStepReadRequest) (*TestCaseStepRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestCaseStepRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestCaseStepRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepRead")
@@ -593,8 +594,9 @@ func (a *TestCaseStepAPIService) TestCaseStepReadExecute(r ApiTestCaseStepReadRe
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *TestCaseStepAPIService) TestCaseStepReadExecute(r ApiTestCaseStepReadRe
 }
 
 type ApiTestCaseStepUpdateRequest struct {
-	ctx                  context.Context
-	ApiService           *TestCaseStepAPIService
-	objectId             string
+	ctx context.Context
+	ApiService *TestCaseStepAPIService
+	objectId string
 	testCaseStepMutation *TestCaseStepMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiTestCaseStepUpdateRequest) Execute() (*TestCaseStepRead200Response, *
 /*
 TestCaseStepUpdate TestCaseStep Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTestCaseStepUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTestCaseStepUpdateRequest
 */
 func (a *TestCaseStepAPIService) TestCaseStepUpdate(ctx context.Context, objectId string) ApiTestCaseStepUpdateRequest {
 	return ApiTestCaseStepUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TestCaseStepRead200Response
+//  @return TestCaseStepRead200Response
 func (a *TestCaseStepAPIService) TestCaseStepUpdateExecute(r ApiTestCaseStepUpdateRequest) (*TestCaseStepRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TestCaseStepRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestCaseStepRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestCaseStepAPIService.TestCaseStepUpdate")

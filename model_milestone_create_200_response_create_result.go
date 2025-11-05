@@ -20,9 +20,9 @@ var _ MappedNullable = &MilestoneCreate200ResponseCreateResult{}
 
 // MilestoneCreate200ResponseCreateResult struct for MilestoneCreate200ResponseCreateResult
 type MilestoneCreate200ResponseCreateResult struct {
-	Errors   []string   `json:"Errors,omitempty"`
-	Object   *Milestone `json:"Object,omitempty"`
-	Warnings []string   `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Milestone `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewMilestoneCreate200ResponseCreateResult instantiates a new MilestoneCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *MilestoneCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o MilestoneCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableMilestoneCreate200ResponseCreateResult) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

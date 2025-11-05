@@ -23,14 +23,14 @@ type BuildDefinitionMutationBuildDefinition struct {
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Name
-	Name     *string     `json:"Name,omitempty"`
-	Project  *ProjectRef `json:"Project,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	Projects *Collection `json:"Projects,omitempty"`
 	// Uri
-	Uri       *string       `json:"Uri,omitempty"`
+	Uri *string `json:"Uri,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBuildDefinitionMutationBuildDefinition instantiates a new BuildDefinitionMutationBuildDefinition object
@@ -307,7 +307,7 @@ func (o *BuildDefinitionMutationBuildDefinition) SetErrors(v []string) {
 }
 
 func (o BuildDefinitionMutationBuildDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -378,3 +378,5 @@ func (v *NullableBuildDefinitionMutationBuildDefinition) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

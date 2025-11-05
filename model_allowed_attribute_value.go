@@ -36,9 +36,9 @@ type AllowedAttributeValue struct {
 	// Value Index
 	ValueIndex *int64 `json:"ValueIndex,omitempty"`
 	// VersionId
-	VersionId *string  `json:"VersionId,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAllowedAttributeValue instantiates a new AllowedAttributeValue object
@@ -411,7 +411,7 @@ func (o *AllowedAttributeValue) SetErrors(v []string) {
 }
 
 func (o AllowedAttributeValue) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -491,3 +491,5 @@ func (v *NullableAllowedAttributeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

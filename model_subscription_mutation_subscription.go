@@ -95,9 +95,9 @@ type SubscriptionMutationSubscription struct {
 	// WorkspaceAdminsCanConfigureRecycleBinPurgeTime
 	WorkspaceAdminsCanConfigureRecycleBinPurgeTime *bool `json:"WorkspaceAdminsCanConfigureRecycleBinPurgeTime,omitempty"`
 	// Workspace Admins Can Create Users
-	WorkspaceAdminsCanCreateUsers *bool    `json:"WorkspaceAdminsCanCreateUsers,omitempty"`
-	Warnings                      []string `json:"Warnings,omitempty"`
-	Errors                        []string `json:"Errors,omitempty"`
+	WorkspaceAdminsCanCreateUsers *bool `json:"WorkspaceAdminsCanCreateUsers,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewSubscriptionMutationSubscription instantiates a new SubscriptionMutationSubscription object
@@ -1141,7 +1141,6 @@ func (o *SubscriptionMutationSubscription) HasSessionTimeoutSeconds() bool {
 func (o *SubscriptionMutationSubscription) SetSessionTimeoutSeconds(v int64) {
 	o.SessionTimeoutSeconds.Set(&v)
 }
-
 // SetSessionTimeoutSecondsNil sets the value for SessionTimeoutSeconds to be an explicit nil
 func (o *SubscriptionMutationSubscription) SetSessionTimeoutSecondsNil() {
 	o.SessionTimeoutSeconds.Set(nil)
@@ -1409,7 +1408,7 @@ func (o *SubscriptionMutationSubscription) SetErrors(v []string) {
 }
 
 func (o SubscriptionMutationSubscription) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1576,3 +1575,5 @@ func (v *NullableSubscriptionMutationSubscription) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

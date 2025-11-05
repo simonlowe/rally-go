@@ -35,21 +35,21 @@ type PortfolioItemFlowState struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Order Index
-	OrderIndex         *int64      `json:"OrderIndex,omitempty"`
-	ParentStateMapping *ObjectRef  `json:"ParentStateMapping,omitempty"`
-	Project            *ProjectRef `json:"Project,omitempty"`
+	OrderIndex *int64 `json:"OrderIndex,omitempty"`
+	ParentStateMapping *ObjectRef `json:"ParentStateMapping,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Restrictions
-	Restrictions    *string             `json:"Restrictions,omitempty"`
+	Restrictions *string `json:"Restrictions,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription    *SubscriptionRef    `json:"Subscription,omitempty"`
-	TypeDef         *TypeDefinitionRef  `json:"TypeDef,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	TypeDef *TypeDefinitionRef `json:"TypeDef,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// WIP Limit
-	WIPLimit  *int64        `json:"WIPLimit,omitempty"`
+	WIPLimit *int64 `json:"WIPLimit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPortfolioItemFlowState instantiates a new PortfolioItemFlowState object
@@ -678,7 +678,7 @@ func (o *PortfolioItemFlowState) SetErrors(v []string) {
 }
 
 func (o PortfolioItemFlowState) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -782,3 +782,5 @@ func (v *NullablePortfolioItemFlowState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

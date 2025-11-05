@@ -21,9 +21,9 @@ var _ MappedNullable = &User{}
 // User User
 type User struct {
 	// Account Locked Until
-	AccountLockedUntil *string     `json:"AccountLockedUntil,omitempty"`
-	ArtifactsCreated   *Collection `json:"ArtifactsCreated,omitempty"`
-	ArtifactsOwned     *Collection `json:"ArtifactsOwned,omitempty"`
+	AccountLockedUntil *string `json:"AccountLockedUntil,omitempty"`
+	ArtifactsCreated *Collection `json:"ArtifactsCreated,omitempty"`
+	ArtifactsOwned *Collection `json:"ArtifactsOwned,omitempty"`
 	// Cost Center
 	CostCenter *string `json:"CostCenter,omitempty"`
 	// Creation Date
@@ -33,8 +33,8 @@ type User struct {
 	// Date Time Format
 	DateTimeFormat *string `json:"DateTimeFormat,omitempty"`
 	// Default Detail Page To Viewing Mode
-	DefaultDetailPageToViewingMode *bool       `json:"DefaultDetailPageToViewingMode,omitempty"`
-	DefaultProject                 *ProjectRef `json:"DefaultProject,omitempty"`
+	DefaultDetailPageToViewingMode *bool `json:"DefaultDetailPageToViewingMode,omitempty"`
+	DefaultProject *ProjectRef `json:"DefaultProject,omitempty"`
 	// Deleted
 	Deleted *bool `json:"Deleted,omitempty"`
 	// Department
@@ -92,33 +92,33 @@ type User struct {
 	// Phone
 	Phone *string `json:"Phone,omitempty"`
 	// Planner
-	Planner      *bool            `json:"Planner,omitempty"`
+	Planner *bool `json:"Planner,omitempty"`
 	ProfileImage *ProfileImageRef `json:"ProfileImage,omitempty"`
 	// Project Scope Down
 	ProjectScopeDown *bool `json:"ProjectScopeDown,omitempty"`
 	// Project Scope Up
-	ProjectScopeUp  *bool               `json:"ProjectScopeUp,omitempty"`
+	ProjectScopeUp *bool `json:"ProjectScopeUp,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Role
 	Role *string `json:"Role,omitempty"`
 	// Session Timeout Warning
 	SessionTimeoutWarning *bool `json:"SessionTimeoutWarning,omitempty"`
 	// Short Display Name
-	ShortDisplayName *string          `json:"ShortDisplayName,omitempty"`
-	Subscription     *SubscriptionRef `json:"Subscription,omitempty"`
+	ShortDisplayName *string `json:"ShortDisplayName,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Subscription Admin
 	SubscriptionAdmin *bool `json:"SubscriptionAdmin,omitempty"`
 	// Subscription ID
 	SubscriptionID *int64 `json:"SubscriptionID,omitempty"`
 	// Subscription Permission
-	SubscriptionPermission *string     `json:"SubscriptionPermission,omitempty"`
-	TeamMemberships        *Collection `json:"TeamMemberships,omitempty"`
+	SubscriptionPermission *string `json:"SubscriptionPermission,omitempty"`
+	TeamMemberships *Collection `json:"TeamMemberships,omitempty"`
 	// Timebox Admin
 	TimeboxAdmin *bool `json:"TimeboxAdmin,omitempty"`
 	// User Name
-	UserName        *string         `json:"UserName,omitempty"`
-	UserPermissions *Collection     `json:"UserPermissions,omitempty"`
-	UserProfile     *UserProfileRef `json:"UserProfile,omitempty"`
+	UserName *string `json:"UserName,omitempty"`
+	UserPermissions *Collection `json:"UserPermissions,omitempty"`
+	UserProfile *UserProfileRef `json:"UserProfile,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Vsi Admin
@@ -132,9 +132,9 @@ type User struct {
 	// session Timeout
 	SessionTimeout *int64 `json:"sessionTimeout,omitempty"`
 	// subscriptionOid
-	SubscriptionOid *int64   `json:"subscriptionOid,omitempty"`
-	Warnings        []string `json:"Warnings,omitempty"`
-	Errors          []string `json:"Errors,omitempty"`
+	SubscriptionOid *int64 `json:"subscriptionOid,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUser instantiates a new User object
@@ -2187,7 +2187,7 @@ func (o *User) SetErrors(v []string) {
 }
 
 func (o User) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2423,3 +2423,5 @@ func (v *NullableUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

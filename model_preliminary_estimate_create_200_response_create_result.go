@@ -20,9 +20,9 @@ var _ MappedNullable = &PreliminaryEstimateCreate200ResponseCreateResult{}
 
 // PreliminaryEstimateCreate200ResponseCreateResult struct for PreliminaryEstimateCreate200ResponseCreateResult
 type PreliminaryEstimateCreate200ResponseCreateResult struct {
-	Errors   []string             `json:"Errors,omitempty"`
-	Object   *PreliminaryEstimate `json:"Object,omitempty"`
-	Warnings []string             `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *PreliminaryEstimate `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewPreliminaryEstimateCreate200ResponseCreateResult instantiates a new PreliminaryEstimateCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *PreliminaryEstimateCreate200ResponseCreateResult) SetWarnings(v []strin
 }
 
 func (o PreliminaryEstimateCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullablePreliminaryEstimateCreate200ResponseCreateResult) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

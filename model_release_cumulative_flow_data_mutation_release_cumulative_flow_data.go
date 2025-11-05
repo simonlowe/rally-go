@@ -21,10 +21,10 @@ var _ MappedNullable = &ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowDa
 // ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData ReleaseCumulativeFlowData
 type ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData struct {
 	// Release Object ID
-	ReleaseObjectID *int64        `json:"ReleaseObjectID,omitempty"`
-	Workspace       *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings        []string      `json:"Warnings,omitempty"`
-	Errors          []string      `json:"Errors,omitempty"`
+	ReleaseObjectID *int64 `json:"ReleaseObjectID,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData instantiates a new ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData object
@@ -173,7 +173,7 @@ func (o *ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData) SetErrors(v
 }
 
 func (o ReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,3 +232,5 @@ func (v *NullableReleaseCumulativeFlowDataMutationReleaseCumulativeFlowData) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

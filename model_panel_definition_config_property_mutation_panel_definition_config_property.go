@@ -25,9 +25,9 @@ type PanelDefinitionConfigPropertyMutationPanelDefinitionConfigProperty struct {
 	// readOnly
 	ReadOnly *bool `json:"readOnly,omitempty"`
 	// value
-	Value    *string  `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPanelDefinitionConfigPropertyMutationPanelDefinitionConfigProperty instantiates a new PanelDefinitionConfigPropertyMutationPanelDefinitionConfigProperty object
@@ -208,7 +208,7 @@ func (o *PanelDefinitionConfigPropertyMutationPanelDefinitionConfigProperty) Set
 }
 
 func (o PanelDefinitionConfigPropertyMutationPanelDefinitionConfigProperty) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,3 +270,5 @@ func (v *NullablePanelDefinitionConfigPropertyMutationPanelDefinitionConfigPrope
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

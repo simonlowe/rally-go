@@ -21,18 +21,18 @@ var _ MappedNullable = &ScheduledTestCase{}
 // ScheduledTestCase ScheduledTestCase
 type ScheduledTestCase struct {
 	// AI Assisted
-	AIAssisted  *bool       `json:"AIAssisted,omitempty"`
-	Changesets  *Collection `json:"Changesets,omitempty"`
+	AIAssisted *bool `json:"AIAssisted,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	Connections *Collection `json:"Connections,omitempty"`
-	CreatedBy   *UserRef    `json:"CreatedBy,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Defect Status
-	DefectStatus *string     `json:"DefectStatus,omitempty"`
-	Defects      *Collection `json:"Defects,omitempty"`
+	DefectStatus *string `json:"DefectStatus,omitempty"`
+	Defects *Collection `json:"Defects,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -42,7 +42,7 @@ type ScheduledTestCase struct {
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// Last Build
-	LastBuild  *string            `json:"LastBuild,omitempty"`
+	LastBuild *string `json:"LastBuild,omitempty"`
 	LastResult *TestCaseResultRef `json:"LastResult,omitempty"`
 	// Last Run
 	LastRun *string `json:"LastRun,omitempty"`
@@ -53,7 +53,7 @@ type ScheduledTestCase struct {
 	// Latest Discussion Age In Minutes
 	LatestDiscussionAgeInMinutes *int64 `json:"LatestDiscussionAgeInMinutes,omitempty"`
 	// Method
-	Method     *string     `json:"Method,omitempty"`
+	Method *string `json:"Method,omitempty"`
 	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
@@ -64,8 +64,8 @@ type ScheduledTestCase struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Objective
-	Objective *string  `json:"Objective,omitempty"`
-	Owner     *UserRef `json:"Owner,omitempty"`
+	Objective *string `json:"Objective,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
 	Package *string `json:"Package,omitempty"`
 	// Post Conditions
@@ -73,22 +73,22 @@ type ScheduledTestCase struct {
 	// Pre Conditions
 	PreConditions *string `json:"PreConditions,omitempty"`
 	// Priority
-	Priority *string     `json:"Priority,omitempty"`
-	Project  *ProjectRef `json:"Project,omitempty"`
+	Priority *string `json:"Priority,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
 	Ready *bool `json:"Ready,omitempty"`
 	// Recycled
-	Recycled        *bool               `json:"Recycled,omitempty"`
-	Results         *Collection         `json:"Results,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
+	Results *Collection `json:"Results,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Risk
-	Risk         *string          `json:"Risk,omitempty"`
-	Steps        *Collection      `json:"Steps,omitempty"`
+	Risk *string `json:"Risk,omitempty"`
+	Steps *Collection `json:"Steps,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags         *Collection      `json:"Tags,omitempty"`
-	TestCase     *TestCaseRef     `json:"TestCase,omitempty"`
-	TestFolder   *TestFolderRef   `json:"TestFolder,omitempty"`
-	TestSet      *TestSetRef      `json:"TestSet,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
+	TestCase *TestCaseRef `json:"TestCase,omitempty"`
+	TestFolder *TestFolderRef `json:"TestFolder,omitempty"`
+	TestSet *TestSetRef `json:"TestSet,omitempty"`
 	// Type
 	Type *string `json:"Type,omitempty"`
 	// Validation Expected Result
@@ -96,18 +96,18 @@ type ScheduledTestCase struct {
 	// Validation Input
 	ValidationInput *string `json:"ValidationInput,omitempty"`
 	// VersionId
-	VersionId   *string       `json:"VersionId,omitempty"`
-	WorkProduct *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace   *WorkspaceRef `json:"Workspace,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
 	CALMID *string `json:"c_ALMID,omitempty"`
 	// API Test
 	CAPITest *bool `json:"c_APITest,omitempty"`
 	// Application
-	CApplication *string  `json:"c_Application,omitempty"`
-	CAssignedTo  *UserRef `json:"c_AssignedTo,omitempty"`
+	CApplication *string `json:"c_Application,omitempty"`
+	CAssignedTo *UserRef `json:"c_AssignedTo,omitempty"`
 	// Automated Execution
-	CAutomatedExecution             *int64      `json:"c_AutomatedExecution,omitempty"`
+	CAutomatedExecution *int64 `json:"c_AutomatedExecution,omitempty"`
 	CAutomationExecutionEnvironment *Collection `json:"c_AutomationExecutionEnvironment,omitempty"`
 	// Automation Status
 	CAutomationStatus *string `json:"c_AutomationStatus,omitempty"`
@@ -122,20 +122,20 @@ type ScheduledTestCase struct {
 	// DMS Initiatives
 	CDMSInitiatives *string `json:"c_DMSInitiatives,omitempty"`
 	// DMS Priority
-	CDMSPriority   *string     `json:"c_DMSPriority,omitempty"`
+	CDMSPriority *string `json:"c_DMSPriority,omitempty"`
 	CFunctionality *Collection `json:"c_Functionality,omitempty"`
 	// Manual Execution
-	CManualExecution *int64      `json:"c_ManualExecution,omitempty"`
-	CRTSProduct      *Collection `json:"c_RTSProduct,omitempty"`
+	CManualExecution *int64 `json:"c_ManualExecution,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Sub Category - CAI/IS
-	CSubCategoryCAIIS *string     `json:"c_SubCategoryCAIIS,omitempty"`
+	CSubCategoryCAIIS *string `json:"c_SubCategoryCAIIS,omitempty"`
 	CSubfunctionality *Collection `json:"c_Subfunctionality,omitempty"`
 	// Ticket ID
 	CTicketID *string `json:"c_TicketID,omitempty"`
 	// To Be Automated
-	CToBeAutomated *bool    `json:"c_ToBeAutomated,omitempty"`
-	Warnings       []string `json:"Warnings,omitempty"`
-	Errors         []string `json:"Errors,omitempty"`
+	CToBeAutomated *bool `json:"c_ToBeAutomated,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewScheduledTestCase instantiates a new ScheduledTestCase object
@@ -2440,7 +2440,7 @@ func (o *ScheduledTestCase) SetErrors(v []string) {
 }
 
 func (o ScheduledTestCase) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2700,3 +2700,5 @@ func (v *NullableScheduledTestCase) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

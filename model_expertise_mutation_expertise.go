@@ -21,10 +21,10 @@ var _ MappedNullable = &ExpertiseMutationExpertise{}
 // ExpertiseMutationExpertise Expertise
 type ExpertiseMutationExpertise struct {
 	// Name
-	Name      *string       `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewExpertiseMutationExpertise instantiates a new ExpertiseMutationExpertise object
@@ -173,7 +173,7 @@ func (o *ExpertiseMutationExpertise) SetErrors(v []string) {
 }
 
 func (o ExpertiseMutationExpertise) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,3 +232,5 @@ func (v *NullableExpertiseMutationExpertise) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

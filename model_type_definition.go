@@ -21,9 +21,9 @@ var _ MappedNullable = &TypeDefinition{}
 // TypeDefinition TypeDefinition
 type TypeDefinition struct {
 	// Abstract
-	Abstract           *bool              `json:"Abstract,omitempty"`
+	Abstract *bool `json:"Abstract,omitempty"`
 	AssociatedWorkType *TypeDefinitionRef `json:"AssociatedWorkType,omitempty"`
-	Attributes         *Collection        `json:"Attributes,omitempty"`
+	Attributes *Collection `json:"Attributes,omitempty"`
 	// Copyable
 	Copyable *bool `json:"Copyable,omitempty"`
 	// Creatable
@@ -49,25 +49,25 @@ type TypeDefinition struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Ordinal
-	Ordinal *int64             `json:"Ordinal,omitempty"`
-	Parent  *TypeDefinitionRef `json:"Parent,omitempty"`
+	Ordinal *int64 `json:"Ordinal,omitempty"`
+	Parent *TypeDefinitionRef `json:"Parent,omitempty"`
 	// Queryable
 	Queryable *bool `json:"Queryable,omitempty"`
 	// Read Only
 	ReadOnly *bool `json:"ReadOnly,omitempty"`
 	// Restorable
-	Restorable      *bool               `json:"Restorable,omitempty"`
+	Restorable *bool `json:"Restorable,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription    *SubscriptionRef    `json:"Subscription,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// TypePath
 	TypePath *string `json:"TypePath,omitempty"`
 	// User Listable
 	UserListable *bool `json:"UserListable,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTypeDefinition instantiates a new TypeDefinition object
@@ -984,7 +984,7 @@ func (o *TypeDefinition) SetErrors(v []string) {
 }
 
 func (o TypeDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1115,3 +1115,5 @@ func (v *NullableTypeDefinition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

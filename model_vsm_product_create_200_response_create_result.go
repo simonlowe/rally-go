@@ -20,9 +20,9 @@ var _ MappedNullable = &VSMProductCreate200ResponseCreateResult{}
 
 // VSMProductCreate200ResponseCreateResult struct for VSMProductCreate200ResponseCreateResult
 type VSMProductCreate200ResponseCreateResult struct {
-	Errors   []string    `json:"Errors,omitempty"`
-	Object   *VSMProduct `json:"Object,omitempty"`
-	Warnings []string    `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *VSMProduct `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewVSMProductCreate200ResponseCreateResult instantiates a new VSMProductCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *VSMProductCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o VSMProductCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableVSMProductCreate200ResponseCreateResult) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

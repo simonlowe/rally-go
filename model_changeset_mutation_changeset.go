@@ -21,22 +21,22 @@ var _ MappedNullable = &ChangesetMutationChangeset{}
 // ChangesetMutationChangeset Changeset
 type ChangesetMutationChangeset struct {
 	Artifacts *Collection `json:"Artifacts,omitempty"`
-	Author    *UserRef    `json:"Author,omitempty"`
+	Author *UserRef `json:"Author,omitempty"`
 	// Branch
-	Branch  *string     `json:"Branch,omitempty"`
+	Branch *string `json:"Branch,omitempty"`
 	Changes *Collection `json:"Changes,omitempty"`
 	// Commit Timestamp
 	CommitTimestamp *string `json:"CommitTimestamp,omitempty"`
 	// Message
 	Message *string `json:"Message,omitempty"`
 	// Revision
-	Revision      *string           `json:"Revision,omitempty"`
+	Revision *string `json:"Revision,omitempty"`
 	SCMRepository *SCMRepositoryRef `json:"SCMRepository,omitempty"`
 	// Uri
-	Uri       *string       `json:"Uri,omitempty"`
+	Uri *string `json:"Uri,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewChangesetMutationChangeset instantiates a new ChangesetMutationChangeset object
@@ -441,7 +441,7 @@ func (o *ChangesetMutationChangeset) SetErrors(v []string) {
 }
 
 func (o ChangesetMutationChangeset) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -524,3 +524,5 @@ func (v *NullableChangesetMutationChangeset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

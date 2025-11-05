@@ -20,11 +20,11 @@ var _ MappedNullable = &WorkspaceConfigurationRead200Response{}
 
 // WorkspaceConfigurationRead200Response struct for WorkspaceConfigurationRead200Response
 type WorkspaceConfigurationRead200Response struct {
-	RallyAPIMajor          *string                 `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor          *string                 `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	WorkspaceConfiguration *WorkspaceConfiguration `json:"WorkspaceConfiguration,omitempty"`
-	Warnings               []string                `json:"Warnings,omitempty"`
-	Errors                 []string                `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspaceConfigurationRead200Response instantiates a new WorkspaceConfigurationRead200Response object
@@ -205,7 +205,7 @@ func (o *WorkspaceConfigurationRead200Response) SetErrors(v []string) {
 }
 
 func (o WorkspaceConfigurationRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableWorkspaceConfigurationRead200Response) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

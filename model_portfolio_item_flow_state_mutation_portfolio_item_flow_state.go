@@ -29,15 +29,15 @@ type PortfolioItemFlowStateMutationPortfolioItemFlowState struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Order Index
-	OrderIndex         *int64             `json:"OrderIndex,omitempty"`
-	ParentStateMapping *ObjectRef         `json:"ParentStateMapping,omitempty"`
-	Project            *ProjectRef        `json:"Project,omitempty"`
-	TypeDef            *TypeDefinitionRef `json:"TypeDef,omitempty"`
+	OrderIndex *int64 `json:"OrderIndex,omitempty"`
+	ParentStateMapping *ObjectRef `json:"ParentStateMapping,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	TypeDef *TypeDefinitionRef `json:"TypeDef,omitempty"`
 	// WIP Limit
-	WIPLimit  *int64        `json:"WIPLimit,omitempty"`
+	WIPLimit *int64 `json:"WIPLimit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPortfolioItemFlowStateMutationPortfolioItemFlowState instantiates a new PortfolioItemFlowStateMutationPortfolioItemFlowState object
@@ -442,7 +442,7 @@ func (o *PortfolioItemFlowStateMutationPortfolioItemFlowState) SetErrors(v []str
 }
 
 func (o PortfolioItemFlowStateMutationPortfolioItemFlowState) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -525,3 +525,5 @@ func (v *NullablePortfolioItemFlowStateMutationPortfolioItemFlowState) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

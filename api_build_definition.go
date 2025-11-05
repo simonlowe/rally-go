@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // BuildDefinitionAPIService BuildDefinitionAPI service
 type BuildDefinitionAPIService service
 
 type ApiBuildDefinitionCreateRequest struct {
-	ctx                     context.Context
-	ApiService              *BuildDefinitionAPIService
+	ctx context.Context
+	ApiService *BuildDefinitionAPIService
 	buildDefinitionMutation *BuildDefinitionMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiBuildDefinitionCreateRequest) Execute() (*BuildDefinitionCreate200Res
 /*
 BuildDefinitionCreate BuildDefinition Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBuildDefinitionCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBuildDefinitionCreateRequest
 */
 func (a *BuildDefinitionAPIService) BuildDefinitionCreate(ctx context.Context) ApiBuildDefinitionCreateRequest {
 	return ApiBuildDefinitionCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildDefinitionCreate200Response
+//  @return BuildDefinitionCreate200Response
 func (a *BuildDefinitionAPIService) BuildDefinitionCreateExecute(r ApiBuildDefinitionCreateRequest) (*BuildDefinitionCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildDefinitionCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildDefinitionCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildDefinitionAPIService.BuildDefinitionCreate")
@@ -134,9 +134,9 @@ func (a *BuildDefinitionAPIService) BuildDefinitionCreateExecute(r ApiBuildDefin
 }
 
 type ApiBuildDefinitionDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildDefinitionAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiBuildDefinitionDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiBuildDefinitionDeleteRequest) Execute() (*AllowedAttributeValueDelete
 /*
 BuildDefinitionDelete BuildDefinition Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildDefinitionDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildDefinitionDeleteRequest
 */
 func (a *BuildDefinitionAPIService) BuildDefinitionDelete(ctx context.Context, objectId string) ApiBuildDefinitionDeleteRequest {
 	return ApiBuildDefinitionDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *BuildDefinitionAPIService) BuildDefinitionDeleteExecute(r ApiBuildDefinitionDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildDefinitionAPIService.BuildDefinitionDelete")
@@ -236,18 +235,18 @@ func (a *BuildDefinitionAPIService) BuildDefinitionDeleteExecute(r ApiBuildDefin
 }
 
 type ApiBuildDefinitionQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildDefinitionAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiBuildDefinitionQueryRequest) Fetch(fetch string) ApiBuildDefinitionQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiBuildDefinitionQueryRequest) Workspace(workspace string) ApiBuildDefi
 	return r
 }
 
+// 
 func (r ApiBuildDefinitionQueryRequest) Compact(compact bool) ApiBuildDefinitionQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiBuildDefinitionQueryRequest) Execute() (*BuildDefinitionQuery200Respo
 /*
 BuildDefinitionQuery BuildDefinition Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBuildDefinitionQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBuildDefinitionQueryRequest
 */
 func (a *BuildDefinitionAPIService) BuildDefinitionQuery(ctx context.Context) ApiBuildDefinitionQueryRequest {
 	return ApiBuildDefinitionQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildDefinitionQuery200Response
+//  @return BuildDefinitionQuery200Response
 func (a *BuildDefinitionAPIService) BuildDefinitionQueryExecute(r ApiBuildDefinitionQueryRequest) (*BuildDefinitionQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildDefinitionQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildDefinitionQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildDefinitionAPIService.BuildDefinitionQuery")
@@ -348,8 +347,9 @@ func (a *BuildDefinitionAPIService) BuildDefinitionQueryExecute(r ApiBuildDefini
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *BuildDefinitionAPIService) BuildDefinitionQueryExecute(r ApiBuildDefini
 }
 
 type ApiBuildDefinitionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildDefinitionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiBuildDefinitionReadRequest) Compact(compact bool) ApiBuildDefinitionReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiBuildDefinitionReadRequest) Execute() (*BuildDefinitionRead200Respons
 /*
 BuildDefinitionRead BuildDefinition Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildDefinitionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildDefinitionReadRequest
 */
 func (a *BuildDefinitionAPIService) BuildDefinitionRead(ctx context.Context, objectId string) ApiBuildDefinitionReadRequest {
 	return ApiBuildDefinitionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildDefinitionRead200Response
+//  @return BuildDefinitionRead200Response
 func (a *BuildDefinitionAPIService) BuildDefinitionReadExecute(r ApiBuildDefinitionReadRequest) (*BuildDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildDefinitionAPIService.BuildDefinitionRead")
@@ -469,8 +469,9 @@ func (a *BuildDefinitionAPIService) BuildDefinitionReadExecute(r ApiBuildDefinit
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *BuildDefinitionAPIService) BuildDefinitionReadExecute(r ApiBuildDefinit
 }
 
 type ApiBuildDefinitionUpdateRequest struct {
-	ctx                     context.Context
-	ApiService              *BuildDefinitionAPIService
-	objectId                string
+	ctx context.Context
+	ApiService *BuildDefinitionAPIService
+	objectId string
 	buildDefinitionMutation *BuildDefinitionMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiBuildDefinitionUpdateRequest) Execute() (*BuildDefinitionRead200Respo
 /*
 BuildDefinitionUpdate BuildDefinition Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildDefinitionUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildDefinitionUpdateRequest
 */
 func (a *BuildDefinitionAPIService) BuildDefinitionUpdate(ctx context.Context, objectId string) ApiBuildDefinitionUpdateRequest {
 	return ApiBuildDefinitionUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildDefinitionRead200Response
+//  @return BuildDefinitionRead200Response
 func (a *BuildDefinitionAPIService) BuildDefinitionUpdateExecute(r ApiBuildDefinitionUpdateRequest) (*BuildDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildDefinitionAPIService.BuildDefinitionUpdate")

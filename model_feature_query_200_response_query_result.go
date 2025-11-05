@@ -20,12 +20,12 @@ var _ MappedNullable = &FeatureQuery200ResponseQueryResult{}
 
 // FeatureQuery200ResponseQueryResult struct for FeatureQuery200ResponseQueryResult
 type FeatureQuery200ResponseQueryResult struct {
-	StartIndex       *int64    `json:"StartIndex,omitempty"`
-	PageSize         *int64    `json:"PageSize,omitempty"`
-	TotalResultCount *int64    `json:"TotalResultCount,omitempty"`
-	Results          []Feature `json:"Results,omitempty"`
-	Warnings         []string  `json:"Warnings,omitempty"`
-	Errors           []string  `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Feature `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewFeatureQuery200ResponseQueryResult instantiates a new FeatureQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *FeatureQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o FeatureQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableFeatureQuery200ResponseQueryResult) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,9 +20,9 @@ var _ MappedNullable = &WebLinkDefinitionCreate200ResponseCreateResult{}
 
 // WebLinkDefinitionCreate200ResponseCreateResult struct for WebLinkDefinitionCreate200ResponseCreateResult
 type WebLinkDefinitionCreate200ResponseCreateResult struct {
-	Errors   []string           `json:"Errors,omitempty"`
-	Object   *WebLinkDefinition `json:"Object,omitempty"`
-	Warnings []string           `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *WebLinkDefinition `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewWebLinkDefinitionCreate200ResponseCreateResult instantiates a new WebLinkDefinitionCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *WebLinkDefinitionCreate200ResponseCreateResult) SetWarnings(v []string)
 }
 
 func (o WebLinkDefinitionCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableWebLinkDefinitionCreate200ResponseCreateResult) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

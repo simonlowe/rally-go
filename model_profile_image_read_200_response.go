@@ -20,11 +20,11 @@ var _ MappedNullable = &ProfileImageRead200Response{}
 
 // ProfileImageRead200Response struct for ProfileImageRead200Response
 type ProfileImageRead200Response struct {
-	RallyAPIMajor *string       `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string       `json:"_rallyAPIMinor,omitempty"`
-	ProfileImage  *ProfileImage `json:"ProfileImage,omitempty"`
-	Warnings      []string      `json:"Warnings,omitempty"`
-	Errors        []string      `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	ProfileImage *ProfileImage `json:"ProfileImage,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewProfileImageRead200Response instantiates a new ProfileImageRead200Response object
@@ -205,7 +205,7 @@ func (o *ProfileImageRead200Response) SetErrors(v []string) {
 }
 
 func (o ProfileImageRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableProfileImageRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

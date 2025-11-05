@@ -53,7 +53,7 @@ type WorkspaceConfiguration struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID    *string           `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	PpmConnection *PPMConnectionRef `json:"PpmConnection,omitempty"`
 	// Project Admins Can Manage Work Rules
 	ProjectAdminsCanManageWorkRules *bool `json:"ProjectAdminsCanManageWorkRules,omitempty"`
@@ -72,8 +72,8 @@ type WorkspaceConfiguration struct {
 	// Release Label Singular
 	ReleaseLabelSingular *string `json:"ReleaseLabelSingular,omitempty"`
 	// Restrict Timebox Edit
-	RestrictTimeboxEdit *bool            `json:"RestrictTimeboxEdit,omitempty"`
-	Subscription        *SubscriptionRef `json:"Subscription,omitempty"`
+	RestrictTimeboxEdit *bool `json:"RestrictTimeboxEdit,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Task Prefix
 	TaskPrefix *string `json:"TaskPrefix,omitempty"`
 	// Task Unit Name
@@ -87,10 +87,10 @@ type WorkspaceConfiguration struct {
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Work Days
-	WorkDays  *string       `json:"WorkDays,omitempty"`
+	WorkDays *string `json:"WorkDays,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspaceConfiguration instantiates a new WorkspaceConfiguration object
@@ -1327,7 +1327,7 @@ func (o *WorkspaceConfiguration) SetErrors(v []string) {
 }
 
 func (o WorkspaceConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1488,3 +1488,5 @@ func (v *NullableWorkspaceConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

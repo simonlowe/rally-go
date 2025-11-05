@@ -35,10 +35,10 @@ type VSMDeployMutationVSMDeploy struct {
 	// TimeCreated
 	TimeCreated *string `json:"TimeCreated,omitempty"`
 	// TimeDeployed
-	TimeDeployed *string       `json:"TimeDeployed,omitempty"`
-	Workspace    *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings     []string      `json:"Warnings,omitempty"`
-	Errors       []string      `json:"Errors,omitempty"`
+	TimeDeployed *string `json:"TimeDeployed,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMDeployMutationVSMDeploy instantiates a new VSMDeployMutationVSMDeploy object
@@ -411,7 +411,7 @@ func (o *VSMDeployMutationVSMDeploy) SetErrors(v []string) {
 }
 
 func (o VSMDeployMutationVSMDeploy) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -491,3 +491,5 @@ func (v *NullableVSMDeployMutationVSMDeploy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

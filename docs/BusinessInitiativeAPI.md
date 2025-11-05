@@ -4,12 +4,12 @@ All URIs are relative to *https://rally1.rallydev.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BusinessInitiativeCopy**](BusinessInitiativeAPI.md#BusinessInitiativeCopy) | **Post** /slm/webservice/v2.0/businessinitiative/{objectId}/copy | BusinessInitiative Copy
-[**BusinessInitiativeCreate**](BusinessInitiativeAPI.md#BusinessInitiativeCreate) | **Post** /slm/webservice/v2.0/businessinitiative/create | BusinessInitiative Create
-[**BusinessInitiativeDelete**](BusinessInitiativeAPI.md#BusinessInitiativeDelete) | **Delete** /slm/webservice/v2.0/businessinitiative/{objectId} | BusinessInitiative Delete
-[**BusinessInitiativeQuery**](BusinessInitiativeAPI.md#BusinessInitiativeQuery) | **Get** /slm/webservice/v2.0/businessinitiative | BusinessInitiative Query
-[**BusinessInitiativeRead**](BusinessInitiativeAPI.md#BusinessInitiativeRead) | **Get** /slm/webservice/v2.0/businessinitiative/{objectId} | BusinessInitiative Read
-[**BusinessInitiativeUpdate**](BusinessInitiativeAPI.md#BusinessInitiativeUpdate) | **Post** /slm/webservice/v2.0/businessinitiative/{objectId} | BusinessInitiative Update
+[**BusinessInitiativeCopy**](BusinessInitiativeAPI.md#BusinessInitiativeCopy) | **Post** /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}/copy | BusinessInitiative Copy
+[**BusinessInitiativeCreate**](BusinessInitiativeAPI.md#BusinessInitiativeCreate) | **Post** /slm/webservice/v2.0/portfolioitem/businessinitiative/create | BusinessInitiative Create
+[**BusinessInitiativeDelete**](BusinessInitiativeAPI.md#BusinessInitiativeDelete) | **Delete** /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId} | BusinessInitiative Delete
+[**BusinessInitiativeQuery**](BusinessInitiativeAPI.md#BusinessInitiativeQuery) | **Get** /slm/webservice/v2.0/portfolioitem/businessinitiative | BusinessInitiative Query
+[**BusinessInitiativeRead**](BusinessInitiativeAPI.md#BusinessInitiativeRead) | **Get** /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId} | BusinessInitiative Read
+[**BusinessInitiativeUpdate**](BusinessInitiativeAPI.md#BusinessInitiativeUpdate) | **Post** /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId} | BusinessInitiative Update
 
 
 

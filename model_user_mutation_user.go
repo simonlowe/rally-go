@@ -21,7 +21,7 @@ var _ MappedNullable = &UserMutationUser{}
 // UserMutationUser User
 type UserMutationUser struct {
 	ArtifactsCreated *Collection `json:"ArtifactsCreated,omitempty"`
-	ArtifactsOwned   *Collection `json:"ArtifactsOwned,omitempty"`
+	ArtifactsOwned *Collection `json:"ArtifactsOwned,omitempty"`
 	// Cost Center
 	CostCenter *string `json:"CostCenter,omitempty"`
 	// Date Format
@@ -29,8 +29,8 @@ type UserMutationUser struct {
 	// Date Time Format
 	DateTimeFormat *string `json:"DateTimeFormat,omitempty"`
 	// Default Detail Page To Viewing Mode
-	DefaultDetailPageToViewingMode *bool       `json:"DefaultDetailPageToViewingMode,omitempty"`
-	DefaultProject                 *ProjectRef `json:"DefaultProject,omitempty"`
+	DefaultDetailPageToViewingMode *bool `json:"DefaultDetailPageToViewingMode,omitempty"`
+	DefaultProject *ProjectRef `json:"DefaultProject,omitempty"`
 	// Department
 	Department *string `json:"Department,omitempty"`
 	// Disabled
@@ -68,7 +68,7 @@ type UserMutationUser struct {
 	// Phone
 	Phone *string `json:"Phone,omitempty"`
 	// Planner
-	Planner      *bool            `json:"Planner,omitempty"`
+	Planner *bool `json:"Planner,omitempty"`
 	ProfileImage *ProfileImageRef `json:"ProfileImage,omitempty"`
 	// Project Scope Down
 	ProjectScopeDown *bool `json:"ProjectScopeDown,omitempty"`
@@ -79,8 +79,8 @@ type UserMutationUser struct {
 	// Session Timeout Warning
 	SessionTimeoutWarning *bool `json:"SessionTimeoutWarning,omitempty"`
 	// Short Display Name
-	ShortDisplayName *string     `json:"ShortDisplayName,omitempty"`
-	TeamMemberships  *Collection `json:"TeamMemberships,omitempty"`
+	ShortDisplayName *string `json:"ShortDisplayName,omitempty"`
+	TeamMemberships *Collection `json:"TeamMemberships,omitempty"`
 	// User Name
 	UserName *string `json:"UserName,omitempty"`
 	// Vsi Admin
@@ -88,9 +88,9 @@ type UserMutationUser struct {
 	// Business Unit
 	CBusinessUnit *string `json:"c_BusinessUnit,omitempty"`
 	// session Timeout
-	SessionTimeout *int64   `json:"sessionTimeout,omitempty"`
-	Warnings       []string `json:"Warnings,omitempty"`
-	Errors         []string `json:"Errors,omitempty"`
+	SessionTimeout *int64 `json:"sessionTimeout,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserMutationUser instantiates a new UserMutationUser object
@@ -1375,7 +1375,7 @@ func (o *UserMutationUser) SetErrors(v []string) {
 }
 
 func (o UserMutationUser) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1539,3 +1539,5 @@ func (v *NullableUserMutationUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

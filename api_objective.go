@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // ObjectiveAPIService ObjectiveAPI service
 type ObjectiveAPIService service
 
 type ApiObjectiveCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiObjectiveCopyRequest) Compact(compact bool) ApiObjectiveCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiObjectiveCopyRequest) Execute() (*ObjectiveRead200Response, *http.Res
 /*
 ObjectiveCopy Objective Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveCopyRequest
 */
 func (a *ObjectiveAPIService) ObjectiveCopy(ctx context.Context, objectId string) ApiObjectiveCopyRequest {
 	return ApiObjectiveCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveRead200Response
+//  @return ObjectiveRead200Response
 func (a *ObjectiveAPIService) ObjectiveCopyExecute(r ApiObjectiveCopyRequest) (*ObjectiveRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveAPIService.ObjectiveCopy")
@@ -87,8 +88,9 @@ func (a *ObjectiveAPIService) ObjectiveCopyExecute(r ApiObjectiveCopyRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,9 +150,9 @@ func (a *ObjectiveAPIService) ObjectiveCopyExecute(r ApiObjectiveCopyRequest) (*
 }
 
 type ApiObjectiveDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiObjectiveDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -160,27 +162,26 @@ func (r ApiObjectiveDeleteRequest) Execute() (*AllowedAttributeValueDelete200Res
 /*
 ObjectiveDelete Objective Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveDeleteRequest
 */
 func (a *ObjectiveAPIService) ObjectiveDelete(ctx context.Context, objectId string) ApiObjectiveDeleteRequest {
 	return ApiObjectiveDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *ObjectiveAPIService) ObjectiveDeleteExecute(r ApiObjectiveDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveAPIService.ObjectiveDelete")
@@ -250,18 +251,18 @@ func (a *ObjectiveAPIService) ObjectiveDeleteExecute(r ApiObjectiveDeleteRequest
 }
 
 type ApiObjectiveQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiObjectiveQueryRequest) Fetch(fetch string) ApiObjectiveQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -297,6 +298,7 @@ func (r ApiObjectiveQueryRequest) Workspace(workspace string) ApiObjectiveQueryR
 	return r
 }
 
+// 
 func (r ApiObjectiveQueryRequest) Compact(compact bool) ApiObjectiveQueryRequest {
 	r.compact = &compact
 	return r
@@ -309,25 +311,24 @@ func (r ApiObjectiveQueryRequest) Execute() (*ObjectiveQuery200Response, *http.R
 /*
 ObjectiveQuery Objective Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiObjectiveQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiObjectiveQueryRequest
 */
 func (a *ObjectiveAPIService) ObjectiveQuery(ctx context.Context) ApiObjectiveQueryRequest {
 	return ApiObjectiveQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveQuery200Response
+//  @return ObjectiveQuery200Response
 func (a *ObjectiveAPIService) ObjectiveQueryExecute(r ApiObjectiveQueryRequest) (*ObjectiveQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveAPIService.ObjectiveQuery")
@@ -362,8 +363,9 @@ func (a *ObjectiveAPIService) ObjectiveQueryExecute(r ApiObjectiveQueryRequest) 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -420,13 +422,14 @@ func (a *ObjectiveAPIService) ObjectiveQueryExecute(r ApiObjectiveQueryRequest) 
 }
 
 type ApiObjectiveReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiObjectiveReadRequest) Compact(compact bool) ApiObjectiveReadRequest {
 	r.compact = &compact
 	return r
@@ -445,27 +448,26 @@ func (r ApiObjectiveReadRequest) Execute() (*ObjectiveRead200Response, *http.Res
 /*
 ObjectiveRead Objective Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveReadRequest
 */
 func (a *ObjectiveAPIService) ObjectiveRead(ctx context.Context, objectId string) ApiObjectiveReadRequest {
 	return ApiObjectiveReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveRead200Response
+//  @return ObjectiveRead200Response
 func (a *ObjectiveAPIService) ObjectiveReadExecute(r ApiObjectiveReadRequest) (*ObjectiveRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveAPIService.ObjectiveRead")
@@ -483,8 +485,9 @@ func (a *ObjectiveAPIService) ObjectiveReadExecute(r ApiObjectiveReadRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -544,9 +547,9 @@ func (a *ObjectiveAPIService) ObjectiveReadExecute(r ApiObjectiveReadRequest) (*
 }
 
 type ApiObjectiveUpdateRequest struct {
-	ctx               context.Context
-	ApiService        *ObjectiveAPIService
-	objectId          string
+	ctx context.Context
+	ApiService *ObjectiveAPIService
+	objectId string
 	objectiveMutation *ObjectiveMutation
 }
 
@@ -563,27 +566,26 @@ func (r ApiObjectiveUpdateRequest) Execute() (*ObjectiveRead200Response, *http.R
 /*
 ObjectiveUpdate Objective Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveUpdateRequest
 */
 func (a *ObjectiveAPIService) ObjectiveUpdate(ctx context.Context, objectId string) ApiObjectiveUpdateRequest {
 	return ApiObjectiveUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveRead200Response
+//  @return ObjectiveRead200Response
 func (a *ObjectiveAPIService) ObjectiveUpdateExecute(r ApiObjectiveUpdateRequest) (*ObjectiveRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveAPIService.ObjectiveUpdate")

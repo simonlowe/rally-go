@@ -23,17 +23,17 @@ type ChangeMutationChange struct {
 	// Action
 	Action *string `json:"Action,omitempty"`
 	// Base
-	Base      *string       `json:"Base,omitempty"`
+	Base *string `json:"Base,omitempty"`
 	Changeset *ChangesetRef `json:"Changeset,omitempty"`
 	// Extension
 	Extension *string `json:"Extension,omitempty"`
 	// Path And Filename
 	PathAndFilename *string `json:"PathAndFilename,omitempty"`
 	// Uri
-	Uri       *string       `json:"Uri,omitempty"`
+	Uri *string `json:"Uri,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewChangeMutationChange instantiates a new ChangeMutationChange object
@@ -342,7 +342,7 @@ func (o *ChangeMutationChange) SetErrors(v []string) {
 }
 
 func (o ChangeMutationChange) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -416,3 +416,5 @@ func (v *NullableChangeMutationChange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

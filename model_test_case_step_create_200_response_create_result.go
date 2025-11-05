@@ -20,9 +20,9 @@ var _ MappedNullable = &TestCaseStepCreate200ResponseCreateResult{}
 
 // TestCaseStepCreate200ResponseCreateResult struct for TestCaseStepCreate200ResponseCreateResult
 type TestCaseStepCreate200ResponseCreateResult struct {
-	Errors   []string      `json:"Errors,omitempty"`
-	Object   *TestCaseStep `json:"Object,omitempty"`
-	Warnings []string      `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *TestCaseStep `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewTestCaseStepCreate200ResponseCreateResult instantiates a new TestCaseStepCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *TestCaseStepCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o TestCaseStepCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableTestCaseStepCreate200ResponseCreateResult) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

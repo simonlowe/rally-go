@@ -20,11 +20,11 @@ var _ MappedNullable = &ArtifactNotificationRead200Response{}
 
 // ArtifactNotificationRead200Response struct for ArtifactNotificationRead200Response
 type ArtifactNotificationRead200Response struct {
-	RallyAPIMajor        *string               `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor        *string               `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	ArtifactNotification *ArtifactNotification `json:"ArtifactNotification,omitempty"`
-	Warnings             []string              `json:"Warnings,omitempty"`
-	Errors               []string              `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewArtifactNotificationRead200Response instantiates a new ArtifactNotificationRead200Response object
@@ -205,7 +205,7 @@ func (o *ArtifactNotificationRead200Response) SetErrors(v []string) {
 }
 
 func (o ArtifactNotificationRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableArtifactNotificationRead200Response) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

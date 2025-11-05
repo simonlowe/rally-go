@@ -21,7 +21,7 @@ var _ MappedNullable = &TestCaseMutationTestCase{}
 // TestCaseMutationTestCase TestCase
 type TestCaseMutationTestCase struct {
 	Attachments *Collection `json:"Attachments,omitempty"`
-	Changesets  *Collection `json:"Changesets,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -29,15 +29,15 @@ type TestCaseMutationTestCase struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Method
-	Method     *string     `json:"Method,omitempty"`
+	Method *string `json:"Method,omitempty"`
 	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
 	Notes *string `json:"Notes,omitempty"`
 	// Objective
-	Objective *string  `json:"Objective,omitempty"`
-	Owner     *UserRef `json:"Owner,omitempty"`
+	Objective *string `json:"Objective,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
 	Package *string `json:"Package,omitempty"`
 	// Post Conditions
@@ -45,32 +45,32 @@ type TestCaseMutationTestCase struct {
 	// Pre Conditions
 	PreConditions *string `json:"PreConditions,omitempty"`
 	// Priority
-	Priority *string     `json:"Priority,omitempty"`
-	Project  *ProjectRef `json:"Project,omitempty"`
+	Priority *string `json:"Priority,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
 	Ready *bool `json:"Ready,omitempty"`
 	// Risk
-	Risk       *string        `json:"Risk,omitempty"`
-	Tags       *Collection    `json:"Tags,omitempty"`
+	Risk *string `json:"Risk,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	TestFolder *TestFolderRef `json:"TestFolder,omitempty"`
-	TestSets   *Collection    `json:"TestSets,omitempty"`
+	TestSets *Collection `json:"TestSets,omitempty"`
 	// Type
 	Type *string `json:"Type,omitempty"`
 	// Validation Expected Result
 	ValidationExpectedResult *string `json:"ValidationExpectedResult,omitempty"`
 	// Validation Input
-	ValidationInput *string       `json:"ValidationInput,omitempty"`
-	WorkProduct     *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace       *WorkspaceRef `json:"Workspace,omitempty"`
+	ValidationInput *string `json:"ValidationInput,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
 	CALMID *string `json:"c_ALMID,omitempty"`
 	// API Test
 	CAPITest *bool `json:"c_APITest,omitempty"`
 	// Application
-	CApplication *string  `json:"c_Application,omitempty"`
-	CAssignedTo  *UserRef `json:"c_AssignedTo,omitempty"`
+	CApplication *string `json:"c_Application,omitempty"`
+	CAssignedTo *UserRef `json:"c_AssignedTo,omitempty"`
 	// Automated Execution
-	CAutomatedExecution             *int64      `json:"c_AutomatedExecution,omitempty"`
+	CAutomatedExecution *int64 `json:"c_AutomatedExecution,omitempty"`
 	CAutomationExecutionEnvironment *Collection `json:"c_AutomationExecutionEnvironment,omitempty"`
 	// Automation Status
 	CAutomationStatus *string `json:"c_AutomationStatus,omitempty"`
@@ -85,20 +85,20 @@ type TestCaseMutationTestCase struct {
 	// DMS Initiatives
 	CDMSInitiatives *string `json:"c_DMSInitiatives,omitempty"`
 	// DMS Priority
-	CDMSPriority   *string     `json:"c_DMSPriority,omitempty"`
+	CDMSPriority *string `json:"c_DMSPriority,omitempty"`
 	CFunctionality *Collection `json:"c_Functionality,omitempty"`
 	// Manual Execution
-	CManualExecution *int64      `json:"c_ManualExecution,omitempty"`
-	CRTSProduct      *Collection `json:"c_RTSProduct,omitempty"`
+	CManualExecution *int64 `json:"c_ManualExecution,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Sub Category - CAI/IS
-	CSubCategoryCAIIS *string     `json:"c_SubCategoryCAIIS,omitempty"`
+	CSubCategoryCAIIS *string `json:"c_SubCategoryCAIIS,omitempty"`
 	CSubfunctionality *Collection `json:"c_Subfunctionality,omitempty"`
 	// Ticket ID
 	CTicketID *string `json:"c_TicketID,omitempty"`
 	// To Be Automated
-	CToBeAutomated *bool    `json:"c_ToBeAutomated,omitempty"`
-	Warnings       []string `json:"Warnings,omitempty"`
-	Errors         []string `json:"Errors,omitempty"`
+	CToBeAutomated *bool `json:"c_ToBeAutomated,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseMutationTestCase instantiates a new TestCaseMutationTestCase object
@@ -1667,7 +1667,7 @@ func (o *TestCaseMutationTestCase) SetErrors(v []string) {
 }
 
 func (o TestCaseMutationTestCase) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1858,3 +1858,5 @@ func (v *NullableTestCaseMutationTestCase) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

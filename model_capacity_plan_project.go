@@ -20,8 +20,8 @@ var _ MappedNullable = &CapacityPlanProject{}
 
 // CapacityPlanProject CapacityPlanProject
 type CapacityPlanProject struct {
-	Assignments  *Collection `json:"Assignments,omitempty"`
-	CapacityPlan *ObjectRef  `json:"CapacityPlan,omitempty"`
+	Assignments *Collection `json:"Assignments,omitempty"`
+	CapacityPlan *ObjectRef `json:"CapacityPlan,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Object ID
@@ -31,14 +31,14 @@ type CapacityPlanProject struct {
 	// Planned Capacity Count
 	PlannedCapacityCount *int64 `json:"PlannedCapacityCount,omitempty"`
 	// Planned Capacity Points
-	PlannedCapacityPoints *int64           `json:"PlannedCapacityPoints,omitempty"`
-	Project               *ProjectRef      `json:"Project,omitempty"`
-	Subscription          *SubscriptionRef `json:"Subscription,omitempty"`
+	PlannedCapacityPoints *int64 `json:"PlannedCapacityPoints,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewCapacityPlanProject instantiates a new CapacityPlanProject object
@@ -475,7 +475,7 @@ func (o *CapacityPlanProject) SetErrors(v []string) {
 }
 
 func (o CapacityPlanProject) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -561,3 +561,5 @@ func (v *NullableCapacityPlanProject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

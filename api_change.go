@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // ChangeAPIService ChangeAPI service
 type ChangeAPIService service
 
 type ApiChangeCreateRequest struct {
-	ctx            context.Context
-	ApiService     *ChangeAPIService
+	ctx context.Context
+	ApiService *ChangeAPIService
 	changeMutation *ChangeMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiChangeCreateRequest) Execute() (*ChangeCreate200Response, *http.Respo
 /*
 ChangeCreate Change Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiChangeCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiChangeCreateRequest
 */
 func (a *ChangeAPIService) ChangeCreate(ctx context.Context) ApiChangeCreateRequest {
 	return ApiChangeCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ChangeCreate200Response
+//  @return ChangeCreate200Response
 func (a *ChangeAPIService) ChangeCreateExecute(r ApiChangeCreateRequest) (*ChangeCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ChangeCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChangeCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChangeAPIService.ChangeCreate")
@@ -134,9 +134,9 @@ func (a *ChangeAPIService) ChangeCreateExecute(r ApiChangeCreateRequest) (*Chang
 }
 
 type ApiChangeDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ChangeAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiChangeDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiChangeDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respon
 /*
 ChangeDelete Change Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiChangeDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiChangeDeleteRequest
 */
 func (a *ChangeAPIService) ChangeDelete(ctx context.Context, objectId string) ApiChangeDeleteRequest {
 	return ApiChangeDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *ChangeAPIService) ChangeDeleteExecute(r ApiChangeDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChangeAPIService.ChangeDelete")
@@ -236,18 +235,18 @@ func (a *ChangeAPIService) ChangeDeleteExecute(r ApiChangeDeleteRequest) (*Allow
 }
 
 type ApiChangeQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ChangeAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiChangeQueryRequest) Fetch(fetch string) ApiChangeQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiChangeQueryRequest) Workspace(workspace string) ApiChangeQueryRequest
 	return r
 }
 
+// 
 func (r ApiChangeQueryRequest) Compact(compact bool) ApiChangeQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiChangeQueryRequest) Execute() (*ChangeQuery200Response, *http.Respons
 /*
 ChangeQuery Change Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiChangeQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiChangeQueryRequest
 */
 func (a *ChangeAPIService) ChangeQuery(ctx context.Context) ApiChangeQueryRequest {
 	return ApiChangeQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ChangeQuery200Response
+//  @return ChangeQuery200Response
 func (a *ChangeAPIService) ChangeQueryExecute(r ApiChangeQueryRequest) (*ChangeQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ChangeQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChangeQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChangeAPIService.ChangeQuery")
@@ -348,8 +347,9 @@ func (a *ChangeAPIService) ChangeQueryExecute(r ApiChangeQueryRequest) (*ChangeQ
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *ChangeAPIService) ChangeQueryExecute(r ApiChangeQueryRequest) (*ChangeQ
 }
 
 type ApiChangeReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ChangeAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiChangeReadRequest) Compact(compact bool) ApiChangeReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiChangeReadRequest) Execute() (*ChangeRead200Response, *http.Response,
 /*
 ChangeRead Change Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiChangeReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiChangeReadRequest
 */
 func (a *ChangeAPIService) ChangeRead(ctx context.Context, objectId string) ApiChangeReadRequest {
 	return ApiChangeReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ChangeRead200Response
+//  @return ChangeRead200Response
 func (a *ChangeAPIService) ChangeReadExecute(r ApiChangeReadRequest) (*ChangeRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ChangeRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChangeRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChangeAPIService.ChangeRead")
@@ -469,8 +469,9 @@ func (a *ChangeAPIService) ChangeReadExecute(r ApiChangeReadRequest) (*ChangeRea
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *ChangeAPIService) ChangeReadExecute(r ApiChangeReadRequest) (*ChangeRea
 }
 
 type ApiChangeUpdateRequest struct {
-	ctx            context.Context
-	ApiService     *ChangeAPIService
-	objectId       string
+	ctx context.Context
+	ApiService *ChangeAPIService
+	objectId string
 	changeMutation *ChangeMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiChangeUpdateRequest) Execute() (*ChangeRead200Response, *http.Respons
 /*
 ChangeUpdate Change Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiChangeUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiChangeUpdateRequest
 */
 func (a *ChangeAPIService) ChangeUpdate(ctx context.Context, objectId string) ApiChangeUpdateRequest {
 	return ApiChangeUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ChangeRead200Response
+//  @return ChangeRead200Response
 func (a *ChangeAPIService) ChangeUpdateExecute(r ApiChangeUpdateRequest) (*ChangeRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ChangeRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChangeRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChangeAPIService.ChangeUpdate")

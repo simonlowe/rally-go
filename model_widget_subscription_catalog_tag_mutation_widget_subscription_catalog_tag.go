@@ -23,9 +23,9 @@ type WidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTag struct {
 	// Color
 	Color *string `json:"Color,omitempty"`
 	// Name
-	Name     *string  `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTag instantiates a new WidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTag object
@@ -174,7 +174,7 @@ func (o *WidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTag) SetEr
 }
 
 func (o WidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTag) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -233,3 +233,5 @@ func (v *NullableWidgetSubscriptionCatalogTagMutationWidgetSubscriptionCatalogTa
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

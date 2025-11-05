@@ -20,12 +20,12 @@ var _ MappedNullable = &VSMMeasureQuery200ResponseQueryResult{}
 
 // VSMMeasureQuery200ResponseQueryResult struct for VSMMeasureQuery200ResponseQueryResult
 type VSMMeasureQuery200ResponseQueryResult struct {
-	StartIndex       *int64       `json:"StartIndex,omitempty"`
-	PageSize         *int64       `json:"PageSize,omitempty"`
-	TotalResultCount *int64       `json:"TotalResultCount,omitempty"`
-	Results          []VSMMeasure `json:"Results,omitempty"`
-	Warnings         []string     `json:"Warnings,omitempty"`
-	Errors           []string     `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []VSMMeasure `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMMeasureQuery200ResponseQueryResult instantiates a new VSMMeasureQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *VSMMeasureQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o VSMMeasureQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableVSMMeasureQuery200ResponseQueryResult) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

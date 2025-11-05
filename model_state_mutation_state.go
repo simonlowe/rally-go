@@ -31,13 +31,13 @@ type StateMutationState struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Order Index
-	OrderIndex *int64             `json:"OrderIndex,omitempty"`
-	TypeDef    *TypeDefinitionRef `json:"TypeDef,omitempty"`
+	OrderIndex *int64 `json:"OrderIndex,omitempty"`
+	TypeDef *TypeDefinitionRef `json:"TypeDef,omitempty"`
 	// WIP Limit
-	WIPLimit  *int64        `json:"WIPLimit,omitempty"`
+	WIPLimit *int64 `json:"WIPLimit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewStateMutationState instantiates a new StateMutationState object
@@ -410,7 +410,7 @@ func (o *StateMutationState) SetErrors(v []string) {
 }
 
 func (o StateMutationState) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -490,3 +490,5 @@ func (v *NullableStateMutationState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

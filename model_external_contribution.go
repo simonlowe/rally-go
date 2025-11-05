@@ -25,15 +25,15 @@ type ExternalContribution struct {
 	// Accepted Leaf Story Count
 	AcceptedLeafStoryCount *int64 `json:"AcceptedLeafStoryCount,omitempty"`
 	// Accepted Leaf Story Plan Estimate Total
-	AcceptedLeafStoryPlanEstimateTotal *float32    `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
-	Changesets                         *Collection `json:"Changesets,omitempty"`
-	Connections                        *Collection `json:"Connections,omitempty"`
-	CreatedBy                          *UserRef    `json:"CreatedBy,omitempty"`
+	AcceptedLeafStoryPlanEstimateTotal *float32 `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -51,8 +51,8 @@ type ExternalContribution struct {
 	// Leaf Story Count
 	LeafStoryCount *int64 `json:"LeafStoryCount,omitempty"`
 	// Leaf Story Plan Estimate Total
-	LeafStoryPlanEstimateTotal *float32    `json:"LeafStoryPlanEstimateTotal,omitempty"`
-	Milestones                 *Collection `json:"Milestones,omitempty"`
+	LeafStoryPlanEstimateTotal *float32 `json:"LeafStoryPlanEstimateTotal,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -60,26 +60,26 @@ type ExternalContribution struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string  `json:"ObjectUUID,omitempty"`
-	Owner      *UserRef `json:"Owner,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Percent Done By Story Count
 	PercentDoneByStoryCount *float32 `json:"PercentDoneByStoryCount,omitempty"`
 	// Percent Done By Story Plan Estimate
-	PercentDoneByStoryPlanEstimate *float32    `json:"PercentDoneByStoryPlanEstimate,omitempty"`
-	PortfolioItem                  *FeatureRef `json:"PortfolioItem,omitempty"`
-	Project                        *ProjectRef `json:"Project,omitempty"`
+	PercentDoneByStoryPlanEstimate *float32 `json:"PercentDoneByStoryPlanEstimate,omitempty"`
+	PortfolioItem *FeatureRef `json:"PortfolioItem,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready           *bool               `json:"Ready,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Source
-	Source       *string          `json:"Source,omitempty"`
+	Source *string `json:"Source,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags         *Collection      `json:"Tags,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewExternalContribution instantiates a new ExternalContribution object
@@ -1284,7 +1284,7 @@ func (o *ExternalContribution) SetErrors(v []string) {
 }
 
 func (o ExternalContribution) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1442,3 +1442,5 @@ func (v *NullableExternalContribution) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

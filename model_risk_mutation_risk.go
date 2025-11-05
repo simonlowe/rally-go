@@ -21,7 +21,7 @@ var _ MappedNullable = &RiskMutationRisk{}
 // RiskMutationRisk Risk
 type RiskMutationRisk struct {
 	Attachments *Collection `json:"Attachments,omitempty"`
-	Changesets  *Collection `json:"Changesets,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -29,25 +29,25 @@ type RiskMutationRisk struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
 	// Impact
-	Impact    *string       `json:"Impact,omitempty"`
+	Impact *string `json:"Impact,omitempty"`
 	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
-	IterationValue *string     `json:"IterationValue,omitempty"`
-	Milestones     *Collection `json:"Milestones,omitempty"`
+	IterationValue *string `json:"IterationValue,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// Plan Estimate
 	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	// Probability
-	Probability *string     `json:"Probability,omitempty"`
-	Project     *ProjectRef `json:"Project,omitempty"`
-	Release     *ReleaseRef `json:"Release,omitempty"`
+	Probability *string `json:"Probability,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
 	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	// Resolution
@@ -59,11 +59,11 @@ type RiskMutationRisk struct {
 	// Size Of Loss
 	SizeOfLoss *int64 `json:"SizeOfLoss,omitempty"`
 	// State
-	State             *string       `json:"State,omitempty"`
-	SubmittedBy       *UserRef      `json:"SubmittedBy,omitempty"`
-	Tags              *Collection   `json:"Tags,omitempty"`
-	WorkItemsAffected *Collection   `json:"WorkItemsAffected,omitempty"`
-	Workspace         *WorkspaceRef `json:"Workspace,omitempty"`
+	State *string `json:"State,omitempty"`
+	SubmittedBy *UserRef `json:"SubmittedBy,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
+	WorkItemsAffected *Collection `json:"WorkItemsAffected,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Attention Level
 	CAttentionLevel *string `json:"c_AttentionLevel,omitempty"`
 	// Item Type
@@ -77,9 +77,9 @@ type RiskMutationRisk struct {
 	// Target Date
 	CTargetDate *string `json:"c_TargetDate,omitempty"`
 	// Workload CI ID
-	CWorkloadCIID *string  `json:"c_WorkloadCIID,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	CWorkloadCIID *string `json:"c_WorkloadCIID,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRiskMutationRisk instantiates a new RiskMutationRisk object
@@ -1304,7 +1304,7 @@ func (o *RiskMutationRisk) SetErrors(v []string) {
 }
 
 func (o RiskMutationRisk) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1462,3 +1462,5 @@ func (v *NullableRiskMutationRisk) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

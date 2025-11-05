@@ -20,11 +20,11 @@ var _ MappedNullable = &PreferenceRead200Response{}
 
 // PreferenceRead200Response struct for PreferenceRead200Response
 type PreferenceRead200Response struct {
-	RallyAPIMajor *string     `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string     `json:"_rallyAPIMinor,omitempty"`
-	Preference    *Preference `json:"Preference,omitempty"`
-	Warnings      []string    `json:"Warnings,omitempty"`
-	Errors        []string    `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	Preference *Preference `json:"Preference,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPreferenceRead200Response instantiates a new PreferenceRead200Response object
@@ -205,7 +205,7 @@ func (o *PreferenceRead200Response) SetErrors(v []string) {
 }
 
 func (o PreferenceRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullablePreferenceRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

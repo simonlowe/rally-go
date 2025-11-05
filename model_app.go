@@ -41,14 +41,14 @@ type App struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Preview Image Url
-	PreviewImageUrl *string          `json:"PreviewImageUrl,omitempty"`
-	Subscription    *SubscriptionRef `json:"Subscription,omitempty"`
+	PreviewImageUrl *string `json:"PreviewImageUrl,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Usages
 	Usages *int64 `json:"Usages,omitempty"`
 	// VersionId
-	VersionId *string  `json:"VersionId,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewApp instantiates a new App object
@@ -581,7 +581,7 @@ func (o *App) SetErrors(v []string) {
 }
 
 func (o App) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -676,3 +676,5 @@ func (v *NullableApp) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

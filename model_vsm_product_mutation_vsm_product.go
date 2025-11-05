@@ -25,15 +25,15 @@ type VSMProductMutationVSMProduct struct {
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Investment Intent
-	InvestmentIntent *string     `json:"InvestmentIntent,omitempty"`
-	Metrics          *Collection `json:"Metrics,omitempty"`
+	InvestmentIntent *string `json:"InvestmentIntent,omitempty"`
+	Metrics *Collection `json:"Metrics,omitempty"`
 	// Name
-	Name     *string        `json:"Name,omitempty"`
-	Outcomes *Collection    `json:"Outcomes,omitempty"`
-	Parent   *VSMProductRef `json:"Parent,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Outcomes *Collection `json:"Outcomes,omitempty"`
+	Parent *VSMProductRef `json:"Parent,omitempty"`
 	// PortfolioItem Filter
-	PortfolioItemFilter *string     `json:"PortfolioItemFilter,omitempty"`
-	PortfolioItems      *Collection `json:"PortfolioItems,omitempty"`
+	PortfolioItemFilter *string `json:"PortfolioItemFilter,omitempty"`
+	PortfolioItems *Collection `json:"PortfolioItems,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source System Meta Data
@@ -41,10 +41,10 @@ type VSMProductMutationVSMProduct struct {
 	// Source Url
 	SourceUrl *string `json:"SourceUrl,omitempty"`
 	// SubclassType
-	SubclassType *string       `json:"SubclassType,omitempty"`
-	Workspace    *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings     []string      `json:"Warnings,omitempty"`
-	Errors       []string      `json:"Errors,omitempty"`
+	SubclassType *string `json:"SubclassType,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMProductMutationVSMProduct instantiates a new VSMProductMutationVSMProduct object
@@ -577,7 +577,7 @@ func (o *VSMProductMutationVSMProduct) SetErrors(v []string) {
 }
 
 func (o VSMProductMutationVSMProduct) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -672,3 +672,5 @@ func (v *NullableVSMProductMutationVSMProduct) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

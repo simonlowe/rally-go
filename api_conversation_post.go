@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // ConversationPostAPIService ConversationPostAPI service
 type ConversationPostAPIService service
 
 type ApiConversationPostCreateRequest struct {
-	ctx                      context.Context
-	ApiService               *ConversationPostAPIService
+	ctx context.Context
+	ApiService *ConversationPostAPIService
 	conversationPostMutation *ConversationPostMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiConversationPostCreateRequest) Execute() (*ConversationPostCreate200R
 /*
 ConversationPostCreate ConversationPost Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiConversationPostCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiConversationPostCreateRequest
 */
 func (a *ConversationPostAPIService) ConversationPostCreate(ctx context.Context) ApiConversationPostCreateRequest {
 	return ApiConversationPostCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ConversationPostCreate200Response
+//  @return ConversationPostCreate200Response
 func (a *ConversationPostAPIService) ConversationPostCreateExecute(r ApiConversationPostCreateRequest) (*ConversationPostCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ConversationPostCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConversationPostCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConversationPostAPIService.ConversationPostCreate")
@@ -134,9 +134,9 @@ func (a *ConversationPostAPIService) ConversationPostCreateExecute(r ApiConversa
 }
 
 type ApiConversationPostDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ConversationPostAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiConversationPostDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiConversationPostDeleteRequest) Execute() (*AllowedAttributeValueDelet
 /*
 ConversationPostDelete ConversationPost Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiConversationPostDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiConversationPostDeleteRequest
 */
 func (a *ConversationPostAPIService) ConversationPostDelete(ctx context.Context, objectId string) ApiConversationPostDeleteRequest {
 	return ApiConversationPostDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *ConversationPostAPIService) ConversationPostDeleteExecute(r ApiConversationPostDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConversationPostAPIService.ConversationPostDelete")
@@ -236,18 +235,18 @@ func (a *ConversationPostAPIService) ConversationPostDeleteExecute(r ApiConversa
 }
 
 type ApiConversationPostQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ConversationPostAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiConversationPostQueryRequest) Fetch(fetch string) ApiConversationPostQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiConversationPostQueryRequest) Workspace(workspace string) ApiConversa
 	return r
 }
 
+// 
 func (r ApiConversationPostQueryRequest) Compact(compact bool) ApiConversationPostQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiConversationPostQueryRequest) Execute() (*ConversationPostQuery200Res
 /*
 ConversationPostQuery ConversationPost Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiConversationPostQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiConversationPostQueryRequest
 */
 func (a *ConversationPostAPIService) ConversationPostQuery(ctx context.Context) ApiConversationPostQueryRequest {
 	return ApiConversationPostQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ConversationPostQuery200Response
+//  @return ConversationPostQuery200Response
 func (a *ConversationPostAPIService) ConversationPostQueryExecute(r ApiConversationPostQueryRequest) (*ConversationPostQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ConversationPostQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConversationPostQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConversationPostAPIService.ConversationPostQuery")
@@ -348,8 +347,9 @@ func (a *ConversationPostAPIService) ConversationPostQueryExecute(r ApiConversat
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *ConversationPostAPIService) ConversationPostQueryExecute(r ApiConversat
 }
 
 type ApiConversationPostReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ConversationPostAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiConversationPostReadRequest) Compact(compact bool) ApiConversationPostReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiConversationPostReadRequest) Execute() (*ConversationPostRead200Respo
 /*
 ConversationPostRead ConversationPost Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiConversationPostReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiConversationPostReadRequest
 */
 func (a *ConversationPostAPIService) ConversationPostRead(ctx context.Context, objectId string) ApiConversationPostReadRequest {
 	return ApiConversationPostReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ConversationPostRead200Response
+//  @return ConversationPostRead200Response
 func (a *ConversationPostAPIService) ConversationPostReadExecute(r ApiConversationPostReadRequest) (*ConversationPostRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ConversationPostRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConversationPostRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConversationPostAPIService.ConversationPostRead")
@@ -469,8 +469,9 @@ func (a *ConversationPostAPIService) ConversationPostReadExecute(r ApiConversati
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *ConversationPostAPIService) ConversationPostReadExecute(r ApiConversati
 }
 
 type ApiConversationPostUpdateRequest struct {
-	ctx                      context.Context
-	ApiService               *ConversationPostAPIService
-	objectId                 string
+	ctx context.Context
+	ApiService *ConversationPostAPIService
+	objectId string
 	conversationPostMutation *ConversationPostMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiConversationPostUpdateRequest) Execute() (*ConversationPostRead200Res
 /*
 ConversationPostUpdate ConversationPost Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiConversationPostUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiConversationPostUpdateRequest
 */
 func (a *ConversationPostAPIService) ConversationPostUpdate(ctx context.Context, objectId string) ApiConversationPostUpdateRequest {
 	return ApiConversationPostUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ConversationPostRead200Response
+//  @return ConversationPostRead200Response
 func (a *ConversationPostAPIService) ConversationPostUpdateExecute(r ApiConversationPostUpdateRequest) (*ConversationPostRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ConversationPostRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConversationPostRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConversationPostAPIService.ConversationPostUpdate")

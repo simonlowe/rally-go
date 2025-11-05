@@ -21,16 +21,16 @@ var _ MappedNullable = &EpicMutationEpic{}
 // EpicMutationEpic Epic
 type EpicMutationEpic struct {
 	// Archived
-	Archived    *bool       `json:"Archived,omitempty"`
+	Archived *bool `json:"Archived,omitempty"`
 	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
 	CapacityPlans *Collection `json:"CapacityPlans,omitempty"`
 	// Capital Approval
-	CapitalApproval *string     `json:"CapitalApproval,omitempty"`
-	Changesets      *Collection `json:"Changesets,omitempty"`
+	CapitalApproval *string `json:"CapitalApproval,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -38,25 +38,25 @@ type EpicMutationEpic struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Investment Category
-	InvestmentCategory *string     `json:"InvestmentCategory,omitempty"`
-	Investments        *Collection `json:"Investments,omitempty"`
+	InvestmentCategory *string `json:"InvestmentCategory,omitempty"`
+	Investments *Collection `json:"Investments,omitempty"`
 	// Job Size
-	JobSize    *int64      `json:"JobSize,omitempty"`
+	JobSize *int64 `json:"JobSize,omitempty"`
 	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes      *string        `json:"Notes,omitempty"`
-	Objectives *Collection    `json:"Objectives,omitempty"`
-	Owner      *UserRef       `json:"Owner,omitempty"`
-	Parent     *InvestmentRef `json:"Parent,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
+	Objectives *Collection `json:"Objectives,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	Parent *InvestmentRef `json:"Parent,omitempty"`
 	// Planned End Date
 	PlannedEndDate *string `json:"PlannedEndDate,omitempty"`
 	// Planned Start Date
-	PlannedStartDate    *string                 `json:"PlannedStartDate,omitempty"`
-	Predecessors        *Collection             `json:"Predecessors,omitempty"`
+	PlannedStartDate *string `json:"PlannedStartDate,omitempty"`
+	Predecessors *Collection `json:"Predecessors,omitempty"`
 	PreliminaryEstimate *PreliminaryEstimateRef `json:"PreliminaryEstimate,omitempty"`
-	Project             *ProjectRef             `json:"Project,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// RR/OE Value
 	RROEValue *int64 `json:"RROEValue,omitempty"`
 	// Ready
@@ -68,11 +68,11 @@ type EpicMutationEpic struct {
 	// Release Value
 	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	// Risk Score
-	RiskScore  *int64      `json:"RiskScore,omitempty"`
-	Risks      *Collection `json:"Risks,omitempty"`
-	State      *StateRef   `json:"State,omitempty"`
+	RiskScore *int64 `json:"RiskScore,omitempty"`
+	Risks *Collection `json:"Risks,omitempty"`
+	State *StateRef `json:"State,omitempty"`
 	Successors *Collection `json:"Successors,omitempty"`
-	Tags       *Collection `json:"Tags,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Time Criticality
 	TimeCriticality *int64 `json:"TimeCriticality,omitempty"`
 	// User/Business Value
@@ -80,18 +80,18 @@ type EpicMutationEpic struct {
 	// Value Score
 	ValueScore *int64 `json:"ValueScore,omitempty"`
 	// WSJF Score
-	WSJFScore *float32      `json:"WSJFScore,omitempty"`
+	WSJFScore *float32 `json:"WSJFScore,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Acceptance Criteria
-	CAcceptanceCriteria *string     `json:"c_AcceptanceCriteria,omitempty"`
+	CAcceptanceCriteria *string `json:"c_AcceptanceCriteria,omitempty"`
 	CAdditionalWorkload *Collection `json:"c_AdditionalWorkload,omitempty"`
 	// Agile Program
 	CAgileProgram *string `json:"c_AgileProgram,omitempty"`
 	// Anticipated Child Count
 	CAnticipatedChildCount *int64 `json:"c_AnticipatedChildCount,omitempty"`
 	// Application Area
-	CApplicationArea *string  `json:"c_ApplicationArea,omitempty"`
-	CArchitect       *UserRef `json:"c_Architect,omitempty"`
+	CApplicationArea *string `json:"c_ApplicationArea,omitempty"`
+	CArchitect *UserRef `json:"c_Architect,omitempty"`
 	// Architecture Constraints
 	CArchitectureConstraints *string `json:"c_ArchitectureConstraints,omitempty"`
 	// Archive Date
@@ -117,7 +117,7 @@ type EpicMutationEpic struct {
 	// CAI Target Cost ($)
 	CCAITargetCost *int64 `json:"c_CAITargetCost,omitempty"`
 	// CI Kata
-	CCIKata     *string     `json:"c_CIKata,omitempty"`
+	CCIKata *string `json:"c_CIKata,omitempty"`
 	CCMSProduct *Collection `json:"c_CMSProduct,omitempty"`
 	// CRS Product
 	CCRSProduct *string `json:"c_CRSProduct,omitempty"`
@@ -142,8 +142,8 @@ type EpicMutationEpic struct {
 	// Dependency Status
 	CDependencyStatus *string `json:"c_DependencyStatus,omitempty"`
 	// EP Strategic Initiative 2023
-	CEPStrategicInitiative2023 *string     `json:"c_EPStrategicInitiative2023,omitempty"`
-	CETServiceCatalog          *Collection `json:"c_ETServiceCatalog,omitempty"`
+	CEPStrategicInitiative2023 *string `json:"c_EPStrategicInitiative2023,omitempty"`
+	CETServiceCatalog *Collection `json:"c_ETServiceCatalog,omitempty"`
 	// ET Service Catalog Phase
 	CETServiceCatalogPhase *string `json:"c_ETServiceCatalogPhase,omitempty"`
 	// Engineering Constraints
@@ -171,7 +171,7 @@ type EpicMutationEpic struct {
 	// Exclude from Roadmap
 	CExcludefromRoadmap *bool `json:"c_ExcludefromRoadmap,omitempty"`
 	// Financials
-	CFinancials                      *string     `json:"c_Financials,omitempty"`
+	CFinancials *string `json:"c_Financials,omitempty"`
 	CGTMProductSvcLineInvestmentOnly *Collection `json:"c_GTMProductSvcLineInvestmentOnly,omitempty"`
 	// Integration Mappings
 	CIntegrationMappings *string `json:"c_IntegrationMappings,omitempty"`
@@ -184,10 +184,10 @@ type EpicMutationEpic struct {
 	// Is this Feature/Epic connected to SOW?
 	CIsthisFeatureEpicconnectedtoSOW *string `json:"c_IsthisFeatureEpicconnectedtoSOW,omitempty"`
 	// Key Metrics and Performance Indicator(s)
-	CKeyMetricsandPerformanceIndicators *string     `json:"c_KeyMetricsandPerformanceIndicators,omitempty"`
-	CL1Capability                       *Collection `json:"c_L1Capability,omitempty"`
-	CL2Capability                       *Collection `json:"c_L2Capability,omitempty"`
-	CL3Capability                       *Collection `json:"c_L3Capability,omitempty"`
+	CKeyMetricsandPerformanceIndicators *string `json:"c_KeyMetricsandPerformanceIndicators,omitempty"`
+	CL1Capability *Collection `json:"c_L1Capability,omitempty"`
+	CL2Capability *Collection `json:"c_L2Capability,omitempty"`
+	CL3Capability *Collection `json:"c_L3Capability,omitempty"`
 	// Launch Toggle Name
 	CLaunchToggleName *string `json:"c_LaunchToggleName,omitempty"`
 	// Link to Discovery Artifacts
@@ -219,8 +219,8 @@ type EpicMutationEpic struct {
 	// Portfolio Architecture Review
 	CPortfolioArchitectureReview *string `json:"c_PortfolioArchitectureReview,omitempty"`
 	// Preliminary Budget
-	CPreliminaryBudget *string     `json:"c_PreliminaryBudget,omitempty"`
-	CPrimaryWorkload   *Collection `json:"c_PrimaryWorkload,omitempty"`
+	CPreliminaryBudget *string `json:"c_PreliminaryBudget,omitempty"`
+	CPrimaryWorkload *Collection `json:"c_PrimaryWorkload,omitempty"`
 	// Priority Categorization
 	CPriorityCategorization *string `json:"c_PriorityCategorization,omitempty"`
 	// Problem Discovery End Date
@@ -242,8 +242,8 @@ type EpicMutationEpic struct {
 	// Progress/Action Plan
 	CProgressActionPlan *string `json:"c_ProgressActionPlan,omitempty"`
 	// Quality Score
-	CQualityScore *string     `json:"c_QualityScore,omitempty"`
-	CRTSProduct   *Collection `json:"c_RTSProduct,omitempty"`
+	CQualityScore *string `json:"c_QualityScore,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Recommendation for Enterprise Planning
 	CRecommendationforEnterprisePlanning *string `json:"c_RecommendationforEnterprisePlanning,omitempty"`
 	// Release Date
@@ -295,9 +295,9 @@ type EpicMutationEpic struct {
 	// Workload CI ID
 	CWorkloadCIID *string `json:"c_WorkloadCIID,omitempty"`
 	// old_Release Notes
-	COldReleaseNotes *bool    `json:"c_oldReleaseNotes,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	COldReleaseNotes *bool `json:"c_oldReleaseNotes,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewEpicMutationEpic instantiates a new EpicMutationEpic object
@@ -5218,7 +5218,7 @@ func (o *EpicMutationEpic) SetErrors(v []string) {
 }
 
 func (o EpicMutationEpic) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -5724,3 +5724,5 @@ func (v *NullableEpicMutationEpic) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

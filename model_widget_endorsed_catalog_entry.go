@@ -21,7 +21,7 @@ var _ MappedNullable = &WidgetEndorsedCatalogEntry{}
 // WidgetEndorsedCatalogEntry WidgetEndorsedCatalogEntry
 type WidgetEndorsedCatalogEntry struct {
 	// Config
-	Config    *string  `json:"Config,omitempty"`
+	Config *string `json:"Config,omitempty"`
 	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -40,18 +40,18 @@ type WidgetEndorsedCatalogEntry struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags         *Collection      `json:"Tags,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Type
 	Type *string `json:"Type,omitempty"`
 	// Usage Count
 	UsageCount *int64 `json:"UsageCount,omitempty"`
 	// VersionId
-	VersionId   *string     `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	ViewFilters *Collection `json:"ViewFilters,omitempty"`
-	Warnings    []string    `json:"Warnings,omitempty"`
-	Errors      []string    `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetEndorsedCatalogEntry instantiates a new WidgetEndorsedCatalogEntry object
@@ -680,7 +680,7 @@ func (o *WidgetEndorsedCatalogEntry) SetErrors(v []string) {
 }
 
 func (o WidgetEndorsedCatalogEntry) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -784,3 +784,5 @@ func (v *NullableWidgetEndorsedCatalogEntry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

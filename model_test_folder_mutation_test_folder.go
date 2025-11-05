@@ -20,20 +20,20 @@ var _ MappedNullable = &TestFolderMutationTestFolder{}
 
 // TestFolderMutationTestFolder TestFolder
 type TestFolderMutationTestFolder struct {
-	Children    *Collection `json:"Children,omitempty"`
+	Children *Collection `json:"Children,omitempty"`
 	Descendants *Collection `json:"Descendants,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Name
-	Name      *string        `json:"Name,omitempty"`
-	Parent    *TestFolderRef `json:"Parent,omitempty"`
-	Project   *ProjectRef    `json:"Project,omitempty"`
-	TestCases *Collection    `json:"TestCases,omitempty"`
-	Workspace *WorkspaceRef  `json:"Workspace,omitempty"`
-	Warnings  []string       `json:"Warnings,omitempty"`
-	Errors    []string       `json:"Errors,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Parent *TestFolderRef `json:"Parent,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	TestCases *Collection `json:"TestCases,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestFolderMutationTestFolder instantiates a new TestFolderMutationTestFolder object
@@ -406,7 +406,7 @@ func (o *TestFolderMutationTestFolder) SetErrors(v []string) {
 }
 
 func (o TestFolderMutationTestFolder) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -486,3 +486,5 @@ func (v *NullableTestFolderMutationTestFolder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -73,7 +73,7 @@ func (o *ConversationPostQuery200Response) SetQueryResult(v ConversationPostQuer
 }
 
 func (o ConversationPostQuery200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableConversationPostQuery200Response) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

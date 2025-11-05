@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // InvestmentAPIService InvestmentAPI service
 type InvestmentAPIService service
 
 type ApiInvestmentCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *InvestmentAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiInvestmentCopyRequest) Compact(compact bool) ApiInvestmentCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiInvestmentCopyRequest) Execute() (*InvestmentRead200Response, *http.R
 /*
 InvestmentCopy Investment Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiInvestmentCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiInvestmentCopyRequest
 */
 func (a *InvestmentAPIService) InvestmentCopy(ctx context.Context, objectId string) ApiInvestmentCopyRequest {
 	return ApiInvestmentCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return InvestmentRead200Response
+//  @return InvestmentRead200Response
 func (a *InvestmentAPIService) InvestmentCopyExecute(r ApiInvestmentCopyRequest) (*InvestmentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *InvestmentRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InvestmentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentCopy")
@@ -77,7 +78,7 @@ func (a *InvestmentAPIService) InvestmentCopyExecute(r ApiInvestmentCopyRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment/{objectId}/copy"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment/{objectId}/copy"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -87,8 +88,9 @@ func (a *InvestmentAPIService) InvestmentCopyExecute(r ApiInvestmentCopyRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *InvestmentAPIService) InvestmentCopyExecute(r ApiInvestmentCopyRequest)
 }
 
 type ApiInvestmentCreateRequest struct {
-	ctx                context.Context
-	ApiService         *InvestmentAPIService
+	ctx context.Context
+	ApiService *InvestmentAPIService
 	investmentMutation *InvestmentMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiInvestmentCreateRequest) Execute() (*InvestmentCreate200Response, *ht
 /*
 InvestmentCreate Investment Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInvestmentCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiInvestmentCreateRequest
 */
 func (a *InvestmentAPIService) InvestmentCreate(ctx context.Context) ApiInvestmentCreateRequest {
 	return ApiInvestmentCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return InvestmentCreate200Response
+//  @return InvestmentCreate200Response
 func (a *InvestmentAPIService) InvestmentCreateExecute(r ApiInvestmentCreateRequest) (*InvestmentCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *InvestmentCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InvestmentCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentCreate")
@@ -192,7 +193,7 @@ func (a *InvestmentAPIService) InvestmentCreateExecute(r ApiInvestmentCreateRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment/create"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -258,9 +259,9 @@ func (a *InvestmentAPIService) InvestmentCreateExecute(r ApiInvestmentCreateRequ
 }
 
 type ApiInvestmentDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *InvestmentAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiInvestmentDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiInvestmentDeleteRequest) Execute() (*AllowedAttributeValueDelete200Re
 /*
 InvestmentDelete Investment Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiInvestmentDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiInvestmentDeleteRequest
 */
 func (a *InvestmentAPIService) InvestmentDelete(ctx context.Context, objectId string) ApiInvestmentDeleteRequest {
 	return ApiInvestmentDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *InvestmentAPIService) InvestmentDeleteExecute(r ApiInvestmentDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentDelete")
@@ -298,7 +298,7 @@ func (a *InvestmentAPIService) InvestmentDeleteExecute(r ApiInvestmentDeleteRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -360,18 +360,18 @@ func (a *InvestmentAPIService) InvestmentDeleteExecute(r ApiInvestmentDeleteRequ
 }
 
 type ApiInvestmentQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *InvestmentAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiInvestmentQueryRequest) Fetch(fetch string) ApiInvestmentQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiInvestmentQueryRequest) Workspace(workspace string) ApiInvestmentQuer
 	return r
 }
 
+// 
 func (r ApiInvestmentQueryRequest) Compact(compact bool) ApiInvestmentQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiInvestmentQueryRequest) Execute() (*InvestmentQuery200Response, *http
 /*
 InvestmentQuery Investment Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInvestmentQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiInvestmentQueryRequest
 */
 func (a *InvestmentAPIService) InvestmentQuery(ctx context.Context) ApiInvestmentQueryRequest {
 	return ApiInvestmentQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return InvestmentQuery200Response
+//  @return InvestmentQuery200Response
 func (a *InvestmentAPIService) InvestmentQueryExecute(r ApiInvestmentQueryRequest) (*InvestmentQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *InvestmentQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InvestmentQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentQuery")
@@ -445,7 +445,7 @@ func (a *InvestmentAPIService) InvestmentQueryExecute(r ApiInvestmentQueryReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -472,8 +472,9 @@ func (a *InvestmentAPIService) InvestmentQueryExecute(r ApiInvestmentQueryReques
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *InvestmentAPIService) InvestmentQueryExecute(r ApiInvestmentQueryReques
 }
 
 type ApiInvestmentReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *InvestmentAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiInvestmentReadRequest) Compact(compact bool) ApiInvestmentReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiInvestmentReadRequest) Execute() (*InvestmentRead200Response, *http.R
 /*
 InvestmentRead Investment Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiInvestmentReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiInvestmentReadRequest
 */
 func (a *InvestmentAPIService) InvestmentRead(ctx context.Context, objectId string) ApiInvestmentReadRequest {
 	return ApiInvestmentReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return InvestmentRead200Response
+//  @return InvestmentRead200Response
 func (a *InvestmentAPIService) InvestmentReadExecute(r ApiInvestmentReadRequest) (*InvestmentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *InvestmentRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InvestmentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentRead")
@@ -583,7 +584,7 @@ func (a *InvestmentAPIService) InvestmentReadExecute(r ApiInvestmentReadRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -593,8 +594,9 @@ func (a *InvestmentAPIService) InvestmentReadExecute(r ApiInvestmentReadRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *InvestmentAPIService) InvestmentReadExecute(r ApiInvestmentReadRequest)
 }
 
 type ApiInvestmentUpdateRequest struct {
-	ctx                context.Context
-	ApiService         *InvestmentAPIService
-	objectId           string
+	ctx context.Context
+	ApiService *InvestmentAPIService
+	objectId string
 	investmentMutation *InvestmentMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiInvestmentUpdateRequest) Execute() (*InvestmentRead200Response, *http
 /*
 InvestmentUpdate Investment Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiInvestmentUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiInvestmentUpdateRequest
 */
 func (a *InvestmentAPIService) InvestmentUpdate(ctx context.Context, objectId string) ApiInvestmentUpdateRequest {
 	return ApiInvestmentUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return InvestmentRead200Response
+//  @return InvestmentRead200Response
 func (a *InvestmentAPIService) InvestmentUpdateExecute(r ApiInvestmentUpdateRequest) (*InvestmentRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *InvestmentRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InvestmentRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InvestmentAPIService.InvestmentUpdate")
@@ -701,7 +702,7 @@ func (a *InvestmentAPIService) InvestmentUpdateExecute(r ApiInvestmentUpdateRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/investment/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/investment/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

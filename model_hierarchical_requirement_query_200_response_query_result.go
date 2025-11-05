@@ -20,12 +20,12 @@ var _ MappedNullable = &HierarchicalRequirementQuery200ResponseQueryResult{}
 
 // HierarchicalRequirementQuery200ResponseQueryResult struct for HierarchicalRequirementQuery200ResponseQueryResult
 type HierarchicalRequirementQuery200ResponseQueryResult struct {
-	StartIndex       *int64                    `json:"StartIndex,omitempty"`
-	PageSize         *int64                    `json:"PageSize,omitempty"`
-	TotalResultCount *int64                    `json:"TotalResultCount,omitempty"`
-	Results          []HierarchicalRequirement `json:"Results,omitempty"`
-	Warnings         []string                  `json:"Warnings,omitempty"`
-	Errors           []string                  `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []HierarchicalRequirement `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewHierarchicalRequirementQuery200ResponseQueryResult instantiates a new HierarchicalRequirementQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *HierarchicalRequirementQuery200ResponseQueryResult) SetErrors(v []strin
 }
 
 func (o HierarchicalRequirementQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableHierarchicalRequirementQuery200ResponseQueryResult) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

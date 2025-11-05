@@ -24,9 +24,9 @@ type DefectSuiteMutationDefectSuite struct {
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
-	Defects       *Collection `json:"Defects,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Defects *Collection `json:"Defects,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -34,33 +34,33 @@ type DefectSuiteMutationDefectSuite struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
-	Iteration         *IterationRef `json:"Iteration,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
-	IterationValue *string     `json:"IterationValue,omitempty"`
-	Milestones     *Collection `json:"Milestones,omitempty"`
+	IterationValue *string `json:"IterationValue,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
 	Package *string `json:"Package,omitempty"`
 	// Plan Estimate
-	PlanEstimate *float32    `json:"PlanEstimate,omitempty"`
-	Project      *ProjectRef `json:"Project,omitempty"`
+	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready   *bool       `json:"Ready,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
 	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
 	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	// Schedule State
-	ScheduleState *string       `json:"ScheduleState,omitempty"`
-	Tags          *Collection   `json:"Tags,omitempty"`
-	Workspace     *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings      []string      `json:"Warnings,omitempty"`
-	Errors        []string      `json:"Errors,omitempty"`
+	ScheduleState *string `json:"ScheduleState,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDefectSuiteMutationDefectSuite instantiates a new DefectSuiteMutationDefectSuite object
@@ -949,7 +949,7 @@ func (o *DefectSuiteMutationDefectSuite) SetErrors(v []string) {
 }
 
 func (o DefectSuiteMutationDefectSuite) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1077,3 +1077,5 @@ func (v *NullableDefectSuiteMutationDefectSuite) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

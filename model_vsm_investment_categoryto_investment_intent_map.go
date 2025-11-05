@@ -31,16 +31,16 @@ type VSMInvestmentCategorytoInvestmentIntentMap struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID      *string             `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Source System Meta Data
-	SourceSystemMetaData *string          `json:"SourceSystemMetaData,omitempty"`
-	Subscription         *SubscriptionRef `json:"Subscription,omitempty"`
+	SourceSystemMetaData *string `json:"SourceSystemMetaData,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMInvestmentCategorytoInvestmentIntentMap instantiates a new VSMInvestmentCategorytoInvestmentIntentMap object
@@ -481,7 +481,7 @@ func (o *VSMInvestmentCategorytoInvestmentIntentMap) SetErrors(v []string) {
 }
 
 func (o VSMInvestmentCategorytoInvestmentIntentMap) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -567,3 +567,5 @@ func (v *NullableVSMInvestmentCategorytoInvestmentIntentMap) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

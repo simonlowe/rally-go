@@ -21,7 +21,7 @@ var _ MappedNullable = &WidgetSubscriptionCatalogTag{}
 // WidgetSubscriptionCatalogTag WidgetSubscriptionCatalogTag
 type WidgetSubscriptionCatalogTag struct {
 	// Color
-	Color     *string  `json:"Color,omitempty"`
+	Color *string `json:"Color,omitempty"`
 	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -32,12 +32,12 @@ type WidgetSubscriptionCatalogTag struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string  `json:"VersionId,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetSubscriptionCatalogTag instantiates a new WidgetSubscriptionCatalogTag object
@@ -410,7 +410,7 @@ func (o *WidgetSubscriptionCatalogTag) SetErrors(v []string) {
 }
 
 func (o WidgetSubscriptionCatalogTag) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -490,3 +490,5 @@ func (v *NullableWidgetSubscriptionCatalogTag) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

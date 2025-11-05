@@ -20,9 +20,9 @@ var _ MappedNullable = &ChangesetCreate200ResponseCreateResult{}
 
 // ChangesetCreate200ResponseCreateResult struct for ChangesetCreate200ResponseCreateResult
 type ChangesetCreate200ResponseCreateResult struct {
-	Errors   []string   `json:"Errors,omitempty"`
-	Object   *Changeset `json:"Object,omitempty"`
-	Warnings []string   `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Changeset `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewChangesetCreate200ResponseCreateResult instantiates a new ChangesetCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *ChangesetCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o ChangesetCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableChangesetCreate200ResponseCreateResult) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

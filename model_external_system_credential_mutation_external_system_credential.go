@@ -27,9 +27,9 @@ type ExternalSystemCredentialMutationExternalSystemCredential struct {
 	// Uri
 	Uri *string `json:"Uri,omitempty"`
 	// User Name
-	UserName *string  `json:"UserName,omitempty"`
+	UserName *string `json:"UserName,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewExternalSystemCredentialMutationExternalSystemCredential instantiates a new ExternalSystemCredentialMutationExternalSystemCredential object
@@ -242,7 +242,7 @@ func (o *ExternalSystemCredentialMutationExternalSystemCredential) SetErrors(v [
 }
 
 func (o ExternalSystemCredentialMutationExternalSystemCredential) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -307,3 +307,5 @@ func (v *NullableExternalSystemCredentialMutationExternalSystemCredential) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

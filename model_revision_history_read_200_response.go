@@ -20,11 +20,11 @@ var _ MappedNullable = &RevisionHistoryRead200Response{}
 
 // RevisionHistoryRead200Response struct for RevisionHistoryRead200Response
 type RevisionHistoryRead200Response struct {
-	RallyAPIMajor   *string          `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor   *string          `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	RevisionHistory *RevisionHistory `json:"RevisionHistory,omitempty"`
-	Warnings        []string         `json:"Warnings,omitempty"`
-	Errors          []string         `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRevisionHistoryRead200Response instantiates a new RevisionHistoryRead200Response object
@@ -205,7 +205,7 @@ func (o *RevisionHistoryRead200Response) SetErrors(v []string) {
 }
 
 func (o RevisionHistoryRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableRevisionHistoryRead200Response) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

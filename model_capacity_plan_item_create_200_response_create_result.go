@@ -20,9 +20,9 @@ var _ MappedNullable = &CapacityPlanItemCreate200ResponseCreateResult{}
 
 // CapacityPlanItemCreate200ResponseCreateResult struct for CapacityPlanItemCreate200ResponseCreateResult
 type CapacityPlanItemCreate200ResponseCreateResult struct {
-	Errors   []string          `json:"Errors,omitempty"`
-	Object   *CapacityPlanItem `json:"Object,omitempty"`
-	Warnings []string          `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *CapacityPlanItem `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewCapacityPlanItemCreate200ResponseCreateResult instantiates a new CapacityPlanItemCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *CapacityPlanItemCreate200ResponseCreateResult) SetWarnings(v []string) 
 }
 
 func (o CapacityPlanItemCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableCapacityPlanItemCreate200ResponseCreateResult) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

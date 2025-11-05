@@ -20,12 +20,12 @@ var _ MappedNullable = &UserProfileQuery200ResponseQueryResult{}
 
 // UserProfileQuery200ResponseQueryResult struct for UserProfileQuery200ResponseQueryResult
 type UserProfileQuery200ResponseQueryResult struct {
-	StartIndex       *int64        `json:"StartIndex,omitempty"`
-	PageSize         *int64        `json:"PageSize,omitempty"`
-	TotalResultCount *int64        `json:"TotalResultCount,omitempty"`
-	Results          []UserProfile `json:"Results,omitempty"`
-	Warnings         []string      `json:"Warnings,omitempty"`
-	Errors           []string      `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []UserProfile `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserProfileQuery200ResponseQueryResult instantiates a new UserProfileQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *UserProfileQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o UserProfileQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableUserProfileQuery200ResponseQueryResult) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

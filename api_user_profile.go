@@ -20,22 +20,23 @@ import (
 	"strings"
 )
 
+
 // UserProfileAPIService UserProfileAPI service
 type UserProfileAPIService service
 
 type ApiUserProfileQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserProfileAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiUserProfileQueryRequest) Fetch(fetch string) ApiUserProfileQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -71,6 +72,7 @@ func (r ApiUserProfileQueryRequest) Workspace(workspace string) ApiUserProfileQu
 	return r
 }
 
+// 
 func (r ApiUserProfileQueryRequest) Compact(compact bool) ApiUserProfileQueryRequest {
 	r.compact = &compact
 	return r
@@ -83,25 +85,24 @@ func (r ApiUserProfileQueryRequest) Execute() (*UserProfileQuery200Response, *ht
 /*
 UserProfileQuery UserProfile Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserProfileQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiUserProfileQueryRequest
 */
 func (a *UserProfileAPIService) UserProfileQuery(ctx context.Context) ApiUserProfileQueryRequest {
 	return ApiUserProfileQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserProfileQuery200Response
+//  @return UserProfileQuery200Response
 func (a *UserProfileAPIService) UserProfileQueryExecute(r ApiUserProfileQueryRequest) (*UserProfileQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserProfileQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserProfileQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserProfileAPIService.UserProfileQuery")
@@ -136,8 +137,9 @@ func (a *UserProfileAPIService) UserProfileQueryExecute(r ApiUserProfileQueryReq
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -194,13 +196,14 @@ func (a *UserProfileAPIService) UserProfileQueryExecute(r ApiUserProfileQueryReq
 }
 
 type ApiUserProfileReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserProfileAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiUserProfileReadRequest) Compact(compact bool) ApiUserProfileReadRequest {
 	r.compact = &compact
 	return r
@@ -219,27 +222,26 @@ func (r ApiUserProfileReadRequest) Execute() (*UserProfileRead200Response, *http
 /*
 UserProfileRead UserProfile Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiUserProfileReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiUserProfileReadRequest
 */
 func (a *UserProfileAPIService) UserProfileRead(ctx context.Context, objectId string) ApiUserProfileReadRequest {
 	return ApiUserProfileReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserProfileRead200Response
+//  @return UserProfileRead200Response
 func (a *UserProfileAPIService) UserProfileReadExecute(r ApiUserProfileReadRequest) (*UserProfileRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserProfileRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserProfileRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserProfileAPIService.UserProfileRead")
@@ -257,8 +259,9 @@ func (a *UserProfileAPIService) UserProfileReadExecute(r ApiUserProfileReadReque
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -318,9 +321,9 @@ func (a *UserProfileAPIService) UserProfileReadExecute(r ApiUserProfileReadReque
 }
 
 type ApiUserProfileUpdateRequest struct {
-	ctx                 context.Context
-	ApiService          *UserProfileAPIService
-	objectId            string
+	ctx context.Context
+	ApiService *UserProfileAPIService
+	objectId string
 	userProfileMutation *UserProfileMutation
 }
 
@@ -337,27 +340,26 @@ func (r ApiUserProfileUpdateRequest) Execute() (*UserProfileRead200Response, *ht
 /*
 UserProfileUpdate UserProfile Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiUserProfileUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiUserProfileUpdateRequest
 */
 func (a *UserProfileAPIService) UserProfileUpdate(ctx context.Context, objectId string) ApiUserProfileUpdateRequest {
 	return ApiUserProfileUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserProfileRead200Response
+//  @return UserProfileRead200Response
 func (a *UserProfileAPIService) UserProfileUpdateExecute(r ApiUserProfileUpdateRequest) (*UserProfileRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserProfileRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserProfileRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserProfileAPIService.UserProfileUpdate")

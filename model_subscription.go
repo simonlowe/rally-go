@@ -139,13 +139,13 @@ type Subscription struct {
 	// Project Hierarchy Enabled
 	ProjectHierarchyEnabled *bool `json:"ProjectHierarchyEnabled,omitempty"`
 	// Restricted IP Addresses
-	RestrictedIPAddresses *string             `json:"RestrictedIPAddresses,omitempty"`
-	RevisionHistory       *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	RestrictedIPAddresses *string `json:"RestrictedIPAddresses,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// SSO Exception Usernames
 	SSOExceptionUsernames *string `json:"SSOExceptionUsernames,omitempty"`
 	// SSO Redirect Enabled
-	SSORedirectEnabled *bool       `json:"SSORedirectEnabled,omitempty"`
-	SSOUserExceptions  *Collection `json:"SSOUserExceptions,omitempty"`
+	SSORedirectEnabled *bool `json:"SSORedirectEnabled,omitempty"`
+	SSOUserExceptions *Collection `json:"SSOUserExceptions,omitempty"`
 	// Seats Count
 	SeatsCount *int64 `json:"SeatsCount,omitempty"`
 	// Serial Number
@@ -165,8 +165,8 @@ type Subscription struct {
 	// Subscription State
 	SubscriptionState *string `json:"SubscriptionState,omitempty"`
 	// Subscription Type
-	SubscriptionType *string     `json:"SubscriptionType,omitempty"`
-	Tags             *Collection `json:"Tags,omitempty"`
+	SubscriptionType *string `json:"SubscriptionType,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Termination Date
 	TerminationDate *string `json:"TerminationDate,omitempty"`
 	// Unpaid Seats
@@ -186,14 +186,14 @@ type Subscription struct {
 	// WorkspaceAdminsCanConfigureRecycleBinPurgeTime
 	WorkspaceAdminsCanConfigureRecycleBinPurgeTime *bool `json:"WorkspaceAdminsCanConfigureRecycleBinPurgeTime,omitempty"`
 	// Workspace Admins Can Create Users
-	WorkspaceAdminsCanCreateUsers *bool       `json:"WorkspaceAdminsCanCreateUsers,omitempty"`
-	Workspaces                    *Collection `json:"Workspaces,omitempty"`
+	WorkspaceAdminsCanCreateUsers *bool `json:"WorkspaceAdminsCanCreateUsers,omitempty"`
+	Workspaces *Collection `json:"Workspaces,omitempty"`
 	// Zuul ID
 	ZuulID *string `json:"ZuulID,omitempty"`
 	// isSsoRequired
-	IsSsoRequired *bool    `json:"isSsoRequired,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	IsSsoRequired *bool `json:"isSsoRequired,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewSubscription instantiates a new Subscription object
@@ -2357,7 +2357,6 @@ func (o *Subscription) HasSessionTimeoutSeconds() bool {
 func (o *Subscription) SetSessionTimeoutSeconds(v int64) {
 	o.SessionTimeoutSeconds.Set(&v)
 }
-
 // SetSessionTimeoutSecondsNil sets the value for SessionTimeoutSeconds to be an explicit nil
 func (o *Subscription) SetSessionTimeoutSecondsNil() {
 	o.SessionTimeoutSeconds.Set(nil)
@@ -3105,7 +3104,7 @@ func (o *Subscription) SetErrors(v []string) {
 }
 
 func (o Subscription) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3422,3 +3421,5 @@ func (v *NullableSubscription) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

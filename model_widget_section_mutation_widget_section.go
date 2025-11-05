@@ -25,15 +25,15 @@ type WidgetSectionMutationWidgetSection struct {
 	// Layout
 	Layout *int64 `json:"Layout,omitempty"`
 	// Name
-	Name                    *string               `json:"Name,omitempty"`
-	Owner                   *UserRef              `json:"Owner,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	ParentPageConfiguration *PageConfigurationRef `json:"ParentPageConfiguration,omitempty"`
 	// Row Index
-	RowIndex  *int64        `json:"RowIndex,omitempty"`
-	Widgets   *Collection   `json:"Widgets,omitempty"`
+	RowIndex *int64 `json:"RowIndex,omitempty"`
+	Widgets *Collection `json:"Widgets,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetSectionMutationWidgetSection instantiates a new WidgetSectionMutationWidgetSection object
@@ -374,7 +374,7 @@ func (o *WidgetSectionMutationWidgetSection) SetErrors(v []string) {
 }
 
 func (o WidgetSectionMutationWidgetSection) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -451,3 +451,5 @@ func (v *NullableWidgetSectionMutationWidgetSection) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

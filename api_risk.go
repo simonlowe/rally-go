@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // RiskAPIService RiskAPI service
 type RiskAPIService service
 
 type ApiRiskCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RiskAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiRiskCopyRequest) Compact(compact bool) ApiRiskCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiRiskCopyRequest) Execute() (*RiskRead200Response, *http.Response, err
 /*
 RiskCopy Risk Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRiskCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRiskCopyRequest
 */
 func (a *RiskAPIService) RiskCopy(ctx context.Context, objectId string) ApiRiskCopyRequest {
 	return ApiRiskCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RiskRead200Response
+//  @return RiskRead200Response
 func (a *RiskAPIService) RiskCopyExecute(r ApiRiskCopyRequest) (*RiskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RiskRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RiskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskCopy")
@@ -87,8 +88,9 @@ func (a *RiskAPIService) RiskCopyExecute(r ApiRiskCopyRequest) (*RiskRead200Resp
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *RiskAPIService) RiskCopyExecute(r ApiRiskCopyRequest) (*RiskRead200Resp
 }
 
 type ApiRiskCreateRequest struct {
-	ctx          context.Context
-	ApiService   *RiskAPIService
+	ctx context.Context
+	ApiService *RiskAPIService
 	riskMutation *RiskMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiRiskCreateRequest) Execute() (*RiskCreate200Response, *http.Response,
 /*
 RiskCreate Risk Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRiskCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRiskCreateRequest
 */
 func (a *RiskAPIService) RiskCreate(ctx context.Context) ApiRiskCreateRequest {
 	return ApiRiskCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RiskCreate200Response
+//  @return RiskCreate200Response
 func (a *RiskAPIService) RiskCreateExecute(r ApiRiskCreateRequest) (*RiskCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RiskCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RiskCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskCreate")
@@ -258,9 +259,9 @@ func (a *RiskAPIService) RiskCreateExecute(r ApiRiskCreateRequest) (*RiskCreate2
 }
 
 type ApiRiskDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RiskAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiRiskDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiRiskDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response
 /*
 RiskDelete Risk Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRiskDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRiskDeleteRequest
 */
 func (a *RiskAPIService) RiskDelete(ctx context.Context, objectId string) ApiRiskDeleteRequest {
 	return ApiRiskDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *RiskAPIService) RiskDeleteExecute(r ApiRiskDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskDelete")
@@ -360,18 +360,18 @@ func (a *RiskAPIService) RiskDeleteExecute(r ApiRiskDeleteRequest) (*AllowedAttr
 }
 
 type ApiRiskQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RiskAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiRiskQueryRequest) Fetch(fetch string) ApiRiskQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiRiskQueryRequest) Workspace(workspace string) ApiRiskQueryRequest {
 	return r
 }
 
+// 
 func (r ApiRiskQueryRequest) Compact(compact bool) ApiRiskQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiRiskQueryRequest) Execute() (*RiskQuery200Response, *http.Response, e
 /*
 RiskQuery Risk Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRiskQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRiskQueryRequest
 */
 func (a *RiskAPIService) RiskQuery(ctx context.Context) ApiRiskQueryRequest {
 	return ApiRiskQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RiskQuery200Response
+//  @return RiskQuery200Response
 func (a *RiskAPIService) RiskQueryExecute(r ApiRiskQueryRequest) (*RiskQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RiskQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RiskQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskQuery")
@@ -472,8 +472,9 @@ func (a *RiskAPIService) RiskQueryExecute(r ApiRiskQueryRequest) (*RiskQuery200R
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *RiskAPIService) RiskQueryExecute(r ApiRiskQueryRequest) (*RiskQuery200R
 }
 
 type ApiRiskReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RiskAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiRiskReadRequest) Compact(compact bool) ApiRiskReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiRiskReadRequest) Execute() (*RiskRead200Response, *http.Response, err
 /*
 RiskRead Risk Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRiskReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRiskReadRequest
 */
 func (a *RiskAPIService) RiskRead(ctx context.Context, objectId string) ApiRiskReadRequest {
 	return ApiRiskReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RiskRead200Response
+//  @return RiskRead200Response
 func (a *RiskAPIService) RiskReadExecute(r ApiRiskReadRequest) (*RiskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RiskRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RiskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskRead")
@@ -593,8 +594,9 @@ func (a *RiskAPIService) RiskReadExecute(r ApiRiskReadRequest) (*RiskRead200Resp
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *RiskAPIService) RiskReadExecute(r ApiRiskReadRequest) (*RiskRead200Resp
 }
 
 type ApiRiskUpdateRequest struct {
-	ctx          context.Context
-	ApiService   *RiskAPIService
-	objectId     string
+	ctx context.Context
+	ApiService *RiskAPIService
+	objectId string
 	riskMutation *RiskMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiRiskUpdateRequest) Execute() (*RiskRead200Response, *http.Response, e
 /*
 RiskUpdate Risk Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRiskUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRiskUpdateRequest
 */
 func (a *RiskAPIService) RiskUpdate(ctx context.Context, objectId string) ApiRiskUpdateRequest {
 	return ApiRiskUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RiskRead200Response
+//  @return RiskRead200Response
 func (a *RiskAPIService) RiskUpdateExecute(r ApiRiskUpdateRequest) (*RiskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RiskRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RiskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RiskAPIService.RiskUpdate")

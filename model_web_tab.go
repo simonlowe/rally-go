@@ -31,8 +31,8 @@ type WebTab struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Porthole ID
-	PortholeID   *string          `json:"PortholeID,omitempty"`
-	Profile      *UserProfileRef  `json:"Profile,omitempty"`
+	PortholeID *string `json:"PortholeID,omitempty"`
+	Profile *UserProfileRef `json:"Profile,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Total User Access Last 30 Days
 	TotalUserAccessLast30Days *int64 `json:"TotalUserAccessLast30Days,omitempty"`
@@ -41,9 +41,9 @@ type WebTab struct {
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// WidgetOnly
-	WidgetOnly *bool         `json:"WidgetOnly,omitempty"`
-	Workspace  *WorkspaceRef `json:"Workspace,omitempty"`
-	Dashboard  *DashboardRef `json:"dashboard,omitempty"`
+	WidgetOnly *bool `json:"WidgetOnly,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Dashboard *DashboardRef `json:"dashboard,omitempty"`
 	// hasAdminAccessInEverySharedProject
 	HasAdminAccessInEverySharedProject *bool `json:"hasAdminAccessInEverySharedProject,omitempty"`
 	// name
@@ -53,12 +53,12 @@ type WebTab struct {
 	// pageUri
 	PageUri *string `json:"pageUri,omitempty"`
 	// shared
-	Shared         *bool       `json:"shared,omitempty"`
+	Shared *bool `json:"shared,omitempty"`
 	SharedProjects *Collection `json:"sharedProjects,omitempty"`
 	// sharedProjectsCount
-	SharedProjectsCount *int64   `json:"sharedProjectsCount,omitempty"`
-	Warnings            []string `json:"Warnings,omitempty"`
-	Errors              []string `json:"Errors,omitempty"`
+	SharedProjectsCount *int64 `json:"sharedProjectsCount,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWebTab instantiates a new WebTab object
@@ -815,7 +815,7 @@ func (o *WebTab) SetErrors(v []string) {
 }
 
 func (o WebTab) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -931,3 +931,5 @@ func (v *NullableWebTab) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

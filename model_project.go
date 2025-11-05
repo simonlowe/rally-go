@@ -20,15 +20,15 @@ var _ MappedNullable = &Project{}
 
 // Project Project
 type Project struct {
-	AllUsers         *Collection `json:"AllUsers,omitempty"`
+	AllUsers *Collection `json:"AllUsers,omitempty"`
 	BuildDefinitions *Collection `json:"BuildDefinitions,omitempty"`
-	Children         *Collection `json:"Children,omitempty"`
+	Children *Collection `json:"Children,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Editors     *Collection `json:"Editors,omitempty"`
-	Iterations  *Collection `json:"Iterations,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Editors *Collection `json:"Editors,omitempty"`
+	Iterations *Collection `json:"Iterations,omitempty"`
 	// Last Updated Date
 	LastUpdatedDate *string `json:"LastUpdatedDate,omitempty"`
 	// Name
@@ -38,24 +38,24 @@ type Project struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID      *string             `json:"ObjectUUID,omitempty"`
-	Objectives      *Collection         `json:"Objectives,omitempty"`
-	Owner           *UserRef            `json:"Owner,omitempty"`
-	Parent          *ProjectRef         `json:"Parent,omitempty"`
-	Releases        *Collection         `json:"Releases,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Objectives *Collection `json:"Objectives,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	Parent *ProjectRef `json:"Parent,omitempty"`
+	Releases *Collection `json:"Releases,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Schema Version
 	SchemaVersion *string `json:"SchemaVersion,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Task State Rollup Enabled
-	TaskStateRollupEnabled *bool       `json:"TaskStateRollupEnabled,omitempty"`
-	TeamMembers            *Collection `json:"TeamMembers,omitempty"`
+	TaskStateRollupEnabled *bool `json:"TaskStateRollupEnabled,omitempty"`
+	TeamMembers *Collection `json:"TeamMembers,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
-	Viewers   *Collection   `json:"Viewers,omitempty"`
-	WorkRules *Collection   `json:"WorkRules,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Viewers *Collection `json:"Viewers,omitempty"`
+	WorkRules *Collection `json:"WorkRules,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Delivery Stream
 	CDeliveryStream *string `json:"c_DeliveryStream,omitempty"`
@@ -76,9 +76,9 @@ type Project struct {
 	// WFM Team ID (DO NOT TOUCH)
 	CWFMTeamIDDONOTTOUCH *string `json:"c_WFMTeamIDDONOTTOUCH,omitempty"`
 	// z_removed
-	CZremoved *bool    `json:"c_zremoved,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	CZremoved *bool `json:"c_zremoved,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewProject instantiates a new Project object
@@ -1315,7 +1315,7 @@ func (o *Project) SetErrors(v []string) {
 }
 
 func (o Project) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1476,3 +1476,5 @@ func (v *NullableProject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

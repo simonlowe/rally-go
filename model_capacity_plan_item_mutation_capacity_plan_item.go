@@ -22,10 +22,10 @@ var _ MappedNullable = &CapacityPlanItemMutationCapacityPlanItem{}
 type CapacityPlanItemMutationCapacityPlanItem struct {
 	Assignments *Collection `json:"Assignments,omitempty"`
 	// Rank
-	Rank      *float32      `json:"Rank,omitempty"`
+	Rank *float32 `json:"Rank,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewCapacityPlanItemMutationCapacityPlanItem instantiates a new CapacityPlanItemMutationCapacityPlanItem object
@@ -206,7 +206,7 @@ func (o *CapacityPlanItemMutationCapacityPlanItem) SetErrors(v []string) {
 }
 
 func (o CapacityPlanItemMutationCapacityPlanItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,3 +268,5 @@ func (v *NullableCapacityPlanItemMutationCapacityPlanItem) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,13 +21,13 @@ var _ MappedNullable = &UserIterationCapacityMutationUserIterationCapacity{}
 // UserIterationCapacityMutationUserIterationCapacity UserIterationCapacity
 type UserIterationCapacityMutationUserIterationCapacity struct {
 	// Capacity
-	Capacity  *float32      `json:"Capacity,omitempty"`
+	Capacity *float32 `json:"Capacity,omitempty"`
 	Iteration *IterationRef `json:"Iteration,omitempty"`
-	Project   *ProjectRef   `json:"Project,omitempty"`
-	User      *UserRef      `json:"User,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	User *UserRef `json:"User,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserIterationCapacityMutationUserIterationCapacity instantiates a new UserIterationCapacityMutationUserIterationCapacity object
@@ -272,7 +272,7 @@ func (o *UserIterationCapacityMutationUserIterationCapacity) SetErrors(v []strin
 }
 
 func (o UserIterationCapacityMutationUserIterationCapacity) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -340,3 +340,5 @@ func (v *NullableUserIterationCapacityMutationUserIterationCapacity) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

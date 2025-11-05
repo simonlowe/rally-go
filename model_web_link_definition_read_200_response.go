@@ -20,11 +20,11 @@ var _ MappedNullable = &WebLinkDefinitionRead200Response{}
 
 // WebLinkDefinitionRead200Response struct for WebLinkDefinitionRead200Response
 type WebLinkDefinitionRead200Response struct {
-	RallyAPIMajor     *string            `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor     *string            `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	WebLinkDefinition *WebLinkDefinition `json:"WebLinkDefinition,omitempty"`
-	Warnings          []string           `json:"Warnings,omitempty"`
-	Errors            []string           `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWebLinkDefinitionRead200Response instantiates a new WebLinkDefinitionRead200Response object
@@ -205,7 +205,7 @@ func (o *WebLinkDefinitionRead200Response) SetErrors(v []string) {
 }
 
 func (o WebLinkDefinitionRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableWebLinkDefinitionRead200Response) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -33,17 +33,17 @@ type IterationMutationIteration struct {
 	// State
 	State *string `json:"State,omitempty"`
 	// Theme
-	Theme        *string       `json:"Theme,omitempty"`
-	WorkProducts *Collection   `json:"WorkProducts,omitempty"`
-	Workspace    *WorkspaceRef `json:"Workspace,omitempty"`
+	Theme *string `json:"Theme,omitempty"`
+	WorkProducts *Collection `json:"WorkProducts,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Retro Actions
 	CRetroActions *string `json:"c_RetroActions,omitempty"`
 	// Retro Deltas
 	CRetroDeltas *string `json:"c_RetroDeltas,omitempty"`
 	// Retro Pluses
-	CRetroPluses *string  `json:"c_RetroPluses,omitempty"`
-	Warnings     []string `json:"Warnings,omitempty"`
-	Errors       []string `json:"Errors,omitempty"`
+	CRetroPluses *string `json:"c_RetroPluses,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewIterationMutationIteration instantiates a new IterationMutationIteration object
@@ -512,7 +512,7 @@ func (o *IterationMutationIteration) SetErrors(v []string) {
 }
 
 func (o IterationMutationIteration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -601,3 +601,5 @@ func (v *NullableIterationMutationIteration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // TypeDefinitionAPIService TypeDefinitionAPI service
 type TypeDefinitionAPIService service
 
 type ApiTypeDefinitionCreateRequest struct {
-	ctx                    context.Context
-	ApiService             *TypeDefinitionAPIService
+	ctx context.Context
+	ApiService *TypeDefinitionAPIService
 	typeDefinitionMutation *TypeDefinitionMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiTypeDefinitionCreateRequest) Execute() (*TypeDefinitionCreate200Respo
 /*
 TypeDefinitionCreate TypeDefinition Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTypeDefinitionCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTypeDefinitionCreateRequest
 */
 func (a *TypeDefinitionAPIService) TypeDefinitionCreate(ctx context.Context) ApiTypeDefinitionCreateRequest {
 	return ApiTypeDefinitionCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TypeDefinitionCreate200Response
+//  @return TypeDefinitionCreate200Response
 func (a *TypeDefinitionAPIService) TypeDefinitionCreateExecute(r ApiTypeDefinitionCreateRequest) (*TypeDefinitionCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TypeDefinitionCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TypeDefinitionCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeDefinitionAPIService.TypeDefinitionCreate")
@@ -134,9 +134,9 @@ func (a *TypeDefinitionAPIService) TypeDefinitionCreateExecute(r ApiTypeDefiniti
 }
 
 type ApiTypeDefinitionDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TypeDefinitionAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTypeDefinitionDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiTypeDefinitionDeleteRequest) Execute() (*AllowedAttributeValueDelete2
 /*
 TypeDefinitionDelete TypeDefinition Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTypeDefinitionDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTypeDefinitionDeleteRequest
 */
 func (a *TypeDefinitionAPIService) TypeDefinitionDelete(ctx context.Context, objectId string) ApiTypeDefinitionDeleteRequest {
 	return ApiTypeDefinitionDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TypeDefinitionAPIService) TypeDefinitionDeleteExecute(r ApiTypeDefinitionDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeDefinitionAPIService.TypeDefinitionDelete")
@@ -236,18 +235,18 @@ func (a *TypeDefinitionAPIService) TypeDefinitionDeleteExecute(r ApiTypeDefiniti
 }
 
 type ApiTypeDefinitionQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TypeDefinitionAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTypeDefinitionQueryRequest) Fetch(fetch string) ApiTypeDefinitionQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiTypeDefinitionQueryRequest) Workspace(workspace string) ApiTypeDefini
 	return r
 }
 
+// 
 func (r ApiTypeDefinitionQueryRequest) Compact(compact bool) ApiTypeDefinitionQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiTypeDefinitionQueryRequest) Execute() (*TypeDefinitionQuery200Respons
 /*
 TypeDefinitionQuery TypeDefinition Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTypeDefinitionQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTypeDefinitionQueryRequest
 */
 func (a *TypeDefinitionAPIService) TypeDefinitionQuery(ctx context.Context) ApiTypeDefinitionQueryRequest {
 	return ApiTypeDefinitionQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TypeDefinitionQuery200Response
+//  @return TypeDefinitionQuery200Response
 func (a *TypeDefinitionAPIService) TypeDefinitionQueryExecute(r ApiTypeDefinitionQueryRequest) (*TypeDefinitionQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TypeDefinitionQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TypeDefinitionQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeDefinitionAPIService.TypeDefinitionQuery")
@@ -348,8 +347,9 @@ func (a *TypeDefinitionAPIService) TypeDefinitionQueryExecute(r ApiTypeDefinitio
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *TypeDefinitionAPIService) TypeDefinitionQueryExecute(r ApiTypeDefinitio
 }
 
 type ApiTypeDefinitionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TypeDefinitionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTypeDefinitionReadRequest) Compact(compact bool) ApiTypeDefinitionReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiTypeDefinitionReadRequest) Execute() (*TypeDefinitionRead200Response,
 /*
 TypeDefinitionRead TypeDefinition Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTypeDefinitionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTypeDefinitionReadRequest
 */
 func (a *TypeDefinitionAPIService) TypeDefinitionRead(ctx context.Context, objectId string) ApiTypeDefinitionReadRequest {
 	return ApiTypeDefinitionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TypeDefinitionRead200Response
+//  @return TypeDefinitionRead200Response
 func (a *TypeDefinitionAPIService) TypeDefinitionReadExecute(r ApiTypeDefinitionReadRequest) (*TypeDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TypeDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TypeDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeDefinitionAPIService.TypeDefinitionRead")
@@ -469,8 +469,9 @@ func (a *TypeDefinitionAPIService) TypeDefinitionReadExecute(r ApiTypeDefinition
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *TypeDefinitionAPIService) TypeDefinitionReadExecute(r ApiTypeDefinition
 }
 
 type ApiTypeDefinitionUpdateRequest struct {
-	ctx                    context.Context
-	ApiService             *TypeDefinitionAPIService
-	objectId               string
+	ctx context.Context
+	ApiService *TypeDefinitionAPIService
+	objectId string
 	typeDefinitionMutation *TypeDefinitionMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiTypeDefinitionUpdateRequest) Execute() (*TypeDefinitionRead200Respons
 /*
 TypeDefinitionUpdate TypeDefinition Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTypeDefinitionUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTypeDefinitionUpdateRequest
 */
 func (a *TypeDefinitionAPIService) TypeDefinitionUpdate(ctx context.Context, objectId string) ApiTypeDefinitionUpdateRequest {
 	return ApiTypeDefinitionUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TypeDefinitionRead200Response
+//  @return TypeDefinitionRead200Response
 func (a *TypeDefinitionAPIService) TypeDefinitionUpdateExecute(r ApiTypeDefinitionUpdateRequest) (*TypeDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TypeDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TypeDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TypeDefinitionAPIService.TypeDefinitionUpdate")

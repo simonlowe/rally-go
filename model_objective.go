@@ -23,14 +23,14 @@ type Objective struct {
 	// Accepted Leaf Story Count
 	AcceptedLeafStoryCount *int64 `json:"AcceptedLeafStoryCount,omitempty"`
 	// Accepted Leaf Story Plan Estimate Total
-	AcceptedLeafStoryPlanEstimateTotal *float32    `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
-	AssociatedWork                     *Collection `json:"AssociatedWork,omitempty"`
-	CreatedBy                          *UserRef    `json:"CreatedBy,omitempty"`
+	AcceptedLeafStoryPlanEstimateTotal *float32 `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
+	AssociatedWork *Collection `json:"AssociatedWork,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -40,8 +40,8 @@ type Objective struct {
 	// Interim Target Date Template
 	InterimTargetDateTemplate *string `json:"InterimTargetDateTemplate,omitempty"`
 	// Key Result Average Progress
-	KeyResultAverageProgress *float32    `json:"KeyResultAverageProgress,omitempty"`
-	KeyResults               *Collection `json:"KeyResults,omitempty"`
+	KeyResultAverageProgress *float32 `json:"KeyResultAverageProgress,omitempty"`
+	KeyResults *Collection `json:"KeyResults,omitempty"`
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Last Updated Date
@@ -59,39 +59,39 @@ type Objective struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID    *string            `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	ObjectiveType *TypeDefinitionRef `json:"ObjectiveType,omitempty"`
 	// Objective Type Name
-	ObjectiveTypeName *string  `json:"ObjectiveTypeName,omitempty"`
-	Owner             *UserRef `json:"Owner,omitempty"`
+	ObjectiveTypeName *string `json:"ObjectiveTypeName,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Percent Done By Story Count
 	PercentDoneByStoryCount *float32 `json:"PercentDoneByStoryCount,omitempty"`
 	// Percent Done By Story Points
-	PercentDoneByStoryPoints *float32            `json:"PercentDoneByStoryPoints,omitempty"`
-	Projects                 *Collection         `json:"Projects,omitempty"`
-	RevisionHistory          *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	PercentDoneByStoryPoints *float32 `json:"PercentDoneByStoryPoints,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Score
 	Score *float32 `json:"Score,omitempty"`
 	// Start Date
-	StartDate *string   `json:"StartDate,omitempty"`
-	State     *StateRef `json:"State,omitempty"`
+	StartDate *string `json:"StartDate,omitempty"`
+	State *StateRef `json:"State,omitempty"`
 	// State Changed Date
-	StateChangedDate *string          `json:"StateChangedDate,omitempty"`
-	Subscription     *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags             *Collection      `json:"Tags,omitempty"`
+	StateChangedDate *string `json:"StateChangedDate,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Target Date
 	TargetDate *string `json:"TargetDate,omitempty"`
 	// Total Project Count
 	TotalProjectCount *int64 `json:"TotalProjectCount,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Integration Mappings
 	CIntegrationMappings *string `json:"c_IntegrationMappings,omitempty"`
 	// Source
-	CSource  *string  `json:"c_Source,omitempty"`
+	CSource *string `json:"c_Source,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewObjective instantiates a new Objective object
@@ -1488,7 +1488,7 @@ func (o *Objective) SetErrors(v []string) {
 }
 
 func (o Objective) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1664,3 +1664,5 @@ func (v *NullableObjective) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

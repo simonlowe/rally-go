@@ -20,13 +20,14 @@ import (
 	"strings"
 )
 
+
 // RecycleBinEntryAPIService RecycleBinEntryAPI service
 type RecycleBinEntryAPIService service
 
 type ApiRecycleBinEntryDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RecycleBinEntryAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiRecycleBinEntryDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -36,27 +37,26 @@ func (r ApiRecycleBinEntryDeleteRequest) Execute() (*AllowedAttributeValueDelete
 /*
 RecycleBinEntryDelete RecycleBinEntry Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRecycleBinEntryDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRecycleBinEntryDeleteRequest
 */
 func (a *RecycleBinEntryAPIService) RecycleBinEntryDelete(ctx context.Context, objectId string) ApiRecycleBinEntryDeleteRequest {
 	return ApiRecycleBinEntryDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *RecycleBinEntryAPIService) RecycleBinEntryDeleteExecute(r ApiRecycleBinEntryDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecycleBinEntryAPIService.RecycleBinEntryDelete")
@@ -126,18 +126,18 @@ func (a *RecycleBinEntryAPIService) RecycleBinEntryDeleteExecute(r ApiRecycleBin
 }
 
 type ApiRecycleBinEntryQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RecycleBinEntryAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiRecycleBinEntryQueryRequest) Fetch(fetch string) ApiRecycleBinEntryQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -173,6 +173,7 @@ func (r ApiRecycleBinEntryQueryRequest) Workspace(workspace string) ApiRecycleBi
 	return r
 }
 
+// 
 func (r ApiRecycleBinEntryQueryRequest) Compact(compact bool) ApiRecycleBinEntryQueryRequest {
 	r.compact = &compact
 	return r
@@ -185,25 +186,24 @@ func (r ApiRecycleBinEntryQueryRequest) Execute() (*RecycleBinEntryQuery200Respo
 /*
 RecycleBinEntryQuery RecycleBinEntry Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRecycleBinEntryQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRecycleBinEntryQueryRequest
 */
 func (a *RecycleBinEntryAPIService) RecycleBinEntryQuery(ctx context.Context) ApiRecycleBinEntryQueryRequest {
 	return ApiRecycleBinEntryQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RecycleBinEntryQuery200Response
+//  @return RecycleBinEntryQuery200Response
 func (a *RecycleBinEntryAPIService) RecycleBinEntryQueryExecute(r ApiRecycleBinEntryQueryRequest) (*RecycleBinEntryQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RecycleBinEntryQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RecycleBinEntryQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecycleBinEntryAPIService.RecycleBinEntryQuery")
@@ -238,8 +238,9 @@ func (a *RecycleBinEntryAPIService) RecycleBinEntryQueryExecute(r ApiRecycleBinE
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -296,13 +297,14 @@ func (a *RecycleBinEntryAPIService) RecycleBinEntryQueryExecute(r ApiRecycleBinE
 }
 
 type ApiRecycleBinEntryReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *RecycleBinEntryAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiRecycleBinEntryReadRequest) Compact(compact bool) ApiRecycleBinEntryReadRequest {
 	r.compact = &compact
 	return r
@@ -321,27 +323,26 @@ func (r ApiRecycleBinEntryReadRequest) Execute() (*RecycleBinEntryRead200Respons
 /*
 RecycleBinEntryRead RecycleBinEntry Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiRecycleBinEntryReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiRecycleBinEntryReadRequest
 */
 func (a *RecycleBinEntryAPIService) RecycleBinEntryRead(ctx context.Context, objectId string) ApiRecycleBinEntryReadRequest {
 	return ApiRecycleBinEntryReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return RecycleBinEntryRead200Response
+//  @return RecycleBinEntryRead200Response
 func (a *RecycleBinEntryAPIService) RecycleBinEntryReadExecute(r ApiRecycleBinEntryReadRequest) (*RecycleBinEntryRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *RecycleBinEntryRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RecycleBinEntryRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecycleBinEntryAPIService.RecycleBinEntryRead")
@@ -359,8 +360,9 @@ func (a *RecycleBinEntryAPIService) RecycleBinEntryReadExecute(r ApiRecycleBinEn
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

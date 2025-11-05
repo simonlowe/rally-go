@@ -20,12 +20,12 @@ var _ MappedNullable = &TagQuery200ResponseQueryResult{}
 
 // TagQuery200ResponseQueryResult struct for TagQuery200ResponseQueryResult
 type TagQuery200ResponseQueryResult struct {
-	StartIndex       *int64   `json:"StartIndex,omitempty"`
-	PageSize         *int64   `json:"PageSize,omitempty"`
-	TotalResultCount *int64   `json:"TotalResultCount,omitempty"`
-	Results          []Tag    `json:"Results,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Tag `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTagQuery200ResponseQueryResult instantiates a new TagQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *TagQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o TagQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableTagQuery200ResponseQueryResult) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

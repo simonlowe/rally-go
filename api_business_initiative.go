@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // BusinessInitiativeAPIService BusinessInitiativeAPI service
 type BusinessInitiativeAPIService service
 
 type ApiBusinessInitiativeCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BusinessInitiativeAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiBusinessInitiativeCopyRequest) Compact(compact bool) ApiBusinessInitiativeCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiBusinessInitiativeCopyRequest) Execute() (*BusinessInitiativeRead200R
 /*
 BusinessInitiativeCopy BusinessInitiative Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBusinessInitiativeCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBusinessInitiativeCopyRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeCopy(ctx context.Context, objectId string) ApiBusinessInitiativeCopyRequest {
 	return ApiBusinessInitiativeCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BusinessInitiativeRead200Response
+//  @return BusinessInitiativeRead200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeCopyExecute(r ApiBusinessInitiativeCopyRequest) (*BusinessInitiativeRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BusinessInitiativeRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessInitiativeRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeCopy")
@@ -77,7 +78,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeCopyExecute(r ApiBusine
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative/{objectId}/copy"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}/copy"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -87,8 +88,9 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeCopyExecute(r ApiBusine
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeCopyExecute(r ApiBusine
 }
 
 type ApiBusinessInitiativeCreateRequest struct {
-	ctx                        context.Context
-	ApiService                 *BusinessInitiativeAPIService
+	ctx context.Context
+	ApiService *BusinessInitiativeAPIService
 	businessInitiativeMutation *BusinessInitiativeMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiBusinessInitiativeCreateRequest) Execute() (*BusinessInitiativeCreate
 /*
 BusinessInitiativeCreate BusinessInitiative Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBusinessInitiativeCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBusinessInitiativeCreateRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeCreate(ctx context.Context) ApiBusinessInitiativeCreateRequest {
 	return ApiBusinessInitiativeCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BusinessInitiativeCreate200Response
+//  @return BusinessInitiativeCreate200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeCreateExecute(r ApiBusinessInitiativeCreateRequest) (*BusinessInitiativeCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BusinessInitiativeCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessInitiativeCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeCreate")
@@ -192,7 +193,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeCreateExecute(r ApiBusi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative/create"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -258,9 +259,9 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeCreateExecute(r ApiBusi
 }
 
 type ApiBusinessInitiativeDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BusinessInitiativeAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiBusinessInitiativeDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiBusinessInitiativeDeleteRequest) Execute() (*AllowedAttributeValueDel
 /*
 BusinessInitiativeDelete BusinessInitiative Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBusinessInitiativeDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBusinessInitiativeDeleteRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeDelete(ctx context.Context, objectId string) ApiBusinessInitiativeDeleteRequest {
 	return ApiBusinessInitiativeDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeDeleteExecute(r ApiBusinessInitiativeDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeDelete")
@@ -298,7 +298,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeDeleteExecute(r ApiBusi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -360,18 +360,18 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeDeleteExecute(r ApiBusi
 }
 
 type ApiBusinessInitiativeQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BusinessInitiativeAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiBusinessInitiativeQueryRequest) Fetch(fetch string) ApiBusinessInitiativeQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiBusinessInitiativeQueryRequest) Workspace(workspace string) ApiBusine
 	return r
 }
 
+// 
 func (r ApiBusinessInitiativeQueryRequest) Compact(compact bool) ApiBusinessInitiativeQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiBusinessInitiativeQueryRequest) Execute() (*BusinessInitiativeQuery20
 /*
 BusinessInitiativeQuery BusinessInitiative Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBusinessInitiativeQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBusinessInitiativeQueryRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeQuery(ctx context.Context) ApiBusinessInitiativeQueryRequest {
 	return ApiBusinessInitiativeQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BusinessInitiativeQuery200Response
+//  @return BusinessInitiativeQuery200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeQueryExecute(r ApiBusinessInitiativeQueryRequest) (*BusinessInitiativeQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BusinessInitiativeQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessInitiativeQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeQuery")
@@ -445,7 +445,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeQueryExecute(r ApiBusin
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -472,8 +472,9 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeQueryExecute(r ApiBusin
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeQueryExecute(r ApiBusin
 }
 
 type ApiBusinessInitiativeReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BusinessInitiativeAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiBusinessInitiativeReadRequest) Compact(compact bool) ApiBusinessInitiativeReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiBusinessInitiativeReadRequest) Execute() (*BusinessInitiativeRead200R
 /*
 BusinessInitiativeRead BusinessInitiative Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBusinessInitiativeReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBusinessInitiativeReadRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeRead(ctx context.Context, objectId string) ApiBusinessInitiativeReadRequest {
 	return ApiBusinessInitiativeReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BusinessInitiativeRead200Response
+//  @return BusinessInitiativeRead200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeReadExecute(r ApiBusinessInitiativeReadRequest) (*BusinessInitiativeRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BusinessInitiativeRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessInitiativeRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeRead")
@@ -583,7 +584,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeReadExecute(r ApiBusine
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -593,8 +594,9 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeReadExecute(r ApiBusine
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeReadExecute(r ApiBusine
 }
 
 type ApiBusinessInitiativeUpdateRequest struct {
-	ctx                        context.Context
-	ApiService                 *BusinessInitiativeAPIService
-	objectId                   string
+	ctx context.Context
+	ApiService *BusinessInitiativeAPIService
+	objectId string
 	businessInitiativeMutation *BusinessInitiativeMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiBusinessInitiativeUpdateRequest) Execute() (*BusinessInitiativeRead20
 /*
 BusinessInitiativeUpdate BusinessInitiative Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBusinessInitiativeUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBusinessInitiativeUpdateRequest
 */
 func (a *BusinessInitiativeAPIService) BusinessInitiativeUpdate(ctx context.Context, objectId string) ApiBusinessInitiativeUpdateRequest {
 	return ApiBusinessInitiativeUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BusinessInitiativeRead200Response
+//  @return BusinessInitiativeRead200Response
 func (a *BusinessInitiativeAPIService) BusinessInitiativeUpdateExecute(r ApiBusinessInitiativeUpdateRequest) (*BusinessInitiativeRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BusinessInitiativeRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BusinessInitiativeRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessInitiativeAPIService.BusinessInitiativeUpdate")
@@ -701,7 +702,7 @@ func (a *BusinessInitiativeAPIService) BusinessInitiativeUpdateExecute(r ApiBusi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/slm/webservice/v2.0/businessinitiative/{objectId}"
+	localVarPath := localBasePath + "/slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

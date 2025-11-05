@@ -22,10 +22,10 @@ var _ MappedNullable = &ObjectiveConversationPostMutationObjectiveConversationPo
 type ObjectiveConversationPostMutationObjectiveConversationPost struct {
 	Objective *ObjectiveRef `json:"Objective,omitempty"`
 	// Text
-	Text      *string       `json:"Text,omitempty"`
+	Text *string `json:"Text,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewObjectiveConversationPostMutationObjectiveConversationPost instantiates a new ObjectiveConversationPostMutationObjectiveConversationPost object
@@ -206,7 +206,7 @@ func (o *ObjectiveConversationPostMutationObjectiveConversationPost) SetErrors(v
 }
 
 func (o ObjectiveConversationPostMutationObjectiveConversationPost) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,3 +268,5 @@ func (v *NullableObjectiveConversationPostMutationObjectiveConversationPost) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

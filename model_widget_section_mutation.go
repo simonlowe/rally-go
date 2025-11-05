@@ -73,7 +73,7 @@ func (o *WidgetSectionMutation) SetWidgetSection(v WidgetSectionMutationWidgetSe
 }
 
 func (o WidgetSectionMutation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableWidgetSectionMutation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

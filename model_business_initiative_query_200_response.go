@@ -73,7 +73,7 @@ func (o *BusinessInitiativeQuery200Response) SetQueryResult(v BusinessInitiative
 }
 
 func (o BusinessInitiativeQuery200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableBusinessInitiativeQuery200Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,7 +21,7 @@ var _ MappedNullable = &AllowedQueryOperatorMutationAllowedQueryOperator{}
 // AllowedQueryOperatorMutationAllowedQueryOperator AllowedQueryOperator
 type AllowedQueryOperatorMutationAllowedQueryOperator struct {
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAllowedQueryOperatorMutationAllowedQueryOperator instantiates a new AllowedQueryOperatorMutationAllowedQueryOperator object
@@ -106,7 +106,7 @@ func (o *AllowedQueryOperatorMutationAllowedQueryOperator) SetErrors(v []string)
 }
 
 func (o AllowedQueryOperatorMutationAllowedQueryOperator) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableAllowedQueryOperatorMutationAllowedQueryOperator) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

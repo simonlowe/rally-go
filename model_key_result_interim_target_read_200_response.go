@@ -20,11 +20,11 @@ var _ MappedNullable = &KeyResultInterimTargetRead200Response{}
 
 // KeyResultInterimTargetRead200Response struct for KeyResultInterimTargetRead200Response
 type KeyResultInterimTargetRead200Response struct {
-	RallyAPIMajor          *string                 `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor          *string                 `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	KeyResultInterimTarget *KeyResultInterimTarget `json:"KeyResultInterimTarget,omitempty"`
-	Warnings               []string                `json:"Warnings,omitempty"`
-	Errors                 []string                `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyResultInterimTargetRead200Response instantiates a new KeyResultInterimTargetRead200Response object
@@ -205,7 +205,7 @@ func (o *KeyResultInterimTargetRead200Response) SetErrors(v []string) {
 }
 
 func (o KeyResultInterimTargetRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableKeyResultInterimTargetRead200Response) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

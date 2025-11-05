@@ -20,11 +20,11 @@ var _ MappedNullable = &TimeEntryItemRead200Response{}
 
 // TimeEntryItemRead200Response struct for TimeEntryItemRead200Response
 type TimeEntryItemRead200Response struct {
-	RallyAPIMajor *string        `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string        `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	TimeEntryItem *TimeEntryItem `json:"TimeEntryItem,omitempty"`
-	Warnings      []string       `json:"Warnings,omitempty"`
-	Errors        []string       `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTimeEntryItemRead200Response instantiates a new TimeEntryItemRead200Response object
@@ -205,7 +205,7 @@ func (o *TimeEntryItemRead200Response) SetErrors(v []string) {
 }
 
 func (o TimeEntryItemRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableTimeEntryItemRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

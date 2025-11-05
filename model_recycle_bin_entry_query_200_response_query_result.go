@@ -20,12 +20,12 @@ var _ MappedNullable = &RecycleBinEntryQuery200ResponseQueryResult{}
 
 // RecycleBinEntryQuery200ResponseQueryResult struct for RecycleBinEntryQuery200ResponseQueryResult
 type RecycleBinEntryQuery200ResponseQueryResult struct {
-	StartIndex       *int64            `json:"StartIndex,omitempty"`
-	PageSize         *int64            `json:"PageSize,omitempty"`
-	TotalResultCount *int64            `json:"TotalResultCount,omitempty"`
-	Results          []RecycleBinEntry `json:"Results,omitempty"`
-	Warnings         []string          `json:"Warnings,omitempty"`
-	Errors           []string          `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []RecycleBinEntry `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRecycleBinEntryQuery200ResponseQueryResult instantiates a new RecycleBinEntryQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *RecycleBinEntryQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o RecycleBinEntryQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableRecycleBinEntryQuery200ResponseQueryResult) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

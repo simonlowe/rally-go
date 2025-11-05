@@ -20,11 +20,11 @@ var _ MappedNullable = &VSMProductAnalyticsMetricRead200Response{}
 
 // VSMProductAnalyticsMetricRead200Response struct for VSMProductAnalyticsMetricRead200Response
 type VSMProductAnalyticsMetricRead200Response struct {
-	RallyAPIMajor             *string                    `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor             *string                    `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	VSMProductAnalyticsMetric *VSMProductAnalyticsMetric `json:"VSMProductAnalyticsMetric,omitempty"`
-	Warnings                  []string                   `json:"Warnings,omitempty"`
-	Errors                    []string                   `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMProductAnalyticsMetricRead200Response instantiates a new VSMProductAnalyticsMetricRead200Response object
@@ -205,7 +205,7 @@ func (o *VSMProductAnalyticsMetricRead200Response) SetErrors(v []string) {
 }
 
 func (o VSMProductAnalyticsMetricRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableVSMProductAnalyticsMetricRead200Response) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

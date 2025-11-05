@@ -20,11 +20,11 @@ var _ MappedNullable = &SubscriptionRead200Response{}
 
 // SubscriptionRead200Response struct for SubscriptionRead200Response
 type SubscriptionRead200Response struct {
-	RallyAPIMajor *string       `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string       `json:"_rallyAPIMinor,omitempty"`
-	Subscription  *Subscription `json:"Subscription,omitempty"`
-	Warnings      []string      `json:"Warnings,omitempty"`
-	Errors        []string      `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	Subscription *Subscription `json:"Subscription,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewSubscriptionRead200Response instantiates a new SubscriptionRead200Response object
@@ -205,7 +205,7 @@ func (o *SubscriptionRead200Response) SetErrors(v []string) {
 }
 
 func (o SubscriptionRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableSubscriptionRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

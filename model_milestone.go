@@ -40,30 +40,30 @@ type Milestone struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
-	Projects   *Collection `json:"Projects,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
 	// Recycled
-	Recycled        *bool               `json:"Recycled,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription    *SubscriptionRef    `json:"Subscription,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Target Date
-	TargetDate    *string     `json:"TargetDate,omitempty"`
+	TargetDate *string `json:"TargetDate,omitempty"`
 	TargetProject *ProjectRef `json:"TargetProject,omitempty"`
 	// Total Artifact Count
 	TotalArtifactCount *int64 `json:"TotalArtifactCount,omitempty"`
 	// Total Project Count
 	TotalProjectCount *int64 `json:"TotalProjectCount,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Workspace Scoped
-	WorkspaceScoped       *bool       `json:"WorkspaceScoped,omitempty"`
-	CAccountableArchitect *UserRef    `json:"c_AccountableArchitect,omitempty"`
-	CAreasAtRisk          *Collection `json:"c_AreasAtRisk,omitempty"`
-	CAreasComplete        *Collection `json:"c_AreasComplete,omitempty"`
-	CAreasOffTrack        *Collection `json:"c_AreasOffTrack,omitempty"`
-	CAreasOnHold          *Collection `json:"c_AreasOnHold,omitempty"`
-	CAreasOnTrack         *Collection `json:"c_AreasOnTrack,omitempty"`
+	WorkspaceScoped *bool `json:"WorkspaceScoped,omitempty"`
+	CAccountableArchitect *UserRef `json:"c_AccountableArchitect,omitempty"`
+	CAreasAtRisk *Collection `json:"c_AreasAtRisk,omitempty"`
+	CAreasComplete *Collection `json:"c_AreasComplete,omitempty"`
+	CAreasOffTrack *Collection `json:"c_AreasOffTrack,omitempty"`
+	CAreasOnHold *Collection `json:"c_AreasOnHold,omitempty"`
+	CAreasOnTrack *Collection `json:"c_AreasOnTrack,omitempty"`
 	// Business Value Status
 	CBusinessValueStatus *string `json:"c_BusinessValueStatus,omitempty"`
 	// CAI Audience Level
@@ -109,8 +109,8 @@ type Milestone struct {
 	// Owning Portfolio
 	COwningPortfolio *string `json:"c_OwningPortfolio,omitempty"`
 	// Owning Release Train
-	COwningReleaseTrain *string     `json:"c_OwningReleaseTrain,omitempty"`
-	CPrimaryMilestone   *Collection `json:"c_PrimaryMilestone,omitempty"`
+	COwningReleaseTrain *string `json:"c_OwningReleaseTrain,omitempty"`
+	CPrimaryMilestone *Collection `json:"c_PrimaryMilestone,omitempty"`
 	// Primary Milestone Flag
 	CPrimaryMilestoneFlag *bool `json:"c_PrimaryMilestoneFlag,omitempty"`
 	// Product Launch Approach
@@ -176,9 +176,9 @@ type Milestone struct {
 	// z_SteerCo
 	CZSteerCo *bool `json:"c_zSteerCo,omitempty"`
 	// z_Target Date Change Notes
-	CZTargetDateChangeNotes *string  `json:"c_zTargetDateChangeNotes,omitempty"`
-	Warnings                []string `json:"Warnings,omitempty"`
-	Errors                  []string `json:"Errors,omitempty"`
+	CZTargetDateChangeNotes *string `json:"c_zTargetDateChangeNotes,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewMilestone instantiates a new Milestone object
@@ -2983,7 +2983,7 @@ func (o *Milestone) SetErrors(v []string) {
 }
 
 func (o Milestone) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3291,3 +3291,5 @@ func (v *NullableMilestone) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

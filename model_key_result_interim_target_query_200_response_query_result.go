@@ -20,12 +20,12 @@ var _ MappedNullable = &KeyResultInterimTargetQuery200ResponseQueryResult{}
 
 // KeyResultInterimTargetQuery200ResponseQueryResult struct for KeyResultInterimTargetQuery200ResponseQueryResult
 type KeyResultInterimTargetQuery200ResponseQueryResult struct {
-	StartIndex       *int64                   `json:"StartIndex,omitempty"`
-	PageSize         *int64                   `json:"PageSize,omitempty"`
-	TotalResultCount *int64                   `json:"TotalResultCount,omitempty"`
-	Results          []KeyResultInterimTarget `json:"Results,omitempty"`
-	Warnings         []string                 `json:"Warnings,omitempty"`
-	Errors           []string                 `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []KeyResultInterimTarget `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyResultInterimTargetQuery200ResponseQueryResult instantiates a new KeyResultInterimTargetQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *KeyResultInterimTargetQuery200ResponseQueryResult) SetErrors(v []string
 }
 
 func (o KeyResultInterimTargetQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableKeyResultInterimTargetQuery200ResponseQueryResult) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

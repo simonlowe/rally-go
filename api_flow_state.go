@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // FlowStateAPIService FlowStateAPI service
 type FlowStateAPIService service
 
 type ApiFlowStateCreateRequest struct {
-	ctx               context.Context
-	ApiService        *FlowStateAPIService
+	ctx context.Context
+	ApiService *FlowStateAPIService
 	flowStateMutation *FlowStateMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiFlowStateCreateRequest) Execute() (*FlowStateCreate200Response, *http
 /*
 FlowStateCreate FlowState Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiFlowStateCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFlowStateCreateRequest
 */
 func (a *FlowStateAPIService) FlowStateCreate(ctx context.Context) ApiFlowStateCreateRequest {
 	return ApiFlowStateCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FlowStateCreate200Response
+//  @return FlowStateCreate200Response
 func (a *FlowStateAPIService) FlowStateCreateExecute(r ApiFlowStateCreateRequest) (*FlowStateCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FlowStateCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FlowStateCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FlowStateAPIService.FlowStateCreate")
@@ -134,9 +134,9 @@ func (a *FlowStateAPIService) FlowStateCreateExecute(r ApiFlowStateCreateRequest
 }
 
 type ApiFlowStateDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FlowStateAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiFlowStateDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiFlowStateDeleteRequest) Execute() (*AllowedAttributeValueDelete200Res
 /*
 FlowStateDelete FlowState Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFlowStateDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFlowStateDeleteRequest
 */
 func (a *FlowStateAPIService) FlowStateDelete(ctx context.Context, objectId string) ApiFlowStateDeleteRequest {
 	return ApiFlowStateDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *FlowStateAPIService) FlowStateDeleteExecute(r ApiFlowStateDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FlowStateAPIService.FlowStateDelete")
@@ -236,18 +235,18 @@ func (a *FlowStateAPIService) FlowStateDeleteExecute(r ApiFlowStateDeleteRequest
 }
 
 type ApiFlowStateQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FlowStateAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiFlowStateQueryRequest) Fetch(fetch string) ApiFlowStateQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiFlowStateQueryRequest) Workspace(workspace string) ApiFlowStateQueryR
 	return r
 }
 
+// 
 func (r ApiFlowStateQueryRequest) Compact(compact bool) ApiFlowStateQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiFlowStateQueryRequest) Execute() (*FlowStateQuery200Response, *http.R
 /*
 FlowStateQuery FlowState Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiFlowStateQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFlowStateQueryRequest
 */
 func (a *FlowStateAPIService) FlowStateQuery(ctx context.Context) ApiFlowStateQueryRequest {
 	return ApiFlowStateQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FlowStateQuery200Response
+//  @return FlowStateQuery200Response
 func (a *FlowStateAPIService) FlowStateQueryExecute(r ApiFlowStateQueryRequest) (*FlowStateQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FlowStateQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FlowStateQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FlowStateAPIService.FlowStateQuery")
@@ -348,8 +347,9 @@ func (a *FlowStateAPIService) FlowStateQueryExecute(r ApiFlowStateQueryRequest) 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *FlowStateAPIService) FlowStateQueryExecute(r ApiFlowStateQueryRequest) 
 }
 
 type ApiFlowStateReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *FlowStateAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiFlowStateReadRequest) Compact(compact bool) ApiFlowStateReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiFlowStateReadRequest) Execute() (*FlowStateRead200Response, *http.Res
 /*
 FlowStateRead FlowState Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFlowStateReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFlowStateReadRequest
 */
 func (a *FlowStateAPIService) FlowStateRead(ctx context.Context, objectId string) ApiFlowStateReadRequest {
 	return ApiFlowStateReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FlowStateRead200Response
+//  @return FlowStateRead200Response
 func (a *FlowStateAPIService) FlowStateReadExecute(r ApiFlowStateReadRequest) (*FlowStateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FlowStateRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FlowStateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FlowStateAPIService.FlowStateRead")
@@ -469,8 +469,9 @@ func (a *FlowStateAPIService) FlowStateReadExecute(r ApiFlowStateReadRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *FlowStateAPIService) FlowStateReadExecute(r ApiFlowStateReadRequest) (*
 }
 
 type ApiFlowStateUpdateRequest struct {
-	ctx               context.Context
-	ApiService        *FlowStateAPIService
-	objectId          string
+	ctx context.Context
+	ApiService *FlowStateAPIService
+	objectId string
 	flowStateMutation *FlowStateMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiFlowStateUpdateRequest) Execute() (*FlowStateRead200Response, *http.R
 /*
 FlowStateUpdate FlowState Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiFlowStateUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiFlowStateUpdateRequest
 */
 func (a *FlowStateAPIService) FlowStateUpdate(ctx context.Context, objectId string) ApiFlowStateUpdateRequest {
 	return ApiFlowStateUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return FlowStateRead200Response
+//  @return FlowStateRead200Response
 func (a *FlowStateAPIService) FlowStateUpdateExecute(r ApiFlowStateUpdateRequest) (*FlowStateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *FlowStateRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *FlowStateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FlowStateAPIService.FlowStateUpdate")

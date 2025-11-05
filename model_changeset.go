@@ -21,10 +21,10 @@ var _ MappedNullable = &Changeset{}
 // Changeset Changeset
 type Changeset struct {
 	Artifacts *Collection `json:"Artifacts,omitempty"`
-	Author    *UserRef    `json:"Author,omitempty"`
+	Author *UserRef `json:"Author,omitempty"`
 	// Branch
-	Branch  *string     `json:"Branch,omitempty"`
-	Builds  *Collection `json:"Builds,omitempty"`
+	Branch *string `json:"Branch,omitempty"`
+	Builds *Collection `json:"Builds,omitempty"`
 	Changes *Collection `json:"Changes,omitempty"`
 	// Commit Timestamp
 	CommitTimestamp *string `json:"CommitTimestamp,omitempty"`
@@ -39,16 +39,16 @@ type Changeset struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Revision
-	Revision      *string           `json:"Revision,omitempty"`
+	Revision *string `json:"Revision,omitempty"`
 	SCMRepository *SCMRepositoryRef `json:"SCMRepository,omitempty"`
-	Subscription  *SubscriptionRef  `json:"Subscription,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Uri
 	Uri *string `json:"Uri,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewChangeset instantiates a new Changeset object
@@ -677,7 +677,7 @@ func (o *Changeset) SetErrors(v []string) {
 }
 
 func (o Changeset) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -781,3 +781,5 @@ func (v *NullableChangeset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,8 +20,8 @@ var _ MappedNullable = &EpicCreate200ResponseCreateResult{}
 
 // EpicCreate200ResponseCreateResult struct for EpicCreate200ResponseCreateResult
 type EpicCreate200ResponseCreateResult struct {
-	Errors   []string `json:"Errors,omitempty"`
-	Object   *Epic    `json:"Object,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Epic `json:"Object,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *EpicCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o EpicCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableEpicCreate200ResponseCreateResult) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

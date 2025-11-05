@@ -73,7 +73,7 @@ func (o *AllowedAttributeValueCreate200Response) SetCreateResult(v AllowedAttrib
 }
 
 func (o AllowedAttributeValueCreate200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableAllowedAttributeValueCreate200Response) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

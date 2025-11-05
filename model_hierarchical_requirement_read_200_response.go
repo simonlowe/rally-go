@@ -20,11 +20,11 @@ var _ MappedNullable = &HierarchicalRequirementRead200Response{}
 
 // HierarchicalRequirementRead200Response struct for HierarchicalRequirementRead200Response
 type HierarchicalRequirementRead200Response struct {
-	RallyAPIMajor           *string                  `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor           *string                  `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	HierarchicalRequirement *HierarchicalRequirement `json:"HierarchicalRequirement,omitempty"`
-	Warnings                []string                 `json:"Warnings,omitempty"`
-	Errors                  []string                 `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewHierarchicalRequirementRead200Response instantiates a new HierarchicalRequirementRead200Response object
@@ -205,7 +205,7 @@ func (o *HierarchicalRequirementRead200Response) SetErrors(v []string) {
 }
 
 func (o HierarchicalRequirementRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableHierarchicalRequirementRead200Response) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

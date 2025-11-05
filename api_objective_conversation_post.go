@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // ObjectiveConversationPostAPIService ObjectiveConversationPostAPI service
 type ObjectiveConversationPostAPIService service
 
 type ApiObjectiveConversationPostCreateRequest struct {
-	ctx                               context.Context
-	ApiService                        *ObjectiveConversationPostAPIService
+	ctx context.Context
+	ApiService *ObjectiveConversationPostAPIService
 	objectiveConversationPostMutation *ObjectiveConversationPostMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiObjectiveConversationPostCreateRequest) Execute() (*ObjectiveConversa
 /*
 ObjectiveConversationPostCreate ObjectiveConversationPost Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiObjectiveConversationPostCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiObjectiveConversationPostCreateRequest
 */
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostCreate(ctx context.Context) ApiObjectiveConversationPostCreateRequest {
 	return ApiObjectiveConversationPostCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveConversationPostCreate200Response
+//  @return ObjectiveConversationPostCreate200Response
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostCreateExecute(r ApiObjectiveConversationPostCreateRequest) (*ObjectiveConversationPostCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveConversationPostCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveConversationPostCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveConversationPostAPIService.ObjectiveConversationPostCreate")
@@ -134,9 +134,9 @@ func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostCreateExe
 }
 
 type ApiObjectiveConversationPostDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveConversationPostAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiObjectiveConversationPostDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiObjectiveConversationPostDeleteRequest) Execute() (*AllowedAttributeV
 /*
 ObjectiveConversationPostDelete ObjectiveConversationPost Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveConversationPostDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveConversationPostDeleteRequest
 */
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostDelete(ctx context.Context, objectId string) ApiObjectiveConversationPostDeleteRequest {
 	return ApiObjectiveConversationPostDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostDeleteExecute(r ApiObjectiveConversationPostDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveConversationPostAPIService.ObjectiveConversationPostDelete")
@@ -236,13 +235,14 @@ func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostDeleteExe
 }
 
 type ApiObjectiveConversationPostReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ObjectiveConversationPostAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiObjectiveConversationPostReadRequest) Compact(compact bool) ApiObjectiveConversationPostReadRequest {
 	r.compact = &compact
 	return r
@@ -261,27 +261,26 @@ func (r ApiObjectiveConversationPostReadRequest) Execute() (*ObjectiveConversati
 /*
 ObjectiveConversationPostRead ObjectiveConversationPost Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveConversationPostReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveConversationPostReadRequest
 */
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostRead(ctx context.Context, objectId string) ApiObjectiveConversationPostReadRequest {
 	return ApiObjectiveConversationPostReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveConversationPostRead200Response
+//  @return ObjectiveConversationPostRead200Response
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostReadExecute(r ApiObjectiveConversationPostReadRequest) (*ObjectiveConversationPostRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveConversationPostRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveConversationPostRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveConversationPostAPIService.ObjectiveConversationPostRead")
@@ -299,8 +298,9 @@ func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostReadExecu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -360,9 +360,9 @@ func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostReadExecu
 }
 
 type ApiObjectiveConversationPostUpdateRequest struct {
-	ctx                               context.Context
-	ApiService                        *ObjectiveConversationPostAPIService
-	objectId                          string
+	ctx context.Context
+	ApiService *ObjectiveConversationPostAPIService
+	objectId string
 	objectiveConversationPostMutation *ObjectiveConversationPostMutation
 }
 
@@ -379,27 +379,26 @@ func (r ApiObjectiveConversationPostUpdateRequest) Execute() (*ObjectiveConversa
 /*
 ObjectiveConversationPostUpdate ObjectiveConversationPost Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiObjectiveConversationPostUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiObjectiveConversationPostUpdateRequest
 */
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostUpdate(ctx context.Context, objectId string) ApiObjectiveConversationPostUpdateRequest {
 	return ApiObjectiveConversationPostUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ObjectiveConversationPostRead200Response
+//  @return ObjectiveConversationPostRead200Response
 func (a *ObjectiveConversationPostAPIService) ObjectiveConversationPostUpdateExecute(r ApiObjectiveConversationPostUpdateRequest) (*ObjectiveConversationPostRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ObjectiveConversationPostRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ObjectiveConversationPostRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectiveConversationPostAPIService.ObjectiveConversationPostUpdate")

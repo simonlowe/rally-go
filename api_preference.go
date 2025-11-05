@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // PreferenceAPIService PreferenceAPI service
 type PreferenceAPIService service
 
 type ApiPreferenceCreateRequest struct {
-	ctx                context.Context
-	ApiService         *PreferenceAPIService
+	ctx context.Context
+	ApiService *PreferenceAPIService
 	preferenceMutation *PreferenceMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiPreferenceCreateRequest) Execute() (*PreferenceCreate200Response, *ht
 /*
 PreferenceCreate Preference Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPreferenceCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPreferenceCreateRequest
 */
 func (a *PreferenceAPIService) PreferenceCreate(ctx context.Context) ApiPreferenceCreateRequest {
 	return ApiPreferenceCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreferenceCreate200Response
+//  @return PreferenceCreate200Response
 func (a *PreferenceAPIService) PreferenceCreateExecute(r ApiPreferenceCreateRequest) (*PreferenceCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreferenceCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreferenceCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreferenceAPIService.PreferenceCreate")
@@ -134,9 +134,9 @@ func (a *PreferenceAPIService) PreferenceCreateExecute(r ApiPreferenceCreateRequ
 }
 
 type ApiPreferenceDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreferenceAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiPreferenceDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiPreferenceDeleteRequest) Execute() (*AllowedAttributeValueDelete200Re
 /*
 PreferenceDelete Preference Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreferenceDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreferenceDeleteRequest
 */
 func (a *PreferenceAPIService) PreferenceDelete(ctx context.Context, objectId string) ApiPreferenceDeleteRequest {
 	return ApiPreferenceDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *PreferenceAPIService) PreferenceDeleteExecute(r ApiPreferenceDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreferenceAPIService.PreferenceDelete")
@@ -236,18 +235,18 @@ func (a *PreferenceAPIService) PreferenceDeleteExecute(r ApiPreferenceDeleteRequ
 }
 
 type ApiPreferenceQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreferenceAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiPreferenceQueryRequest) Fetch(fetch string) ApiPreferenceQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiPreferenceQueryRequest) Workspace(workspace string) ApiPreferenceQuer
 	return r
 }
 
+// 
 func (r ApiPreferenceQueryRequest) Compact(compact bool) ApiPreferenceQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiPreferenceQueryRequest) Execute() (*PreferenceQuery200Response, *http
 /*
 PreferenceQuery Preference Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPreferenceQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPreferenceQueryRequest
 */
 func (a *PreferenceAPIService) PreferenceQuery(ctx context.Context) ApiPreferenceQueryRequest {
 	return ApiPreferenceQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreferenceQuery200Response
+//  @return PreferenceQuery200Response
 func (a *PreferenceAPIService) PreferenceQueryExecute(r ApiPreferenceQueryRequest) (*PreferenceQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreferenceQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreferenceQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreferenceAPIService.PreferenceQuery")
@@ -348,8 +347,9 @@ func (a *PreferenceAPIService) PreferenceQueryExecute(r ApiPreferenceQueryReques
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *PreferenceAPIService) PreferenceQueryExecute(r ApiPreferenceQueryReques
 }
 
 type ApiPreferenceReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PreferenceAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiPreferenceReadRequest) Compact(compact bool) ApiPreferenceReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiPreferenceReadRequest) Execute() (*PreferenceRead200Response, *http.R
 /*
 PreferenceRead Preference Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreferenceReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreferenceReadRequest
 */
 func (a *PreferenceAPIService) PreferenceRead(ctx context.Context, objectId string) ApiPreferenceReadRequest {
 	return ApiPreferenceReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreferenceRead200Response
+//  @return PreferenceRead200Response
 func (a *PreferenceAPIService) PreferenceReadExecute(r ApiPreferenceReadRequest) (*PreferenceRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreferenceRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreferenceRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreferenceAPIService.PreferenceRead")
@@ -469,8 +469,9 @@ func (a *PreferenceAPIService) PreferenceReadExecute(r ApiPreferenceReadRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *PreferenceAPIService) PreferenceReadExecute(r ApiPreferenceReadRequest)
 }
 
 type ApiPreferenceUpdateRequest struct {
-	ctx                context.Context
-	ApiService         *PreferenceAPIService
-	objectId           string
+	ctx context.Context
+	ApiService *PreferenceAPIService
+	objectId string
 	preferenceMutation *PreferenceMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiPreferenceUpdateRequest) Execute() (*PreferenceRead200Response, *http
 /*
 PreferenceUpdate Preference Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPreferenceUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPreferenceUpdateRequest
 */
 func (a *PreferenceAPIService) PreferenceUpdate(ctx context.Context, objectId string) ApiPreferenceUpdateRequest {
 	return ApiPreferenceUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PreferenceRead200Response
+//  @return PreferenceRead200Response
 func (a *PreferenceAPIService) PreferenceUpdateExecute(r ApiPreferenceUpdateRequest) (*PreferenceRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PreferenceRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PreferenceRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PreferenceAPIService.PreferenceUpdate")

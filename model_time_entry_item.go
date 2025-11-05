@@ -25,27 +25,27 @@ type TimeEntryItem struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
-	Project    *ProjectRef `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Project Display String
-	ProjectDisplayString *string             `json:"ProjectDisplayString,omitempty"`
-	RevisionHistory      *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription         *SubscriptionRef    `json:"Subscription,omitempty"`
-	Task                 *TaskRef            `json:"Task,omitempty"`
+	ProjectDisplayString *string `json:"ProjectDisplayString,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Task *TaskRef `json:"Task,omitempty"`
 	// Task Display String
-	TaskDisplayString *string     `json:"TaskDisplayString,omitempty"`
-	User              *UserRef    `json:"User,omitempty"`
-	Values            *Collection `json:"Values,omitempty"`
+	TaskDisplayString *string `json:"TaskDisplayString,omitempty"`
+	User *UserRef `json:"User,omitempty"`
+	Values *Collection `json:"Values,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Week Start Date
-	WeekStartDate *string    `json:"WeekStartDate,omitempty"`
-	WorkProduct   *ObjectRef `json:"WorkProduct,omitempty"`
+	WeekStartDate *string `json:"WeekStartDate,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
 	// Work Product Display String
-	WorkProductDisplayString *string       `json:"WorkProductDisplayString,omitempty"`
-	Workspace                *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings                 []string      `json:"Warnings,omitempty"`
-	Errors                   []string      `json:"Errors,omitempty"`
+	WorkProductDisplayString *string `json:"WorkProductDisplayString,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTimeEntryItem instantiates a new TimeEntryItem object
@@ -642,7 +642,7 @@ func (o *TimeEntryItem) SetErrors(v []string) {
 }
 
 func (o TimeEntryItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -743,3 +743,5 @@ func (v *NullableTimeEntryItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

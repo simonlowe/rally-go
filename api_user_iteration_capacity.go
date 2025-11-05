@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // UserIterationCapacityAPIService UserIterationCapacityAPI service
 type UserIterationCapacityAPIService service
 
 type ApiUserIterationCapacityCreateRequest struct {
-	ctx                           context.Context
-	ApiService                    *UserIterationCapacityAPIService
+	ctx context.Context
+	ApiService *UserIterationCapacityAPIService
 	userIterationCapacityMutation *UserIterationCapacityMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiUserIterationCapacityCreateRequest) Execute() (*UserIterationCapacity
 /*
 UserIterationCapacityCreate UserIterationCapacity Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserIterationCapacityCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiUserIterationCapacityCreateRequest
 */
 func (a *UserIterationCapacityAPIService) UserIterationCapacityCreate(ctx context.Context) ApiUserIterationCapacityCreateRequest {
 	return ApiUserIterationCapacityCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserIterationCapacityCreate200Response
+//  @return UserIterationCapacityCreate200Response
 func (a *UserIterationCapacityAPIService) UserIterationCapacityCreateExecute(r ApiUserIterationCapacityCreateRequest) (*UserIterationCapacityCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserIterationCapacityCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserIterationCapacityCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserIterationCapacityAPIService.UserIterationCapacityCreate")
@@ -134,9 +134,9 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityCreateExecute(r A
 }
 
 type ApiUserIterationCapacityDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserIterationCapacityAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiUserIterationCapacityDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiUserIterationCapacityDeleteRequest) Execute() (*AllowedAttributeValue
 /*
 UserIterationCapacityDelete UserIterationCapacity Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiUserIterationCapacityDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiUserIterationCapacityDeleteRequest
 */
 func (a *UserIterationCapacityAPIService) UserIterationCapacityDelete(ctx context.Context, objectId string) ApiUserIterationCapacityDeleteRequest {
 	return ApiUserIterationCapacityDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *UserIterationCapacityAPIService) UserIterationCapacityDeleteExecute(r ApiUserIterationCapacityDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserIterationCapacityAPIService.UserIterationCapacityDelete")
@@ -236,18 +235,18 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityDeleteExecute(r A
 }
 
 type ApiUserIterationCapacityQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserIterationCapacityAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiUserIterationCapacityQueryRequest) Fetch(fetch string) ApiUserIterationCapacityQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiUserIterationCapacityQueryRequest) Workspace(workspace string) ApiUse
 	return r
 }
 
+// 
 func (r ApiUserIterationCapacityQueryRequest) Compact(compact bool) ApiUserIterationCapacityQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiUserIterationCapacityQueryRequest) Execute() (*UserIterationCapacityQ
 /*
 UserIterationCapacityQuery UserIterationCapacity Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserIterationCapacityQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiUserIterationCapacityQueryRequest
 */
 func (a *UserIterationCapacityAPIService) UserIterationCapacityQuery(ctx context.Context) ApiUserIterationCapacityQueryRequest {
 	return ApiUserIterationCapacityQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserIterationCapacityQuery200Response
+//  @return UserIterationCapacityQuery200Response
 func (a *UserIterationCapacityAPIService) UserIterationCapacityQueryExecute(r ApiUserIterationCapacityQueryRequest) (*UserIterationCapacityQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserIterationCapacityQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserIterationCapacityQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserIterationCapacityAPIService.UserIterationCapacityQuery")
@@ -348,8 +347,9 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityQueryExecute(r Ap
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityQueryExecute(r Ap
 }
 
 type ApiUserIterationCapacityReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UserIterationCapacityAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiUserIterationCapacityReadRequest) Compact(compact bool) ApiUserIterationCapacityReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiUserIterationCapacityReadRequest) Execute() (*UserIterationCapacityRe
 /*
 UserIterationCapacityRead UserIterationCapacity Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiUserIterationCapacityReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiUserIterationCapacityReadRequest
 */
 func (a *UserIterationCapacityAPIService) UserIterationCapacityRead(ctx context.Context, objectId string) ApiUserIterationCapacityReadRequest {
 	return ApiUserIterationCapacityReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserIterationCapacityRead200Response
+//  @return UserIterationCapacityRead200Response
 func (a *UserIterationCapacityAPIService) UserIterationCapacityReadExecute(r ApiUserIterationCapacityReadRequest) (*UserIterationCapacityRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserIterationCapacityRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserIterationCapacityRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserIterationCapacityAPIService.UserIterationCapacityRead")
@@ -469,8 +469,9 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityReadExecute(r Api
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *UserIterationCapacityAPIService) UserIterationCapacityReadExecute(r Api
 }
 
 type ApiUserIterationCapacityUpdateRequest struct {
-	ctx                           context.Context
-	ApiService                    *UserIterationCapacityAPIService
-	objectId                      string
+	ctx context.Context
+	ApiService *UserIterationCapacityAPIService
+	objectId string
 	userIterationCapacityMutation *UserIterationCapacityMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiUserIterationCapacityUpdateRequest) Execute() (*UserIterationCapacity
 /*
 UserIterationCapacityUpdate UserIterationCapacity Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiUserIterationCapacityUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiUserIterationCapacityUpdateRequest
 */
 func (a *UserIterationCapacityAPIService) UserIterationCapacityUpdate(ctx context.Context, objectId string) ApiUserIterationCapacityUpdateRequest {
 	return ApiUserIterationCapacityUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return UserIterationCapacityRead200Response
+//  @return UserIterationCapacityRead200Response
 func (a *UserIterationCapacityAPIService) UserIterationCapacityUpdateExecute(r ApiUserIterationCapacityUpdateRequest) (*UserIterationCapacityRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserIterationCapacityRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserIterationCapacityRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserIterationCapacityAPIService.UserIterationCapacityUpdate")

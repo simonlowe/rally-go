@@ -20,12 +20,12 @@ var _ MappedNullable = &UserIterationCapacityQuery200ResponseQueryResult{}
 
 // UserIterationCapacityQuery200ResponseQueryResult struct for UserIterationCapacityQuery200ResponseQueryResult
 type UserIterationCapacityQuery200ResponseQueryResult struct {
-	StartIndex       *int64                  `json:"StartIndex,omitempty"`
-	PageSize         *int64                  `json:"PageSize,omitempty"`
-	TotalResultCount *int64                  `json:"TotalResultCount,omitempty"`
-	Results          []UserIterationCapacity `json:"Results,omitempty"`
-	Warnings         []string                `json:"Warnings,omitempty"`
-	Errors           []string                `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []UserIterationCapacity `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserIterationCapacityQuery200ResponseQueryResult instantiates a new UserIterationCapacityQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *UserIterationCapacityQuery200ResponseQueryResult) SetErrors(v []string)
 }
 
 func (o UserIterationCapacityQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableUserIterationCapacityQuery200ResponseQueryResult) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

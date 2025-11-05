@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // PullRequestAPIService PullRequestAPI service
 type PullRequestAPIService service
 
 type ApiPullRequestCreateRequest struct {
-	ctx                 context.Context
-	ApiService          *PullRequestAPIService
+	ctx context.Context
+	ApiService *PullRequestAPIService
 	pullRequestMutation *PullRequestMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiPullRequestCreateRequest) Execute() (*PullRequestCreate200Response, *
 /*
 PullRequestCreate PullRequest Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPullRequestCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPullRequestCreateRequest
 */
 func (a *PullRequestAPIService) PullRequestCreate(ctx context.Context) ApiPullRequestCreateRequest {
 	return ApiPullRequestCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PullRequestCreate200Response
+//  @return PullRequestCreate200Response
 func (a *PullRequestAPIService) PullRequestCreateExecute(r ApiPullRequestCreateRequest) (*PullRequestCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PullRequestCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PullRequestCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PullRequestAPIService.PullRequestCreate")
@@ -134,9 +134,9 @@ func (a *PullRequestAPIService) PullRequestCreateExecute(r ApiPullRequestCreateR
 }
 
 type ApiPullRequestDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PullRequestAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiPullRequestDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiPullRequestDeleteRequest) Execute() (*AllowedAttributeValueDelete200R
 /*
 PullRequestDelete PullRequest Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPullRequestDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPullRequestDeleteRequest
 */
 func (a *PullRequestAPIService) PullRequestDelete(ctx context.Context, objectId string) ApiPullRequestDeleteRequest {
 	return ApiPullRequestDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *PullRequestAPIService) PullRequestDeleteExecute(r ApiPullRequestDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PullRequestAPIService.PullRequestDelete")
@@ -236,18 +235,18 @@ func (a *PullRequestAPIService) PullRequestDeleteExecute(r ApiPullRequestDeleteR
 }
 
 type ApiPullRequestQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PullRequestAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiPullRequestQueryRequest) Fetch(fetch string) ApiPullRequestQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiPullRequestQueryRequest) Workspace(workspace string) ApiPullRequestQu
 	return r
 }
 
+// 
 func (r ApiPullRequestQueryRequest) Compact(compact bool) ApiPullRequestQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiPullRequestQueryRequest) Execute() (*PullRequestQuery200Response, *ht
 /*
 PullRequestQuery PullRequest Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPullRequestQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPullRequestQueryRequest
 */
 func (a *PullRequestAPIService) PullRequestQuery(ctx context.Context) ApiPullRequestQueryRequest {
 	return ApiPullRequestQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PullRequestQuery200Response
+//  @return PullRequestQuery200Response
 func (a *PullRequestAPIService) PullRequestQueryExecute(r ApiPullRequestQueryRequest) (*PullRequestQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PullRequestQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PullRequestQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PullRequestAPIService.PullRequestQuery")
@@ -348,8 +347,9 @@ func (a *PullRequestAPIService) PullRequestQueryExecute(r ApiPullRequestQueryReq
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *PullRequestAPIService) PullRequestQueryExecute(r ApiPullRequestQueryReq
 }
 
 type ApiPullRequestReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PullRequestAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiPullRequestReadRequest) Compact(compact bool) ApiPullRequestReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiPullRequestReadRequest) Execute() (*PullRequestRead200Response, *http
 /*
 PullRequestRead PullRequest Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPullRequestReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPullRequestReadRequest
 */
 func (a *PullRequestAPIService) PullRequestRead(ctx context.Context, objectId string) ApiPullRequestReadRequest {
 	return ApiPullRequestReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PullRequestRead200Response
+//  @return PullRequestRead200Response
 func (a *PullRequestAPIService) PullRequestReadExecute(r ApiPullRequestReadRequest) (*PullRequestRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PullRequestRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PullRequestRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PullRequestAPIService.PullRequestRead")
@@ -469,8 +469,9 @@ func (a *PullRequestAPIService) PullRequestReadExecute(r ApiPullRequestReadReque
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *PullRequestAPIService) PullRequestReadExecute(r ApiPullRequestReadReque
 }
 
 type ApiPullRequestUpdateRequest struct {
-	ctx                 context.Context
-	ApiService          *PullRequestAPIService
-	objectId            string
+	ctx context.Context
+	ApiService *PullRequestAPIService
+	objectId string
 	pullRequestMutation *PullRequestMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiPullRequestUpdateRequest) Execute() (*PullRequestRead200Response, *ht
 /*
 PullRequestUpdate PullRequest Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPullRequestUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPullRequestUpdateRequest
 */
 func (a *PullRequestAPIService) PullRequestUpdate(ctx context.Context, objectId string) ApiPullRequestUpdateRequest {
 	return ApiPullRequestUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PullRequestRead200Response
+//  @return PullRequestRead200Response
 func (a *PullRequestAPIService) PullRequestUpdateExecute(r ApiPullRequestUpdateRequest) (*PullRequestRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PullRequestRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PullRequestRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PullRequestAPIService.PullRequestUpdate")

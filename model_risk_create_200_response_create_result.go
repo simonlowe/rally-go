@@ -20,8 +20,8 @@ var _ MappedNullable = &RiskCreate200ResponseCreateResult{}
 
 // RiskCreate200ResponseCreateResult struct for RiskCreate200ResponseCreateResult
 type RiskCreate200ResponseCreateResult struct {
-	Errors   []string `json:"Errors,omitempty"`
-	Object   *Risk    `json:"Object,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Risk `json:"Object,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *RiskCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o RiskCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableRiskCreate200ResponseCreateResult) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

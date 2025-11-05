@@ -21,19 +21,19 @@ var _ MappedNullable = &DefectMutationDefect{}
 // DefectMutationDefect Defect
 type DefectMutationDefect struct {
 	// Affects Doc
-	AffectsDoc  *bool       `json:"AffectsDoc,omitempty"`
+	AffectsDoc *bool `json:"AffectsDoc,omitempty"`
 	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
-	DefectSuites  *Collection `json:"DefectSuites,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	DefectSuites *Collection `json:"DefectSuites,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
-	DisplayColor *string     `json:"DisplayColor,omitempty"`
-	Duplicates   *Collection `json:"Duplicates,omitempty"`
+	DisplayColor *string `json:"DisplayColor,omitempty"`
+	Duplicates *Collection `json:"Duplicates,omitempty"`
 	// Environment
 	Environment *string `json:"Environment,omitempty"`
 	// Expedite
@@ -41,35 +41,35 @@ type DefectMutationDefect struct {
 	// Financial Work Type
 	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
 	// Fixed In Build
-	FixedInBuild *string       `json:"FixedInBuild,omitempty"`
-	FlowState    *FlowStateRef `json:"FlowState,omitempty"`
+	FixedInBuild *string `json:"FixedInBuild,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
 	// Found In Build
-	FoundInBuild *string       `json:"FoundInBuild,omitempty"`
-	Iteration    *IterationRef `json:"Iteration,omitempty"`
+	FoundInBuild *string `json:"FoundInBuild,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
-	IterationValue *string     `json:"IterationValue,omitempty"`
-	Milestones     *Collection `json:"Milestones,omitempty"`
+	IterationValue *string `json:"IterationValue,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
 	Package *string `json:"Package,omitempty"`
 	// Plan Estimate
-	PlanEstimate  *float32    `json:"PlanEstimate,omitempty"`
+	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	PortfolioItem *FeatureRef `json:"PortfolioItem,omitempty"`
 	// Priority
-	Priority *string     `json:"Priority,omitempty"`
-	Project  *ProjectRef `json:"Project,omitempty"`
+	Priority *string `json:"Priority,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready   *bool       `json:"Ready,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
 	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Note
 	ReleaseNote *bool `json:"ReleaseNote,omitempty"`
 	// Release Value
-	ReleaseValue *string                     `json:"ReleaseValue,omitempty"`
-	Requirement  *HierarchicalRequirementRef `json:"Requirement,omitempty"`
+	ReleaseValue *string `json:"ReleaseValue,omitempty"`
+	Requirement *HierarchicalRequirementRef `json:"Requirement,omitempty"`
 	// Resolution
 	Resolution *string `json:"Resolution,omitempty"`
 	// Salesforce Case ID
@@ -81,18 +81,18 @@ type DefectMutationDefect struct {
 	// Severity
 	Severity *string `json:"Severity,omitempty"`
 	// State
-	State       *string     `json:"State,omitempty"`
-	SubmittedBy *UserRef    `json:"SubmittedBy,omitempty"`
-	Tags        *Collection `json:"Tags,omitempty"`
+	State *string `json:"State,omitempty"`
+	SubmittedBy *UserRef `json:"SubmittedBy,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Target Build
 	TargetBuild *string `json:"TargetBuild,omitempty"`
 	// Target Date
-	TargetDate     *string            `json:"TargetDate,omitempty"`
-	TestCase       *TestCaseRef       `json:"TestCase,omitempty"`
+	TargetDate *string `json:"TargetDate,omitempty"`
+	TestCase *TestCaseRef `json:"TestCase,omitempty"`
 	TestCaseResult *TestCaseResultRef `json:"TestCaseResult,omitempty"`
 	// Verified In Build
-	VerifiedInBuild *string       `json:"VerifiedInBuild,omitempty"`
-	Workspace       *WorkspaceRef `json:"Workspace,omitempty"`
+	VerifiedInBuild *string `json:"VerifiedInBuild,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
 	CALMID *string `json:"c_ALMID,omitempty"`
 	// AWS Account
@@ -116,7 +116,7 @@ type DefectMutationDefect struct {
 	// Archive Portfolio
 	CArchivePortfolio *string `json:"c_ArchivePortfolio,omitempty"`
 	// Archive Project
-	CArchiveProject *string     `json:"c_ArchiveProject,omitempty"`
+	CArchiveProject *string `json:"c_ArchiveProject,omitempty"`
 	CAreasToImprove *Collection `json:"c_AreasToImprove,omitempty"`
 	// Backlog Score
 	CBacklogScore *int64 `json:"c_BacklogScore,omitempty"`
@@ -127,8 +127,8 @@ type DefectMutationDefect struct {
 	// Bug Priority
 	CBugPriority *int64 `json:"c_BugPriority,omitempty"`
 	// Business Priority
-	CBusinessPriority *string     `json:"c_BusinessPriority,omitempty"`
-	CCMSProduct       *Collection `json:"c_CMSProduct,omitempty"`
+	CBusinessPriority *string `json:"c_BusinessPriority,omitempty"`
+	CCMSProduct *Collection `json:"c_CMSProduct,omitempty"`
 	// CRS Product
 	CCRSProduct *string `json:"c_CRSProduct,omitempty"`
 	// Call Count
@@ -140,10 +140,10 @@ type DefectMutationDefect struct {
 	// Client ID
 	CClientID *string `json:"c_ClientID,omitempty"`
 	// Client Outcome
-	CClientOutcome *string  `json:"c_ClientOutcome,omitempty"`
-	CCoOwner       *UserRef `json:"c_CoOwner,omitempty"`
+	CClientOutcome *string `json:"c_ClientOutcome,omitempty"`
+	CCoOwner *UserRef `json:"c_CoOwner,omitempty"`
 	// Component
-	CComponent          *string     `json:"c_Component,omitempty"`
+	CComponent *string `json:"c_Component,omitempty"`
 	CComponentDRFISSans *Collection `json:"c_ComponentDRFISSans,omitempty"`
 	// Connect to Salesforce Case
 	CConnecttoSalesforceCase *bool `json:"c_ConnecttoSalesforceCase,omitempty"`
@@ -154,8 +154,8 @@ type DefectMutationDefect struct {
 	// Current SF Environment
 	CCurrentSFEnvironment *string `json:"c_CurrentSFEnvironment,omitempty"`
 	// DESyncGroup(DO_NOT_TOUCH)
-	CDESyncGroupDONOTTOUCH *string  `json:"c_DESyncGroupDONOTTOUCH,omitempty"`
-	CDEVOwner              *UserRef `json:"c_DEVOwner,omitempty"`
+	CDESyncGroupDONOTTOUCH *string `json:"c_DESyncGroupDONOTTOUCH,omitempty"`
+	CDEVOwner *UserRef `json:"c_DEVOwner,omitempty"`
 	// DT Product
 	CDTProduct *string `json:"c_DTProduct,omitempty"`
 	// Defect Injection CLCA
@@ -183,8 +183,8 @@ type DefectMutationDefect struct {
 	// F&I Root Cause - REQ for Fixed or Closed
 	CFIRootCauseREQforFixedorClosed *string `json:"c_FIRootCauseREQforFixedorClosed,omitempty"`
 	// Functional Area
-	CFunctionalArea *string     `json:"c_FunctionalArea,omitempty"`
-	CFunctionality  *Collection `json:"c_Functionality,omitempty"`
+	CFunctionalArea *string `json:"c_FunctionalArea,omitempty"`
+	CFunctionality *Collection `json:"c_Functionality,omitempty"`
 	// Impact
 	CImpact *string `json:"c_Impact,omitempty"`
 	// Impact (DMS)
@@ -194,15 +194,15 @@ type DefectMutationDefect struct {
 	// Lender UAT Start Date
 	CLenderUATStartDate *string `json:"c_LenderUATStartDate,omitempty"`
 	// Number of Child Cases
-	CNumberofChildCases *int64      `json:"c_NumberofChildCases,omitempty"`
-	CPVTOwner           *UserRef    `json:"c_PVTOwner,omitempty"`
-	CPreventiveActions  *Collection `json:"c_PreventiveActions,omitempty"`
+	CNumberofChildCases *int64 `json:"c_NumberofChildCases,omitempty"`
+	CPVTOwner *UserRef `json:"c_PVTOwner,omitempty"`
+	CPreventiveActions *Collection `json:"c_PreventiveActions,omitempty"`
 	// Product
-	CProduct *string  `json:"c_Product,omitempty"`
+	CProduct *string `json:"c_Product,omitempty"`
 	CQAOwner *UserRef `json:"c_QAOwner,omitempty"`
 	// Quality Improvement
-	CQualityImprovement *string     `json:"c_QualityImprovement,omitempty"`
-	CRTSProduct         *Collection `json:"c_RTSProduct,omitempty"`
+	CQualityImprovement *string `json:"c_QualityImprovement,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Release Availability
 	CReleaseAvailability *string `json:"c_ReleaseAvailability,omitempty"`
 	// Release Date
@@ -232,7 +232,7 @@ type DefectMutationDefect struct {
 	// Source
 	CSource *string `json:"c_Source,omitempty"`
 	// Source - FIN
-	CSourceFIN        *string     `json:"c_SourceFIN,omitempty"`
+	CSourceFIN *string `json:"c_SourceFIN,omitempty"`
 	CSubfunctionality *Collection `json:"c_Subfunctionality,omitempty"`
 	// Sync to QC?
 	CSynctoQC *bool `json:"c_SynctoQC,omitempty"`
@@ -263,10 +263,10 @@ type DefectMutationDefect struct {
 	// [old]_SF Case Product (DO NOT TOUCH)
 	COldSFCaseProductDONOTTOUCH *int64 `json:"c_oldSFCaseProductDONOTTOUCH,omitempty"`
 	// [retired] kanban state field
-	CRetiredkanbanstatefield *string     `json:"c_retiredkanbanstatefield,omitempty"`
-	CVAutoApplications       *Collection `json:"c_vAutoApplications,omitempty"`
-	Warnings                 []string    `json:"Warnings,omitempty"`
-	Errors                   []string    `json:"Errors,omitempty"`
+	CRetiredkanbanstatefield *string `json:"c_retiredkanbanstatefield,omitempty"`
+	CVAutoApplications *Collection `json:"c_vAutoApplications,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDefectMutationDefect instantiates a new DefectMutationDefect object
@@ -4751,7 +4751,7 @@ func (o *DefectMutationDefect) SetErrors(v []string) {
 }
 
 func (o DefectMutationDefect) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -5215,3 +5215,5 @@ func (v *NullableDefectMutationDefect) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

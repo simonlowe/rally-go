@@ -21,8 +21,8 @@ var _ MappedNullable = &WorkRuleMutationWorkRule{}
 // WorkRuleMutationWorkRule WorkRule
 type WorkRuleMutationWorkRule struct {
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkRuleMutationWorkRule instantiates a new WorkRuleMutationWorkRule object
@@ -139,7 +139,7 @@ func (o *WorkRuleMutationWorkRule) SetErrors(v []string) {
 }
 
 func (o WorkRuleMutationWorkRule) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableWorkRuleMutationWorkRule) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

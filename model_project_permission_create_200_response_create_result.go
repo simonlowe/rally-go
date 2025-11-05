@@ -20,9 +20,9 @@ var _ MappedNullable = &ProjectPermissionCreate200ResponseCreateResult{}
 
 // ProjectPermissionCreate200ResponseCreateResult struct for ProjectPermissionCreate200ResponseCreateResult
 type ProjectPermissionCreate200ResponseCreateResult struct {
-	Errors   []string           `json:"Errors,omitempty"`
-	Object   *ProjectPermission `json:"Object,omitempty"`
-	Warnings []string           `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *ProjectPermission `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewProjectPermissionCreate200ResponseCreateResult instantiates a new ProjectPermissionCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *ProjectPermissionCreate200ResponseCreateResult) SetWarnings(v []string)
 }
 
 func (o ProjectPermissionCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableProjectPermissionCreate200ResponseCreateResult) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

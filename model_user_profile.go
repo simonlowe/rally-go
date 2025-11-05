@@ -27,9 +27,9 @@ type UserProfile struct {
 	// Date Time Format
 	DateTimeFormat *string `json:"DateTimeFormat,omitempty"`
 	// Default Detail Page To Viewing Mode
-	DefaultDetailPageToViewingMode *bool         `json:"DefaultDetailPageToViewingMode,omitempty"`
-	DefaultProject                 *ProjectRef   `json:"DefaultProject,omitempty"`
-	DefaultWorkspace               *WorkspaceRef `json:"DefaultWorkspace,omitempty"`
+	DefaultDetailPageToViewingMode *bool `json:"DefaultDetailPageToViewingMode,omitempty"`
+	DefaultProject *ProjectRef `json:"DefaultProject,omitempty"`
+	DefaultWorkspace *WorkspaceRef `json:"DefaultWorkspace,omitempty"`
 	// Email Notification Enabled
 	EmailNotificationEnabled *bool `json:"EmailNotificationEnabled,omitempty"`
 	// Language
@@ -43,16 +43,16 @@ type UserProfile struct {
 	// Session Timeout Seconds
 	SessionTimeoutSeconds *int64 `json:"SessionTimeoutSeconds,omitempty"`
 	// Session Timeout Warning
-	SessionTimeoutWarning *bool            `json:"SessionTimeoutWarning,omitempty"`
-	Subscription          *SubscriptionRef `json:"Subscription,omitempty"`
+	SessionTimeoutWarning *bool `json:"SessionTimeoutWarning,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Time Zone
 	TimeZone *string `json:"TimeZone,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Welcome Page Hidden
-	WelcomePageHidden *bool    `json:"WelcomePageHidden,omitempty"`
-	Warnings          []string `json:"Warnings,omitempty"`
-	Errors            []string `json:"Errors,omitempty"`
+	WelcomePageHidden *bool `json:"WelcomePageHidden,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserProfile instantiates a new UserProfile object
@@ -681,7 +681,7 @@ func (o *UserProfile) SetErrors(v []string) {
 }
 
 func (o UserProfile) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -785,3 +785,5 @@ func (v *NullableUserProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

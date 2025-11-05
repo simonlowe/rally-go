@@ -23,17 +23,17 @@ type DataMoveRequestMutationDataMoveRequest struct {
 	// DestinationSubscriptionZuulId
 	DestinationSubscriptionZuulId *string `json:"DestinationSubscriptionZuulId,omitempty"`
 	// IsDryRun
-	IsDryRun       *bool    `json:"IsDryRun,omitempty"`
+	IsDryRun *bool `json:"IsDryRun,omitempty"`
 	RequestingUser *UserRef `json:"RequestingUser,omitempty"`
 	// SourceSubscriptionZuulId
 	SourceSubscriptionZuulId *string `json:"SourceSubscriptionZuulId,omitempty"`
 	// State
-	State     *string       `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// WorkspaceOids
-	WorkspaceOids *string  `json:"WorkspaceOids,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	WorkspaceOids *string `json:"WorkspaceOids,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDataMoveRequestMutationDataMoveRequest instantiates a new DataMoveRequestMutationDataMoveRequest object
@@ -342,7 +342,7 @@ func (o *DataMoveRequestMutationDataMoveRequest) SetErrors(v []string) {
 }
 
 func (o DataMoveRequestMutationDataMoveRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -416,3 +416,5 @@ func (v *NullableDataMoveRequestMutationDataMoveRequest) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -37,17 +37,17 @@ type State struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Order Index
-	OrderIndex      *int64              `json:"OrderIndex,omitempty"`
+	OrderIndex *int64 `json:"OrderIndex,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription    *SubscriptionRef    `json:"Subscription,omitempty"`
-	TypeDef         *TypeDefinitionRef  `json:"TypeDef,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	TypeDef *TypeDefinitionRef `json:"TypeDef,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// WIP Limit
-	WIPLimit  *int64        `json:"WIPLimit,omitempty"`
+	WIPLimit *int64 `json:"WIPLimit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewState instantiates a new State object
@@ -612,7 +612,7 @@ func (o *State) SetErrors(v []string) {
 }
 
 func (o State) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -710,3 +710,5 @@ func (v *NullableState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

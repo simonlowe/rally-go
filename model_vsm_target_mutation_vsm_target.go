@@ -25,7 +25,7 @@ type VSMTargetMutationVSMTarget struct {
 	// Arg1
 	Arg1 *float32 `json:"Arg1,omitempty"`
 	// Arg2
-	Arg2   *float32   `json:"Arg2,omitempty"`
+	Arg2 *float32 `json:"Arg2,omitempty"`
 	Metric *ObjectRef `json:"Metric,omitempty"`
 	// Notes
 	Notes *string `json:"Notes,omitempty"`
@@ -38,10 +38,10 @@ type VSMTargetMutationVSMTarget struct {
 	// Source Url
 	SourceUrl *string `json:"SourceUrl,omitempty"`
 	// Target Date
-	TargetDate *string       `json:"TargetDate,omitempty"`
-	Workspace  *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings   []string      `json:"Warnings,omitempty"`
-	Errors     []string      `json:"Errors,omitempty"`
+	TargetDate *string `json:"TargetDate,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMTargetMutationVSMTarget instantiates a new VSMTargetMutationVSMTarget object
@@ -478,7 +478,7 @@ func (o *VSMTargetMutationVSMTarget) SetErrors(v []string) {
 }
 
 func (o VSMTargetMutationVSMTarget) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -564,3 +564,5 @@ func (v *NullableVSMTargetMutationVSMTarget) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

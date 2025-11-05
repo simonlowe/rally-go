@@ -20,9 +20,9 @@ var _ MappedNullable = &PreferenceCreate200ResponseCreateResult{}
 
 // PreferenceCreate200ResponseCreateResult struct for PreferenceCreate200ResponseCreateResult
 type PreferenceCreate200ResponseCreateResult struct {
-	Errors   []string    `json:"Errors,omitempty"`
-	Object   *Preference `json:"Object,omitempty"`
-	Warnings []string    `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Preference `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewPreferenceCreate200ResponseCreateResult instantiates a new PreferenceCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *PreferenceCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o PreferenceCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullablePreferenceCreate200ResponseCreateResult) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

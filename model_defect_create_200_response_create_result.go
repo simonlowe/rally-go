@@ -20,8 +20,8 @@ var _ MappedNullable = &DefectCreate200ResponseCreateResult{}
 
 // DefectCreate200ResponseCreateResult struct for DefectCreate200ResponseCreateResult
 type DefectCreate200ResponseCreateResult struct {
-	Errors   []string `json:"Errors,omitempty"`
-	Object   *Defect  `json:"Object,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Defect `json:"Object,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *DefectCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o DefectCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableDefectCreate200ResponseCreateResult) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

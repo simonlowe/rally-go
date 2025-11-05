@@ -25,13 +25,13 @@ type VSMTarget struct {
 	// Arg1
 	Arg1 *float32 `json:"Arg1,omitempty"`
 	// Arg2
-	Arg2      *float32 `json:"Arg2,omitempty"`
+	Arg2 *float32 `json:"Arg2,omitempty"`
 	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Last Update Date
-	LastUpdateDate *string    `json:"LastUpdateDate,omitempty"`
-	Metric         *ObjectRef `json:"Metric,omitempty"`
+	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
+	Metric *ObjectRef `json:"Metric,omitempty"`
 	// Notes
 	Notes *string `json:"Notes,omitempty"`
 	// Object ID
@@ -39,22 +39,22 @@ type VSMTarget struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Operator
-	Operator        *string             `json:"Operator,omitempty"`
+	Operator *string `json:"Operator,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source System Meta Data
 	SourceSystemMetaData *string `json:"SourceSystemMetaData,omitempty"`
 	// Source Url
-	SourceUrl    *string          `json:"SourceUrl,omitempty"`
+	SourceUrl *string `json:"SourceUrl,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Target Date
 	TargetDate *string `json:"TargetDate,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMTarget instantiates a new VSMTarget object
@@ -747,7 +747,7 @@ func (o *VSMTarget) SetErrors(v []string) {
 }
 
 func (o VSMTarget) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -857,3 +857,5 @@ func (v *NullableVSMTarget) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -24,8 +24,8 @@ type BuildDefinition struct {
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Description
-	Description *string   `json:"Description,omitempty"`
-	LastBuild   *BuildRef `json:"LastBuild,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	LastBuild *BuildRef `json:"LastBuild,omitempty"`
 	// LastStatus
 	LastStatus *string `json:"LastStatus,omitempty"`
 	// Name
@@ -33,17 +33,17 @@ type BuildDefinition struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
-	Project      *ProjectRef      `json:"Project,omitempty"`
-	Projects     *Collection      `json:"Projects,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Uri
 	Uri *string `json:"Uri,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBuildDefinition instantiates a new BuildDefinition object
@@ -576,7 +576,7 @@ func (o *BuildDefinition) SetErrors(v []string) {
 }
 
 func (o BuildDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -671,3 +671,5 @@ func (v *NullableBuildDefinition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

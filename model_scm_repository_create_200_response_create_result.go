@@ -20,9 +20,9 @@ var _ MappedNullable = &SCMRepositoryCreate200ResponseCreateResult{}
 
 // SCMRepositoryCreate200ResponseCreateResult struct for SCMRepositoryCreate200ResponseCreateResult
 type SCMRepositoryCreate200ResponseCreateResult struct {
-	Errors   []string       `json:"Errors,omitempty"`
-	Object   *SCMRepository `json:"Object,omitempty"`
-	Warnings []string       `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *SCMRepository `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewSCMRepositoryCreate200ResponseCreateResult instantiates a new SCMRepositoryCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *SCMRepositoryCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o SCMRepositoryCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableSCMRepositoryCreate200ResponseCreateResult) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

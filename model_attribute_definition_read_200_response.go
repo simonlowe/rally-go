@@ -20,11 +20,11 @@ var _ MappedNullable = &AttributeDefinitionRead200Response{}
 
 // AttributeDefinitionRead200Response struct for AttributeDefinitionRead200Response
 type AttributeDefinitionRead200Response struct {
-	RallyAPIMajor       *string              `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor       *string              `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	AttributeDefinition *AttributeDefinition `json:"AttributeDefinition,omitempty"`
-	Warnings            []string             `json:"Warnings,omitempty"`
-	Errors              []string             `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttributeDefinitionRead200Response instantiates a new AttributeDefinitionRead200Response object
@@ -205,7 +205,7 @@ func (o *AttributeDefinitionRead200Response) SetErrors(v []string) {
 }
 
 func (o AttributeDefinitionRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableAttributeDefinitionRead200Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

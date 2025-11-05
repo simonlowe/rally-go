@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // ProfileImageAPIService ProfileImageAPI service
 type ProfileImageAPIService service
 
 type ApiProfileImageCreateRequest struct {
-	ctx                  context.Context
-	ApiService           *ProfileImageAPIService
+	ctx context.Context
+	ApiService *ProfileImageAPIService
 	profileImageMutation *ProfileImageMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiProfileImageCreateRequest) Execute() (*ProfileImageCreate200Response,
 /*
 ProfileImageCreate ProfileImage Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiProfileImageCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiProfileImageCreateRequest
 */
 func (a *ProfileImageAPIService) ProfileImageCreate(ctx context.Context) ApiProfileImageCreateRequest {
 	return ApiProfileImageCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ProfileImageCreate200Response
+//  @return ProfileImageCreate200Response
 func (a *ProfileImageAPIService) ProfileImageCreateExecute(r ApiProfileImageCreateRequest) (*ProfileImageCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ProfileImageCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProfileImageCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileImageAPIService.ProfileImageCreate")
@@ -134,9 +134,9 @@ func (a *ProfileImageAPIService) ProfileImageCreateExecute(r ApiProfileImageCrea
 }
 
 type ApiProfileImageDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ProfileImageAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiProfileImageDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiProfileImageDeleteRequest) Execute() (*AllowedAttributeValueDelete200
 /*
 ProfileImageDelete ProfileImage Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiProfileImageDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiProfileImageDeleteRequest
 */
 func (a *ProfileImageAPIService) ProfileImageDelete(ctx context.Context, objectId string) ApiProfileImageDeleteRequest {
 	return ApiProfileImageDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *ProfileImageAPIService) ProfileImageDeleteExecute(r ApiProfileImageDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileImageAPIService.ProfileImageDelete")
@@ -236,13 +235,14 @@ func (a *ProfileImageAPIService) ProfileImageDeleteExecute(r ApiProfileImageDele
 }
 
 type ApiProfileImageReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ProfileImageAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiProfileImageReadRequest) Compact(compact bool) ApiProfileImageReadRequest {
 	r.compact = &compact
 	return r
@@ -261,27 +261,26 @@ func (r ApiProfileImageReadRequest) Execute() (*ProfileImageRead200Response, *ht
 /*
 ProfileImageRead ProfileImage Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiProfileImageReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiProfileImageReadRequest
 */
 func (a *ProfileImageAPIService) ProfileImageRead(ctx context.Context, objectId string) ApiProfileImageReadRequest {
 	return ApiProfileImageReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ProfileImageRead200Response
+//  @return ProfileImageRead200Response
 func (a *ProfileImageAPIService) ProfileImageReadExecute(r ApiProfileImageReadRequest) (*ProfileImageRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ProfileImageRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProfileImageRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfileImageAPIService.ProfileImageRead")
@@ -299,8 +298,9 @@ func (a *ProfileImageAPIService) ProfileImageReadExecute(r ApiProfileImageReadRe
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")

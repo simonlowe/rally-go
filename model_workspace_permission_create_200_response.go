@@ -73,7 +73,7 @@ func (o *WorkspacePermissionCreate200Response) SetCreateResult(v WorkspacePermis
 }
 
 func (o WorkspacePermissionCreate200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableWorkspacePermissionCreate200Response) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

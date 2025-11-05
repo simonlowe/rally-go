@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // WebLinkDefinitionAPIService WebLinkDefinitionAPI service
 type WebLinkDefinitionAPIService service
 
 type ApiWebLinkDefinitionCreateRequest struct {
-	ctx                       context.Context
-	ApiService                *WebLinkDefinitionAPIService
+	ctx context.Context
+	ApiService *WebLinkDefinitionAPIService
 	webLinkDefinitionMutation *WebLinkDefinitionMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiWebLinkDefinitionCreateRequest) Execute() (*WebLinkDefinitionCreate20
 /*
 WebLinkDefinitionCreate WebLinkDefinition Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWebLinkDefinitionCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWebLinkDefinitionCreateRequest
 */
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionCreate(ctx context.Context) ApiWebLinkDefinitionCreateRequest {
 	return ApiWebLinkDefinitionCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WebLinkDefinitionCreate200Response
+//  @return WebLinkDefinitionCreate200Response
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionCreateExecute(r ApiWebLinkDefinitionCreateRequest) (*WebLinkDefinitionCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WebLinkDefinitionCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WebLinkDefinitionCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebLinkDefinitionAPIService.WebLinkDefinitionCreate")
@@ -134,13 +134,14 @@ func (a *WebLinkDefinitionAPIService) WebLinkDefinitionCreateExecute(r ApiWebLin
 }
 
 type ApiWebLinkDefinitionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WebLinkDefinitionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiWebLinkDefinitionReadRequest) Compact(compact bool) ApiWebLinkDefinitionReadRequest {
 	r.compact = &compact
 	return r
@@ -159,27 +160,26 @@ func (r ApiWebLinkDefinitionReadRequest) Execute() (*WebLinkDefinitionRead200Res
 /*
 WebLinkDefinitionRead WebLinkDefinition Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWebLinkDefinitionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWebLinkDefinitionReadRequest
 */
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionRead(ctx context.Context, objectId string) ApiWebLinkDefinitionReadRequest {
 	return ApiWebLinkDefinitionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WebLinkDefinitionRead200Response
+//  @return WebLinkDefinitionRead200Response
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionReadExecute(r ApiWebLinkDefinitionReadRequest) (*WebLinkDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WebLinkDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WebLinkDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebLinkDefinitionAPIService.WebLinkDefinitionRead")
@@ -197,8 +197,9 @@ func (a *WebLinkDefinitionAPIService) WebLinkDefinitionReadExecute(r ApiWebLinkD
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -258,9 +259,9 @@ func (a *WebLinkDefinitionAPIService) WebLinkDefinitionReadExecute(r ApiWebLinkD
 }
 
 type ApiWebLinkDefinitionUpdateRequest struct {
-	ctx                       context.Context
-	ApiService                *WebLinkDefinitionAPIService
-	objectId                  string
+	ctx context.Context
+	ApiService *WebLinkDefinitionAPIService
+	objectId string
 	webLinkDefinitionMutation *WebLinkDefinitionMutation
 }
 
@@ -277,27 +278,26 @@ func (r ApiWebLinkDefinitionUpdateRequest) Execute() (*WebLinkDefinitionRead200R
 /*
 WebLinkDefinitionUpdate WebLinkDefinition Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWebLinkDefinitionUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWebLinkDefinitionUpdateRequest
 */
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionUpdate(ctx context.Context, objectId string) ApiWebLinkDefinitionUpdateRequest {
 	return ApiWebLinkDefinitionUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WebLinkDefinitionRead200Response
+//  @return WebLinkDefinitionRead200Response
 func (a *WebLinkDefinitionAPIService) WebLinkDefinitionUpdateExecute(r ApiWebLinkDefinitionUpdateRequest) (*WebLinkDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WebLinkDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WebLinkDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebLinkDefinitionAPIService.WebLinkDefinitionUpdate")

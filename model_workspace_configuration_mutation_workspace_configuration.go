@@ -75,10 +75,10 @@ type WorkspaceConfigurationMutationWorkspaceConfiguration struct {
 	// Time Zone
 	TimeZone *string `json:"TimeZone,omitempty"`
 	// Work Days
-	WorkDays  *string       `json:"WorkDays,omitempty"`
+	WorkDays *string `json:"WorkDays,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspaceConfigurationMutationWorkspaceConfiguration instantiates a new WorkspaceConfigurationMutationWorkspaceConfiguration object
@@ -1091,7 +1091,7 @@ func (o *WorkspaceConfigurationMutationWorkspaceConfiguration) SetErrors(v []str
 }
 
 func (o WorkspaceConfigurationMutationWorkspaceConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1231,3 +1231,5 @@ func (v *NullableWorkspaceConfigurationMutationWorkspaceConfiguration) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

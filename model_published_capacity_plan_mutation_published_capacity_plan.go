@@ -20,34 +20,34 @@ var _ MappedNullable = &PublishedCapacityPlanMutationPublishedCapacityPlan{}
 
 // PublishedCapacityPlanMutationPublishedCapacityPlan PublishedCapacityPlan
 type PublishedCapacityPlanMutationPublishedCapacityPlan struct {
-	Assignments          *Collection `json:"Assignments,omitempty"`
-	CapacityPlanItems    *Collection `json:"CapacityPlanItems,omitempty"`
+	Assignments *Collection `json:"Assignments,omitempty"`
+	CapacityPlanItems *Collection `json:"CapacityPlanItems,omitempty"`
 	CapacityPlanProjects *Collection `json:"CapacityPlanProjects,omitempty"`
 	// Capacity Plan Status
 	CapacityPlanStatus *string `json:"CapacityPlanStatus,omitempty"`
 	// Cutline Position
-	CutlinePosition *int64      `json:"CutlinePosition,omitempty"`
-	EndRelease      *ReleaseRef `json:"EndRelease,omitempty"`
+	CutlinePosition *int64 `json:"CutlinePosition,omitempty"`
+	EndRelease *ReleaseRef `json:"EndRelease,omitempty"`
 	// Estimation Type
 	EstimationType *string `json:"EstimationType,omitempty"`
 	// Finalize Date
 	FinalizeDate *string `json:"FinalizeDate,omitempty"`
 	// Hierarchy Type
-	HierarchyType *string            `json:"HierarchyType,omitempty"`
-	ItemTypeDef   *TypeDefinitionRef `json:"ItemTypeDef,omitempty"`
+	HierarchyType *string `json:"HierarchyType,omitempty"`
+	ItemTypeDef *TypeDefinitionRef `json:"ItemTypeDef,omitempty"`
 	// Name
-	Name               *string    `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	ParentCapacityPlan *ObjectRef `json:"ParentCapacityPlan,omitempty"`
 	// Project Mode
-	ProjectMode              *string       `json:"ProjectMode,omitempty"`
-	StartRelease             *ReleaseRef   `json:"StartRelease,omitempty"`
-	TargetProject            *ProjectRef   `json:"TargetProject,omitempty"`
-	TargetRelease            *ReleaseRef   `json:"TargetRelease,omitempty"`
-	TrackedAssignments       *Collection   `json:"TrackedAssignments,omitempty"`
-	TrackedCapacityPlanItems *Collection   `json:"TrackedCapacityPlanItems,omitempty"`
-	Workspace                *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings                 []string      `json:"Warnings,omitempty"`
-	Errors                   []string      `json:"Errors,omitempty"`
+	ProjectMode *string `json:"ProjectMode,omitempty"`
+	StartRelease *ReleaseRef `json:"StartRelease,omitempty"`
+	TargetProject *ProjectRef `json:"TargetProject,omitempty"`
+	TargetRelease *ReleaseRef `json:"TargetRelease,omitempty"`
+	TrackedAssignments *Collection `json:"TrackedAssignments,omitempty"`
+	TrackedCapacityPlanItems *Collection `json:"TrackedCapacityPlanItems,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPublishedCapacityPlanMutationPublishedCapacityPlan instantiates a new PublishedCapacityPlanMutationPublishedCapacityPlan object
@@ -740,7 +740,7 @@ func (o *PublishedCapacityPlanMutationPublishedCapacityPlan) SetErrors(v []strin
 }
 
 func (o PublishedCapacityPlanMutationPublishedCapacityPlan) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -850,3 +850,5 @@ func (v *NullablePublishedCapacityPlanMutationPublishedCapacityPlan) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

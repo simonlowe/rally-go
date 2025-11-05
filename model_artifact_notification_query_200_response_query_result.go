@@ -20,12 +20,12 @@ var _ MappedNullable = &ArtifactNotificationQuery200ResponseQueryResult{}
 
 // ArtifactNotificationQuery200ResponseQueryResult struct for ArtifactNotificationQuery200ResponseQueryResult
 type ArtifactNotificationQuery200ResponseQueryResult struct {
-	StartIndex       *int64                 `json:"StartIndex,omitempty"`
-	PageSize         *int64                 `json:"PageSize,omitempty"`
-	TotalResultCount *int64                 `json:"TotalResultCount,omitempty"`
-	Results          []ArtifactNotification `json:"Results,omitempty"`
-	Warnings         []string               `json:"Warnings,omitempty"`
-	Errors           []string               `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []ArtifactNotification `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewArtifactNotificationQuery200ResponseQueryResult instantiates a new ArtifactNotificationQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *ArtifactNotificationQuery200ResponseQueryResult) SetErrors(v []string) 
 }
 
 func (o ArtifactNotificationQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableArtifactNotificationQuery200ResponseQueryResult) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

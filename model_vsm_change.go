@@ -33,20 +33,20 @@ type VSMChange struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Revision
-	Revision        *string             `json:"Revision,omitempty"`
+	Revision *string `json:"Revision,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source System Meta Data
 	SourceSystemMetaData *string `json:"SourceSystemMetaData,omitempty"`
 	// Source Url
-	SourceUrl    *string          `json:"SourceUrl,omitempty"`
+	SourceUrl *string `json:"SourceUrl,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMChange instantiates a new VSMChange object
@@ -579,7 +579,7 @@ func (o *VSMChange) SetErrors(v []string) {
 }
 
 func (o VSMChange) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -674,3 +674,5 @@ func (v *NullableVSMChange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

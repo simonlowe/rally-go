@@ -20,12 +20,12 @@ var _ MappedNullable = &ReleaseCumulativeFlowDataQuery200ResponseQueryResult{}
 
 // ReleaseCumulativeFlowDataQuery200ResponseQueryResult struct for ReleaseCumulativeFlowDataQuery200ResponseQueryResult
 type ReleaseCumulativeFlowDataQuery200ResponseQueryResult struct {
-	StartIndex       *int64                      `json:"StartIndex,omitempty"`
-	PageSize         *int64                      `json:"PageSize,omitempty"`
-	TotalResultCount *int64                      `json:"TotalResultCount,omitempty"`
-	Results          []ReleaseCumulativeFlowData `json:"Results,omitempty"`
-	Warnings         []string                    `json:"Warnings,omitempty"`
-	Errors           []string                    `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []ReleaseCumulativeFlowData `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewReleaseCumulativeFlowDataQuery200ResponseQueryResult instantiates a new ReleaseCumulativeFlowDataQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *ReleaseCumulativeFlowDataQuery200ResponseQueryResult) SetErrors(v []str
 }
 
 func (o ReleaseCumulativeFlowDataQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableReleaseCumulativeFlowDataQuery200ResponseQueryResult) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

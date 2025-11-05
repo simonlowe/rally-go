@@ -29,17 +29,17 @@ type PPMConnection struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID     *string            `json:"ObjectUUID,omitempty"`
-	Subscription   *SubscriptionRef   `json:"Subscription,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	TypeDefinition *TypeDefinitionRef `json:"TypeDefinition,omitempty"`
 	// Url
 	Url *string `json:"Url,omitempty"`
 	// VersionId
-	VersionId       *string                    `json:"VersionId,omitempty"`
-	Workspace       *WorkspaceRef              `json:"Workspace,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	WorkspaceConfig *WorkspaceConfigurationRef `json:"WorkspaceConfig,omitempty"`
-	Warnings        []string                   `json:"Warnings,omitempty"`
-	Errors          []string                   `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPPMConnection instantiates a new PPMConnection object
@@ -476,7 +476,7 @@ func (o *PPMConnection) SetErrors(v []string) {
 }
 
 func (o PPMConnection) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -562,3 +562,5 @@ func (v *NullablePPMConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

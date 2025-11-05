@@ -25,15 +25,15 @@ type ProjectMutationProject struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes      *string     `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Objectives *Collection `json:"Objectives,omitempty"`
-	Owner      *UserRef    `json:"Owner,omitempty"`
-	Parent     *ProjectRef `json:"Parent,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
+	Parent *ProjectRef `json:"Parent,omitempty"`
 	// State
 	State *string `json:"State,omitempty"`
 	// Task State Rollup Enabled
-	TaskStateRollupEnabled *bool         `json:"TaskStateRollupEnabled,omitempty"`
-	Workspace              *WorkspaceRef `json:"Workspace,omitempty"`
+	TaskStateRollupEnabled *bool `json:"TaskStateRollupEnabled,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Delivery Stream
 	CDeliveryStream *string `json:"c_DeliveryStream,omitempty"`
 	// Exclude from Reporting?
@@ -53,9 +53,9 @@ type ProjectMutationProject struct {
 	// WFM Team ID (DO NOT TOUCH)
 	CWFMTeamIDDONOTTOUCH *string `json:"c_WFMTeamIDDONOTTOUCH,omitempty"`
 	// z_removed
-	CZremoved *bool    `json:"c_zremoved,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	CZremoved *bool `json:"c_zremoved,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewProjectMutationProject instantiates a new ProjectMutationProject object
@@ -748,7 +748,7 @@ func (o *ProjectMutationProject) SetErrors(v []string) {
 }
 
 func (o ProjectMutationProject) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -858,3 +858,5 @@ func (v *NullableProjectMutationProject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

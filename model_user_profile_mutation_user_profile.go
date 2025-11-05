@@ -25,9 +25,9 @@ type UserProfileMutationUserProfile struct {
 	// Date Time Format
 	DateTimeFormat *string `json:"DateTimeFormat,omitempty"`
 	// Default Detail Page To Viewing Mode
-	DefaultDetailPageToViewingMode *bool         `json:"DefaultDetailPageToViewingMode,omitempty"`
-	DefaultProject                 *ProjectRef   `json:"DefaultProject,omitempty"`
-	DefaultWorkspace               *WorkspaceRef `json:"DefaultWorkspace,omitempty"`
+	DefaultDetailPageToViewingMode *bool `json:"DefaultDetailPageToViewingMode,omitempty"`
+	DefaultProject *ProjectRef `json:"DefaultProject,omitempty"`
+	DefaultWorkspace *WorkspaceRef `json:"DefaultWorkspace,omitempty"`
 	// Email Notification Enabled
 	EmailNotificationEnabled *bool `json:"EmailNotificationEnabled,omitempty"`
 	// Language
@@ -41,9 +41,9 @@ type UserProfileMutationUserProfile struct {
 	// Time Zone
 	TimeZone *string `json:"TimeZone,omitempty"`
 	// Welcome Page Hidden
-	WelcomePageHidden *bool    `json:"WelcomePageHidden,omitempty"`
-	Warnings          []string `json:"Warnings,omitempty"`
-	Errors            []string `json:"Errors,omitempty"`
+	WelcomePageHidden *bool `json:"WelcomePageHidden,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserProfileMutationUserProfile instantiates a new UserProfileMutationUserProfile object
@@ -512,7 +512,7 @@ func (o *UserProfileMutationUserProfile) SetErrors(v []string) {
 }
 
 func (o UserProfileMutationUserProfile) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -601,3 +601,5 @@ func (v *NullableUserProfileMutationUserProfile) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

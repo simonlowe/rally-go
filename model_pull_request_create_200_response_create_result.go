@@ -20,9 +20,9 @@ var _ MappedNullable = &PullRequestCreate200ResponseCreateResult{}
 
 // PullRequestCreate200ResponseCreateResult struct for PullRequestCreate200ResponseCreateResult
 type PullRequestCreate200ResponseCreateResult struct {
-	Errors   []string     `json:"Errors,omitempty"`
-	Object   *PullRequest `json:"Object,omitempty"`
-	Warnings []string     `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *PullRequest `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewPullRequestCreate200ResponseCreateResult instantiates a new PullRequestCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *PullRequestCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o PullRequestCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullablePullRequestCreate200ResponseCreateResult) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -23,10 +23,10 @@ type CapacityPlanAssignmentMutationCapacityPlanAssignment struct {
 	// Allocation Count
 	AllocationCount *int64 `json:"AllocationCount,omitempty"`
 	// Allocation Points
-	AllocationPoints *int64        `json:"AllocationPoints,omitempty"`
-	Workspace        *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings         []string      `json:"Warnings,omitempty"`
-	Errors           []string      `json:"Errors,omitempty"`
+	AllocationPoints *int64 `json:"AllocationPoints,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewCapacityPlanAssignmentMutationCapacityPlanAssignment instantiates a new CapacityPlanAssignmentMutationCapacityPlanAssignment object
@@ -207,7 +207,7 @@ func (o *CapacityPlanAssignmentMutationCapacityPlanAssignment) SetErrors(v []str
 }
 
 func (o CapacityPlanAssignmentMutationCapacityPlanAssignment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -269,3 +269,5 @@ func (v *NullableCapacityPlanAssignmentMutationCapacityPlanAssignment) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

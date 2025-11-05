@@ -25,10 +25,10 @@ type PPMConnectionMutationPPMConnection struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Url
-	Url       *string       `json:"Url,omitempty"`
+	Url *string `json:"Url,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPPMConnectionMutationPPMConnection instantiates a new PPMConnectionMutationPPMConnection object
@@ -241,7 +241,7 @@ func (o *PPMConnectionMutationPPMConnection) SetErrors(v []string) {
 }
 
 func (o PPMConnectionMutationPPMConnection) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -306,3 +306,5 @@ func (v *NullablePPMConnectionMutationPPMConnection) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

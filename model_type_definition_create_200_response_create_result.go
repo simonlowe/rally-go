@@ -20,9 +20,9 @@ var _ MappedNullable = &TypeDefinitionCreate200ResponseCreateResult{}
 
 // TypeDefinitionCreate200ResponseCreateResult struct for TypeDefinitionCreate200ResponseCreateResult
 type TypeDefinitionCreate200ResponseCreateResult struct {
-	Errors   []string        `json:"Errors,omitempty"`
-	Object   *TypeDefinition `json:"Object,omitempty"`
-	Warnings []string        `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *TypeDefinition `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewTypeDefinitionCreate200ResponseCreateResult instantiates a new TypeDefinitionCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *TypeDefinitionCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o TypeDefinitionCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableTypeDefinitionCreate200ResponseCreateResult) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

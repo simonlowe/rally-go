@@ -21,8 +21,8 @@ var _ MappedNullable = &TestFolderStatusMutationTestFolderStatus{}
 // TestFolderStatusMutationTestFolderStatus TestFolderStatus
 type TestFolderStatusMutationTestFolderStatus struct {
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestFolderStatusMutationTestFolderStatus instantiates a new TestFolderStatusMutationTestFolderStatus object
@@ -139,7 +139,7 @@ func (o *TestFolderStatusMutationTestFolderStatus) SetErrors(v []string) {
 }
 
 func (o TestFolderStatusMutationTestFolderStatus) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableTestFolderStatusMutationTestFolderStatus) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

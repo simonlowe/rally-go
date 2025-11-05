@@ -20,9 +20,9 @@ var _ MappedNullable = &ProfileImageCreate200ResponseCreateResult{}
 
 // ProfileImageCreate200ResponseCreateResult struct for ProfileImageCreate200ResponseCreateResult
 type ProfileImageCreate200ResponseCreateResult struct {
-	Errors   []string      `json:"Errors,omitempty"`
-	Object   *ProfileImage `json:"Object,omitempty"`
-	Warnings []string      `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *ProfileImage `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewProfileImageCreate200ResponseCreateResult instantiates a new ProfileImageCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *ProfileImageCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o ProfileImageCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableProfileImageCreate200ResponseCreateResult) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

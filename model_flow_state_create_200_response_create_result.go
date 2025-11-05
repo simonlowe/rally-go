@@ -20,9 +20,9 @@ var _ MappedNullable = &FlowStateCreate200ResponseCreateResult{}
 
 // FlowStateCreate200ResponseCreateResult struct for FlowStateCreate200ResponseCreateResult
 type FlowStateCreate200ResponseCreateResult struct {
-	Errors   []string   `json:"Errors,omitempty"`
-	Object   *FlowState `json:"Object,omitempty"`
-	Warnings []string   `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *FlowState `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewFlowStateCreate200ResponseCreateResult instantiates a new FlowStateCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *FlowStateCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o FlowStateCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableFlowStateCreate200ResponseCreateResult) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

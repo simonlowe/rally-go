@@ -20,10 +20,10 @@ var _ MappedNullable = &AllowedAttributeValueDelete200Response{}
 
 // AllowedAttributeValueDelete200Response struct for AllowedAttributeValueDelete200Response
 type AllowedAttributeValueDelete200Response struct {
-	RallyAPIMajor *string  `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string  `json:"_rallyAPIMinor,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAllowedAttributeValueDelete200Response instantiates a new AllowedAttributeValueDelete200Response object
@@ -172,7 +172,7 @@ func (o *AllowedAttributeValueDelete200Response) SetErrors(v []string) {
 }
 
 func (o AllowedAttributeValueDelete200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -231,3 +231,5 @@ func (v *NullableAllowedAttributeValueDelete200Response) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

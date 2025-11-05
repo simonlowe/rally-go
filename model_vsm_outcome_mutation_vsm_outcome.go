@@ -25,13 +25,13 @@ type VSMOutcomeMutationVSMOutcome struct {
 	// Category
 	Category *string `json:"Category,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Measures    *Collection `json:"Measures,omitempty"`
-	Metrics     *Collection `json:"Metrics,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Measures *Collection `json:"Measures,omitempty"`
+	Metrics *Collection `json:"Metrics,omitempty"`
 	// Name
-	Name           *string        `json:"Name,omitempty"`
-	PortfolioItems *Collection    `json:"PortfolioItems,omitempty"`
-	Product        *VSMProductRef `json:"Product,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	PortfolioItems *Collection `json:"PortfolioItems,omitempty"`
+	Product *VSMProductRef `json:"Product,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source Key
@@ -39,13 +39,13 @@ type VSMOutcomeMutationVSMOutcome struct {
 	// Source System Meta Data
 	SourceSystemMetaData *string `json:"SourceSystemMetaData,omitempty"`
 	// Source Url
-	SourceUrl *string     `json:"SourceUrl,omitempty"`
-	Targets   *Collection `json:"Targets,omitempty"`
+	SourceUrl *string `json:"SourceUrl,omitempty"`
+	Targets *Collection `json:"Targets,omitempty"`
 	// Unit
-	Unit      *string       `json:"Unit,omitempty"`
+	Unit *string `json:"Unit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMOutcomeMutationVSMOutcome instantiates a new VSMOutcomeMutationVSMOutcome object
@@ -610,7 +610,7 @@ func (o *VSMOutcomeMutationVSMOutcome) SetErrors(v []string) {
 }
 
 func (o VSMOutcomeMutationVSMOutcome) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -708,3 +708,5 @@ func (v *NullableVSMOutcomeMutationVSMOutcome) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

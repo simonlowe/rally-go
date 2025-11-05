@@ -21,7 +21,7 @@ var _ MappedNullable = &BuildMutationBuild{}
 // BuildMutationBuild Build
 type BuildMutationBuild struct {
 	BuildDefinition *BuildDefinitionRef `json:"BuildDefinition,omitempty"`
-	Changesets      *Collection         `json:"Changesets,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Duration
 	Duration *float32 `json:"Duration,omitempty"`
 	// Message
@@ -33,10 +33,10 @@ type BuildMutationBuild struct {
 	// Status
 	Status *string `json:"Status,omitempty"`
 	// Uri
-	Uri       *string       `json:"Uri,omitempty"`
+	Uri *string `json:"Uri,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBuildMutationBuild instantiates a new BuildMutationBuild object
@@ -409,7 +409,7 @@ func (o *BuildMutationBuild) SetErrors(v []string) {
 }
 
 func (o BuildMutationBuild) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -489,3 +489,5 @@ func (v *NullableBuildMutationBuild) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

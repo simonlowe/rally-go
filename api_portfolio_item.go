@@ -20,13 +20,14 @@ import (
 	"strings"
 )
 
+
 // PortfolioItemAPIService PortfolioItemAPI service
 type PortfolioItemAPIService service
 
 type ApiPortfolioItemDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PortfolioItemAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiPortfolioItemDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -36,27 +37,26 @@ func (r ApiPortfolioItemDeleteRequest) Execute() (*AllowedAttributeValueDelete20
 /*
 PortfolioItemDelete PortfolioItem Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPortfolioItemDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPortfolioItemDeleteRequest
 */
 func (a *PortfolioItemAPIService) PortfolioItemDelete(ctx context.Context, objectId string) ApiPortfolioItemDeleteRequest {
 	return ApiPortfolioItemDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *PortfolioItemAPIService) PortfolioItemDeleteExecute(r ApiPortfolioItemDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioItemAPIService.PortfolioItemDelete")
@@ -126,18 +126,18 @@ func (a *PortfolioItemAPIService) PortfolioItemDeleteExecute(r ApiPortfolioItemD
 }
 
 type ApiPortfolioItemQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PortfolioItemAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiPortfolioItemQueryRequest) Fetch(fetch string) ApiPortfolioItemQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -173,6 +173,7 @@ func (r ApiPortfolioItemQueryRequest) Workspace(workspace string) ApiPortfolioIt
 	return r
 }
 
+// 
 func (r ApiPortfolioItemQueryRequest) Compact(compact bool) ApiPortfolioItemQueryRequest {
 	r.compact = &compact
 	return r
@@ -185,25 +186,24 @@ func (r ApiPortfolioItemQueryRequest) Execute() (*PortfolioItemQuery200Response,
 /*
 PortfolioItemQuery PortfolioItem Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPortfolioItemQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPortfolioItemQueryRequest
 */
 func (a *PortfolioItemAPIService) PortfolioItemQuery(ctx context.Context) ApiPortfolioItemQueryRequest {
 	return ApiPortfolioItemQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PortfolioItemQuery200Response
+//  @return PortfolioItemQuery200Response
 func (a *PortfolioItemAPIService) PortfolioItemQueryExecute(r ApiPortfolioItemQueryRequest) (*PortfolioItemQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PortfolioItemQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PortfolioItemQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioItemAPIService.PortfolioItemQuery")
@@ -238,8 +238,9 @@ func (a *PortfolioItemAPIService) PortfolioItemQueryExecute(r ApiPortfolioItemQu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -296,13 +297,14 @@ func (a *PortfolioItemAPIService) PortfolioItemQueryExecute(r ApiPortfolioItemQu
 }
 
 type ApiPortfolioItemReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *PortfolioItemAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiPortfolioItemReadRequest) Compact(compact bool) ApiPortfolioItemReadRequest {
 	r.compact = &compact
 	return r
@@ -321,27 +323,26 @@ func (r ApiPortfolioItemReadRequest) Execute() (*PortfolioItemRead200Response, *
 /*
 PortfolioItemRead PortfolioItem Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPortfolioItemReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPortfolioItemReadRequest
 */
 func (a *PortfolioItemAPIService) PortfolioItemRead(ctx context.Context, objectId string) ApiPortfolioItemReadRequest {
 	return ApiPortfolioItemReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PortfolioItemRead200Response
+//  @return PortfolioItemRead200Response
 func (a *PortfolioItemAPIService) PortfolioItemReadExecute(r ApiPortfolioItemReadRequest) (*PortfolioItemRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PortfolioItemRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PortfolioItemRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioItemAPIService.PortfolioItemRead")
@@ -359,8 +360,9 @@ func (a *PortfolioItemAPIService) PortfolioItemReadExecute(r ApiPortfolioItemRea
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -420,9 +422,9 @@ func (a *PortfolioItemAPIService) PortfolioItemReadExecute(r ApiPortfolioItemRea
 }
 
 type ApiPortfolioItemUpdateRequest struct {
-	ctx                   context.Context
-	ApiService            *PortfolioItemAPIService
-	objectId              string
+	ctx context.Context
+	ApiService *PortfolioItemAPIService
+	objectId string
 	portfolioItemMutation *PortfolioItemMutation
 }
 
@@ -439,27 +441,26 @@ func (r ApiPortfolioItemUpdateRequest) Execute() (*PortfolioItemRead200Response,
 /*
 PortfolioItemUpdate PortfolioItem Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiPortfolioItemUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiPortfolioItemUpdateRequest
 */
 func (a *PortfolioItemAPIService) PortfolioItemUpdate(ctx context.Context, objectId string) ApiPortfolioItemUpdateRequest {
 	return ApiPortfolioItemUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return PortfolioItemRead200Response
+//  @return PortfolioItemRead200Response
 func (a *PortfolioItemAPIService) PortfolioItemUpdateExecute(r ApiPortfolioItemUpdateRequest) (*PortfolioItemRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PortfolioItemRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PortfolioItemRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioItemAPIService.PortfolioItemUpdate")

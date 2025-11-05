@@ -21,7 +21,7 @@ var _ MappedNullable = &WorkspacePermissionMutationWorkspacePermission{}
 // WorkspacePermissionMutationWorkspacePermission WorkspacePermission
 type WorkspacePermissionMutationWorkspacePermission struct {
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspacePermissionMutationWorkspacePermission instantiates a new WorkspacePermissionMutationWorkspacePermission object
@@ -106,7 +106,7 @@ func (o *WorkspacePermissionMutationWorkspacePermission) SetErrors(v []string) {
 }
 
 func (o WorkspacePermissionMutationWorkspacePermission) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableWorkspacePermissionMutationWorkspacePermission) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

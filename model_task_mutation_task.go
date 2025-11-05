@@ -21,13 +21,13 @@ var _ MappedNullable = &TaskMutationTask{}
 // TaskMutationTask Task
 type TaskMutationTask struct {
 	// Actuals
-	Actuals     *float32    `json:"Actuals,omitempty"`
+	Actuals *float32 `json:"Actuals,omitempty"`
 	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -35,31 +35,31 @@ type TaskMutationTask struct {
 	// Estimate
 	Estimate *float32 `json:"Estimate,omitempty"`
 	// Expedite
-	Expedite   *bool       `json:"Expedite,omitempty"`
+	Expedite *bool `json:"Expedite,omitempty"`
 	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// Ready
 	Ready *bool `json:"Ready,omitempty"`
 	// State
-	State *string     `json:"State,omitempty"`
-	Tags  *Collection `json:"Tags,omitempty"`
+	State *string `json:"State,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Task Index
 	TaskIndex *int64 `json:"TaskIndex,omitempty"`
 	// To Do
-	ToDo        *float32      `json:"ToDo,omitempty"`
-	WorkProduct *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace   *WorkspaceRef `json:"Workspace,omitempty"`
-	CCoOwner    *UserRef      `json:"c_CoOwner,omitempty"`
+	ToDo *float32 `json:"ToDo,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	CCoOwner *UserRef `json:"c_CoOwner,omitempty"`
 	// Release Environment
 	CReleaseEnvironment *string `json:"c_ReleaseEnvironment,omitempty"`
 	// Ticket ID
-	CTicketID *string  `json:"c_TicketID,omitempty"`
-	Warnings  []string `json:"Warnings,omitempty"`
-	Errors    []string `json:"Errors,omitempty"`
+	CTicketID *string `json:"c_TicketID,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTaskMutationTask instantiates a new TaskMutationTask object
@@ -884,7 +884,7 @@ func (o *TaskMutationTask) SetErrors(v []string) {
 }
 
 func (o TaskMutationTask) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1006,3 +1006,5 @@ func (v *NullableTaskMutationTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

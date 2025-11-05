@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // KeyResultAPIService KeyResultAPI service
 type KeyResultAPIService service
 
 type ApiKeyResultCreateRequest struct {
-	ctx               context.Context
-	ApiService        *KeyResultAPIService
+	ctx context.Context
+	ApiService *KeyResultAPIService
 	keyResultMutation *KeyResultMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiKeyResultCreateRequest) Execute() (*KeyResultCreate200Response, *http
 /*
 KeyResultCreate KeyResult Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiKeyResultCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiKeyResultCreateRequest
 */
 func (a *KeyResultAPIService) KeyResultCreate(ctx context.Context) ApiKeyResultCreateRequest {
 	return ApiKeyResultCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return KeyResultCreate200Response
+//  @return KeyResultCreate200Response
 func (a *KeyResultAPIService) KeyResultCreateExecute(r ApiKeyResultCreateRequest) (*KeyResultCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *KeyResultCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *KeyResultCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KeyResultAPIService.KeyResultCreate")
@@ -134,9 +134,9 @@ func (a *KeyResultAPIService) KeyResultCreateExecute(r ApiKeyResultCreateRequest
 }
 
 type ApiKeyResultDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *KeyResultAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiKeyResultDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiKeyResultDeleteRequest) Execute() (*AllowedAttributeValueDelete200Res
 /*
 KeyResultDelete KeyResult Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiKeyResultDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiKeyResultDeleteRequest
 */
 func (a *KeyResultAPIService) KeyResultDelete(ctx context.Context, objectId string) ApiKeyResultDeleteRequest {
 	return ApiKeyResultDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *KeyResultAPIService) KeyResultDeleteExecute(r ApiKeyResultDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KeyResultAPIService.KeyResultDelete")
@@ -236,18 +235,18 @@ func (a *KeyResultAPIService) KeyResultDeleteExecute(r ApiKeyResultDeleteRequest
 }
 
 type ApiKeyResultQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *KeyResultAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiKeyResultQueryRequest) Fetch(fetch string) ApiKeyResultQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiKeyResultQueryRequest) Workspace(workspace string) ApiKeyResultQueryR
 	return r
 }
 
+// 
 func (r ApiKeyResultQueryRequest) Compact(compact bool) ApiKeyResultQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiKeyResultQueryRequest) Execute() (*KeyResultQuery200Response, *http.R
 /*
 KeyResultQuery KeyResult Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiKeyResultQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiKeyResultQueryRequest
 */
 func (a *KeyResultAPIService) KeyResultQuery(ctx context.Context) ApiKeyResultQueryRequest {
 	return ApiKeyResultQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return KeyResultQuery200Response
+//  @return KeyResultQuery200Response
 func (a *KeyResultAPIService) KeyResultQueryExecute(r ApiKeyResultQueryRequest) (*KeyResultQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *KeyResultQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *KeyResultQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KeyResultAPIService.KeyResultQuery")
@@ -348,8 +347,9 @@ func (a *KeyResultAPIService) KeyResultQueryExecute(r ApiKeyResultQueryRequest) 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *KeyResultAPIService) KeyResultQueryExecute(r ApiKeyResultQueryRequest) 
 }
 
 type ApiKeyResultReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *KeyResultAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiKeyResultReadRequest) Compact(compact bool) ApiKeyResultReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiKeyResultReadRequest) Execute() (*KeyResultRead200Response, *http.Res
 /*
 KeyResultRead KeyResult Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiKeyResultReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiKeyResultReadRequest
 */
 func (a *KeyResultAPIService) KeyResultRead(ctx context.Context, objectId string) ApiKeyResultReadRequest {
 	return ApiKeyResultReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return KeyResultRead200Response
+//  @return KeyResultRead200Response
 func (a *KeyResultAPIService) KeyResultReadExecute(r ApiKeyResultReadRequest) (*KeyResultRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *KeyResultRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *KeyResultRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KeyResultAPIService.KeyResultRead")
@@ -469,8 +469,9 @@ func (a *KeyResultAPIService) KeyResultReadExecute(r ApiKeyResultReadRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *KeyResultAPIService) KeyResultReadExecute(r ApiKeyResultReadRequest) (*
 }
 
 type ApiKeyResultUpdateRequest struct {
-	ctx               context.Context
-	ApiService        *KeyResultAPIService
-	objectId          string
+	ctx context.Context
+	ApiService *KeyResultAPIService
+	objectId string
 	keyResultMutation *KeyResultMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiKeyResultUpdateRequest) Execute() (*KeyResultRead200Response, *http.R
 /*
 KeyResultUpdate KeyResult Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiKeyResultUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiKeyResultUpdateRequest
 */
 func (a *KeyResultAPIService) KeyResultUpdate(ctx context.Context, objectId string) ApiKeyResultUpdateRequest {
 	return ApiKeyResultUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return KeyResultRead200Response
+//  @return KeyResultRead200Response
 func (a *KeyResultAPIService) KeyResultUpdateExecute(r ApiKeyResultUpdateRequest) (*KeyResultRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *KeyResultRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *KeyResultRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "KeyResultAPIService.KeyResultUpdate")

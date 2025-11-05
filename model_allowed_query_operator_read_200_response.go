@@ -20,11 +20,11 @@ var _ MappedNullable = &AllowedQueryOperatorRead200Response{}
 
 // AllowedQueryOperatorRead200Response struct for AllowedQueryOperatorRead200Response
 type AllowedQueryOperatorRead200Response struct {
-	RallyAPIMajor        *string               `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor        *string               `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	AllowedQueryOperator *AllowedQueryOperator `json:"AllowedQueryOperator,omitempty"`
-	Warnings             []string              `json:"Warnings,omitempty"`
-	Errors               []string              `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAllowedQueryOperatorRead200Response instantiates a new AllowedQueryOperatorRead200Response object
@@ -205,7 +205,7 @@ func (o *AllowedQueryOperatorRead200Response) SetErrors(v []string) {
 }
 
 func (o AllowedQueryOperatorRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableAllowedQueryOperatorRead200Response) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

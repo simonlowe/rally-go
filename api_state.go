@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // StateAPIService StateAPI service
 type StateAPIService service
 
 type ApiStateCreateRequest struct {
-	ctx           context.Context
-	ApiService    *StateAPIService
+	ctx context.Context
+	ApiService *StateAPIService
 	stateMutation *StateMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiStateCreateRequest) Execute() (*StateCreate200Response, *http.Respons
 /*
 StateCreate State Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStateCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiStateCreateRequest
 */
 func (a *StateAPIService) StateCreate(ctx context.Context) ApiStateCreateRequest {
 	return ApiStateCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return StateCreate200Response
+//  @return StateCreate200Response
 func (a *StateAPIService) StateCreateExecute(r ApiStateCreateRequest) (*StateCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *StateCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StateCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StateAPIService.StateCreate")
@@ -134,9 +134,9 @@ func (a *StateAPIService) StateCreateExecute(r ApiStateCreateRequest) (*StateCre
 }
 
 type ApiStateDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *StateAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiStateDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiStateDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respons
 /*
 StateDelete State Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiStateDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiStateDeleteRequest
 */
 func (a *StateAPIService) StateDelete(ctx context.Context, objectId string) ApiStateDeleteRequest {
 	return ApiStateDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *StateAPIService) StateDeleteExecute(r ApiStateDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StateAPIService.StateDelete")
@@ -236,18 +235,18 @@ func (a *StateAPIService) StateDeleteExecute(r ApiStateDeleteRequest) (*AllowedA
 }
 
 type ApiStateQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *StateAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiStateQueryRequest) Fetch(fetch string) ApiStateQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiStateQueryRequest) Workspace(workspace string) ApiStateQueryRequest {
 	return r
 }
 
+// 
 func (r ApiStateQueryRequest) Compact(compact bool) ApiStateQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiStateQueryRequest) Execute() (*StateQuery200Response, *http.Response,
 /*
 StateQuery State Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStateQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiStateQueryRequest
 */
 func (a *StateAPIService) StateQuery(ctx context.Context) ApiStateQueryRequest {
 	return ApiStateQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return StateQuery200Response
+//  @return StateQuery200Response
 func (a *StateAPIService) StateQueryExecute(r ApiStateQueryRequest) (*StateQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *StateQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StateQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StateAPIService.StateQuery")
@@ -348,8 +347,9 @@ func (a *StateAPIService) StateQueryExecute(r ApiStateQueryRequest) (*StateQuery
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *StateAPIService) StateQueryExecute(r ApiStateQueryRequest) (*StateQuery
 }
 
 type ApiStateReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *StateAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiStateReadRequest) Compact(compact bool) ApiStateReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiStateReadRequest) Execute() (*StateRead200Response, *http.Response, e
 /*
 StateRead State Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiStateReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiStateReadRequest
 */
 func (a *StateAPIService) StateRead(ctx context.Context, objectId string) ApiStateReadRequest {
 	return ApiStateReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return StateRead200Response
+//  @return StateRead200Response
 func (a *StateAPIService) StateReadExecute(r ApiStateReadRequest) (*StateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *StateRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StateAPIService.StateRead")
@@ -469,8 +469,9 @@ func (a *StateAPIService) StateReadExecute(r ApiStateReadRequest) (*StateRead200
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *StateAPIService) StateReadExecute(r ApiStateReadRequest) (*StateRead200
 }
 
 type ApiStateUpdateRequest struct {
-	ctx           context.Context
-	ApiService    *StateAPIService
-	objectId      string
+	ctx context.Context
+	ApiService *StateAPIService
+	objectId string
 	stateMutation *StateMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiStateUpdateRequest) Execute() (*StateRead200Response, *http.Response,
 /*
 StateUpdate State Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiStateUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiStateUpdateRequest
 */
 func (a *StateAPIService) StateUpdate(ctx context.Context, objectId string) ApiStateUpdateRequest {
 	return ApiStateUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return StateRead200Response
+//  @return StateRead200Response
 func (a *StateAPIService) StateUpdateExecute(r ApiStateUpdateRequest) (*StateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *StateRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *StateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StateAPIService.StateUpdate")

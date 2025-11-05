@@ -20,12 +20,12 @@ var _ MappedNullable = &WorkspaceQuery200ResponseQueryResult{}
 
 // WorkspaceQuery200ResponseQueryResult struct for WorkspaceQuery200ResponseQueryResult
 type WorkspaceQuery200ResponseQueryResult struct {
-	StartIndex       *int64      `json:"StartIndex,omitempty"`
-	PageSize         *int64      `json:"PageSize,omitempty"`
-	TotalResultCount *int64      `json:"TotalResultCount,omitempty"`
-	Results          []Workspace `json:"Results,omitempty"`
-	Warnings         []string    `json:"Warnings,omitempty"`
-	Errors           []string    `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Workspace `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspaceQuery200ResponseQueryResult instantiates a new WorkspaceQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *WorkspaceQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o WorkspaceQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableWorkspaceQuery200ResponseQueryResult) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

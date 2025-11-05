@@ -33,10 +33,10 @@ type FlowStateMutationFlowState struct {
 	// Schedule State Mapping
 	ScheduleStateMapping *string `json:"ScheduleStateMapping,omitempty"`
 	// WIP Limit
-	WIPLimit  *int64        `json:"WIPLimit,omitempty"`
+	WIPLimit *int64 `json:"WIPLimit,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewFlowStateMutationFlowState instantiates a new FlowStateMutationFlowState object
@@ -377,7 +377,7 @@ func (o *FlowStateMutationFlowState) SetErrors(v []string) {
 }
 
 func (o FlowStateMutationFlowState) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -454,3 +454,5 @@ func (v *NullableFlowStateMutationFlowState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

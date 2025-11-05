@@ -20,15 +20,15 @@ var _ MappedNullable = &VSMOutcomeMetricMutationVSMOutcomeMetric{}
 
 // VSMOutcomeMetricMutationVSMOutcomeMetric VSMOutcomeMetric
 type VSMOutcomeMetricMutationVSMOutcomeMetric struct {
-	Metric  *VSMProductAnalyticsMetricRef `json:"Metric,omitempty"`
-	Outcome *VSMOutcomeRef                `json:"Outcome,omitempty"`
+	Metric *VSMProductAnalyticsMetricRef `json:"Metric,omitempty"`
+	Outcome *VSMOutcomeRef `json:"Outcome,omitempty"`
 	// Precedes Outcome By
 	PrecedesOutcomeBy *int64 `json:"PrecedesOutcomeBy,omitempty"`
 	// Weight
-	Weight    *int64        `json:"Weight,omitempty"`
+	Weight *int64 `json:"Weight,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMOutcomeMetricMutationVSMOutcomeMetric instantiates a new VSMOutcomeMetricMutationVSMOutcomeMetric object
@@ -273,7 +273,7 @@ func (o *VSMOutcomeMetricMutationVSMOutcomeMetric) SetErrors(v []string) {
 }
 
 func (o VSMOutcomeMetricMutationVSMOutcomeMetric) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -341,3 +341,5 @@ func (v *NullableVSMOutcomeMetricMutationVSMOutcomeMetric) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

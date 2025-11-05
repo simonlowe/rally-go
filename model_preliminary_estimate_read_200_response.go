@@ -20,11 +20,11 @@ var _ MappedNullable = &PreliminaryEstimateRead200Response{}
 
 // PreliminaryEstimateRead200Response struct for PreliminaryEstimateRead200Response
 type PreliminaryEstimateRead200Response struct {
-	RallyAPIMajor       *string              `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor       *string              `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	PreliminaryEstimate *PreliminaryEstimate `json:"PreliminaryEstimate,omitempty"`
-	Warnings            []string             `json:"Warnings,omitempty"`
-	Errors              []string             `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPreliminaryEstimateRead200Response instantiates a new PreliminaryEstimateRead200Response object
@@ -205,7 +205,7 @@ func (o *PreliminaryEstimateRead200Response) SetErrors(v []string) {
 }
 
 func (o PreliminaryEstimateRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullablePreliminaryEstimateRead200Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

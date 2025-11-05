@@ -24,24 +24,24 @@ type VSMOutcomeMetric struct {
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Last Update Date
-	LastUpdateDate *string                       `json:"LastUpdateDate,omitempty"`
-	Metric         *VSMProductAnalyticsMetricRef `json:"Metric,omitempty"`
+	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
+	Metric *VSMProductAnalyticsMetricRef `json:"Metric,omitempty"`
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string        `json:"ObjectUUID,omitempty"`
-	Outcome    *VSMOutcomeRef `json:"Outcome,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Outcome *VSMOutcomeRef `json:"Outcome,omitempty"`
 	// Precedes Outcome By
-	PrecedesOutcomeBy *int64              `json:"PrecedesOutcomeBy,omitempty"`
-	RevisionHistory   *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Subscription      *SubscriptionRef    `json:"Subscription,omitempty"`
+	PrecedesOutcomeBy *int64 `json:"PrecedesOutcomeBy,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// Weight
-	Weight    *int64        `json:"Weight,omitempty"`
+	Weight *int64 `json:"Weight,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMOutcomeMetric instantiates a new VSMOutcomeMetric object
@@ -542,7 +542,7 @@ func (o *VSMOutcomeMetric) SetErrors(v []string) {
 }
 
 func (o VSMOutcomeMetric) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -634,3 +634,5 @@ func (v *NullableVSMOutcomeMetric) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

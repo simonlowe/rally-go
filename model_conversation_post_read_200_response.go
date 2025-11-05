@@ -20,11 +20,11 @@ var _ MappedNullable = &ConversationPostRead200Response{}
 
 // ConversationPostRead200Response struct for ConversationPostRead200Response
 type ConversationPostRead200Response struct {
-	RallyAPIMajor    *string           `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor    *string           `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	ConversationPost *ConversationPost `json:"ConversationPost,omitempty"`
-	Warnings         []string          `json:"Warnings,omitempty"`
-	Errors           []string          `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewConversationPostRead200Response instantiates a new ConversationPostRead200Response object
@@ -205,7 +205,7 @@ func (o *ConversationPostRead200Response) SetErrors(v []string) {
 }
 
 func (o ConversationPostRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableConversationPostRead200Response) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

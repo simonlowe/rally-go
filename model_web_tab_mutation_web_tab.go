@@ -23,15 +23,15 @@ type WebTabMutationWebTab struct {
 	// Porthole ID
 	PortholeID *string `json:"PortholeID,omitempty"`
 	// WidgetOnly
-	WidgetOnly *bool         `json:"WidgetOnly,omitempty"`
-	Workspace  *WorkspaceRef `json:"Workspace,omitempty"`
+	WidgetOnly *bool `json:"WidgetOnly,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// name
 	Name *string `json:"name,omitempty"`
 	// shared
-	Shared         *bool       `json:"shared,omitempty"`
+	Shared *bool `json:"shared,omitempty"`
 	SharedProjects *Collection `json:"sharedProjects,omitempty"`
-	Warnings       []string    `json:"Warnings,omitempty"`
-	Errors         []string    `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWebTabMutationWebTab instantiates a new WebTabMutationWebTab object
@@ -308,7 +308,7 @@ func (o *WebTabMutationWebTab) SetErrors(v []string) {
 }
 
 func (o WebTabMutationWebTab) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,3 +379,5 @@ func (v *NullableWebTabMutationWebTab) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -23,8 +23,8 @@ type KeyResultActualValue struct {
 	// Actual Value Progress
 	ActualValueProgress *float32 `json:"ActualValueProgress,omitempty"`
 	// Creation Date
-	CreationDate *string       `json:"CreationDate,omitempty"`
-	KeyResult    *KeyResultRef `json:"KeyResult,omitempty"`
+	CreationDate *string `json:"CreationDate,omitempty"`
+	KeyResult *KeyResultRef `json:"KeyResult,omitempty"`
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Last Updated Date
@@ -32,18 +32,18 @@ type KeyResultActualValue struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
-	Objective    *ObjectiveRef    `json:"Objective,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Objective *ObjectiveRef `json:"Objective,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Value
 	Value *float32 `json:"Value,omitempty"`
 	// Value Date
 	ValueDate *string `json:"ValueDate,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewKeyResultActualValue instantiates a new KeyResultActualValue object
@@ -544,7 +544,7 @@ func (o *KeyResultActualValue) SetErrors(v []string) {
 }
 
 func (o KeyResultActualValue) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -636,3 +636,5 @@ func (v *NullableKeyResultActualValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,12 +20,12 @@ var _ MappedNullable = &DefectQuery200ResponseQueryResult{}
 
 // DefectQuery200ResponseQueryResult struct for DefectQuery200ResponseQueryResult
 type DefectQuery200ResponseQueryResult struct {
-	StartIndex       *int64   `json:"StartIndex,omitempty"`
-	PageSize         *int64   `json:"PageSize,omitempty"`
-	TotalResultCount *int64   `json:"TotalResultCount,omitempty"`
-	Results          []Defect `json:"Results,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Defect `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDefectQuery200ResponseQueryResult instantiates a new DefectQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *DefectQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o DefectQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableDefectQuery200ResponseQueryResult) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

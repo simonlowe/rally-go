@@ -20,12 +20,12 @@ var _ MappedNullable = &StateQuery200ResponseQueryResult{}
 
 // StateQuery200ResponseQueryResult struct for StateQuery200ResponseQueryResult
 type StateQuery200ResponseQueryResult struct {
-	StartIndex       *int64   `json:"StartIndex,omitempty"`
-	PageSize         *int64   `json:"PageSize,omitempty"`
-	TotalResultCount *int64   `json:"TotalResultCount,omitempty"`
-	Results          []State  `json:"Results,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []State `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewStateQuery200ResponseQueryResult instantiates a new StateQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *StateQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o StateQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableStateQuery200ResponseQueryResult) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

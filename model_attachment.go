@@ -20,8 +20,8 @@ var _ MappedNullable = &Attachment{}
 
 // Attachment Attachment
 type Attachment struct {
-	Artifact *ObjectRef            `json:"Artifact,omitempty"`
-	Content  *AttachmentContentRef `json:"Content,omitempty"`
+	Artifact *ObjectRef `json:"Artifact,omitempty"`
+	Content *AttachmentContentRef `json:"Content,omitempty"`
 	// Content Type
 	ContentType *string `json:"ContentType,omitempty"`
 	// Creation Date
@@ -35,15 +35,15 @@ type Attachment struct {
 	// ObjectUUID
 	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	// Size
-	Size           *int64             `json:"Size,omitempty"`
-	Subscription   *SubscriptionRef   `json:"Subscription,omitempty"`
+	Size *int64 `json:"Size,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	TestCaseResult *TestCaseResultRef `json:"TestCaseResult,omitempty"`
-	User           *UserRef           `json:"User,omitempty"`
+	User *UserRef `json:"User,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttachment instantiates a new Attachment object
@@ -576,7 +576,7 @@ func (o *Attachment) SetErrors(v []string) {
 }
 
 func (o Attachment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -671,3 +671,5 @@ func (v *NullableAttachment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

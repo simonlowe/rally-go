@@ -21,7 +21,7 @@ var _ MappedNullable = &VSMProduct{}
 // VSMProduct VSMProduct
 type VSMProduct struct {
 	// Active
-	Active   *bool       `json:"Active,omitempty"`
+	Active *bool `json:"Active,omitempty"`
 	Children *Collection `json:"Children,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -34,20 +34,20 @@ type VSMProduct struct {
 	// IsLeaf
 	IsLeaf *bool `json:"IsLeaf,omitempty"`
 	// Last Update Date
-	LastUpdateDate *string     `json:"LastUpdateDate,omitempty"`
-	Metrics        *Collection `json:"Metrics,omitempty"`
+	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
+	Metrics *Collection `json:"Metrics,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string        `json:"ObjectUUID,omitempty"`
-	Outcomes   *Collection    `json:"Outcomes,omitempty"`
-	Parent     *VSMProductRef `json:"Parent,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Outcomes *Collection `json:"Outcomes,omitempty"`
+	Parent *VSMProductRef `json:"Parent,omitempty"`
 	// PortfolioItem Filter
-	PortfolioItemFilter *string             `json:"PortfolioItemFilter,omitempty"`
-	PortfolioItems      *Collection         `json:"PortfolioItems,omitempty"`
-	RevisionHistory     *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	PortfolioItemFilter *string `json:"PortfolioItemFilter,omitempty"`
+	PortfolioItems *Collection `json:"PortfolioItems,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Source Id
 	SourceId *string `json:"SourceId,omitempty"`
 	// Source System Meta Data
@@ -55,13 +55,13 @@ type VSMProduct struct {
 	// Source Url
 	SourceUrl *string `json:"SourceUrl,omitempty"`
 	// SubclassType
-	SubclassType *string          `json:"SubclassType,omitempty"`
+	SubclassType *string `json:"SubclassType,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMProduct instantiates a new VSMProduct object
@@ -914,7 +914,7 @@ func (o *VSMProduct) SetErrors(v []string) {
 }
 
 func (o VSMProduct) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1039,3 +1039,5 @@ func (v *NullableVSMProduct) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

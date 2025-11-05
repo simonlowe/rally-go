@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // VSMProductAPIService VSMProductAPI service
 type VSMProductAPIService service
 
 type ApiVSMProductCreateRequest struct {
-	ctx                context.Context
-	ApiService         *VSMProductAPIService
+	ctx context.Context
+	ApiService *VSMProductAPIService
 	vSMProductMutation *VSMProductMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiVSMProductCreateRequest) Execute() (*VSMProductCreate200Response, *ht
 /*
 VSMProductCreate VSMProduct Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMProductCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMProductCreateRequest
 */
 func (a *VSMProductAPIService) VSMProductCreate(ctx context.Context) ApiVSMProductCreateRequest {
 	return ApiVSMProductCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductCreate200Response
+//  @return VSMProductCreate200Response
 func (a *VSMProductAPIService) VSMProductCreateExecute(r ApiVSMProductCreateRequest) (*VSMProductCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAPIService.VSMProductCreate")
@@ -134,9 +134,9 @@ func (a *VSMProductAPIService) VSMProductCreateExecute(r ApiVSMProductCreateRequ
 }
 
 type ApiVSMProductDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiVSMProductDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiVSMProductDeleteRequest) Execute() (*AllowedAttributeValueDelete200Re
 /*
 VSMProductDelete VSMProduct Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductDeleteRequest
 */
 func (a *VSMProductAPIService) VSMProductDelete(ctx context.Context, objectId string) ApiVSMProductDeleteRequest {
 	return ApiVSMProductDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *VSMProductAPIService) VSMProductDeleteExecute(r ApiVSMProductDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAPIService.VSMProductDelete")
@@ -236,18 +235,18 @@ func (a *VSMProductAPIService) VSMProductDeleteExecute(r ApiVSMProductDeleteRequ
 }
 
 type ApiVSMProductQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiVSMProductQueryRequest) Fetch(fetch string) ApiVSMProductQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiVSMProductQueryRequest) Workspace(workspace string) ApiVSMProductQuer
 	return r
 }
 
+// 
 func (r ApiVSMProductQueryRequest) Compact(compact bool) ApiVSMProductQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiVSMProductQueryRequest) Execute() (*VSMProductQuery200Response, *http
 /*
 VSMProductQuery VSMProduct Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMProductQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMProductQueryRequest
 */
 func (a *VSMProductAPIService) VSMProductQuery(ctx context.Context) ApiVSMProductQueryRequest {
 	return ApiVSMProductQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductQuery200Response
+//  @return VSMProductQuery200Response
 func (a *VSMProductAPIService) VSMProductQueryExecute(r ApiVSMProductQueryRequest) (*VSMProductQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAPIService.VSMProductQuery")
@@ -348,8 +347,9 @@ func (a *VSMProductAPIService) VSMProductQueryExecute(r ApiVSMProductQueryReques
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *VSMProductAPIService) VSMProductQueryExecute(r ApiVSMProductQueryReques
 }
 
 type ApiVSMProductReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMProductAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiVSMProductReadRequest) Compact(compact bool) ApiVSMProductReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiVSMProductReadRequest) Execute() (*VSMProductRead200Response, *http.R
 /*
 VSMProductRead VSMProduct Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductReadRequest
 */
 func (a *VSMProductAPIService) VSMProductRead(ctx context.Context, objectId string) ApiVSMProductReadRequest {
 	return ApiVSMProductReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductRead200Response
+//  @return VSMProductRead200Response
 func (a *VSMProductAPIService) VSMProductReadExecute(r ApiVSMProductReadRequest) (*VSMProductRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAPIService.VSMProductRead")
@@ -469,8 +469,9 @@ func (a *VSMProductAPIService) VSMProductReadExecute(r ApiVSMProductReadRequest)
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *VSMProductAPIService) VSMProductReadExecute(r ApiVSMProductReadRequest)
 }
 
 type ApiVSMProductUpdateRequest struct {
-	ctx                context.Context
-	ApiService         *VSMProductAPIService
-	objectId           string
+	ctx context.Context
+	ApiService *VSMProductAPIService
+	objectId string
 	vSMProductMutation *VSMProductMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiVSMProductUpdateRequest) Execute() (*VSMProductRead200Response, *http
 /*
 VSMProductUpdate VSMProduct Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMProductUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMProductUpdateRequest
 */
 func (a *VSMProductAPIService) VSMProductUpdate(ctx context.Context, objectId string) ApiVSMProductUpdateRequest {
 	return ApiVSMProductUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMProductRead200Response
+//  @return VSMProductRead200Response
 func (a *VSMProductAPIService) VSMProductUpdateExecute(r ApiVSMProductUpdateRequest) (*VSMProductRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMProductRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMProductRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMProductAPIService.VSMProductUpdate")

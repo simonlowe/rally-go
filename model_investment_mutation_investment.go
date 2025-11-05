@@ -21,7 +21,7 @@ var _ MappedNullable = &InvestmentMutationInvestment{}
 // InvestmentMutationInvestment Investment
 type InvestmentMutationInvestment struct {
 	// Amount
-	Amount    *float32    `json:"Amount,omitempty"`
+	Amount *float32 `json:"Amount,omitempty"`
 	Artifacts *Collection `json:"Artifacts,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
@@ -32,13 +32,13 @@ type InvestmentMutationInvestment struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes           *string             `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Start Date
-	StartDate *string       `json:"StartDate,omitempty"`
+	StartDate *string `json:"StartDate,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewInvestmentMutationInvestment instantiates a new InvestmentMutationInvestment object
@@ -443,7 +443,7 @@ func (o *InvestmentMutationInvestment) SetErrors(v []string) {
 }
 
 func (o InvestmentMutationInvestment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -526,3 +526,5 @@ func (v *NullableInvestmentMutationInvestment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

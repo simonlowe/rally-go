@@ -20,8 +20,8 @@ var _ MappedNullable = &FeatureCreate200ResponseCreateResult{}
 
 // FeatureCreate200ResponseCreateResult struct for FeatureCreate200ResponseCreateResult
 type FeatureCreate200ResponseCreateResult struct {
-	Errors   []string `json:"Errors,omitempty"`
-	Object   *Feature `json:"Object,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *Feature `json:"Object,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *FeatureCreate200ResponseCreateResult) SetWarnings(v []string) {
 }
 
 func (o FeatureCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableFeatureCreate200ResponseCreateResult) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

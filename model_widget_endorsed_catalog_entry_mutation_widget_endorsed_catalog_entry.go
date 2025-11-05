@@ -31,13 +31,13 @@ type WidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// State
-	State *string     `json:"State,omitempty"`
-	Tags  *Collection `json:"Tags,omitempty"`
+	State *string `json:"State,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Type
-	Type        *string     `json:"Type,omitempty"`
+	Type *string `json:"Type,omitempty"`
 	ViewFilters *Collection `json:"ViewFilters,omitempty"`
-	Warnings    []string    `json:"Warnings,omitempty"`
-	Errors      []string    `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry instantiates a new WidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry object
@@ -410,7 +410,7 @@ func (o *WidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry) SetErrors
 }
 
 func (o WidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -490,3 +490,5 @@ func (v *NullableWidgetEndorsedCatalogEntryMutationWidgetEndorsedCatalogEntry) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

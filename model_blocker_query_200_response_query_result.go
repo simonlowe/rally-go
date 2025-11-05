@@ -20,12 +20,12 @@ var _ MappedNullable = &BlockerQuery200ResponseQueryResult{}
 
 // BlockerQuery200ResponseQueryResult struct for BlockerQuery200ResponseQueryResult
 type BlockerQuery200ResponseQueryResult struct {
-	StartIndex       *int64    `json:"StartIndex,omitempty"`
-	PageSize         *int64    `json:"PageSize,omitempty"`
-	TotalResultCount *int64    `json:"TotalResultCount,omitempty"`
-	Results          []Blocker `json:"Results,omitempty"`
-	Warnings         []string  `json:"Warnings,omitempty"`
-	Errors           []string  `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Blocker `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBlockerQuery200ResponseQueryResult instantiates a new BlockerQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *BlockerQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o BlockerQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableBlockerQuery200ResponseQueryResult) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,7 +21,7 @@ var _ MappedNullable = &ProjectPermissionMutationProjectPermission{}
 // ProjectPermissionMutationProjectPermission ProjectPermission
 type ProjectPermissionMutationProjectPermission struct {
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewProjectPermissionMutationProjectPermission instantiates a new ProjectPermissionMutationProjectPermission object
@@ -106,7 +106,7 @@ func (o *ProjectPermissionMutationProjectPermission) SetErrors(v []string) {
 }
 
 func (o ProjectPermissionMutationProjectPermission) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullableProjectPermissionMutationProjectPermission) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

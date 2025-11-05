@@ -20,11 +20,11 @@ var _ MappedNullable = &AttachmentRead200Response{}
 
 // AttachmentRead200Response struct for AttachmentRead200Response
 type AttachmentRead200Response struct {
-	RallyAPIMajor *string     `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string     `json:"_rallyAPIMinor,omitempty"`
-	Attachment    *Attachment `json:"Attachment,omitempty"`
-	Warnings      []string    `json:"Warnings,omitempty"`
-	Errors        []string    `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	Attachment *Attachment `json:"Attachment,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewAttachmentRead200Response instantiates a new AttachmentRead200Response object
@@ -205,7 +205,7 @@ func (o *AttachmentRead200Response) SetErrors(v []string) {
 }
 
 func (o AttachmentRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableAttachmentRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

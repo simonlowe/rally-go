@@ -20,12 +20,12 @@ var _ MappedNullable = &RiskQuery200ResponseQueryResult{}
 
 // RiskQuery200ResponseQueryResult struct for RiskQuery200ResponseQueryResult
 type RiskQuery200ResponseQueryResult struct {
-	StartIndex       *int64   `json:"StartIndex,omitempty"`
-	PageSize         *int64   `json:"PageSize,omitempty"`
-	TotalResultCount *int64   `json:"TotalResultCount,omitempty"`
-	Results          []Risk   `json:"Results,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []Risk `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewRiskQuery200ResponseQueryResult instantiates a new RiskQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *RiskQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o RiskQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableRiskQuery200ResponseQueryResult) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

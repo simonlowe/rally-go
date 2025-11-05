@@ -73,7 +73,7 @@ func (o *WebLinkDefinitionCreate200Response) SetCreateResult(v WebLinkDefinition
 }
 
 func (o WebLinkDefinitionCreate200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableWebLinkDefinitionCreate200Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

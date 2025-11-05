@@ -21,9 +21,9 @@ var _ MappedNullable = &SubscriptionTagMutationSubscriptionTag{}
 // SubscriptionTagMutationSubscriptionTag SubscriptionTag
 type SubscriptionTagMutationSubscriptionTag struct {
 	// Name
-	Name     *string  `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewSubscriptionTagMutationSubscriptionTag instantiates a new SubscriptionTagMutationSubscriptionTag object
@@ -140,7 +140,7 @@ func (o *SubscriptionTagMutationSubscriptionTag) SetErrors(v []string) {
 }
 
 func (o SubscriptionTagMutationSubscriptionTag) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,3 +196,5 @@ func (v *NullableSubscriptionTagMutationSubscriptionTag) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

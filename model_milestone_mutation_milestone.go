@@ -28,21 +28,21 @@ type MilestoneMutationMilestone struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes           *string             `json:"Notes,omitempty"`
-	Projects        *Collection         `json:"Projects,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Target Date
-	TargetDate    *string       `json:"TargetDate,omitempty"`
-	TargetProject *ProjectRef   `json:"TargetProject,omitempty"`
-	Workspace     *WorkspaceRef `json:"Workspace,omitempty"`
+	TargetDate *string `json:"TargetDate,omitempty"`
+	TargetProject *ProjectRef `json:"TargetProject,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Workspace Scoped
-	WorkspaceScoped       *bool       `json:"WorkspaceScoped,omitempty"`
-	CAccountableArchitect *UserRef    `json:"c_AccountableArchitect,omitempty"`
-	CAreasAtRisk          *Collection `json:"c_AreasAtRisk,omitempty"`
-	CAreasComplete        *Collection `json:"c_AreasComplete,omitempty"`
-	CAreasOffTrack        *Collection `json:"c_AreasOffTrack,omitempty"`
-	CAreasOnHold          *Collection `json:"c_AreasOnHold,omitempty"`
-	CAreasOnTrack         *Collection `json:"c_AreasOnTrack,omitempty"`
+	WorkspaceScoped *bool `json:"WorkspaceScoped,omitempty"`
+	CAccountableArchitect *UserRef `json:"c_AccountableArchitect,omitempty"`
+	CAreasAtRisk *Collection `json:"c_AreasAtRisk,omitempty"`
+	CAreasComplete *Collection `json:"c_AreasComplete,omitempty"`
+	CAreasOffTrack *Collection `json:"c_AreasOffTrack,omitempty"`
+	CAreasOnHold *Collection `json:"c_AreasOnHold,omitempty"`
+	CAreasOnTrack *Collection `json:"c_AreasOnTrack,omitempty"`
 	// Business Value Status
 	CBusinessValueStatus *string `json:"c_BusinessValueStatus,omitempty"`
 	// CAI Audience Level
@@ -88,8 +88,8 @@ type MilestoneMutationMilestone struct {
 	// Owning Portfolio
 	COwningPortfolio *string `json:"c_OwningPortfolio,omitempty"`
 	// Owning Release Train
-	COwningReleaseTrain *string     `json:"c_OwningReleaseTrain,omitempty"`
-	CPrimaryMilestone   *Collection `json:"c_PrimaryMilestone,omitempty"`
+	COwningReleaseTrain *string `json:"c_OwningReleaseTrain,omitempty"`
+	CPrimaryMilestone *Collection `json:"c_PrimaryMilestone,omitempty"`
 	// Primary Milestone Flag
 	CPrimaryMilestoneFlag *bool `json:"c_PrimaryMilestoneFlag,omitempty"`
 	// Product Launch Approach
@@ -155,9 +155,9 @@ type MilestoneMutationMilestone struct {
 	// z_SteerCo
 	CZSteerCo *bool `json:"c_zSteerCo,omitempty"`
 	// z_Target Date Change Notes
-	CZTargetDateChangeNotes *string  `json:"c_zTargetDateChangeNotes,omitempty"`
-	Warnings                []string `json:"Warnings,omitempty"`
-	Errors                  []string `json:"Errors,omitempty"`
+	CZTargetDateChangeNotes *string `json:"c_zTargetDateChangeNotes,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewMilestoneMutationMilestone instantiates a new MilestoneMutationMilestone object
@@ -2610,7 +2610,7 @@ func (o *MilestoneMutationMilestone) SetErrors(v []string) {
 }
 
 func (o MilestoneMutationMilestone) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2885,3 +2885,5 @@ func (v *NullableMilestoneMutationMilestone) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

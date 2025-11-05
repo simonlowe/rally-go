@@ -23,27 +23,27 @@ type DefectSuite struct {
 	// AI Assisted
 	AIAssisted *bool `json:"AIAssisted,omitempty"`
 	// Accepted Date
-	AcceptedDate *string     `json:"AcceptedDate,omitempty"`
-	Ancestors    *Collection `json:"Ancestors,omitempty"`
-	Attachments  *Collection `json:"Attachments,omitempty"`
+	AcceptedDate *string `json:"AcceptedDate,omitempty"`
+	Ancestors *Collection `json:"Ancestors,omitempty"`
+	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Blocker       *BlockerRef `json:"Blocker,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Blocker *BlockerRef `json:"Blocker,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Closed Defect Count
-	ClosedDefectCount *int64      `json:"ClosedDefectCount,omitempty"`
-	Connections       *Collection `json:"Connections,omitempty"`
-	CreatedBy         *UserRef    `json:"CreatedBy,omitempty"`
+	ClosedDefectCount *int64 `json:"ClosedDefectCount,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Defect Status
-	DefectStatus *string     `json:"DefectStatus,omitempty"`
-	Defects      *Collection `json:"Defects,omitempty"`
+	DefectStatus *string `json:"DefectStatus,omitempty"`
+	Defects *Collection `json:"Defects,omitempty"`
 	// Description
-	Description *string     `json:"Description,omitempty"`
-	Discussion  *Collection `json:"Discussion,omitempty"`
+	Description *string `json:"Description,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -51,15 +51,15 @@ type DefectSuite struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
 	// Flow State Changed Date
 	FlowStateChangedDate *string `json:"FlowStateChangedDate,omitempty"`
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// In Progress Date
-	InProgressDate *string       `json:"InProgressDate,omitempty"`
-	Iteration      *IterationRef `json:"Iteration,omitempty"`
+	InProgressDate *string `json:"InProgressDate,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
 	IterationValue *string `json:"IterationValue,omitempty"`
 	// Last Build
@@ -69,8 +69,8 @@ type DefectSuite struct {
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Latest Discussion Age In Minutes
-	LatestDiscussionAgeInMinutes *int64      `json:"LatestDiscussionAgeInMinutes,omitempty"`
-	Milestones                   *Collection `json:"Milestones,omitempty"`
+	LatestDiscussionAgeInMinutes *int64 `json:"LatestDiscussionAgeInMinutes,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -78,27 +78,27 @@ type DefectSuite struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string  `json:"ObjectUUID,omitempty"`
-	Owner      *UserRef `json:"Owner,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
 	Package *string `json:"Package,omitempty"`
 	// Passing Test Case Count
 	PassingTestCaseCount *int64 `json:"PassingTestCaseCount,omitempty"`
 	// Plan Estimate
-	PlanEstimate *float32    `json:"PlanEstimate,omitempty"`
-	Project      *ProjectRef `json:"Project,omitempty"`
+	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready   *bool       `json:"Ready,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
 	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
-	ReleaseValue    *string             `json:"ReleaseValue,omitempty"`
+	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Schedule State
 	ScheduleState *string `json:"ScheduleState,omitempty"`
 	// Schedule State Prefix
-	ScheduleStatePrefix *string          `json:"ScheduleStatePrefix,omitempty"`
-	Subscription        *SubscriptionRef `json:"Subscription,omitempty"`
-	Tags                *Collection      `json:"Tags,omitempty"`
+	ScheduleStatePrefix *string `json:"ScheduleStatePrefix,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Task Actual Total
 	TaskActualTotal *float32 `json:"TaskActualTotal,omitempty"`
 	// Task Estimate Total
@@ -106,17 +106,17 @@ type DefectSuite struct {
 	// Task Remaining Total
 	TaskRemainingTotal *float32 `json:"TaskRemainingTotal,omitempty"`
 	// Task Status
-	TaskStatus *string     `json:"TaskStatus,omitempty"`
-	Tasks      *Collection `json:"Tasks,omitempty"`
+	TaskStatus *string `json:"TaskStatus,omitempty"`
+	Tasks *Collection `json:"Tasks,omitempty"`
 	// Test Case Count
 	TestCaseCount *int64 `json:"TestCaseCount,omitempty"`
 	// Total Defect Count
 	TotalDefectCount *int64 `json:"TotalDefectCount,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDefectSuite instantiates a new DefectSuite object
@@ -2029,7 +2029,7 @@ func (o *DefectSuite) SetErrors(v []string) {
 }
 
 func (o DefectSuite) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2253,3 +2253,5 @@ func (v *NullableDefectSuite) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

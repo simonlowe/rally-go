@@ -20,12 +20,12 @@ var _ MappedNullable = &ConversationPostQuery200ResponseQueryResult{}
 
 // ConversationPostQuery200ResponseQueryResult struct for ConversationPostQuery200ResponseQueryResult
 type ConversationPostQuery200ResponseQueryResult struct {
-	StartIndex       *int64             `json:"StartIndex,omitempty"`
-	PageSize         *int64             `json:"PageSize,omitempty"`
-	TotalResultCount *int64             `json:"TotalResultCount,omitempty"`
-	Results          []ConversationPost `json:"Results,omitempty"`
-	Warnings         []string           `json:"Warnings,omitempty"`
-	Errors           []string           `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []ConversationPost `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewConversationPostQuery200ResponseQueryResult instantiates a new ConversationPostQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *ConversationPostQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o ConversationPostQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableConversationPostQuery200ResponseQueryResult) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

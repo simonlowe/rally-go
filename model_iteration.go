@@ -41,13 +41,13 @@ type Iteration struct {
 	// Plan Estimate
 	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	// Planned Velocity
-	PlannedVelocity *float32            `json:"PlannedVelocity,omitempty"`
-	Project         *ProjectRef         `json:"Project,omitempty"`
+	PlannedVelocity *float32 `json:"PlannedVelocity,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Start Date
 	StartDate *string `json:"StartDate,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// SyncedWithParent
 	SyncedWithParent *bool `json:"SyncedWithParent,omitempty"`
@@ -58,20 +58,20 @@ type Iteration struct {
 	// Task Remaining Total
 	TaskRemainingTotal *float32 `json:"TaskRemainingTotal,omitempty"`
 	// Theme
-	Theme                   *string     `json:"Theme,omitempty"`
+	Theme *string `json:"Theme,omitempty"`
 	UserIterationCapacities *Collection `json:"UserIterationCapacities,omitempty"`
 	// VersionId
-	VersionId    *string       `json:"VersionId,omitempty"`
-	WorkProducts *Collection   `json:"WorkProducts,omitempty"`
-	Workspace    *WorkspaceRef `json:"Workspace,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkProducts *Collection `json:"WorkProducts,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Retro Actions
 	CRetroActions *string `json:"c_RetroActions,omitempty"`
 	// Retro Deltas
 	CRetroDeltas *string `json:"c_RetroDeltas,omitempty"`
 	// Retro Pluses
-	CRetroPluses *string  `json:"c_RetroPluses,omitempty"`
-	Warnings     []string `json:"Warnings,omitempty"`
-	Errors       []string `json:"Errors,omitempty"`
+	CRetroPluses *string `json:"c_RetroPluses,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewIteration instantiates a new Iteration object
@@ -1052,7 +1052,7 @@ func (o *Iteration) SetErrors(v []string) {
 }
 
 func (o Iteration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1189,3 +1189,5 @@ func (v *NullableIteration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

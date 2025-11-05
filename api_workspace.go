@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // WorkspaceAPIService WorkspaceAPI service
 type WorkspaceAPIService service
 
 type ApiWorkspaceCreateRequest struct {
-	ctx               context.Context
-	ApiService        *WorkspaceAPIService
+	ctx context.Context
+	ApiService *WorkspaceAPIService
 	workspaceMutation *WorkspaceMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiWorkspaceCreateRequest) Execute() (*WorkspaceCreate200Response, *http
 /*
 WorkspaceCreate Workspace Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWorkspaceCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWorkspaceCreateRequest
 */
 func (a *WorkspaceAPIService) WorkspaceCreate(ctx context.Context) ApiWorkspaceCreateRequest {
 	return ApiWorkspaceCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspaceCreate200Response
+//  @return WorkspaceCreate200Response
 func (a *WorkspaceAPIService) WorkspaceCreateExecute(r ApiWorkspaceCreateRequest) (*WorkspaceCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspaceCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspaceCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.WorkspaceCreate")
@@ -134,18 +134,18 @@ func (a *WorkspaceAPIService) WorkspaceCreateExecute(r ApiWorkspaceCreateRequest
 }
 
 type ApiWorkspaceQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WorkspaceAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiWorkspaceQueryRequest) Fetch(fetch string) ApiWorkspaceQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -181,6 +181,7 @@ func (r ApiWorkspaceQueryRequest) Workspace(workspace string) ApiWorkspaceQueryR
 	return r
 }
 
+// 
 func (r ApiWorkspaceQueryRequest) Compact(compact bool) ApiWorkspaceQueryRequest {
 	r.compact = &compact
 	return r
@@ -193,25 +194,24 @@ func (r ApiWorkspaceQueryRequest) Execute() (*WorkspaceQuery200Response, *http.R
 /*
 WorkspaceQuery Workspace Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiWorkspaceQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWorkspaceQueryRequest
 */
 func (a *WorkspaceAPIService) WorkspaceQuery(ctx context.Context) ApiWorkspaceQueryRequest {
 	return ApiWorkspaceQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspaceQuery200Response
+//  @return WorkspaceQuery200Response
 func (a *WorkspaceAPIService) WorkspaceQueryExecute(r ApiWorkspaceQueryRequest) (*WorkspaceQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspaceQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspaceQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.WorkspaceQuery")
@@ -246,8 +246,9 @@ func (a *WorkspaceAPIService) WorkspaceQueryExecute(r ApiWorkspaceQueryRequest) 
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -304,13 +305,14 @@ func (a *WorkspaceAPIService) WorkspaceQueryExecute(r ApiWorkspaceQueryRequest) 
 }
 
 type ApiWorkspaceReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *WorkspaceAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiWorkspaceReadRequest) Compact(compact bool) ApiWorkspaceReadRequest {
 	r.compact = &compact
 	return r
@@ -329,27 +331,26 @@ func (r ApiWorkspaceReadRequest) Execute() (*WorkspaceRead200Response, *http.Res
 /*
 WorkspaceRead Workspace Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWorkspaceReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWorkspaceReadRequest
 */
 func (a *WorkspaceAPIService) WorkspaceRead(ctx context.Context, objectId string) ApiWorkspaceReadRequest {
 	return ApiWorkspaceReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspaceRead200Response
+//  @return WorkspaceRead200Response
 func (a *WorkspaceAPIService) WorkspaceReadExecute(r ApiWorkspaceReadRequest) (*WorkspaceRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspaceRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspaceRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.WorkspaceRead")
@@ -367,8 +368,9 @@ func (a *WorkspaceAPIService) WorkspaceReadExecute(r ApiWorkspaceReadRequest) (*
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -428,9 +430,9 @@ func (a *WorkspaceAPIService) WorkspaceReadExecute(r ApiWorkspaceReadRequest) (*
 }
 
 type ApiWorkspaceUpdateRequest struct {
-	ctx               context.Context
-	ApiService        *WorkspaceAPIService
-	objectId          string
+	ctx context.Context
+	ApiService *WorkspaceAPIService
+	objectId string
 	workspaceMutation *WorkspaceMutation
 }
 
@@ -447,27 +449,26 @@ func (r ApiWorkspaceUpdateRequest) Execute() (*WorkspaceRead200Response, *http.R
 /*
 WorkspaceUpdate Workspace Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiWorkspaceUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiWorkspaceUpdateRequest
 */
 func (a *WorkspaceAPIService) WorkspaceUpdate(ctx context.Context, objectId string) ApiWorkspaceUpdateRequest {
 	return ApiWorkspaceUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return WorkspaceRead200Response
+//  @return WorkspaceRead200Response
 func (a *WorkspaceAPIService) WorkspaceUpdateExecute(r ApiWorkspaceUpdateRequest) (*WorkspaceRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *WorkspaceRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspaceRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.WorkspaceUpdate")

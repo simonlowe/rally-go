@@ -20,9 +20,9 @@ var _ MappedNullable = &ObjectiveConversationPostCreate200ResponseCreateResult{}
 
 // ObjectiveConversationPostCreate200ResponseCreateResult struct for ObjectiveConversationPostCreate200ResponseCreateResult
 type ObjectiveConversationPostCreate200ResponseCreateResult struct {
-	Errors   []string                   `json:"Errors,omitempty"`
-	Object   *ObjectiveConversationPost `json:"Object,omitempty"`
-	Warnings []string                   `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
+	Object *ObjectiveConversationPost `json:"Object,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
 }
 
 // NewObjectiveConversationPostCreate200ResponseCreateResult instantiates a new ObjectiveConversationPostCreate200ResponseCreateResult object
@@ -139,7 +139,7 @@ func (o *ObjectiveConversationPostCreate200ResponseCreateResult) SetWarnings(v [
 }
 
 func (o ObjectiveConversationPostCreate200ResponseCreateResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,3 +195,5 @@ func (v *NullableObjectiveConversationPostCreate200ResponseCreateResult) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

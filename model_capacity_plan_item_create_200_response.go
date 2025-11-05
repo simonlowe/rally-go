@@ -73,7 +73,7 @@ func (o *CapacityPlanItemCreate200Response) SetCreateResult(v CapacityPlanItemCr
 }
 
 func (o CapacityPlanItemCreate200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableCapacityPlanItemCreate200Response) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

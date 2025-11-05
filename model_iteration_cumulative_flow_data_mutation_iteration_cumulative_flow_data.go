@@ -21,10 +21,10 @@ var _ MappedNullable = &IterationCumulativeFlowDataMutationIterationCumulativeFl
 // IterationCumulativeFlowDataMutationIterationCumulativeFlowData IterationCumulativeFlowData
 type IterationCumulativeFlowDataMutationIterationCumulativeFlowData struct {
 	// Iteration Object ID
-	IterationObjectID *int64        `json:"IterationObjectID,omitempty"`
-	Workspace         *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings          []string      `json:"Warnings,omitempty"`
-	Errors            []string      `json:"Errors,omitempty"`
+	IterationObjectID *int64 `json:"IterationObjectID,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewIterationCumulativeFlowDataMutationIterationCumulativeFlowData instantiates a new IterationCumulativeFlowDataMutationIterationCumulativeFlowData object
@@ -173,7 +173,7 @@ func (o *IterationCumulativeFlowDataMutationIterationCumulativeFlowData) SetErro
 }
 
 func (o IterationCumulativeFlowDataMutationIterationCumulativeFlowData) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,3 +232,5 @@ func (v *NullableIterationCumulativeFlowDataMutationIterationCumulativeFlowData)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

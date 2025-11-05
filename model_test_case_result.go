@@ -34,22 +34,22 @@ type TestCaseResult struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID   *string          `json:"ObjectUUID,omitempty"`
-	Project      *ProjectRef      `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	TestCase     *TestCaseRef     `json:"TestCase,omitempty"`
-	TestSet      *TestSetRef      `json:"TestSet,omitempty"`
-	Tester       *UserRef         `json:"Tester,omitempty"`
+	TestCase *TestCaseRef `json:"TestCase,omitempty"`
+	TestSet *TestSetRef `json:"TestSet,omitempty"`
+	Tester *UserRef `json:"Tester,omitempty"`
 	// Verdict
 	Verdict *string `json:"Verdict,omitempty"`
 	// VersionId
-	VersionId   *string       `json:"VersionId,omitempty"`
-	WorkProduct *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace   *WorkspaceRef `json:"Workspace,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
-	CALMID   *string  `json:"c_ALMID,omitempty"`
+	CALMID *string `json:"c_ALMID,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseResult instantiates a new TestCaseResult object
@@ -710,7 +710,7 @@ func (o *TestCaseResult) SetErrors(v []string) {
 }
 
 func (o TestCaseResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -817,3 +817,5 @@ func (v *NullableTestCaseResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

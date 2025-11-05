@@ -28,17 +28,17 @@ type TestCaseResultMutationTestCaseResult struct {
 	// Duration
 	Duration *float32 `json:"Duration,omitempty"`
 	// Notes
-	Notes    *string      `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	TestCase *TestCaseRef `json:"TestCase,omitempty"`
-	TestSet  *TestSetRef  `json:"TestSet,omitempty"`
-	Tester   *UserRef     `json:"Tester,omitempty"`
+	TestSet *TestSetRef `json:"TestSet,omitempty"`
+	Tester *UserRef `json:"Tester,omitempty"`
 	// Verdict
-	Verdict   *string       `json:"Verdict,omitempty"`
+	Verdict *string `json:"Verdict,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
-	CALMID   *string  `json:"c_ALMID,omitempty"`
+	CALMID *string `json:"c_ALMID,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestCaseResultMutationTestCaseResult instantiates a new TestCaseResultMutationTestCaseResult object
@@ -475,7 +475,7 @@ func (o *TestCaseResultMutationTestCaseResult) SetErrors(v []string) {
 }
 
 func (o TestCaseResultMutationTestCaseResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -561,3 +561,5 @@ func (v *NullableTestCaseResultMutationTestCaseResult) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -73,7 +73,7 @@ func (o *KeyResultQuery200Response) SetQueryResult(v KeyResultQuery200ResponseQu
 }
 
 func (o KeyResultQuery200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableKeyResultQuery200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

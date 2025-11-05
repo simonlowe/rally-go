@@ -73,7 +73,7 @@ func (o *HierarchicalRequirementCreate200Response) SetCreateResult(v Hierarchica
 }
 
 func (o HierarchicalRequirementCreate200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,3 +123,5 @@ func (v *NullableHierarchicalRequirementCreate200Response) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

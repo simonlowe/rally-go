@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // TimeEntryValueAPIService TimeEntryValueAPI service
 type TimeEntryValueAPIService service
 
 type ApiTimeEntryValueCreateRequest struct {
-	ctx                    context.Context
-	ApiService             *TimeEntryValueAPIService
+	ctx context.Context
+	ApiService *TimeEntryValueAPIService
 	timeEntryValueMutation *TimeEntryValueMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiTimeEntryValueCreateRequest) Execute() (*TimeEntryValueCreate200Respo
 /*
 TimeEntryValueCreate TimeEntryValue Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTimeEntryValueCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTimeEntryValueCreateRequest
 */
 func (a *TimeEntryValueAPIService) TimeEntryValueCreate(ctx context.Context) ApiTimeEntryValueCreateRequest {
 	return ApiTimeEntryValueCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TimeEntryValueCreate200Response
+//  @return TimeEntryValueCreate200Response
 func (a *TimeEntryValueAPIService) TimeEntryValueCreateExecute(r ApiTimeEntryValueCreateRequest) (*TimeEntryValueCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TimeEntryValueCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TimeEntryValueCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeEntryValueAPIService.TimeEntryValueCreate")
@@ -134,9 +134,9 @@ func (a *TimeEntryValueAPIService) TimeEntryValueCreateExecute(r ApiTimeEntryVal
 }
 
 type ApiTimeEntryValueDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TimeEntryValueAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTimeEntryValueDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiTimeEntryValueDeleteRequest) Execute() (*AllowedAttributeValueDelete2
 /*
 TimeEntryValueDelete TimeEntryValue Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTimeEntryValueDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTimeEntryValueDeleteRequest
 */
 func (a *TimeEntryValueAPIService) TimeEntryValueDelete(ctx context.Context, objectId string) ApiTimeEntryValueDeleteRequest {
 	return ApiTimeEntryValueDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TimeEntryValueAPIService) TimeEntryValueDeleteExecute(r ApiTimeEntryValueDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeEntryValueAPIService.TimeEntryValueDelete")
@@ -236,18 +235,18 @@ func (a *TimeEntryValueAPIService) TimeEntryValueDeleteExecute(r ApiTimeEntryVal
 }
 
 type ApiTimeEntryValueQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TimeEntryValueAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTimeEntryValueQueryRequest) Fetch(fetch string) ApiTimeEntryValueQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiTimeEntryValueQueryRequest) Workspace(workspace string) ApiTimeEntryV
 	return r
 }
 
+// 
 func (r ApiTimeEntryValueQueryRequest) Compact(compact bool) ApiTimeEntryValueQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiTimeEntryValueQueryRequest) Execute() (*TimeEntryValueQuery200Respons
 /*
 TimeEntryValueQuery TimeEntryValue Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTimeEntryValueQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTimeEntryValueQueryRequest
 */
 func (a *TimeEntryValueAPIService) TimeEntryValueQuery(ctx context.Context) ApiTimeEntryValueQueryRequest {
 	return ApiTimeEntryValueQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TimeEntryValueQuery200Response
+//  @return TimeEntryValueQuery200Response
 func (a *TimeEntryValueAPIService) TimeEntryValueQueryExecute(r ApiTimeEntryValueQueryRequest) (*TimeEntryValueQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TimeEntryValueQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TimeEntryValueQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeEntryValueAPIService.TimeEntryValueQuery")
@@ -348,8 +347,9 @@ func (a *TimeEntryValueAPIService) TimeEntryValueQueryExecute(r ApiTimeEntryValu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *TimeEntryValueAPIService) TimeEntryValueQueryExecute(r ApiTimeEntryValu
 }
 
 type ApiTimeEntryValueReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TimeEntryValueAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTimeEntryValueReadRequest) Compact(compact bool) ApiTimeEntryValueReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiTimeEntryValueReadRequest) Execute() (*TimeEntryValueRead200Response,
 /*
 TimeEntryValueRead TimeEntryValue Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTimeEntryValueReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTimeEntryValueReadRequest
 */
 func (a *TimeEntryValueAPIService) TimeEntryValueRead(ctx context.Context, objectId string) ApiTimeEntryValueReadRequest {
 	return ApiTimeEntryValueReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TimeEntryValueRead200Response
+//  @return TimeEntryValueRead200Response
 func (a *TimeEntryValueAPIService) TimeEntryValueReadExecute(r ApiTimeEntryValueReadRequest) (*TimeEntryValueRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TimeEntryValueRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TimeEntryValueRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeEntryValueAPIService.TimeEntryValueRead")
@@ -469,8 +469,9 @@ func (a *TimeEntryValueAPIService) TimeEntryValueReadExecute(r ApiTimeEntryValue
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *TimeEntryValueAPIService) TimeEntryValueReadExecute(r ApiTimeEntryValue
 }
 
 type ApiTimeEntryValueUpdateRequest struct {
-	ctx                    context.Context
-	ApiService             *TimeEntryValueAPIService
-	objectId               string
+	ctx context.Context
+	ApiService *TimeEntryValueAPIService
+	objectId string
 	timeEntryValueMutation *TimeEntryValueMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiTimeEntryValueUpdateRequest) Execute() (*TimeEntryValueRead200Respons
 /*
 TimeEntryValueUpdate TimeEntryValue Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTimeEntryValueUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTimeEntryValueUpdateRequest
 */
 func (a *TimeEntryValueAPIService) TimeEntryValueUpdate(ctx context.Context, objectId string) ApiTimeEntryValueUpdateRequest {
 	return ApiTimeEntryValueUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TimeEntryValueRead200Response
+//  @return TimeEntryValueRead200Response
 func (a *TimeEntryValueAPIService) TimeEntryValueUpdateExecute(r ApiTimeEntryValueUpdateRequest) (*TimeEntryValueRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TimeEntryValueRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TimeEntryValueRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeEntryValueAPIService.TimeEntryValueUpdate")

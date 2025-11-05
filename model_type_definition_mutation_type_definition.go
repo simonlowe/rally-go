@@ -24,11 +24,11 @@ type TypeDefinitionMutationTypeDefinition struct {
 	// ID Prefix
 	IDPrefix *string `json:"IDPrefix,omitempty"`
 	// Name
-	Name      *string            `json:"Name,omitempty"`
-	Parent    *TypeDefinitionRef `json:"Parent,omitempty"`
-	Workspace *WorkspaceRef      `json:"Workspace,omitempty"`
-	Warnings  []string           `json:"Warnings,omitempty"`
-	Errors    []string           `json:"Errors,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Parent *TypeDefinitionRef `json:"Parent,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTypeDefinitionMutationTypeDefinition instantiates a new TypeDefinitionMutationTypeDefinition object
@@ -273,7 +273,7 @@ func (o *TypeDefinitionMutationTypeDefinition) SetErrors(v []string) {
 }
 
 func (o TypeDefinitionMutationTypeDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -341,3 +341,5 @@ func (v *NullableTypeDefinitionMutationTypeDefinition) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

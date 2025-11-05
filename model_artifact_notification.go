@@ -37,17 +37,17 @@ type ArtifactNotification struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
-	Project    *ProjectRef `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Subject OID
-	SubjectOID   *int64           `json:"SubjectOID,omitempty"`
+	SubjectOID *int64 `json:"SubjectOID,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	User         *UserRef         `json:"User,omitempty"`
+	User *UserRef `json:"User,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewArtifactNotification instantiates a new ArtifactNotification object
@@ -612,7 +612,7 @@ func (o *ArtifactNotification) SetErrors(v []string) {
 }
 
 func (o ArtifactNotification) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -710,3 +710,5 @@ func (v *NullableArtifactNotification) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -29,19 +29,19 @@ type ProjectPermission struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
-	Project    *ProjectRef `json:"Project,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Project State
 	ProjectState *string `json:"ProjectState,omitempty"`
 	// Role
-	Role         *string          `json:"Role,omitempty"`
+	Role *string `json:"Role,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
-	User         *UserRef         `json:"User,omitempty"`
+	User *UserRef `json:"User,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewProjectPermission instantiates a new ProjectPermission object
@@ -510,7 +510,7 @@ func (o *ProjectPermission) SetErrors(v []string) {
 }
 
 func (o ProjectPermission) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -599,3 +599,5 @@ func (v *NullableProjectPermission) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

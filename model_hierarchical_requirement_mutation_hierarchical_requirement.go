@@ -24,8 +24,8 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -33,37 +33,37 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Expedite
 	Expedite *bool `json:"Expedite,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
-	Iteration         *IterationRef `json:"Iteration,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
-	IterationValue *string     `json:"IterationValue,omitempty"`
-	Milestones     *Collection `json:"Milestones,omitempty"`
+	IterationValue *string `json:"IterationValue,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
-	Package *string                     `json:"Package,omitempty"`
-	Parent  *HierarchicalRequirementRef `json:"Parent,omitempty"`
+	Package *string `json:"Package,omitempty"`
+	Parent *HierarchicalRequirementRef `json:"Parent,omitempty"`
 	// Plan Estimate
-	PlanEstimate  *float32    `json:"PlanEstimate,omitempty"`
+	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	PortfolioItem *FeatureRef `json:"PortfolioItem,omitempty"`
-	Predecessors  *Collection `json:"Predecessors,omitempty"`
-	Project       *ProjectRef `json:"Project,omitempty"`
+	Predecessors *Collection `json:"Predecessors,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
-	Ready   *bool       `json:"Ready,omitempty"`
+	Ready *bool `json:"Ready,omitempty"`
 	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
-	ReleaseValue *string     `json:"ReleaseValue,omitempty"`
-	Risks        *Collection `json:"Risks,omitempty"`
+	ReleaseValue *string `json:"ReleaseValue,omitempty"`
+	Risks *Collection `json:"Risks,omitempty"`
 	// Schedule State
-	ScheduleState *string       `json:"ScheduleState,omitempty"`
-	Successors    *Collection   `json:"Successors,omitempty"`
-	Tags          *Collection   `json:"Tags,omitempty"`
-	UnifiedParent *ObjectRef    `json:"UnifiedParent,omitempty"`
-	Workspace     *WorkspaceRef `json:"Workspace,omitempty"`
+	ScheduleState *string `json:"ScheduleState,omitempty"`
+	Successors *Collection `json:"Successors,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
+	UnifiedParent *ObjectRef `json:"UnifiedParent,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
 	CALMID *string `json:"c_ALMID,omitempty"`
 	// Act Est
@@ -87,8 +87,8 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Build Number
 	CBuildNumber *string `json:"c_BuildNumber,omitempty"`
 	// Business Priority
-	CBusinessPriority *string     `json:"c_BusinessPriority,omitempty"`
-	CCMSProduct       *Collection `json:"c_CMSProduct,omitempty"`
+	CBusinessPriority *string `json:"c_BusinessPriority,omitempty"`
+	CCMSProduct *Collection `json:"c_CMSProduct,omitempty"`
 	// CRS Product
 	CCRSProduct *string `json:"c_CRSProduct,omitempty"`
 	// Change Request ID
@@ -100,10 +100,10 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Client ID
 	CClientID *string `json:"c_ClientID,omitempty"`
 	// Client Outcome
-	CClientOutcome *string  `json:"c_ClientOutcome,omitempty"`
-	CCoOwner       *UserRef `json:"c_CoOwner,omitempty"`
+	CClientOutcome *string `json:"c_ClientOutcome,omitempty"`
+	CCoOwner *UserRef `json:"c_CoOwner,omitempty"`
 	// Component
-	CComponent          *string     `json:"c_Component,omitempty"`
+	CComponent *string `json:"c_Component,omitempty"`
 	CComponentDRFISSans *Collection `json:"c_ComponentDRFISSans,omitempty"`
 	// Connect to Salesforce Case
 	CConnecttoSalesforceCase *bool `json:"c_ConnecttoSalesforceCase,omitempty"`
@@ -112,8 +112,8 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Current Environment
 	CCurrentEnvironment *string `json:"c_CurrentEnvironment,omitempty"`
 	// Current SF Environment
-	CCurrentSFEnvironment *string  `json:"c_CurrentSFEnvironment,omitempty"`
-	CDEVOwner             *UserRef `json:"c_DEVOwner,omitempty"`
+	CCurrentSFEnvironment *string `json:"c_CurrentSFEnvironment,omitempty"`
+	CDEVOwner *UserRef `json:"c_DEVOwner,omitempty"`
 	// DT Product
 	CDTProduct *string `json:"c_DTProduct,omitempty"`
 	// Delivered in Build
@@ -139,16 +139,16 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// Method of Service
 	CMethodofService *string `json:"c_MethodofService,omitempty"`
 	// Number of Child Cases
-	CNumberofChildCases *int64   `json:"c_NumberofChildCases,omitempty"`
-	CPVTOwner           *UserRef `json:"c_PVTOwner,omitempty"`
+	CNumberofChildCases *int64 `json:"c_NumberofChildCases,omitempty"`
+	CPVTOwner *UserRef `json:"c_PVTOwner,omitempty"`
 	// Passed QA
 	CPassedQA *bool `json:"c_PassedQA,omitempty"`
 	// Product Intake ID
 	CProductIntakeID *string `json:"c_ProductIntakeID,omitempty"`
 	// Product Readiness
-	CProductReadiness *string     `json:"c_ProductReadiness,omitempty"`
-	CQAOwner          *UserRef    `json:"c_QAOwner,omitempty"`
-	CRTSProduct       *Collection `json:"c_RTSProduct,omitempty"`
+	CProductReadiness *string `json:"c_ProductReadiness,omitempty"`
+	CQAOwner *UserRef `json:"c_QAOwner,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Release Availability
 	CReleaseAvailability *string `json:"c_ReleaseAvailability,omitempty"`
 	// Release Date
@@ -214,10 +214,10 @@ type HierarchicalRequirementMutationHierarchicalRequirement struct {
 	// [old]_SF Case Product (DO NOT TOUCH)
 	COldSFCaseProductDONOTTOUCH *int64 `json:"c_oldSFCaseProductDONOTTOUCH,omitempty"`
 	// [retired] kanban state field
-	CRetiredkanbanstatefield *string     `json:"c_retiredkanbanstatefield,omitempty"`
-	CVAutoApplications       *Collection `json:"c_vAutoApplications,omitempty"`
-	Warnings                 []string    `json:"Warnings,omitempty"`
-	Errors                   []string    `json:"Errors,omitempty"`
+	CRetiredkanbanstatefield *string `json:"c_retiredkanbanstatefield,omitempty"`
+	CVAutoApplications *Collection `json:"c_vAutoApplications,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewHierarchicalRequirementMutationHierarchicalRequirement instantiates a new HierarchicalRequirementMutationHierarchicalRequirement object
@@ -3826,7 +3826,7 @@ func (o *HierarchicalRequirementMutationHierarchicalRequirement) SetErrors(v []s
 }
 
 func (o HierarchicalRequirementMutationHierarchicalRequirement) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -4209,3 +4209,5 @@ func (v *NullableHierarchicalRequirementMutationHierarchicalRequirement) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

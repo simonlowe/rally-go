@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // AttributeDefinitionAPIService AttributeDefinitionAPI service
 type AttributeDefinitionAPIService service
 
 type ApiAttributeDefinitionCreateRequest struct {
-	ctx                         context.Context
-	ApiService                  *AttributeDefinitionAPIService
+	ctx context.Context
+	ApiService *AttributeDefinitionAPIService
 	attributeDefinitionMutation *AttributeDefinitionMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiAttributeDefinitionCreateRequest) Execute() (*AttributeDefinitionCrea
 /*
 AttributeDefinitionCreate AttributeDefinition Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiAttributeDefinitionCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiAttributeDefinitionCreateRequest
 */
 func (a *AttributeDefinitionAPIService) AttributeDefinitionCreate(ctx context.Context) ApiAttributeDefinitionCreateRequest {
 	return ApiAttributeDefinitionCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AttributeDefinitionCreate200Response
+//  @return AttributeDefinitionCreate200Response
 func (a *AttributeDefinitionAPIService) AttributeDefinitionCreateExecute(r ApiAttributeDefinitionCreateRequest) (*AttributeDefinitionCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AttributeDefinitionCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttributeDefinitionCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttributeDefinitionAPIService.AttributeDefinitionCreate")
@@ -134,13 +134,14 @@ func (a *AttributeDefinitionAPIService) AttributeDefinitionCreateExecute(r ApiAt
 }
 
 type ApiAttributeDefinitionReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AttributeDefinitionAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiAttributeDefinitionReadRequest) Compact(compact bool) ApiAttributeDefinitionReadRequest {
 	r.compact = &compact
 	return r
@@ -159,27 +160,26 @@ func (r ApiAttributeDefinitionReadRequest) Execute() (*AttributeDefinitionRead20
 /*
 AttributeDefinitionRead AttributeDefinition Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAttributeDefinitionReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAttributeDefinitionReadRequest
 */
 func (a *AttributeDefinitionAPIService) AttributeDefinitionRead(ctx context.Context, objectId string) ApiAttributeDefinitionReadRequest {
 	return ApiAttributeDefinitionReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AttributeDefinitionRead200Response
+//  @return AttributeDefinitionRead200Response
 func (a *AttributeDefinitionAPIService) AttributeDefinitionReadExecute(r ApiAttributeDefinitionReadRequest) (*AttributeDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AttributeDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttributeDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttributeDefinitionAPIService.AttributeDefinitionRead")
@@ -197,8 +197,9 @@ func (a *AttributeDefinitionAPIService) AttributeDefinitionReadExecute(r ApiAttr
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -258,9 +259,9 @@ func (a *AttributeDefinitionAPIService) AttributeDefinitionReadExecute(r ApiAttr
 }
 
 type ApiAttributeDefinitionUpdateRequest struct {
-	ctx                         context.Context
-	ApiService                  *AttributeDefinitionAPIService
-	objectId                    string
+	ctx context.Context
+	ApiService *AttributeDefinitionAPIService
+	objectId string
 	attributeDefinitionMutation *AttributeDefinitionMutation
 }
 
@@ -277,27 +278,26 @@ func (r ApiAttributeDefinitionUpdateRequest) Execute() (*AttributeDefinitionRead
 /*
 AttributeDefinitionUpdate AttributeDefinition Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAttributeDefinitionUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAttributeDefinitionUpdateRequest
 */
 func (a *AttributeDefinitionAPIService) AttributeDefinitionUpdate(ctx context.Context, objectId string) ApiAttributeDefinitionUpdateRequest {
 	return ApiAttributeDefinitionUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AttributeDefinitionRead200Response
+//  @return AttributeDefinitionRead200Response
 func (a *AttributeDefinitionAPIService) AttributeDefinitionUpdateExecute(r ApiAttributeDefinitionUpdateRequest) (*AttributeDefinitionRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AttributeDefinitionRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttributeDefinitionRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttributeDefinitionAPIService.AttributeDefinitionUpdate")

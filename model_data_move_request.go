@@ -21,7 +21,7 @@ var _ MappedNullable = &DataMoveRequest{}
 // DataMoveRequest DataMoveRequest
 type DataMoveRequest struct {
 	// Creation Date
-	CreationDate            *string          `json:"CreationDate,omitempty"`
+	CreationDate *string `json:"CreationDate,omitempty"`
 	DestinationSubscription *SubscriptionRef `json:"DestinationSubscription,omitempty"`
 	// DestinationSubscriptionZuulId
 	DestinationSubscriptionZuulId *string `json:"DestinationSubscriptionZuulId,omitempty"`
@@ -30,20 +30,20 @@ type DataMoveRequest struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID     *string  `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	RequestingUser *UserRef `json:"RequestingUser,omitempty"`
 	// SourceSubscriptionZuulId
 	SourceSubscriptionZuulId *string `json:"SourceSubscriptionZuulId,omitempty"`
 	// State
-	State        *string          `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// WorkspaceOids
-	WorkspaceOids *string  `json:"WorkspaceOids,omitempty"`
-	Warnings      []string `json:"Warnings,omitempty"`
-	Errors        []string `json:"Errors,omitempty"`
+	WorkspaceOids *string `json:"WorkspaceOids,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDataMoveRequest instantiates a new DataMoveRequest object
@@ -544,7 +544,7 @@ func (o *DataMoveRequest) SetErrors(v []string) {
 }
 
 func (o DataMoveRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -636,3 +636,5 @@ func (v *NullableDataMoveRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

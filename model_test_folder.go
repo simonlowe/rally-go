@@ -22,8 +22,8 @@ var _ MappedNullable = &TestFolder{}
 type TestFolder struct {
 	Children *Collection `json:"Children,omitempty"`
 	// Creation Date
-	CreationDate *string     `json:"CreationDate,omitempty"`
-	Descendants  *Collection `json:"Descendants,omitempty"`
+	CreationDate *string `json:"CreationDate,omitempty"`
+	Descendants *Collection `json:"Descendants,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Display Color
@@ -35,18 +35,18 @@ type TestFolder struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID       *string              `json:"ObjectUUID,omitempty"`
-	Parent           *TestFolderRef       `json:"Parent,omitempty"`
-	Project          *ProjectRef          `json:"Project,omitempty"`
-	RevisionHistory  *RevisionHistoryRef  `json:"RevisionHistory,omitempty"`
-	Subscription     *SubscriptionRef     `json:"Subscription,omitempty"`
-	TestCases        *Collection          `json:"TestCases,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Parent *TestFolderRef `json:"Parent,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
+	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	TestCases *Collection `json:"TestCases,omitempty"`
 	TestFolderStatus *TestFolderStatusRef `json:"TestFolderStatus,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTestFolder instantiates a new TestFolder object
@@ -675,7 +675,7 @@ func (o *TestFolder) SetErrors(v []string) {
 }
 
 func (o TestFolder) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -779,3 +779,5 @@ func (v *NullableTestFolder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

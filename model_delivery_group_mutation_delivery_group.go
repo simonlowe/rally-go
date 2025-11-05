@@ -25,12 +25,12 @@ type DeliveryGroupMutationDeliveryGroup struct {
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Name
-	Name            *string             `json:"Name,omitempty"`
-	Projects        *Collection         `json:"Projects,omitempty"`
+	Name *string `json:"Name,omitempty"`
+	Projects *Collection `json:"Projects,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Workspace       *WorkspaceRef       `json:"Workspace,omitempty"`
-	Warnings        []string            `json:"Warnings,omitempty"`
-	Errors          []string            `json:"Errors,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewDeliveryGroupMutationDeliveryGroup instantiates a new DeliveryGroupMutationDeliveryGroup object
@@ -307,7 +307,7 @@ func (o *DeliveryGroupMutationDeliveryGroup) SetErrors(v []string) {
 }
 
 func (o DeliveryGroupMutationDeliveryGroup) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -378,3 +378,5 @@ func (v *NullableDeliveryGroupMutationDeliveryGroup) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

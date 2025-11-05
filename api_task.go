@@ -20,17 +20,19 @@ import (
 	"strings"
 )
 
+
 // TaskAPIService TaskAPI service
 type TaskAPIService service
 
 type ApiTaskCopyRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TaskAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTaskCopyRequest) Compact(compact bool) ApiTaskCopyRequest {
 	r.compact = &compact
 	return r
@@ -49,27 +51,26 @@ func (r ApiTaskCopyRequest) Execute() (*TaskRead200Response, *http.Response, err
 /*
 TaskCopy Task Copy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTaskCopyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTaskCopyRequest
 */
 func (a *TaskAPIService) TaskCopy(ctx context.Context, objectId string) ApiTaskCopyRequest {
 	return ApiTaskCopyRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskRead200Response
+//  @return TaskRead200Response
 func (a *TaskAPIService) TaskCopyExecute(r ApiTaskCopyRequest) (*TaskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskCopy")
@@ -87,8 +88,9 @@ func (a *TaskAPIService) TaskCopyExecute(r ApiTaskCopyRequest) (*TaskRead200Resp
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -148,8 +150,8 @@ func (a *TaskAPIService) TaskCopyExecute(r ApiTaskCopyRequest) (*TaskRead200Resp
 }
 
 type ApiTaskCreateRequest struct {
-	ctx          context.Context
-	ApiService   *TaskAPIService
+	ctx context.Context
+	ApiService *TaskAPIService
 	taskMutation *TaskMutation
 }
 
@@ -166,25 +168,24 @@ func (r ApiTaskCreateRequest) Execute() (*TaskCreate200Response, *http.Response,
 /*
 TaskCreate Task Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTaskCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTaskCreateRequest
 */
 func (a *TaskAPIService) TaskCreate(ctx context.Context) ApiTaskCreateRequest {
 	return ApiTaskCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskCreate200Response
+//  @return TaskCreate200Response
 func (a *TaskAPIService) TaskCreateExecute(r ApiTaskCreateRequest) (*TaskCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskCreate")
@@ -258,9 +259,9 @@ func (a *TaskAPIService) TaskCreateExecute(r ApiTaskCreateRequest) (*TaskCreate2
 }
 
 type ApiTaskDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TaskAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiTaskDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -270,27 +271,26 @@ func (r ApiTaskDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response
 /*
 TaskDelete Task Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTaskDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTaskDeleteRequest
 */
 func (a *TaskAPIService) TaskDelete(ctx context.Context, objectId string) ApiTaskDeleteRequest {
 	return ApiTaskDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *TaskAPIService) TaskDeleteExecute(r ApiTaskDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskDelete")
@@ -360,18 +360,18 @@ func (a *TaskAPIService) TaskDeleteExecute(r ApiTaskDeleteRequest) (*AllowedAttr
 }
 
 type ApiTaskQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TaskAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiTaskQueryRequest) Fetch(fetch string) ApiTaskQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -407,6 +407,7 @@ func (r ApiTaskQueryRequest) Workspace(workspace string) ApiTaskQueryRequest {
 	return r
 }
 
+// 
 func (r ApiTaskQueryRequest) Compact(compact bool) ApiTaskQueryRequest {
 	r.compact = &compact
 	return r
@@ -419,25 +420,24 @@ func (r ApiTaskQueryRequest) Execute() (*TaskQuery200Response, *http.Response, e
 /*
 TaskQuery Task Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiTaskQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiTaskQueryRequest
 */
 func (a *TaskAPIService) TaskQuery(ctx context.Context) ApiTaskQueryRequest {
 	return ApiTaskQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskQuery200Response
+//  @return TaskQuery200Response
 func (a *TaskAPIService) TaskQueryExecute(r ApiTaskQueryRequest) (*TaskQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskQuery")
@@ -472,8 +472,9 @@ func (a *TaskAPIService) TaskQueryExecute(r ApiTaskQueryRequest) (*TaskQuery200R
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -530,13 +531,14 @@ func (a *TaskAPIService) TaskQueryExecute(r ApiTaskQueryRequest) (*TaskQuery200R
 }
 
 type ApiTaskReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *TaskAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiTaskReadRequest) Compact(compact bool) ApiTaskReadRequest {
 	r.compact = &compact
 	return r
@@ -555,27 +557,26 @@ func (r ApiTaskReadRequest) Execute() (*TaskRead200Response, *http.Response, err
 /*
 TaskRead Task Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTaskReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTaskReadRequest
 */
 func (a *TaskAPIService) TaskRead(ctx context.Context, objectId string) ApiTaskReadRequest {
 	return ApiTaskReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskRead200Response
+//  @return TaskRead200Response
 func (a *TaskAPIService) TaskReadExecute(r ApiTaskReadRequest) (*TaskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskRead")
@@ -593,8 +594,9 @@ func (a *TaskAPIService) TaskReadExecute(r ApiTaskReadRequest) (*TaskRead200Resp
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -654,9 +656,9 @@ func (a *TaskAPIService) TaskReadExecute(r ApiTaskReadRequest) (*TaskRead200Resp
 }
 
 type ApiTaskUpdateRequest struct {
-	ctx          context.Context
-	ApiService   *TaskAPIService
-	objectId     string
+	ctx context.Context
+	ApiService *TaskAPIService
+	objectId string
 	taskMutation *TaskMutation
 }
 
@@ -673,27 +675,26 @@ func (r ApiTaskUpdateRequest) Execute() (*TaskRead200Response, *http.Response, e
 /*
 TaskUpdate Task Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiTaskUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiTaskUpdateRequest
 */
 func (a *TaskAPIService) TaskUpdate(ctx context.Context, objectId string) ApiTaskUpdateRequest {
 	return ApiTaskUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TaskRead200Response
+//  @return TaskRead200Response
 func (a *TaskAPIService) TaskUpdateExecute(r ApiTaskUpdateRequest) (*TaskRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TaskRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TaskRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskAPIService.TaskUpdate")

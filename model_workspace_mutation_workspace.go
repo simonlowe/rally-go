@@ -25,12 +25,12 @@ type WorkspaceMutationWorkspace struct {
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
-	Notes *string  `json:"Notes,omitempty"`
+	Notes *string `json:"Notes,omitempty"`
 	Owner *UserRef `json:"Owner,omitempty"`
 	// State
-	State    *string  `json:"State,omitempty"`
+	State *string `json:"State,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewWorkspaceMutationWorkspace instantiates a new WorkspaceMutationWorkspace object
@@ -275,7 +275,7 @@ func (o *WorkspaceMutationWorkspace) SetErrors(v []string) {
 }
 
 func (o WorkspaceMutationWorkspace) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -343,3 +343,5 @@ func (v *NullableWorkspaceMutationWorkspace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

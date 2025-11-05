@@ -19,12 +19,13 @@ import (
 	"net/url"
 )
 
+
 // BatchAPIService BatchAPI service
 type BatchAPIService service
 
 type ApiBatchRequest struct {
-	ctx          context.Context
-	ApiService   *BatchAPIService
+	ctx context.Context
+	ApiService *BatchAPIService
 	batchRequest *BatchRequest
 }
 
@@ -41,25 +42,24 @@ func (r ApiBatchRequest) Execute() (*BatchResponse, *http.Response, error) {
 /*
 Batch Batch operation
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBatchRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBatchRequest
 */
 func (a *BatchAPIService) Batch(ctx context.Context) ApiBatchRequest {
 	return ApiBatchRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BatchResponse
+//  @return BatchResponse
 func (a *BatchAPIService) BatchExecute(r ApiBatchRequest) (*BatchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BatchResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BatchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchAPIService.Batch")

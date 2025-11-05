@@ -23,7 +23,7 @@ type Investment struct {
 	// Accepted Leaf Story Plan Estimate Total
 	AcceptedLeafStoryPlanEstimateTotal *float32 `json:"AcceptedLeafStoryPlanEstimateTotal,omitempty"`
 	// Amount
-	Amount    *float32    `json:"Amount,omitempty"`
+	Amount *float32 `json:"Amount,omitempty"`
 	Artifacts *Collection `json:"Artifacts,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
@@ -56,10 +56,10 @@ type Investment struct {
 	// Percent Done By Workdays
 	PercentDoneByWorkdays *float32 `json:"PercentDoneByWorkdays,omitempty"`
 	// Recycled
-	Recycled        *bool               `json:"Recycled,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Start Date
-	StartDate    *string          `json:"StartDate,omitempty"`
+	StartDate *string `json:"StartDate,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// Total Artifact Count
 	TotalArtifactCount *int64 `json:"TotalArtifactCount,omitempty"`
@@ -70,10 +70,10 @@ type Investment struct {
 	// Total Workdays Elapsed
 	TotalWorkdaysElapsed *int64 `json:"TotalWorkdaysElapsed,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewInvestment instantiates a new Investment object
@@ -1054,7 +1054,7 @@ func (o *Investment) SetErrors(v []string) {
 }
 
 func (o Investment) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1191,3 +1191,5 @@ func (v *NullableInvestment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

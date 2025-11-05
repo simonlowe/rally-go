@@ -39,8 +39,8 @@ type VSMIncident struct {
 	// OpenedDate
 	OpenedDate *string `json:"OpenedDate,omitempty"`
 	// Priority
-	Priority        *string             `json:"Priority,omitempty"`
-	Product         *VSMProductRef      `json:"Product,omitempty"`
+	Priority *string `json:"Priority,omitempty"`
+	Product *VSMProductRef `json:"Product,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Severity
 	Severity *string `json:"Severity,omitempty"`
@@ -51,13 +51,13 @@ type VSMIncident struct {
 	// Source Url
 	SourceUrl *string `json:"SourceUrl,omitempty"`
 	// Status
-	Status       *string          `json:"Status,omitempty"`
+	Status *string `json:"Status,omitempty"`
 	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewVSMIncident instantiates a new VSMIncident object
@@ -782,7 +782,7 @@ func (o *VSMIncident) SetErrors(v []string) {
 }
 
 func (o VSMIncident) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -895,3 +895,5 @@ func (v *NullableVSMIncident) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

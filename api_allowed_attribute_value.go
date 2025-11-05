@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // AllowedAttributeValueAPIService AllowedAttributeValueAPI service
 type AllowedAttributeValueAPIService service
 
 type ApiAllowedAttributeValueCreateRequest struct {
-	ctx                           context.Context
-	ApiService                    *AllowedAttributeValueAPIService
+	ctx context.Context
+	ApiService *AllowedAttributeValueAPIService
 	allowedAttributeValueMutation *AllowedAttributeValueMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiAllowedAttributeValueCreateRequest) Execute() (*AllowedAttributeValue
 /*
 AllowedAttributeValueCreate AllowedAttributeValue Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiAllowedAttributeValueCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiAllowedAttributeValueCreateRequest
 */
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueCreate(ctx context.Context) ApiAllowedAttributeValueCreateRequest {
 	return ApiAllowedAttributeValueCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueCreate200Response
+//  @return AllowedAttributeValueCreate200Response
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueCreateExecute(r ApiAllowedAttributeValueCreateRequest) (*AllowedAttributeValueCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllowedAttributeValueAPIService.AllowedAttributeValueCreate")
@@ -134,9 +134,9 @@ func (a *AllowedAttributeValueAPIService) AllowedAttributeValueCreateExecute(r A
 }
 
 type ApiAllowedAttributeValueDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AllowedAttributeValueAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiAllowedAttributeValueDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiAllowedAttributeValueDeleteRequest) Execute() (*AllowedAttributeValue
 /*
 AllowedAttributeValueDelete AllowedAttributeValue Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAllowedAttributeValueDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAllowedAttributeValueDeleteRequest
 */
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueDelete(ctx context.Context, objectId string) ApiAllowedAttributeValueDeleteRequest {
 	return ApiAllowedAttributeValueDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueDeleteExecute(r ApiAllowedAttributeValueDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllowedAttributeValueAPIService.AllowedAttributeValueDelete")
@@ -236,13 +235,14 @@ func (a *AllowedAttributeValueAPIService) AllowedAttributeValueDeleteExecute(r A
 }
 
 type ApiAllowedAttributeValueReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *AllowedAttributeValueAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiAllowedAttributeValueReadRequest) Compact(compact bool) ApiAllowedAttributeValueReadRequest {
 	r.compact = &compact
 	return r
@@ -261,27 +261,26 @@ func (r ApiAllowedAttributeValueReadRequest) Execute() (*AllowedAttributeValueRe
 /*
 AllowedAttributeValueRead AllowedAttributeValue Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAllowedAttributeValueReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAllowedAttributeValueReadRequest
 */
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueRead(ctx context.Context, objectId string) ApiAllowedAttributeValueReadRequest {
 	return ApiAllowedAttributeValueReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueRead200Response
+//  @return AllowedAttributeValueRead200Response
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueReadExecute(r ApiAllowedAttributeValueReadRequest) (*AllowedAttributeValueRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllowedAttributeValueAPIService.AllowedAttributeValueRead")
@@ -299,8 +298,9 @@ func (a *AllowedAttributeValueAPIService) AllowedAttributeValueReadExecute(r Api
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -360,9 +360,9 @@ func (a *AllowedAttributeValueAPIService) AllowedAttributeValueReadExecute(r Api
 }
 
 type ApiAllowedAttributeValueUpdateRequest struct {
-	ctx                           context.Context
-	ApiService                    *AllowedAttributeValueAPIService
-	objectId                      string
+	ctx context.Context
+	ApiService *AllowedAttributeValueAPIService
+	objectId string
 	allowedAttributeValueMutation *AllowedAttributeValueMutation
 }
 
@@ -379,27 +379,26 @@ func (r ApiAllowedAttributeValueUpdateRequest) Execute() (*AllowedAttributeValue
 /*
 AllowedAttributeValueUpdate AllowedAttributeValue Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiAllowedAttributeValueUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiAllowedAttributeValueUpdateRequest
 */
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueUpdate(ctx context.Context, objectId string) ApiAllowedAttributeValueUpdateRequest {
 	return ApiAllowedAttributeValueUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueRead200Response
+//  @return AllowedAttributeValueRead200Response
 func (a *AllowedAttributeValueAPIService) AllowedAttributeValueUpdateExecute(r ApiAllowedAttributeValueUpdateRequest) (*AllowedAttributeValueRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllowedAttributeValueAPIService.AllowedAttributeValueUpdate")

@@ -21,13 +21,13 @@ var _ MappedNullable = &TimeEntryItemMutationTimeEntryItem{}
 // TimeEntryItemMutationTimeEntryItem TimeEntryItem
 type TimeEntryItemMutationTimeEntryItem struct {
 	Project *ProjectRef `json:"Project,omitempty"`
-	Task    *TaskRef    `json:"Task,omitempty"`
+	Task *TaskRef `json:"Task,omitempty"`
 	// Week Start Date
-	WeekStartDate *string       `json:"WeekStartDate,omitempty"`
-	WorkProduct   *ObjectRef    `json:"WorkProduct,omitempty"`
-	Workspace     *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings      []string      `json:"Warnings,omitempty"`
-	Errors        []string      `json:"Errors,omitempty"`
+	WeekStartDate *string `json:"WeekStartDate,omitempty"`
+	WorkProduct *ObjectRef `json:"WorkProduct,omitempty"`
+	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTimeEntryItemMutationTimeEntryItem instantiates a new TimeEntryItemMutationTimeEntryItem object
@@ -272,7 +272,7 @@ func (o *TimeEntryItemMutationTimeEntryItem) SetErrors(v []string) {
 }
 
 func (o TimeEntryItemMutationTimeEntryItem) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -340,3 +340,5 @@ func (v *NullableTimeEntryItemMutationTimeEntryItem) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

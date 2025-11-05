@@ -20,12 +20,12 @@ var _ MappedNullable = &TypeDefinitionQuery200ResponseQueryResult{}
 
 // TypeDefinitionQuery200ResponseQueryResult struct for TypeDefinitionQuery200ResponseQueryResult
 type TypeDefinitionQuery200ResponseQueryResult struct {
-	StartIndex       *int64           `json:"StartIndex,omitempty"`
-	PageSize         *int64           `json:"PageSize,omitempty"`
-	TotalResultCount *int64           `json:"TotalResultCount,omitempty"`
-	Results          []TypeDefinition `json:"Results,omitempty"`
-	Warnings         []string         `json:"Warnings,omitempty"`
-	Errors           []string         `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []TypeDefinition `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewTypeDefinitionQuery200ResponseQueryResult instantiates a new TypeDefinitionQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *TypeDefinitionQuery200ResponseQueryResult) SetErrors(v []string) {
 }
 
 func (o TypeDefinitionQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableTypeDefinitionQuery200ResponseQueryResult) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

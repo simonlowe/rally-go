@@ -22,9 +22,9 @@ var _ MappedNullable = &Collection{}
 type Collection struct {
 	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
 	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
-	Ref           *string `json:"_ref,omitempty"`
-	Type          *string `json:"_type,omitempty"`
-	Count         *int64  `json:"Count,omitempty"`
+	Ref *string `json:"_ref,omitempty"`
+	Type *string `json:"_type,omitempty"`
+	Count *int64 `json:"Count,omitempty"`
 }
 
 // NewCollection instantiates a new Collection object
@@ -205,7 +205,7 @@ func (o *Collection) SetCount(v int64) {
 }
 
 func (o Collection) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableCollection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

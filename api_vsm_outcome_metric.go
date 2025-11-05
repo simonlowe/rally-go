@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // VSMOutcomeMetricAPIService VSMOutcomeMetricAPI service
 type VSMOutcomeMetricAPIService service
 
 type ApiVSMOutcomeMetricCreateRequest struct {
-	ctx                      context.Context
-	ApiService               *VSMOutcomeMetricAPIService
+	ctx context.Context
+	ApiService *VSMOutcomeMetricAPIService
 	vSMOutcomeMetricMutation *VSMOutcomeMetricMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiVSMOutcomeMetricCreateRequest) Execute() (*VSMOutcomeMetricCreate200R
 /*
 VSMOutcomeMetricCreate VSMOutcomeMetric Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMOutcomeMetricCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMOutcomeMetricCreateRequest
 */
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricCreate(ctx context.Context) ApiVSMOutcomeMetricCreateRequest {
 	return ApiVSMOutcomeMetricCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMOutcomeMetricCreate200Response
+//  @return VSMOutcomeMetricCreate200Response
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricCreateExecute(r ApiVSMOutcomeMetricCreateRequest) (*VSMOutcomeMetricCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMOutcomeMetricCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMOutcomeMetricCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMOutcomeMetricAPIService.VSMOutcomeMetricCreate")
@@ -134,9 +134,9 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricCreateExecute(r ApiVSMOutco
 }
 
 type ApiVSMOutcomeMetricDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMOutcomeMetricAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiVSMOutcomeMetricDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiVSMOutcomeMetricDeleteRequest) Execute() (*AllowedAttributeValueDelet
 /*
 VSMOutcomeMetricDelete VSMOutcomeMetric Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMOutcomeMetricDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMOutcomeMetricDeleteRequest
 */
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricDelete(ctx context.Context, objectId string) ApiVSMOutcomeMetricDeleteRequest {
 	return ApiVSMOutcomeMetricDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricDeleteExecute(r ApiVSMOutcomeMetricDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMOutcomeMetricAPIService.VSMOutcomeMetricDelete")
@@ -236,18 +235,18 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricDeleteExecute(r ApiVSMOutco
 }
 
 type ApiVSMOutcomeMetricQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMOutcomeMetricAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiVSMOutcomeMetricQueryRequest) Fetch(fetch string) ApiVSMOutcomeMetricQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiVSMOutcomeMetricQueryRequest) Workspace(workspace string) ApiVSMOutco
 	return r
 }
 
+// 
 func (r ApiVSMOutcomeMetricQueryRequest) Compact(compact bool) ApiVSMOutcomeMetricQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiVSMOutcomeMetricQueryRequest) Execute() (*VSMOutcomeMetricQuery200Res
 /*
 VSMOutcomeMetricQuery VSMOutcomeMetric Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiVSMOutcomeMetricQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiVSMOutcomeMetricQueryRequest
 */
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricQuery(ctx context.Context) ApiVSMOutcomeMetricQueryRequest {
 	return ApiVSMOutcomeMetricQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMOutcomeMetricQuery200Response
+//  @return VSMOutcomeMetricQuery200Response
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricQueryExecute(r ApiVSMOutcomeMetricQueryRequest) (*VSMOutcomeMetricQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMOutcomeMetricQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMOutcomeMetricQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMOutcomeMetricAPIService.VSMOutcomeMetricQuery")
@@ -348,8 +347,9 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricQueryExecute(r ApiVSMOutcom
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricQueryExecute(r ApiVSMOutcom
 }
 
 type ApiVSMOutcomeMetricReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *VSMOutcomeMetricAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiVSMOutcomeMetricReadRequest) Compact(compact bool) ApiVSMOutcomeMetricReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiVSMOutcomeMetricReadRequest) Execute() (*VSMOutcomeMetricRead200Respo
 /*
 VSMOutcomeMetricRead VSMOutcomeMetric Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMOutcomeMetricReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMOutcomeMetricReadRequest
 */
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricRead(ctx context.Context, objectId string) ApiVSMOutcomeMetricReadRequest {
 	return ApiVSMOutcomeMetricReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMOutcomeMetricRead200Response
+//  @return VSMOutcomeMetricRead200Response
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricReadExecute(r ApiVSMOutcomeMetricReadRequest) (*VSMOutcomeMetricRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMOutcomeMetricRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMOutcomeMetricRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMOutcomeMetricAPIService.VSMOutcomeMetricRead")
@@ -469,8 +469,9 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricReadExecute(r ApiVSMOutcome
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricReadExecute(r ApiVSMOutcome
 }
 
 type ApiVSMOutcomeMetricUpdateRequest struct {
-	ctx                      context.Context
-	ApiService               *VSMOutcomeMetricAPIService
-	objectId                 string
+	ctx context.Context
+	ApiService *VSMOutcomeMetricAPIService
+	objectId string
 	vSMOutcomeMetricMutation *VSMOutcomeMetricMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiVSMOutcomeMetricUpdateRequest) Execute() (*VSMOutcomeMetricRead200Res
 /*
 VSMOutcomeMetricUpdate VSMOutcomeMetric Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiVSMOutcomeMetricUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiVSMOutcomeMetricUpdateRequest
 */
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricUpdate(ctx context.Context, objectId string) ApiVSMOutcomeMetricUpdateRequest {
 	return ApiVSMOutcomeMetricUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VSMOutcomeMetricRead200Response
+//  @return VSMOutcomeMetricRead200Response
 func (a *VSMOutcomeMetricAPIService) VSMOutcomeMetricUpdateExecute(r ApiVSMOutcomeMetricUpdateRequest) (*VSMOutcomeMetricRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VSMOutcomeMetricRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VSMOutcomeMetricRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VSMOutcomeMetricAPIService.VSMOutcomeMetricUpdate")

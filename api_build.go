@@ -20,12 +20,13 @@ import (
 	"strings"
 )
 
+
 // BuildAPIService BuildAPI service
 type BuildAPIService service
 
 type ApiBuildCreateRequest struct {
-	ctx           context.Context
-	ApiService    *BuildAPIService
+	ctx context.Context
+	ApiService *BuildAPIService
 	buildMutation *BuildMutation
 }
 
@@ -42,25 +43,24 @@ func (r ApiBuildCreateRequest) Execute() (*BuildCreate200Response, *http.Respons
 /*
 BuildCreate Build Create
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBuildCreateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBuildCreateRequest
 */
 func (a *BuildAPIService) BuildCreate(ctx context.Context) ApiBuildCreateRequest {
 	return ApiBuildCreateRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildCreate200Response
+//  @return BuildCreate200Response
 func (a *BuildAPIService) BuildCreateExecute(r ApiBuildCreateRequest) (*BuildCreate200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildCreate200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildCreate200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.BuildCreate")
@@ -134,9 +134,9 @@ func (a *BuildAPIService) BuildCreateExecute(r ApiBuildCreateRequest) (*BuildCre
 }
 
 type ApiBuildDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildAPIService
-	objectId   string
+	objectId string
 }
 
 func (r ApiBuildDeleteRequest) Execute() (*AllowedAttributeValueDelete200Response, *http.Response, error) {
@@ -146,27 +146,26 @@ func (r ApiBuildDeleteRequest) Execute() (*AllowedAttributeValueDelete200Respons
 /*
 BuildDelete Build Delete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildDeleteRequest
 */
 func (a *BuildAPIService) BuildDelete(ctx context.Context, objectId string) ApiBuildDeleteRequest {
 	return ApiBuildDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return AllowedAttributeValueDelete200Response
+//  @return AllowedAttributeValueDelete200Response
 func (a *BuildAPIService) BuildDeleteExecute(r ApiBuildDeleteRequest) (*AllowedAttributeValueDelete200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *AllowedAttributeValueDelete200Response
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AllowedAttributeValueDelete200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.BuildDelete")
@@ -236,18 +235,18 @@ func (a *BuildAPIService) BuildDeleteExecute(r ApiBuildDeleteRequest) (*AllowedA
 }
 
 type ApiBuildQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiBuildQueryRequest) Fetch(fetch string) ApiBuildQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -283,6 +282,7 @@ func (r ApiBuildQueryRequest) Workspace(workspace string) ApiBuildQueryRequest {
 	return r
 }
 
+// 
 func (r ApiBuildQueryRequest) Compact(compact bool) ApiBuildQueryRequest {
 	r.compact = &compact
 	return r
@@ -295,25 +295,24 @@ func (r ApiBuildQueryRequest) Execute() (*BuildQuery200Response, *http.Response,
 /*
 BuildQuery Build Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiBuildQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBuildQueryRequest
 */
 func (a *BuildAPIService) BuildQuery(ctx context.Context) ApiBuildQueryRequest {
 	return ApiBuildQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildQuery200Response
+//  @return BuildQuery200Response
 func (a *BuildAPIService) BuildQueryExecute(r ApiBuildQueryRequest) (*BuildQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.BuildQuery")
@@ -348,8 +347,9 @@ func (a *BuildAPIService) BuildQueryExecute(r ApiBuildQueryRequest) (*BuildQuery
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -406,13 +406,14 @@ func (a *BuildAPIService) BuildQueryExecute(r ApiBuildQueryRequest) (*BuildQuery
 }
 
 type ApiBuildReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *BuildAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiBuildReadRequest) Compact(compact bool) ApiBuildReadRequest {
 	r.compact = &compact
 	return r
@@ -431,27 +432,26 @@ func (r ApiBuildReadRequest) Execute() (*BuildRead200Response, *http.Response, e
 /*
 BuildRead Build Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildReadRequest
 */
 func (a *BuildAPIService) BuildRead(ctx context.Context, objectId string) ApiBuildReadRequest {
 	return ApiBuildReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildRead200Response
+//  @return BuildRead200Response
 func (a *BuildAPIService) BuildReadExecute(r ApiBuildReadRequest) (*BuildRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.BuildRead")
@@ -469,8 +469,9 @@ func (a *BuildAPIService) BuildReadExecute(r ApiBuildReadRequest) (*BuildRead200
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -530,9 +531,9 @@ func (a *BuildAPIService) BuildReadExecute(r ApiBuildReadRequest) (*BuildRead200
 }
 
 type ApiBuildUpdateRequest struct {
-	ctx           context.Context
-	ApiService    *BuildAPIService
-	objectId      string
+	ctx context.Context
+	ApiService *BuildAPIService
+	objectId string
 	buildMutation *BuildMutation
 }
 
@@ -549,27 +550,26 @@ func (r ApiBuildUpdateRequest) Execute() (*BuildRead200Response, *http.Response,
 /*
 BuildUpdate Build Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiBuildUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiBuildUpdateRequest
 */
 func (a *BuildAPIService) BuildUpdate(ctx context.Context, objectId string) ApiBuildUpdateRequest {
 	return ApiBuildUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BuildRead200Response
+//  @return BuildRead200Response
 func (a *BuildAPIService) BuildUpdateExecute(r ApiBuildUpdateRequest) (*BuildRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BuildRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuildRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.BuildUpdate")

@@ -37,24 +37,24 @@ type BusinessInitiative struct {
 	// Actual End Date
 	ActualEndDate *string `json:"ActualEndDate,omitempty"`
 	// Actual Start Date
-	ActualStartDate *string     `json:"ActualStartDate,omitempty"`
-	Ancestors       *Collection `json:"Ancestors,omitempty"`
+	ActualStartDate *string `json:"ActualStartDate,omitempty"`
+	Ancestors *Collection `json:"Ancestors,omitempty"`
 	// Archived
-	Archived    *bool       `json:"Archived,omitempty"`
+	Archived *bool `json:"Archived,omitempty"`
 	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Blocker       *BlockerRef `json:"Blocker,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Blocker *BlockerRef `json:"Blocker,omitempty"`
 	CapacityPlans *Collection `json:"CapacityPlans,omitempty"`
 	// Capital Approval
-	CapitalApproval *string     `json:"CapitalApproval,omitempty"`
-	Changesets      *Collection `json:"Changesets,omitempty"`
-	Children        *Collection `json:"Children,omitempty"`
-	Collaborators   *Collection `json:"Collaborators,omitempty"`
-	Connections     *Collection `json:"Connections,omitempty"`
-	CreatedBy       *UserRef    `json:"CreatedBy,omitempty"`
+	CapitalApproval *string `json:"CapitalApproval,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Children *Collection `json:"Children,omitempty"`
+	Collaborators *Collection `json:"Collaborators,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Defect Count Rollup
@@ -64,8 +64,8 @@ type BusinessInitiative struct {
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Direct Children Count
-	DirectChildrenCount *int64      `json:"DirectChildrenCount,omitempty"`
-	Discussion          *Collection `json:"Discussion,omitempty"`
+	DirectChildrenCount *int64 `json:"DirectChildrenCount,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
@@ -79,8 +79,8 @@ type BusinessInitiative struct {
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// Investment Category
-	InvestmentCategory *string     `json:"InvestmentCategory,omitempty"`
-	Investments        *Collection `json:"Investments,omitempty"`
+	InvestmentCategory *string `json:"InvestmentCategory,omitempty"`
+	Investments *Collection `json:"Investments,omitempty"`
 	// Job Size
 	JobSize *int64 `json:"JobSize,omitempty"`
 	// Last Rollup Date
@@ -92,9 +92,9 @@ type BusinessInitiative struct {
 	// Leaf Story Count
 	LeafStoryCount *int64 `json:"LeafStoryCount,omitempty"`
 	// Leaf Story Plan Estimate Total
-	LeafStoryPlanEstimateTotal *float32    `json:"LeafStoryPlanEstimateTotal,omitempty"`
-	Metrics                    *Collection `json:"Metrics,omitempty"`
-	Milestones                 *Collection `json:"Milestones,omitempty"`
+	LeafStoryPlanEstimateTotal *float32 `json:"LeafStoryPlanEstimateTotal,omitempty"`
+	Metrics *Collection `json:"Metrics,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -102,9 +102,9 @@ type BusinessInitiative struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string     `json:"ObjectUUID,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
 	Objectives *Collection `json:"Objectives,omitempty"`
-	Owner      *UserRef    `json:"Owner,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Percent Done By Defect Count Rollup
 	PercentDoneByDefectCountRollup *float32 `json:"PercentDoneByDefectCountRollup,omitempty"`
 	// Percent Done By Defect Estimate Rollup
@@ -120,18 +120,18 @@ type BusinessInitiative struct {
 	// Planned End Date
 	PlannedEndDate *string `json:"PlannedEndDate,omitempty"`
 	// Planned Start Date
-	PlannedStartDate  *string            `json:"PlannedStartDate,omitempty"`
+	PlannedStartDate *string `json:"PlannedStartDate,omitempty"`
 	PortfolioItemType *TypeDefinitionRef `json:"PortfolioItemType,omitempty"`
 	// Portfolio Item Type Name
-	PortfolioItemTypeName *string                 `json:"PortfolioItemTypeName,omitempty"`
-	Predecessors          *Collection             `json:"Predecessors,omitempty"`
-	PreliminaryEstimate   *PreliminaryEstimateRef `json:"PreliminaryEstimate,omitempty"`
+	PortfolioItemTypeName *string `json:"PortfolioItemTypeName,omitempty"`
+	Predecessors *Collection `json:"Predecessors,omitempty"`
+	PreliminaryEstimate *PreliminaryEstimateRef `json:"PreliminaryEstimate,omitempty"`
 	// Preliminary Estimate Count Value
 	PreliminaryEstimateCountValue *int64 `json:"PreliminaryEstimateCountValue,omitempty"`
 	// Preliminary Estimate Value
-	PreliminaryEstimateValue *int64      `json:"PreliminaryEstimateValue,omitempty"`
-	Products                 *Collection `json:"Products,omitempty"`
-	Project                  *ProjectRef `json:"Project,omitempty"`
+	PreliminaryEstimateValue *int64 `json:"PreliminaryEstimateValue,omitempty"`
+	Products *Collection `json:"Products,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// RR/OE Value
 	RROEValue *int64 `json:"RROEValue,omitempty"`
 	// Ready
@@ -143,17 +143,17 @@ type BusinessInitiative struct {
 	// Refined Estimate Count
 	RefinedEstimateCount *int64 `json:"RefinedEstimateCount,omitempty"`
 	// Release Value
-	ReleaseValue    *string             `json:"ReleaseValue,omitempty"`
+	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
 	// Risk Score
-	RiskScore *int64      `json:"RiskScore,omitempty"`
-	Risks     *Collection `json:"Risks,omitempty"`
-	State     *StateRef   `json:"State,omitempty"`
+	RiskScore *int64 `json:"RiskScore,omitempty"`
+	Risks *Collection `json:"Risks,omitempty"`
+	State *StateRef `json:"State,omitempty"`
 	// State Changed Date
-	StateChangedDate *string          `json:"StateChangedDate,omitempty"`
-	Subscription     *SubscriptionRef `json:"Subscription,omitempty"`
-	Successors       *Collection      `json:"Successors,omitempty"`
-	Tags             *Collection      `json:"Tags,omitempty"`
+	StateChangedDate *string `json:"StateChangedDate,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Successors *Collection `json:"Successors,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Time Criticality
 	TimeCriticality *int64 `json:"TimeCriticality,omitempty"`
 	// Total Count Rollup
@@ -173,18 +173,18 @@ type BusinessInitiative struct {
 	// VersionId
 	VersionId *string `json:"VersionId,omitempty"`
 	// WSJF Score
-	WSJFScore *float32      `json:"WSJFScore,omitempty"`
+	WSJFScore *float32 `json:"WSJFScore,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// Acceptance Criteria
-	CAcceptanceCriteria *string     `json:"c_AcceptanceCriteria,omitempty"`
+	CAcceptanceCriteria *string `json:"c_AcceptanceCriteria,omitempty"`
 	CAdditionalWorkload *Collection `json:"c_AdditionalWorkload,omitempty"`
 	// Agile Program
 	CAgileProgram *string `json:"c_AgileProgram,omitempty"`
 	// Anticipated Child Count
 	CAnticipatedChildCount *int64 `json:"c_AnticipatedChildCount,omitempty"`
 	// Application Area
-	CApplicationArea *string  `json:"c_ApplicationArea,omitempty"`
-	CArchitect       *UserRef `json:"c_Architect,omitempty"`
+	CApplicationArea *string `json:"c_ApplicationArea,omitempty"`
+	CArchitect *UserRef `json:"c_Architect,omitempty"`
 	// Architecture Constraints
 	CArchitectureConstraints *string `json:"c_ArchitectureConstraints,omitempty"`
 	// Archive Date
@@ -210,7 +210,7 @@ type BusinessInitiative struct {
 	// CAI Target Cost ($)
 	CCAITargetCost *int64 `json:"c_CAITargetCost,omitempty"`
 	// CI Kata
-	CCIKata     *string     `json:"c_CIKata,omitempty"`
+	CCIKata *string `json:"c_CIKata,omitempty"`
 	CCMSProduct *Collection `json:"c_CMSProduct,omitempty"`
 	// CRS Product
 	CCRSProduct *string `json:"c_CRSProduct,omitempty"`
@@ -235,8 +235,8 @@ type BusinessInitiative struct {
 	// Dependency Status
 	CDependencyStatus *string `json:"c_DependencyStatus,omitempty"`
 	// EP Strategic Initiative 2023
-	CEPStrategicInitiative2023 *string     `json:"c_EPStrategicInitiative2023,omitempty"`
-	CETServiceCatalog          *Collection `json:"c_ETServiceCatalog,omitempty"`
+	CEPStrategicInitiative2023 *string `json:"c_EPStrategicInitiative2023,omitempty"`
+	CETServiceCatalog *Collection `json:"c_ETServiceCatalog,omitempty"`
 	// ET Service Catalog Phase
 	CETServiceCatalogPhase *string `json:"c_ETServiceCatalogPhase,omitempty"`
 	// Engineering Constraints
@@ -264,7 +264,7 @@ type BusinessInitiative struct {
 	// Exclude from Roadmap
 	CExcludefromRoadmap *bool `json:"c_ExcludefromRoadmap,omitempty"`
 	// Financials
-	CFinancials                      *string     `json:"c_Financials,omitempty"`
+	CFinancials *string `json:"c_Financials,omitempty"`
 	CGTMProductSvcLineInvestmentOnly *Collection `json:"c_GTMProductSvcLineInvestmentOnly,omitempty"`
 	// Integration Mappings
 	CIntegrationMappings *string `json:"c_IntegrationMappings,omitempty"`
@@ -277,10 +277,10 @@ type BusinessInitiative struct {
 	// Is this Feature/Epic connected to SOW?
 	CIsthisFeatureEpicconnectedtoSOW *string `json:"c_IsthisFeatureEpicconnectedtoSOW,omitempty"`
 	// Key Metrics and Performance Indicator(s)
-	CKeyMetricsandPerformanceIndicators *string     `json:"c_KeyMetricsandPerformanceIndicators,omitempty"`
-	CL1Capability                       *Collection `json:"c_L1Capability,omitempty"`
-	CL2Capability                       *Collection `json:"c_L2Capability,omitempty"`
-	CL3Capability                       *Collection `json:"c_L3Capability,omitempty"`
+	CKeyMetricsandPerformanceIndicators *string `json:"c_KeyMetricsandPerformanceIndicators,omitempty"`
+	CL1Capability *Collection `json:"c_L1Capability,omitempty"`
+	CL2Capability *Collection `json:"c_L2Capability,omitempty"`
+	CL3Capability *Collection `json:"c_L3Capability,omitempty"`
 	// Launch Toggle Name
 	CLaunchToggleName *string `json:"c_LaunchToggleName,omitempty"`
 	// Link to Discovery Artifacts
@@ -312,8 +312,8 @@ type BusinessInitiative struct {
 	// Portfolio Architecture Review
 	CPortfolioArchitectureReview *string `json:"c_PortfolioArchitectureReview,omitempty"`
 	// Preliminary Budget
-	CPreliminaryBudget *string     `json:"c_PreliminaryBudget,omitempty"`
-	CPrimaryWorkload   *Collection `json:"c_PrimaryWorkload,omitempty"`
+	CPreliminaryBudget *string `json:"c_PreliminaryBudget,omitempty"`
+	CPrimaryWorkload *Collection `json:"c_PrimaryWorkload,omitempty"`
 	// Priority Categorization
 	CPriorityCategorization *string `json:"c_PriorityCategorization,omitempty"`
 	// Problem Discovery End Date
@@ -335,8 +335,8 @@ type BusinessInitiative struct {
 	// Progress/Action Plan
 	CProgressActionPlan *string `json:"c_ProgressActionPlan,omitempty"`
 	// Quality Score
-	CQualityScore *string     `json:"c_QualityScore,omitempty"`
-	CRTSProduct   *Collection `json:"c_RTSProduct,omitempty"`
+	CQualityScore *string `json:"c_QualityScore,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Recommendation for Enterprise Planning
 	CRecommendationforEnterprisePlanning *string `json:"c_RecommendationforEnterprisePlanning,omitempty"`
 	// Release Date
@@ -388,9 +388,9 @@ type BusinessInitiative struct {
 	// Workload CI ID
 	CWorkloadCIID *string `json:"c_WorkloadCIID,omitempty"`
 	// old_Release Notes
-	COldReleaseNotes *bool    `json:"c_oldReleaseNotes,omitempty"`
-	Warnings         []string `json:"Warnings,omitempty"`
-	Errors           []string `json:"Errors,omitempty"`
+	COldReleaseNotes *bool `json:"c_oldReleaseNotes,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewBusinessInitiative instantiates a new BusinessInitiative object
@@ -6975,7 +6975,7 @@ func (o *BusinessInitiative) SetErrors(v []string) {
 }
 
 func (o BusinessInitiative) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -7637,3 +7637,5 @@ func (v *NullableBusinessInitiative) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

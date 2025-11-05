@@ -23,49 +23,49 @@ type HierarchicalRequirement struct {
 	// AI Assisted
 	AIAssisted *bool `json:"AIAssisted,omitempty"`
 	// Accepted Date
-	AcceptedDate *string     `json:"AcceptedDate,omitempty"`
-	Ancestors    *Collection `json:"Ancestors,omitempty"`
-	Attachments  *Collection `json:"Attachments,omitempty"`
+	AcceptedDate *string `json:"AcceptedDate,omitempty"`
+	Ancestors *Collection `json:"Ancestors,omitempty"`
+	Attachments *Collection `json:"Attachments,omitempty"`
 	// Blocked
 	Blocked *bool `json:"Blocked,omitempty"`
 	// Blocked Reason
-	BlockedReason *string     `json:"BlockedReason,omitempty"`
-	Blocker       *BlockerRef `json:"Blocker,omitempty"`
-	Changesets    *Collection `json:"Changesets,omitempty"`
-	Children      *Collection `json:"Children,omitempty"`
-	Connections   *Collection `json:"Connections,omitempty"`
-	CreatedBy     *UserRef    `json:"CreatedBy,omitempty"`
+	BlockedReason *string `json:"BlockedReason,omitempty"`
+	Blocker *BlockerRef `json:"Blocker,omitempty"`
+	Changesets *Collection `json:"Changesets,omitempty"`
+	Children *Collection `json:"Children,omitempty"`
+	Connections *Collection `json:"Connections,omitempty"`
+	CreatedBy *UserRef `json:"CreatedBy,omitempty"`
 	// Creation Date
 	CreationDate *string `json:"CreationDate,omitempty"`
 	// Defect Status
-	DefectStatus *string     `json:"DefectStatus,omitempty"`
-	Defects      *Collection `json:"Defects,omitempty"`
+	DefectStatus *string `json:"DefectStatus,omitempty"`
+	Defects *Collection `json:"Defects,omitempty"`
 	// Description
 	Description *string `json:"Description,omitempty"`
 	// Direct Children Count
 	DirectChildrenCount *int64 `json:"DirectChildrenCount,omitempty"`
 	// DirectPassingTestCaseCount
-	DirectPassingTestCaseCount *int64      `json:"DirectPassingTestCaseCount,omitempty"`
-	Discussion                 *Collection `json:"Discussion,omitempty"`
+	DirectPassingTestCaseCount *int64 `json:"DirectPassingTestCaseCount,omitempty"`
+	Discussion *Collection `json:"Discussion,omitempty"`
 	// Display Color
 	DisplayColor *string `json:"DisplayColor,omitempty"`
 	// Drag And Drop Rank
 	DragAndDropRank *string `json:"DragAndDropRank,omitempty"`
 	// Expedite
-	Expedite *bool       `json:"Expedite,omitempty"`
-	Feature  *FeatureRef `json:"Feature,omitempty"`
+	Expedite *bool `json:"Expedite,omitempty"`
+	Feature *FeatureRef `json:"Feature,omitempty"`
 	// Financial Work Type
-	FinancialWorkType *string       `json:"FinancialWorkType,omitempty"`
-	FlowState         *FlowStateRef `json:"FlowState,omitempty"`
+	FinancialWorkType *string `json:"FinancialWorkType,omitempty"`
+	FlowState *FlowStateRef `json:"FlowState,omitempty"`
 	// Flow State Changed Date
 	FlowStateChangedDate *string `json:"FlowStateChangedDate,omitempty"`
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// HasParent
-	HasParent *bool `json:"HasParent,omitempty"`
+	//HasParent *bool `json:"HasParent,omitempty"`
 	// In Progress Date
-	InProgressDate *string       `json:"InProgressDate,omitempty"`
-	Iteration      *IterationRef `json:"Iteration,omitempty"`
+	InProgressDate *string `json:"InProgressDate,omitempty"`
+	Iteration *IterationRef `json:"Iteration,omitempty"`
 	// Iteration Value
 	IterationValue *string `json:"IterationValue,omitempty"`
 	// Last Build
@@ -75,8 +75,8 @@ type HierarchicalRequirement struct {
 	// Last Update Date
 	LastUpdateDate *string `json:"LastUpdateDate,omitempty"`
 	// Latest Discussion Age In Minutes
-	LatestDiscussionAgeInMinutes *int64      `json:"LatestDiscussionAgeInMinutes,omitempty"`
-	Milestones                   *Collection `json:"Milestones,omitempty"`
+	LatestDiscussionAgeInMinutes *int64 `json:"LatestDiscussionAgeInMinutes,omitempty"`
+	Milestones *Collection `json:"Milestones,omitempty"`
 	// Name
 	Name *string `json:"Name,omitempty"`
 	// Notes
@@ -84,34 +84,34 @@ type HierarchicalRequirement struct {
 	// Object ID
 	ObjectID *int64 `json:"ObjectID,omitempty"`
 	// ObjectUUID
-	ObjectUUID *string  `json:"ObjectUUID,omitempty"`
-	Owner      *UserRef `json:"Owner,omitempty"`
+	ObjectUUID *string `json:"ObjectUUID,omitempty"`
+	Owner *UserRef `json:"Owner,omitempty"`
 	// Package
-	Package *string                     `json:"Package,omitempty"`
-	Parent  *HierarchicalRequirementRef `json:"Parent,omitempty"`
+	Package *string `json:"Package,omitempty"`
+	Parent *HierarchicalRequirementRef `json:"Parent,omitempty"`
 	// Passing Test Case Count
 	PassingTestCaseCount *int64 `json:"PassingTestCaseCount,omitempty"`
 	// Plan Estimate
-	PlanEstimate  *float32    `json:"PlanEstimate,omitempty"`
+	PlanEstimate *float32 `json:"PlanEstimate,omitempty"`
 	PortfolioItem *FeatureRef `json:"PortfolioItem,omitempty"`
-	Predecessors  *Collection `json:"Predecessors,omitempty"`
-	Project       *ProjectRef `json:"Project,omitempty"`
+	Predecessors *Collection `json:"Predecessors,omitempty"`
+	Project *ProjectRef `json:"Project,omitempty"`
 	// Ready
 	Ready *bool `json:"Ready,omitempty"`
 	// Recycled
-	Recycled *bool       `json:"Recycled,omitempty"`
-	Release  *ReleaseRef `json:"Release,omitempty"`
+	Recycled *bool `json:"Recycled,omitempty"`
+	Release *ReleaseRef `json:"Release,omitempty"`
 	// Release Value
-	ReleaseValue    *string             `json:"ReleaseValue,omitempty"`
+	ReleaseValue *string `json:"ReleaseValue,omitempty"`
 	RevisionHistory *RevisionHistoryRef `json:"RevisionHistory,omitempty"`
-	Risks           *Collection         `json:"Risks,omitempty"`
+	Risks *Collection `json:"Risks,omitempty"`
 	// Schedule State
 	ScheduleState *string `json:"ScheduleState,omitempty"`
 	// Schedule State Prefix
-	ScheduleStatePrefix *string          `json:"ScheduleStatePrefix,omitempty"`
-	Subscription        *SubscriptionRef `json:"Subscription,omitempty"`
-	Successors          *Collection      `json:"Successors,omitempty"`
-	Tags                *Collection      `json:"Tags,omitempty"`
+	ScheduleStatePrefix *string `json:"ScheduleStatePrefix,omitempty"`
+	Subscription *SubscriptionRef `json:"Subscription,omitempty"`
+	Successors *Collection `json:"Successors,omitempty"`
+	Tags *Collection `json:"Tags,omitempty"`
 	// Task Actual Total
 	TaskActualTotal *float32 `json:"TaskActualTotal,omitempty"`
 	// Task Estimate Total
@@ -119,18 +119,18 @@ type HierarchicalRequirement struct {
 	// Task Remaining Total
 	TaskRemainingTotal *float32 `json:"TaskRemainingTotal,omitempty"`
 	// Task Status
-	TaskStatus *string     `json:"TaskStatus,omitempty"`
-	Tasks      *Collection `json:"Tasks,omitempty"`
+	TaskStatus *string `json:"TaskStatus,omitempty"`
+	Tasks *Collection `json:"Tasks,omitempty"`
 	// Test Case Count
 	TestCaseCount *int64 `json:"TestCaseCount,omitempty"`
 	// Test Case Status
-	TestCaseStatus *string     `json:"TestCaseStatus,omitempty"`
-	TestCases      *Collection `json:"TestCases,omitempty"`
+	TestCaseStatus *string `json:"TestCaseStatus,omitempty"`
+	TestCases *Collection `json:"TestCases,omitempty"`
 	// Total Direct Test Case Count
-	TotalDirectTestCaseCount *int64     `json:"TotalDirectTestCaseCount,omitempty"`
-	UnifiedParent            *ObjectRef `json:"UnifiedParent,omitempty"`
+	TotalDirectTestCaseCount *int64 `json:"TotalDirectTestCaseCount,omitempty"`
+	UnifiedParent *ObjectRef `json:"UnifiedParent,omitempty"`
 	// VersionId
-	VersionId *string       `json:"VersionId,omitempty"`
+	VersionId *string `json:"VersionId,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
 	// ALMID
 	CALMID *string `json:"c_ALMID,omitempty"`
@@ -155,8 +155,8 @@ type HierarchicalRequirement struct {
 	// Build Number
 	CBuildNumber *string `json:"c_BuildNumber,omitempty"`
 	// Business Priority
-	CBusinessPriority *string     `json:"c_BusinessPriority,omitempty"`
-	CCMSProduct       *Collection `json:"c_CMSProduct,omitempty"`
+	CBusinessPriority *string `json:"c_BusinessPriority,omitempty"`
+	CCMSProduct *Collection `json:"c_CMSProduct,omitempty"`
 	// CRS Product
 	CCRSProduct *string `json:"c_CRSProduct,omitempty"`
 	// Change Request ID
@@ -168,10 +168,10 @@ type HierarchicalRequirement struct {
 	// Client ID
 	CClientID *string `json:"c_ClientID,omitempty"`
 	// Client Outcome
-	CClientOutcome *string  `json:"c_ClientOutcome,omitempty"`
-	CCoOwner       *UserRef `json:"c_CoOwner,omitempty"`
+	CClientOutcome *string `json:"c_ClientOutcome,omitempty"`
+	CCoOwner *UserRef `json:"c_CoOwner,omitempty"`
 	// Component
-	CComponent          *string     `json:"c_Component,omitempty"`
+	CComponent *string `json:"c_Component,omitempty"`
 	CComponentDRFISSans *Collection `json:"c_ComponentDRFISSans,omitempty"`
 	// Connect to Salesforce Case
 	CConnecttoSalesforceCase *bool `json:"c_ConnecttoSalesforceCase,omitempty"`
@@ -180,8 +180,8 @@ type HierarchicalRequirement struct {
 	// Current Environment
 	CCurrentEnvironment *string `json:"c_CurrentEnvironment,omitempty"`
 	// Current SF Environment
-	CCurrentSFEnvironment *string  `json:"c_CurrentSFEnvironment,omitempty"`
-	CDEVOwner             *UserRef `json:"c_DEVOwner,omitempty"`
+	CCurrentSFEnvironment *string `json:"c_CurrentSFEnvironment,omitempty"`
+	CDEVOwner *UserRef `json:"c_DEVOwner,omitempty"`
 	// DT Product
 	CDTProduct *string `json:"c_DTProduct,omitempty"`
 	// Delivered in Build
@@ -207,16 +207,16 @@ type HierarchicalRequirement struct {
 	// Method of Service
 	CMethodofService *string `json:"c_MethodofService,omitempty"`
 	// Number of Child Cases
-	CNumberofChildCases *int64   `json:"c_NumberofChildCases,omitempty"`
-	CPVTOwner           *UserRef `json:"c_PVTOwner,omitempty"`
+	CNumberofChildCases *int64 `json:"c_NumberofChildCases,omitempty"`
+	CPVTOwner *UserRef `json:"c_PVTOwner,omitempty"`
 	// Passed QA
 	CPassedQA *bool `json:"c_PassedQA,omitempty"`
 	// Product Intake ID
 	CProductIntakeID *string `json:"c_ProductIntakeID,omitempty"`
 	// Product Readiness
-	CProductReadiness *string     `json:"c_ProductReadiness,omitempty"`
-	CQAOwner          *UserRef    `json:"c_QAOwner,omitempty"`
-	CRTSProduct       *Collection `json:"c_RTSProduct,omitempty"`
+	CProductReadiness *string `json:"c_ProductReadiness,omitempty"`
+	CQAOwner *UserRef `json:"c_QAOwner,omitempty"`
+	CRTSProduct *Collection `json:"c_RTSProduct,omitempty"`
 	// Release Availability
 	CReleaseAvailability *string `json:"c_ReleaseAvailability,omitempty"`
 	// Release Date
@@ -282,10 +282,10 @@ type HierarchicalRequirement struct {
 	// [old]_SF Case Product (DO NOT TOUCH)
 	COldSFCaseProductDONOTTOUCH *int64 `json:"c_oldSFCaseProductDONOTTOUCH,omitempty"`
 	// [retired] kanban state field
-	CRetiredkanbanstatefield *string     `json:"c_retiredkanbanstatefield,omitempty"`
-	CVAutoApplications       *Collection `json:"c_vAutoApplications,omitempty"`
-	Warnings                 []string    `json:"Warnings,omitempty"`
-	Errors                   []string    `json:"Errors,omitempty"`
+	CRetiredkanbanstatefield *string `json:"c_retiredkanbanstatefield,omitempty"`
+	CVAutoApplications *Collection `json:"c_vAutoApplications,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewHierarchicalRequirement instantiates a new HierarchicalRequirement object
@@ -1143,21 +1143,21 @@ func (o *HierarchicalRequirement) SetFormattedID(v string) {
 
 // GetHasParent returns the HasParent field value if set, zero value otherwise.
 func (o *HierarchicalRequirement) GetHasParent() bool {
-	if o == nil || IsNil(o.HasParent) {
-		var ret bool
-		return ret
+	if o == nil || IsNil(o.Parent) {
+		
+		return false
 	}
-	return o.HasParentFn()
+	return true
 }
 
 // GetHasParentOk returns a tuple with the HasParent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HierarchicalRequirement) GetHasParentOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasParent) {
-		return nil, false
-	}
-	return o.HasParent, true
-}
+//func (o *HierarchicalRequirement) GetHasParentOk() (*bool, bool) {
+//	if o == nil || IsNil(o.HasParent) {
+//		return nil, false
+//	}
+//	return o.HasParent, true
+//}
 
 // HasHasParent returns a boolean if a field has been set.
 func (o *HierarchicalRequirement) HasHasParent() bool {
@@ -1169,9 +1169,9 @@ func (o *HierarchicalRequirement) HasHasParent() bool {
 }
 
 // SetHasParent gets a reference to the given bool and assigns it to the HasParent field.
-func (o *HierarchicalRequirement) SetHasParent(v bool) {
-	// should not be settable, but provided for completeness
-}
+//func (o *HierarchicalRequirement) SetHasParent(v bool) {
+//	o.HasParent = &v
+//}
 
 // GetInProgressDate returns the InProgressDate field value if set, zero value otherwise.
 func (o *HierarchicalRequirement) GetInProgressDate() string {
@@ -1640,7 +1640,7 @@ func (o *HierarchicalRequirement) GetParentOk() (*HierarchicalRequirementRef, bo
 }
 
 // HasParent returns a boolean if a field has been set.
-func (o *HierarchicalRequirement) HasParentFn() bool {
+func (o *HierarchicalRequirement) HasParent() bool {
 	if o != nil && !IsNil(o.Parent) {
 		return true
 	}
@@ -5174,7 +5174,7 @@ func (o *HierarchicalRequirement) SetErrors(v []string) {
 }
 
 func (o HierarchicalRequirement) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -5677,3 +5677,5 @@ func (v *NullableHierarchicalRequirement) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

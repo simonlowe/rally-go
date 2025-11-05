@@ -20,12 +20,12 @@ var _ MappedNullable = &CapacityPlanAssignmentQuery200ResponseQueryResult{}
 
 // CapacityPlanAssignmentQuery200ResponseQueryResult struct for CapacityPlanAssignmentQuery200ResponseQueryResult
 type CapacityPlanAssignmentQuery200ResponseQueryResult struct {
-	StartIndex       *int64                   `json:"StartIndex,omitempty"`
-	PageSize         *int64                   `json:"PageSize,omitempty"`
-	TotalResultCount *int64                   `json:"TotalResultCount,omitempty"`
-	Results          []CapacityPlanAssignment `json:"Results,omitempty"`
-	Warnings         []string                 `json:"Warnings,omitempty"`
-	Errors           []string                 `json:"Errors,omitempty"`
+	StartIndex *int64 `json:"StartIndex,omitempty"`
+	PageSize *int64 `json:"PageSize,omitempty"`
+	TotalResultCount *int64 `json:"TotalResultCount,omitempty"`
+	Results []CapacityPlanAssignment `json:"Results,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewCapacityPlanAssignmentQuery200ResponseQueryResult instantiates a new CapacityPlanAssignmentQuery200ResponseQueryResult object
@@ -238,7 +238,7 @@ func (o *CapacityPlanAssignmentQuery200ResponseQueryResult) SetErrors(v []string
 }
 
 func (o CapacityPlanAssignmentQuery200ResponseQueryResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,3 +303,5 @@ func (v *NullableCapacityPlanAssignmentQuery200ResponseQueryResult) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

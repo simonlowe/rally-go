@@ -25,10 +25,10 @@ type ConnectAllIntegrationMutationConnectAllIntegration struct {
 	// Frequency
 	Frequency *string `json:"Frequency,omitempty"`
 	// Name
-	Name      *string       `json:"Name,omitempty"`
+	Name *string `json:"Name,omitempty"`
 	Workspace *WorkspaceRef `json:"Workspace,omitempty"`
-	Warnings  []string      `json:"Warnings,omitempty"`
-	Errors    []string      `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewConnectAllIntegrationMutationConnectAllIntegration instantiates a new ConnectAllIntegrationMutationConnectAllIntegration object
@@ -241,7 +241,7 @@ func (o *ConnectAllIntegrationMutationConnectAllIntegration) SetErrors(v []strin
 }
 
 func (o ConnectAllIntegrationMutationConnectAllIntegration) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -306,3 +306,5 @@ func (v *NullableConnectAllIntegrationMutationConnectAllIntegration) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

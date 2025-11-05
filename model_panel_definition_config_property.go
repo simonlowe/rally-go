@@ -33,9 +33,9 @@ type PanelDefinitionConfigProperty struct {
 	// readOnly
 	ReadOnly *bool `json:"readOnly,omitempty"`
 	// value
-	Value    *string  `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
 	Warnings []string `json:"Warnings,omitempty"`
-	Errors   []string `json:"Errors,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPanelDefinitionConfigProperty instantiates a new PanelDefinitionConfigProperty object
@@ -344,7 +344,7 @@ func (o *PanelDefinitionConfigProperty) SetErrors(v []string) {
 }
 
 func (o PanelDefinitionConfigProperty) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -418,3 +418,5 @@ func (v *NullablePanelDefinitionConfigProperty) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

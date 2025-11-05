@@ -20,11 +20,11 @@ var _ MappedNullable = &UserProfileRead200Response{}
 
 // UserProfileRead200Response struct for UserProfileRead200Response
 type UserProfileRead200Response struct {
-	RallyAPIMajor *string      `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor *string      `json:"_rallyAPIMinor,omitempty"`
-	UserProfile   *UserProfile `json:"UserProfile,omitempty"`
-	Warnings      []string     `json:"Warnings,omitempty"`
-	Errors        []string     `json:"Errors,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
+	UserProfile *UserProfile `json:"UserProfile,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewUserProfileRead200Response instantiates a new UserProfileRead200Response object
@@ -205,7 +205,7 @@ func (o *UserProfileRead200Response) SetErrors(v []string) {
 }
 
 func (o UserProfileRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullableUserProfileRead200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

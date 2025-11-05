@@ -20,11 +20,11 @@ var _ MappedNullable = &PublishedCapacityPlanRead200Response{}
 
 // PublishedCapacityPlanRead200Response struct for PublishedCapacityPlanRead200Response
 type PublishedCapacityPlanRead200Response struct {
-	RallyAPIMajor         *string                `json:"_rallyAPIMajor,omitempty"`
-	RallyAPIMinor         *string                `json:"_rallyAPIMinor,omitempty"`
+	RallyAPIMajor *string `json:"_rallyAPIMajor,omitempty"`
+	RallyAPIMinor *string `json:"_rallyAPIMinor,omitempty"`
 	PublishedCapacityPlan *PublishedCapacityPlan `json:"PublishedCapacityPlan,omitempty"`
-	Warnings              []string               `json:"Warnings,omitempty"`
-	Errors                []string               `json:"Errors,omitempty"`
+	Warnings []string `json:"Warnings,omitempty"`
+	Errors []string `json:"Errors,omitempty"`
 }
 
 // NewPublishedCapacityPlanRead200Response instantiates a new PublishedCapacityPlanRead200Response object
@@ -205,7 +205,7 @@ func (o *PublishedCapacityPlanRead200Response) SetErrors(v []string) {
 }
 
 func (o PublishedCapacityPlanRead200Response) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,3 +267,5 @@ func (v *NullablePublishedCapacityPlanRead200Response) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

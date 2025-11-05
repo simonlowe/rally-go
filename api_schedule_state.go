@@ -20,22 +20,23 @@ import (
 	"strings"
 )
 
+
 // ScheduleStateAPIService ScheduleStateAPI service
 type ScheduleStateAPIService service
 
 type ApiScheduleStateQueryRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ScheduleStateAPIService
-	fetch      *string
-	start      *int32
-	pagesize   *int32
-	order      *string
-	query      *string
-	workspace  *string
-	compact    *bool
+	fetch *string
+	start *int32
+	pagesize *int32
+	order *string
+	query *string
+	workspace *string
+	compact *bool
 }
 
-// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank
+// A comma separated list of the attributes to be returned on the objects being queried. Collections can be summarized by suffixing a collection attribute name with the :summary keyword. The summary can optionally be grouped by one or more attributes by enclosing a semicolon-delimited list of summary groupable fields within square brackets. Some example fetch lists for collection summaries are as follows: Defects with Tasks collection summarized: /defect?fetch&#x3D;Tasks:summary&amp;order&#x3D;Rank Defects with Tasks collection summarized, grouped by State and Owner: /defect?fetch&#x3D;Tasks:summary[State;Owner] The summary can also contain nested groups by enclosing a semicolon-delimited list of summary groupable fields combined with a + symbol. The + sign should be uri encoded as %2B when sent. Defects with Tasks collection summarized, grouped by a combination of State and Blocked: /defect?fetch&#x3D;Tasks:summary[State+Blocked]&amp;order&#x3D;Rank 
 func (r ApiScheduleStateQueryRequest) Fetch(fetch string) ApiScheduleStateQueryRequest {
 	r.fetch = &fetch
 	return r
@@ -71,6 +72,7 @@ func (r ApiScheduleStateQueryRequest) Workspace(workspace string) ApiScheduleSta
 	return r
 }
 
+// 
 func (r ApiScheduleStateQueryRequest) Compact(compact bool) ApiScheduleStateQueryRequest {
 	r.compact = &compact
 	return r
@@ -83,25 +85,24 @@ func (r ApiScheduleStateQueryRequest) Execute() (*ScheduleStateQuery200Response,
 /*
 ScheduleStateQuery ScheduleState Query
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiScheduleStateQueryRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiScheduleStateQueryRequest
 */
 func (a *ScheduleStateAPIService) ScheduleStateQuery(ctx context.Context) ApiScheduleStateQueryRequest {
 	return ApiScheduleStateQueryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ScheduleStateQuery200Response
+//  @return ScheduleStateQuery200Response
 func (a *ScheduleStateAPIService) ScheduleStateQueryExecute(r ApiScheduleStateQueryRequest) (*ScheduleStateQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ScheduleStateQuery200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ScheduleStateQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScheduleStateAPIService.ScheduleStateQuery")
@@ -136,8 +137,9 @@ func (a *ScheduleStateAPIService) ScheduleStateQueryExecute(r ApiScheduleStateQu
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -194,13 +196,14 @@ func (a *ScheduleStateAPIService) ScheduleStateQueryExecute(r ApiScheduleStateQu
 }
 
 type ApiScheduleStateReadRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ScheduleStateAPIService
-	objectId   string
-	compact    *bool
-	fetch      *string
+	objectId string
+	compact *bool
+	fetch *string
 }
 
+// 
 func (r ApiScheduleStateReadRequest) Compact(compact bool) ApiScheduleStateReadRequest {
 	r.compact = &compact
 	return r
@@ -219,27 +222,26 @@ func (r ApiScheduleStateReadRequest) Execute() (*ScheduleStateRead200Response, *
 /*
 ScheduleStateRead ScheduleState Read
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiScheduleStateReadRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiScheduleStateReadRequest
 */
 func (a *ScheduleStateAPIService) ScheduleStateRead(ctx context.Context, objectId string) ApiScheduleStateReadRequest {
 	return ApiScheduleStateReadRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ScheduleStateRead200Response
+//  @return ScheduleStateRead200Response
 func (a *ScheduleStateAPIService) ScheduleStateReadExecute(r ApiScheduleStateReadRequest) (*ScheduleStateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ScheduleStateRead200Response
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ScheduleStateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScheduleStateAPIService.ScheduleStateRead")
@@ -257,8 +259,9 @@ func (a *ScheduleStateAPIService) ScheduleStateReadExecute(r ApiScheduleStateRea
 	if r.compact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "compact", r.compact, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.compact = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "compact", defaultValue, "form", "")
+        r.compact = &defaultValue
 	}
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
@@ -318,9 +321,9 @@ func (a *ScheduleStateAPIService) ScheduleStateReadExecute(r ApiScheduleStateRea
 }
 
 type ApiScheduleStateUpdateRequest struct {
-	ctx                   context.Context
-	ApiService            *ScheduleStateAPIService
-	objectId              string
+	ctx context.Context
+	ApiService *ScheduleStateAPIService
+	objectId string
 	scheduleStateMutation *ScheduleStateMutation
 }
 
@@ -337,27 +340,26 @@ func (r ApiScheduleStateUpdateRequest) Execute() (*ScheduleStateRead200Response,
 /*
 ScheduleStateUpdate ScheduleState Update
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param objectId objectId
-	@return ApiScheduleStateUpdateRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param objectId objectId
+ @return ApiScheduleStateUpdateRequest
 */
 func (a *ScheduleStateAPIService) ScheduleStateUpdate(ctx context.Context, objectId string) ApiScheduleStateUpdateRequest {
 	return ApiScheduleStateUpdateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		objectId:   objectId,
+		ctx: ctx,
+		objectId: objectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ScheduleStateRead200Response
+//  @return ScheduleStateRead200Response
 func (a *ScheduleStateAPIService) ScheduleStateUpdateExecute(r ApiScheduleStateUpdateRequest) (*ScheduleStateRead200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ScheduleStateRead200Response
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ScheduleStateRead200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ScheduleStateAPIService.ScheduleStateUpdate")
