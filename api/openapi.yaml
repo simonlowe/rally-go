@@ -1145,7 +1145,7 @@ paths:
       summary: BuildDefinition Create
       tags:
       - BuildDefinition
-  /slm/webservice/v2.0/businessinitiative:
+  /slm/webservice/v2.0/portfolioitem/businessinitiative:
     get:
       operationId: BusinessInitiativeQuery
       parameters:
@@ -1222,7 +1222,7 @@ paths:
       summary: BusinessInitiative Query
       tags:
       - BusinessInitiative
-  /slm/webservice/v2.0/businessinitiative/{objectId}:
+  /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}:
     delete:
       operationId: BusinessInitiative Delete
       parameters:
@@ -1310,7 +1310,7 @@ paths:
       summary: BusinessInitiative Update
       tags:
       - BusinessInitiative
-  /slm/webservice/v2.0/businessinitiative/create:
+  /slm/webservice/v2.0/portfolioitem/businessinitiative/create:
     post:
       operationId: BusinessInitiativeCreate
       requestBody:
@@ -1330,7 +1330,7 @@ paths:
       summary: BusinessInitiative Create
       tags:
       - BusinessInitiative
-  /slm/webservice/v2.0/businessinitiative/{objectId}/copy:
+  /slm/webservice/v2.0/portfolioitem/businessinitiative/{objectId}/copy:
     post:
       operationId: BusinessInitiativeCopy
       parameters:
@@ -2888,7 +2888,7 @@ paths:
       summary: DefectSuite Create
       tags:
       - DefectSuite
-  /slm/webservice/v2.0/epic:
+  /slm/webservice/v2.0/portfolioitem/epic:
     get:
       operationId: EpicQuery
       parameters:
@@ -2965,7 +2965,7 @@ paths:
       summary: Epic Query
       tags:
       - Epic
-  /slm/webservice/v2.0/epic/{objectId}:
+  /slm/webservice/v2.0/portfolioitem/epic/{objectId}:
     delete:
       operationId: Epic Delete
       parameters:
@@ -3053,7 +3053,7 @@ paths:
       summary: Epic Update
       tags:
       - Epic
-  /slm/webservice/v2.0/epic/create:
+  /slm/webservice/v2.0/portfolioitem/epic/create:
     post:
       operationId: EpicCreate
       requestBody:
@@ -3073,7 +3073,7 @@ paths:
       summary: Epic Create
       tags:
       - Epic
-  /slm/webservice/v2.0/epic/{objectId}/copy:
+  /slm/webservice/v2.0/portfolioitemepic/{objectId}/copy:
     post:
       operationId: EpicCopy
       parameters:
@@ -3112,7 +3112,7 @@ paths:
       summary: Epic Copy
       tags:
       - Epic
-  /slm/webservice/v2.0/feature:
+  /slm/webservice/v2.0/portfolioitem/feature:
     get:
       operationId: FeatureQuery
       parameters:
@@ -3189,7 +3189,7 @@ paths:
       summary: Feature Query
       tags:
       - Feature
-  /slm/webservice/v2.0/feature/{objectId}:
+  /slm/webservice/v2.0/portfolioitem/feature/{objectId}:
     delete:
       operationId: Feature Delete
       parameters:
@@ -3277,7 +3277,7 @@ paths:
       summary: Feature Update
       tags:
       - Feature
-  /slm/webservice/v2.0/feature/create:
+  /slm/webservice/v2.0/portfolioitemfeature/create:
     post:
       operationId: FeatureCreate
       requestBody:
@@ -3297,7 +3297,7 @@ paths:
       summary: Feature Create
       tags:
       - Feature
-  /slm/webservice/v2.0/feature/{objectId}/copy:
+  /slm/webservice/v2.0/portfolioitem/feature/{objectId}/copy:
     post:
       operationId: FeatureCopy
       parameters:
@@ -3745,7 +3745,7 @@ paths:
       summary: HierarchicalRequirement Copy
       tags:
       - HierarchicalRequirement
-  /slm/webservice/v2.0/investment:
+  /slm/webservice/v2.0/portfolioitem/investment:
     get:
       operationId: InvestmentQuery
       parameters:
@@ -3822,7 +3822,7 @@ paths:
       summary: Investment Query
       tags:
       - Investment
-  /slm/webservice/v2.0/investment/{objectId}:
+  /slm/webservice/v2.0/portfolioitem/investment/{objectId}:
     delete:
       operationId: Investment Delete
       parameters:
@@ -3910,7 +3910,7 @@ paths:
       summary: Investment Update
       tags:
       - Investment
-  /slm/webservice/v2.0/investment/create:
+  /slm/webservice/v2.0/portfolioitem/investment/create:
     post:
       operationId: InvestmentCreate
       requestBody:
@@ -3930,7 +3930,7 @@ paths:
       summary: Investment Create
       tags:
       - Investment
-  /slm/webservice/v2.0/investment/{objectId}/copy:
+  /slm/webservice/v2.0/portfolioitem/investment/{objectId}/copy:
     post:
       operationId: InvestmentCopy
       parameters:
