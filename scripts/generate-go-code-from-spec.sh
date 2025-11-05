@@ -27,3 +27,6 @@ popd
 
 echo -e "\n.idea\ngenerator\n" >> .gitignore
 
+//replace MYPATTERN in file 
+sed -i '' 's/GIT_USER_ID/simonlowe/g' go.mod
+sed -i '' 's/GIT_REPO_ID/rally-go/g' go.mod
