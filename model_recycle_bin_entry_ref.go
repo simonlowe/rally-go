@@ -108,7 +108,7 @@ func (o *RecycleBinEntryRef) UnmarshalJSON(data []byte) (err error) {
 	varRecycleBinEntryRef := _RecycleBinEntryRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varRecycleBinEntryRef)
 
 	if err != nil {

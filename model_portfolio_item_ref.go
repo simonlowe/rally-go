@@ -108,7 +108,7 @@ func (o *PortfolioItemRef) UnmarshalJSON(data []byte) (err error) {
 	varPortfolioItemRef := _PortfolioItemRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPortfolioItemRef)
 
 	if err != nil {

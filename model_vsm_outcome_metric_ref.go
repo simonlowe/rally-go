@@ -108,7 +108,7 @@ func (o *VSMOutcomeMetricRef) UnmarshalJSON(data []byte) (err error) {
 	varVSMOutcomeMetricRef := _VSMOutcomeMetricRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varVSMOutcomeMetricRef)
 
 	if err != nil {

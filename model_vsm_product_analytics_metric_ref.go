@@ -108,7 +108,7 @@ func (o *VSMProductAnalyticsMetricRef) UnmarshalJSON(data []byte) (err error) {
 	varVSMProductAnalyticsMetricRef := _VSMProductAnalyticsMetricRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varVSMProductAnalyticsMetricRef)
 
 	if err != nil {

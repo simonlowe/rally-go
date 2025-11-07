@@ -108,7 +108,7 @@ func (o *KeyResultInterimTargetRef) UnmarshalJSON(data []byte) (err error) {
 	varKeyResultInterimTargetRef := _KeyResultInterimTargetRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varKeyResultInterimTargetRef)
 
 	if err != nil {

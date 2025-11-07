@@ -108,7 +108,7 @@ func (o *UserNotificationFilterRef) UnmarshalJSON(data []byte) (err error) {
 	varUserNotificationFilterRef := _UserNotificationFilterRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varUserNotificationFilterRef)
 
 	if err != nil {

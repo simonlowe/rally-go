@@ -108,7 +108,7 @@ func (o *ScopedAttributeDefinitionRef) UnmarshalJSON(data []byte) (err error) {
 	varScopedAttributeDefinitionRef := _ScopedAttributeDefinitionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varScopedAttributeDefinitionRef)
 
 	if err != nil {

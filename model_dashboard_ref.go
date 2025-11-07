@@ -108,7 +108,7 @@ func (o *DashboardRef) UnmarshalJSON(data []byte) (err error) {
 	varDashboardRef := _DashboardRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varDashboardRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *MilestoneRef) UnmarshalJSON(data []byte) (err error) {
 	varMilestoneRef := _MilestoneRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varMilestoneRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *ObjectiveConversationPostRef) UnmarshalJSON(data []byte) (err error) {
 	varObjectiveConversationPostRef := _ObjectiveConversationPostRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varObjectiveConversationPostRef)
 
 	if err != nil {

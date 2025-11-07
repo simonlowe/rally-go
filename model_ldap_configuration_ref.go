@@ -108,7 +108,7 @@ func (o *LDAPConfigurationRef) UnmarshalJSON(data []byte) (err error) {
 	varLDAPConfigurationRef := _LDAPConfigurationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varLDAPConfigurationRef)
 
 	if err != nil {

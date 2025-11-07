@@ -108,7 +108,7 @@ func (o *PortfolioItemPredecessorRelationshipRef) UnmarshalJSON(data []byte) (er
 	varPortfolioItemPredecessorRelationshipRef := _PortfolioItemPredecessorRelationshipRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varPortfolioItemPredecessorRelationshipRef)
 
 	if err != nil {

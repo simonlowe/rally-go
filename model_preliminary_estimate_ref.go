@@ -108,7 +108,7 @@ func (o *PreliminaryEstimateRef) UnmarshalJSON(data []byte) (err error) {
 	varPreliminaryEstimateRef := _PreliminaryEstimateRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varPreliminaryEstimateRef)
 
 	if err != nil {

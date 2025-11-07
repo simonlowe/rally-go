@@ -108,7 +108,7 @@ func (o *PortfolioItemFlowStateRef) UnmarshalJSON(data []byte) (err error) {
 	varPortfolioItemFlowStateRef := _PortfolioItemFlowStateRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPortfolioItemFlowStateRef)
 
 	if err != nil {

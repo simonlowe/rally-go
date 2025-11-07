@@ -108,7 +108,7 @@ func (o *BusinessInitiativeRef) UnmarshalJSON(data []byte) (err error) {
 	varBusinessInitiativeRef := _BusinessInitiativeRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varBusinessInitiativeRef)
 
 	if err != nil {

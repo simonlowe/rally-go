@@ -108,7 +108,7 @@ func (o *WorkRuleRef) UnmarshalJSON(data []byte) (err error) {
 	varWorkRuleRef := _WorkRuleRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWorkRuleRef)
 
 	if err != nil {

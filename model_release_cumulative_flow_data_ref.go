@@ -108,7 +108,7 @@ func (o *ReleaseCumulativeFlowDataRef) UnmarshalJSON(data []byte) (err error) {
 	varReleaseCumulativeFlowDataRef := _ReleaseCumulativeFlowDataRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varReleaseCumulativeFlowDataRef)
 
 	if err != nil {

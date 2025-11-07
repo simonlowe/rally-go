@@ -108,7 +108,7 @@ func (o *CapacityPlanProjectRef) UnmarshalJSON(data []byte) (err error) {
 	varCapacityPlanProjectRef := _CapacityPlanProjectRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varCapacityPlanProjectRef)
 
 	if err != nil {

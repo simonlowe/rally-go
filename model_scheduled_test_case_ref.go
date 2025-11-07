@@ -108,7 +108,7 @@ func (o *ScheduledTestCaseRef) UnmarshalJSON(data []byte) (err error) {
 	varScheduledTestCaseRef := _ScheduledTestCaseRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varScheduledTestCaseRef)
 
 	if err != nil {

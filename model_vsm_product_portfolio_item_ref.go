@@ -108,7 +108,7 @@ func (o *VSMProductPortfolioItemRef) UnmarshalJSON(data []byte) (err error) {
 	varVSMProductPortfolioItemRef := _VSMProductPortfolioItemRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varVSMProductPortfolioItemRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *ConnectAllIntegrationRef) UnmarshalJSON(data []byte) (err error) {
 	varConnectAllIntegrationRef := _ConnectAllIntegrationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varConnectAllIntegrationRef)
 
 	if err != nil {

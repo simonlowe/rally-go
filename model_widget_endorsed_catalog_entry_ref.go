@@ -108,7 +108,7 @@ func (o *WidgetEndorsedCatalogEntryRef) UnmarshalJSON(data []byte) (err error) {
 	varWidgetEndorsedCatalogEntryRef := _WidgetEndorsedCatalogEntryRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWidgetEndorsedCatalogEntryRef)
 
 	if err != nil {

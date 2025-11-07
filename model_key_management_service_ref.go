@@ -108,7 +108,7 @@ func (o *KeyManagementServiceRef) UnmarshalJSON(data []byte) (err error) {
 	varKeyManagementServiceRef := _KeyManagementServiceRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varKeyManagementServiceRef)
 
 	if err != nil {

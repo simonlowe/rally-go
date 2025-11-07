@@ -108,7 +108,7 @@ func (o *WorkspaceConfigurationRef) UnmarshalJSON(data []byte) (err error) {
 	varWorkspaceConfigurationRef := _WorkspaceConfigurationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWorkspaceConfigurationRef)
 
 	if err != nil {

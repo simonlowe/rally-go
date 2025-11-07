@@ -108,7 +108,7 @@ func (o *DeliveryGroupRef) UnmarshalJSON(data []byte) (err error) {
 	varDeliveryGroupRef := _DeliveryGroupRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varDeliveryGroupRef)
 
 	if err != nil {

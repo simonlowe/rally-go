@@ -108,7 +108,7 @@ func (o *DefectRef) UnmarshalJSON(data []byte) (err error) {
 	varDefectRef := _DefectRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varDefectRef)
 
 	if err != nil {

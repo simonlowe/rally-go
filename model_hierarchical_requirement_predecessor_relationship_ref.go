@@ -108,7 +108,7 @@ func (o *HierarchicalRequirementPredecessorRelationshipRef) UnmarshalJSON(data [
 	varHierarchicalRequirementPredecessorRelationshipRef := _HierarchicalRequirementPredecessorRelationshipRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varHierarchicalRequirementPredecessorRelationshipRef)
 
 	if err != nil {

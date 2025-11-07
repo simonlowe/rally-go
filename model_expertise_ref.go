@@ -108,7 +108,7 @@ func (o *ExpertiseRef) UnmarshalJSON(data []byte) (err error) {
 	varExpertiseRef := _ExpertiseRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varExpertiseRef)
 
 	if err != nil {

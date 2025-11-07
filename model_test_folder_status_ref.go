@@ -108,7 +108,7 @@ func (o *TestFolderStatusRef) UnmarshalJSON(data []byte) (err error) {
 	varTestFolderStatusRef := _TestFolderStatusRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varTestFolderStatusRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *PanelRef) UnmarshalJSON(data []byte) (err error) {
 	varPanelRef := _PanelRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPanelRef)
 
 	if err != nil {

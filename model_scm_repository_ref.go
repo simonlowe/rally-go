@@ -108,7 +108,7 @@ func (o *SCMRepositoryRef) UnmarshalJSON(data []byte) (err error) {
 	varSCMRepositoryRef := _SCMRepositoryRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varSCMRepositoryRef)
 
 	if err != nil {

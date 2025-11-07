@@ -108,7 +108,7 @@ func (o *FeatureToggleEntityRef) UnmarshalJSON(data []byte) (err error) {
 	varFeatureToggleEntityRef := _FeatureToggleEntityRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varFeatureToggleEntityRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *SubscriptionRef) UnmarshalJSON(data []byte) (err error) {
 	varSubscriptionRef := _SubscriptionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varSubscriptionRef)
 
 	if err != nil {

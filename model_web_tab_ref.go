@@ -108,7 +108,7 @@ func (o *WebTabRef) UnmarshalJSON(data []byte) (err error) {
 	varWebTabRef := _WebTabRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWebTabRef)
 
 	if err != nil {

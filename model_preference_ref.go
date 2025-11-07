@@ -108,7 +108,7 @@ func (o *PreferenceRef) UnmarshalJSON(data []byte) (err error) {
 	varPreferenceRef := _PreferenceRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPreferenceRef)
 
 	if err != nil {

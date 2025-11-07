@@ -108,7 +108,7 @@ func (o *PPMConnectionRef) UnmarshalJSON(data []byte) (err error) {
 	varPPMConnectionRef := _PPMConnectionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPPMConnectionRef)
 
 	if err != nil {

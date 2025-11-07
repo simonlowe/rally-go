@@ -108,7 +108,7 @@ func (o *StateRef) UnmarshalJSON(data []byte) (err error) {
 	varStateRef := _StateRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varStateRef)
 
 	if err != nil {

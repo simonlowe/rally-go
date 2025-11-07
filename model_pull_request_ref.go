@@ -108,7 +108,7 @@ func (o *PullRequestRef) UnmarshalJSON(data []byte) (err error) {
 	varPullRequestRef := _PullRequestRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPullRequestRef)
 
 	if err != nil {

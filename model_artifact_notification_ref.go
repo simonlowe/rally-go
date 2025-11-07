@@ -108,7 +108,7 @@ func (o *ArtifactNotificationRef) UnmarshalJSON(data []byte) (err error) {
 	varArtifactNotificationRef := _ArtifactNotificationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varArtifactNotificationRef)
 
 	if err != nil {

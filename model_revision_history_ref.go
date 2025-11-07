@@ -108,7 +108,7 @@ func (o *RevisionHistoryRef) UnmarshalJSON(data []byte) (err error) {
 	varRevisionHistoryRef := _RevisionHistoryRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varRevisionHistoryRef)
 
 	if err != nil {

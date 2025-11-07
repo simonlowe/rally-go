@@ -108,7 +108,7 @@ func (o *AllowedQueryOperatorRef) UnmarshalJSON(data []byte) (err error) {
 	varAllowedQueryOperatorRef := _AllowedQueryOperatorRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAllowedQueryOperatorRef)
 
 	if err != nil {

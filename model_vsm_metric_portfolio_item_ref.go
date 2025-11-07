@@ -108,7 +108,7 @@ func (o *VSMMetricPortfolioItemRef) UnmarshalJSON(data []byte) (err error) {
 	varVSMMetricPortfolioItemRef := _VSMMetricPortfolioItemRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varVSMMetricPortfolioItemRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *PanelDefinitionConfigPropertyRef) UnmarshalJSON(data []byte) (err error
 	varPanelDefinitionConfigPropertyRef := _PanelDefinitionConfigPropertyRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPanelDefinitionConfigPropertyRef)
 
 	if err != nil {

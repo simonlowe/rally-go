@@ -108,7 +108,7 @@ func (o *BlockerRef) UnmarshalJSON(data []byte) (err error) {
 	varBlockerRef := _BlockerRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varBlockerRef)
 
 	if err != nil {

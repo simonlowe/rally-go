@@ -108,7 +108,7 @@ func (o *PageConfigurationRef) UnmarshalJSON(data []byte) (err error) {
 	varPageConfigurationRef := _PageConfigurationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varPageConfigurationRef)
 
 	if err != nil {

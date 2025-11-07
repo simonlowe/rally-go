@@ -108,7 +108,7 @@ func (o *WidgetSubscriptionCatalogTagRef) UnmarshalJSON(data []byte) (err error)
 	varWidgetSubscriptionCatalogTagRef := _WidgetSubscriptionCatalogTagRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWidgetSubscriptionCatalogTagRef)
 
 	if err != nil {

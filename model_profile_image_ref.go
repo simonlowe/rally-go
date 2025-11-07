@@ -108,7 +108,7 @@ func (o *ProfileImageRef) UnmarshalJSON(data []byte) (err error) {
 	varProfileImageRef := _ProfileImageRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varProfileImageRef)
 
 	if err != nil {

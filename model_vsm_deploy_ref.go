@@ -108,7 +108,7 @@ func (o *VSMDeployRef) UnmarshalJSON(data []byte) (err error) {
 	varVSMDeployRef := _VSMDeployRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varVSMDeployRef)
 
 	if err != nil {

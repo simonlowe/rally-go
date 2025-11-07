@@ -108,7 +108,7 @@ func (o *ObjectiveRef) UnmarshalJSON(data []byte) (err error) {
 	varObjectiveRef := _ObjectiveRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varObjectiveRef)
 
 	if err != nil {

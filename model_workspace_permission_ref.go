@@ -108,7 +108,7 @@ func (o *WorkspacePermissionRef) UnmarshalJSON(data []byte) (err error) {
 	varWorkspacePermissionRef := _WorkspacePermissionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWorkspacePermissionRef)
 
 	if err != nil {

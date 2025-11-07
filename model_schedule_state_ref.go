@@ -108,7 +108,7 @@ func (o *ScheduleStateRef) UnmarshalJSON(data []byte) (err error) {
 	varScheduleStateRef := _ScheduleStateRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varScheduleStateRef)
 
 	if err != nil {

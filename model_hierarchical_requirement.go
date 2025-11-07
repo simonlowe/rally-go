@@ -62,7 +62,7 @@ type HierarchicalRequirement struct {
 	// Formatted ID
 	FormattedID *string `json:"FormattedID,omitempty"`
 	// HasParent
-	//HasParent *bool `json:"HasParent,omitempty"`
+	HasParent *bool `json:"HasParent,omitempty"`
 	// In Progress Date
 	InProgressDate *string `json:"InProgressDate,omitempty"`
 	Iteration *IterationRef `json:"Iteration,omitempty"`
@@ -1143,21 +1143,21 @@ func (o *HierarchicalRequirement) SetFormattedID(v string) {
 
 // GetHasParent returns the HasParent field value if set, zero value otherwise.
 func (o *HierarchicalRequirement) GetHasParent() bool {
-	if o == nil || IsNil(o.Parent) {
-		
-		return false
+	if o == nil || IsNil(o.HasParent) {
+		var ret bool
+		return ret
 	}
-	return true
+	return *o.HasParent
 }
 
 // GetHasParentOk returns a tuple with the HasParent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-//func (o *HierarchicalRequirement) GetHasParentOk() (*bool, bool) {
-//	if o == nil || IsNil(o.HasParent) {
-//		return nil, false
-//	}
-//	return o.HasParent, true
-//}
+func (o *HierarchicalRequirement) GetHasParentOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasParent) {
+		return nil, false
+	}
+	return o.HasParent, true
+}
 
 // HasHasParent returns a boolean if a field has been set.
 func (o *HierarchicalRequirement) HasHasParent() bool {
@@ -1169,9 +1169,9 @@ func (o *HierarchicalRequirement) HasHasParent() bool {
 }
 
 // SetHasParent gets a reference to the given bool and assigns it to the HasParent field.
-//func (o *HierarchicalRequirement) SetHasParent(v bool) {
-//	o.HasParent = &v
-//}
+func (o *HierarchicalRequirement) SetHasParent(v bool) {
+	o.HasParent = &v
+}
 
 // GetInProgressDate returns the InProgressDate field value if set, zero value otherwise.
 func (o *HierarchicalRequirement) GetInProgressDate() string {

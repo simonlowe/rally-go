@@ -108,7 +108,7 @@ func (o *WidgetConfigurationRef) UnmarshalJSON(data []byte) (err error) {
 	varWidgetConfigurationRef := _WidgetConfigurationRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWidgetConfigurationRef)
 
 	if err != nil {

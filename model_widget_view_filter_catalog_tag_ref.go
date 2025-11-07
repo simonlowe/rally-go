@@ -108,7 +108,7 @@ func (o *WidgetViewFilterCatalogTagRef) UnmarshalJSON(data []byte) (err error) {
 	varWidgetViewFilterCatalogTagRef := _WidgetViewFilterCatalogTagRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWidgetViewFilterCatalogTagRef)
 
 	if err != nil {

@@ -108,7 +108,7 @@ func (o *TestCaseStepRef) UnmarshalJSON(data []byte) (err error) {
 	varTestCaseStepRef := _TestCaseStepRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varTestCaseStepRef)
 
 	if err != nil {

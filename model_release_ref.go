@@ -108,7 +108,7 @@ func (o *ReleaseRef) UnmarshalJSON(data []byte) (err error) {
 	varReleaseRef := _ReleaseRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varReleaseRef)
 
 	if err != nil {

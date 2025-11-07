@@ -108,7 +108,7 @@ func (o *TagRef) UnmarshalJSON(data []byte) (err error) {
 	varTagRef := _TagRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varTagRef)
 
 	if err != nil {

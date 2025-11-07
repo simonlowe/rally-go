@@ -108,7 +108,7 @@ func (o *ExternalContributionRef) UnmarshalJSON(data []byte) (err error) {
 	varExternalContributionRef := _ExternalContributionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varExternalContributionRef)
 
 	if err != nil {

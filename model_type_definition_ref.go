@@ -108,7 +108,7 @@ func (o *TypeDefinitionRef) UnmarshalJSON(data []byte) (err error) {
 	varTypeDefinitionRef := _TypeDefinitionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varTypeDefinitionRef)
 
 	if err != nil {

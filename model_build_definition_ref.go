@@ -108,7 +108,7 @@ func (o *BuildDefinitionRef) UnmarshalJSON(data []byte) (err error) {
 	varBuildDefinitionRef := _BuildDefinitionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varBuildDefinitionRef)
 
 	if err != nil {

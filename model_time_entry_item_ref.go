@@ -108,7 +108,7 @@ func (o *TimeEntryItemRef) UnmarshalJSON(data []byte) (err error) {
 	varTimeEntryItemRef := _TimeEntryItemRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varTimeEntryItemRef)
 
 	if err != nil {

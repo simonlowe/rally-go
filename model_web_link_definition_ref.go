@@ -108,7 +108,7 @@ func (o *WebLinkDefinitionRef) UnmarshalJSON(data []byte) (err error) {
 	varWebLinkDefinitionRef := _WebLinkDefinitionRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varWebLinkDefinitionRef)
 
 	if err != nil {

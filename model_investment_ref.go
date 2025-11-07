@@ -108,7 +108,7 @@ func (o *InvestmentRef) UnmarshalJSON(data []byte) (err error) {
 	varInvestmentRef := _InvestmentRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varInvestmentRef)
 
 	if err != nil {

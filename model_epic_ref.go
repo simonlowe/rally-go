@@ -108,7 +108,7 @@ func (o *EpicRef) UnmarshalJSON(data []byte) (err error) {
 	varEpicRef := _EpicRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varEpicRef)
 
 	if err != nil {

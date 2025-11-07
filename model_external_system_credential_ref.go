@@ -108,7 +108,7 @@ func (o *ExternalSystemCredentialRef) UnmarshalJSON(data []byte) (err error) {
 	varExternalSystemCredentialRef := _ExternalSystemCredentialRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varExternalSystemCredentialRef)
 
 	if err != nil {

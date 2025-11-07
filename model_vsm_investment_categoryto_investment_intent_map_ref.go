@@ -108,7 +108,7 @@ func (o *VSMInvestmentCategorytoInvestmentIntentMapRef) UnmarshalJSON(data []byt
 	varVSMInvestmentCategorytoInvestmentIntentMapRef := _VSMInvestmentCategorytoInvestmentIntentMapRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varVSMInvestmentCategorytoInvestmentIntentMapRef)
 
 	if err != nil {

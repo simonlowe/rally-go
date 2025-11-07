@@ -108,7 +108,7 @@ func (o *AttachmentRef) UnmarshalJSON(data []byte) (err error) {
 	varAttachmentRef := _AttachmentRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varAttachmentRef)
 
 	if err != nil {

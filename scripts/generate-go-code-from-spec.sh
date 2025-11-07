@@ -21,12 +21,16 @@ fi
 
 npx @openapitools/openapi-generator-cli generate \
      -i ../specs/rally-openapi-spec.json \
+     --git-user-id simonlowe \
+     --git-repo-id rally-go \
+     -p someproperty \
+     --strict-spec false \
      -g go \
      -o ../
 popd
 
 echo -e "\n.idea\ngenerator\n" >> .gitignore
 
-//replace MYPATTERN in file 
-sed -i '' 's/GIT_USER_ID/simonlowe/g' go.mod
-sed -i '' 's/GIT_REPO_ID/rally-go/g' go.mod
+#//replace MYPATTERN in file
+#sed -i '' 's/GIT_USER_ID/simonlowe/g' go.mod
+#sed -i '' 's/GIT_REPO_ID/rally-go/g' go.mod

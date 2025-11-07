@@ -108,7 +108,7 @@ func (o *AllowedAttributeValueRef) UnmarshalJSON(data []byte) (err error) {
 	varAllowedAttributeValueRef := _AllowedAttributeValueRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varAllowedAttributeValueRef)
 
 	if err != nil {

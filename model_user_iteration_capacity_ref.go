@@ -108,7 +108,7 @@ func (o *UserIterationCapacityRef) UnmarshalJSON(data []byte) (err error) {
 	varUserIterationCapacityRef := _UserIterationCapacityRef{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	
 	err = decoder.Decode(&varUserIterationCapacityRef)
 
 	if err != nil {
